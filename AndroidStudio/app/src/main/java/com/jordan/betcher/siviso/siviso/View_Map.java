@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.lock.Lock;
 import com.jordan.betcher.siviso.siviso.lock.OnUnlock;
+import com.jordan.betcher.siviso.siviso.permissions.OnClickListenerRequestPermission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 import com.jordan.betcher.siviso.siviso.permissions.PermissionsButton;
@@ -23,7 +24,8 @@ class View_Map
 		View map = supportMapFragment.getView();
 		
 		Permission accessFineLocation = new Permission_AccessFineLocation(activity);
-		PermissionsButton permissionsButton = new PermissionsButton(mapLock, accessFineLocation);
+		OnClickListenerRequestPermission onClickListenerRequestPermission = new OnClickListenerRequestPermission(accessFineLocation);
+		PermissionsButton permissionsButton = new PermissionsButton(mapLock, onClickListenerRequestPermission);
 		
 		Lock lock = new Lock(map, mapLock, permissionsButton);
 		OnUnlock initializeMap = new OnUnlock_InitializeMap(supportMapFragment);
