@@ -2,25 +2,42 @@ package com.jordan.betcher.siviso.siviso.lock;
 
 import android.view.View;
 
-public class LockState
+import java.util.ArrayList;
+
+class LockState
 {
 	private View view;
-	private View viewLock;
+	private View lock;
+	private boolean unlocked = false;
+	private ArrayList<OnUnlock> onUnlocks = new ArrayList<>();
 	
-	public LockState(View view, View viewLock){this.view = view;
-		//this.viewLock = viewLock;
+	public LockState(View view, View lock)
+	{
+		this.view = view;
+		this.lock = lock;
 	}
 	
 	void lock()
 	{
-		//setGone(view);
-		//setVisible(viewLock);
+		setGone(view);
+		setVisible(lock);
+		
+		unlocked = false;
 	}
 	
 	void unlock()
 	{
-		//setVisible(view);
-		//setGone(viewLock);
+		setVisible(view);
+		setGone(lock);
+		
+		unlocked = true;
+		
+		for(OnUnlock onUnlock : onUnlocks)
+		{
+			onUnlock.unlocked();
+		}
+		
+		onUnlocks.clear();
 	}
 	
 	private void setVisible(View view)
@@ -35,6 +52,13 @@ public class LockState
 	
 	public void addOnUnlock(OnUnlock onUnlock)
 	{
-	
+		if(unlocked == true)
+		{
+			onUnlock.unlocked();
+		}
+		else
+		{
+			onUnlocks.add(onUnlock);
+		}
 	}
 }

@@ -9,9 +9,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.lock.A_Lock;
-import com.jordan.betcher.siviso.siviso.lock.LockState;
 import com.jordan.betcher.siviso.siviso.lock.OnUnlock;
-import com.jordan.betcher.siviso.siviso.permissions.Permissions;
+import com.jordan.betcher.siviso.siviso.permissions.Permission;
+import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 public class A_Map
 {
@@ -23,10 +23,9 @@ public class A_Map
 		Button mapLock = activity.findViewById(R.id.mapLock);
 		View map = supportMapFragment.getView();
 		
-		LockState lockState = new LockState(map, mapLock);
-		Permissions permissions = new Permissions();
+		Permission accessFineLocationPermission = new Permission_AccessFineLocation(activity);
 		
-		A_Lock viewLock = new A_Lock(map, mapLock, permissions);
+		A_Lock viewLock = new A_Lock(map, mapLock, accessFineLocationPermission);
 		OnUnlock initializeMap = new OnUnlock_InitializeMap();
 		viewLock.addOnUnlock(initializeMap);
 	}
