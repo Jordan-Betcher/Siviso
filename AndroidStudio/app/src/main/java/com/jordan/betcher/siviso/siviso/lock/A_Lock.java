@@ -16,8 +16,8 @@ public class A_Lock
 		lockState = new LockState(map, mapLock);
 		Permissions permissions = new Permissions(permissionArray);
 		
-		View.OnClickListener requestPermissions = new OnClickListener_RequestPermissions(permissions);
-		mapLock.setOnClickListener(requestPermissions);
+		View.OnClickListener requestPermission = new OnClickListener_RequestPermission(permissions);
+		mapLock.setOnClickListener(requestPermission);
 		
 		OnGranted unlock = new OnGranted_Unlock(lockState);
 		permissions.addOnGranted(unlock);
