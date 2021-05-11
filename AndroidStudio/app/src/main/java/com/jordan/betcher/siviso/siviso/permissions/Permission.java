@@ -5,4 +5,6 @@ public interface Permission
 	void request();
 	
 	void addOnGranted(OnGranted unlock);
+	
+	boolean isGranted();
 }
