@@ -1,24 +1,25 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
-import com.jordan.betcher.siviso.siviso.A_Activity;
+import android.Manifest;
+import android.content.Context;
+
+import com.jordan.betcher.siviso.siviso.thirdparty.Wrapper_ActivityCompat;
 
 public class Permission_AccessFineLocation implements Permission
 {
-	public Permission_AccessFineLocation(A_Activity activity)
-	{
+	Wrapper_ActivityCompat activityCompat;
+	private Context context;
 	
-	}
-	
-	@Override
-	public boolean isGranted()
+	public Permission_AccessFineLocation(Context context)
 	{
-		return false;
+		this.context = context;
+		activityCompat = new Wrapper_ActivityCompat();
 	}
 	
 	@Override
 	public void request()
 	{
-	
+		activityCompat.requestPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
 	}
 	
 	@Override

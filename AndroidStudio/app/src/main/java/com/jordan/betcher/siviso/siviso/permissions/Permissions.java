@@ -8,12 +8,6 @@ public class Permissions implements Permission
 	}
 	
 	@Override
-	public boolean isGranted()
-	{
-		return false;
-	}
-	
-	@Override
 	public void request()
 	{
 	
