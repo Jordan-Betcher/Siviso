@@ -1,10 +1,8 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
-import com.jordan.betcher.siviso.siviso.A_Activity;
-
-public class Permission_AccessFineLocation implements Permission
+public class Permissions implements Permission
 {
-	public Permission_AccessFineLocation(A_Activity activity)
+	public Permissions(Permission... permissionArray)
 	{
 	
 	}

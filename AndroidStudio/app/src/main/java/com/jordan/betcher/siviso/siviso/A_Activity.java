@@ -3,11 +3,10 @@ package com.jordan.betcher.siviso.siviso;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 
-import com.google.android.gms.maps.SupportMapFragment;
+import com.jordan.betcher.siviso.siviso.map.A_Map;
 
-public class MainActivity extends AppCompatActivity
+public class A_Activity extends AppCompatActivity
 {
 	
 	@Override
@@ -16,6 +15,6 @@ public class MainActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		View_Map map = new View_Map(this);
+		A_Map map = new A_Map(this);
 	}
 }
