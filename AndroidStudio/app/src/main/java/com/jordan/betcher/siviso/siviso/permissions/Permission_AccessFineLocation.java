@@ -30,7 +30,7 @@ public class Permission_AccessFineLocation implements Permission
 	}
 	
 	@Override
-	public void addOnGranted(OnGranted unlock)
+	public void addOnGranted(OnGranted onGranted)
 	{
 	
 	}
