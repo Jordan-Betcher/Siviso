@@ -27,9 +27,11 @@ public class A_Map
 		A_Lock viewLock = new A_Lock(mapView, mapLock, accessFineLocationPermission);
 		
 		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
-		A_OnMapReadyCallback_OnMapReady onMapReady = new A_OnMapReadyCallback_OnMapReady(multiple);
-		OnUnlock_AddOnMapReady addOnMapReady = new OnUnlock_AddOnMapReady(supportMapFragment, onMapReady);
-		viewLock.addOnUnlock(addOnMapReady);
+		A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(multiple);
+		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
+		viewLock.addOnUnlock(addOnMapReadyCallback);
+		
+		
 	}
 	
 }

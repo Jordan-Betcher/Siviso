@@ -3,12 +3,12 @@ package com.jordan.betcher.siviso.siviso.map;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.lock.OnUnlock;
 
-public class OnUnlock_AddOnMapReady implements OnUnlock
+public class OnUnlock_AddOnMapReadyCallback implements OnUnlock
 {
 	private SupportMapFragment supportMapFragment;
 	private A_OnMapReadyCallback_OnMapReady map;
 	
-	public OnUnlock_AddOnMapReady(
+	public OnUnlock_AddOnMapReadyCallback(
 	SupportMapFragment supportMapFragment,
 	A_OnMapReadyCallback_OnMapReady map)
 	{

@@ -16,7 +16,7 @@ public class Test$OnUnlockCallMapAsync
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		A_OnMapReadyCallback_OnMapReady map = mock(A_OnMapReadyCallback_OnMapReady.class);
 		
-		new OnUnlock_AddOnMapReady(supportMapFragment, map);
+		new OnUnlock_AddOnMapReadyCallback(supportMapFragment, map);
 		
 		verify(supportMapFragment, times(0)).getMapAsync(map);
 	}
@@ -27,7 +27,7 @@ public class Test$OnUnlockCallMapAsync
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
 		A_OnMapReadyCallback_OnMapReady map = mock(A_OnMapReadyCallback_OnMapReady.class);
 		
-		OnUnlock_AddOnMapReady initializeMap = new OnUnlock_AddOnMapReady(supportMapFragment, map);
+		OnUnlock_AddOnMapReadyCallback initializeMap = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, map);
 		initializeMap.unlocked();
 		
 		verify(supportMapFragment, times(1)).getMapAsync(map);
