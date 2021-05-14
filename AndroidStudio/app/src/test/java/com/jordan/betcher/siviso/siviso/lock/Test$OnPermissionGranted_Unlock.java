@@ -6,14 +6,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class Test$OnGranted_Unlock
+public class Test$OnPermissionGranted_Unlock
 {
 	@Test
 	public void _lockState_0Unlock()
 	{
 		LockState lockState = mock(LockState.class);
 		
-		new OnGranted_Unlock(lockState);
+		new OnPermissionGranted_Unlock(lockState);
 		
 		verify(lockState, times(0)).unlock();
 	}
@@ -23,7 +23,7 @@ public class Test$OnGranted_Unlock
 	{
 		LockState lockState = mock(LockState.class);
 		
-		OnGranted_Unlock unlock = new OnGranted_Unlock(lockState);
+		OnPermissionGranted_Unlock unlock = new OnPermissionGranted_Unlock(lockState);
 		unlock.granted();
 		
 		verify(lockState, times(1)).unlock();

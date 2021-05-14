@@ -3,7 +3,7 @@ package com.jordan.betcher.siviso.siviso.lock;
 import android.view.View;
 import android.widget.Button;
 
-import com.jordan.betcher.siviso.siviso.permissions.OnGranted;
+import com.jordan.betcher.siviso.siviso.permissions.OnPermissionGranted;
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permissions;
 
@@ -19,7 +19,7 @@ public class A_Lock
 		View.OnClickListener requestPermission = new OnClickListener_RequestPermission(permissions);
 		mapLock.setOnClickListener(requestPermission);
 		
-		OnGranted unlock = new OnGranted_Unlock(lockState);
+		OnPermissionGranted unlock = new OnPermissionGranted_Unlock(lockState);
 		permissions.addOnGranted(unlock);
 	}
 	

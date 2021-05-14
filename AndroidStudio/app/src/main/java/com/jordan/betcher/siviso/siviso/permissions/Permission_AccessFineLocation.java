@@ -2,7 +2,6 @@ package com.jordan.betcher.siviso.siviso.permissions;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 
 import com.jordan.betcher.siviso.siviso.thirdparty.Wrapper_ActivityCompat;
 
@@ -30,7 +29,7 @@ public class Permission_AccessFineLocation implements Permission
 	}
 	
 	@Override
-	public void addOnGranted(OnGranted onGranted)
+	public void addOnGranted(OnPermissionGranted onPermissionGranted)
 	{
 	
 	}

@@ -36,7 +36,7 @@ public class Permissions implements Permission
 	}
 	
 	@Override
-	public void addOnGranted(OnGranted onGranted)
+	public void addOnGranted(OnPermissionGranted onPermissionGranted)
 	{
 	
 	}
