@@ -8,4 +8,10 @@ class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
 	{
 	
 	}
+	
+	@Override
+	public void enableCurrentLocation()
+	{
+	
+	}
 }

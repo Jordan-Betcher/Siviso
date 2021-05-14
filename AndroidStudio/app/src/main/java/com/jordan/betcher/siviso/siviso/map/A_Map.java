@@ -31,6 +31,9 @@ public class A_Map
 		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
 		viewLock.addOnUnlock(addOnMapReadyCallback);
 		
+		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		accessFineLocationPermission.addOnGranted(enableCurrentLocation);
+		multiple.add(enableCurrentLocation);
 		
 	}
 	
