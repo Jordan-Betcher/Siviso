@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import org.junit.Test;
@@ -15,7 +14,7 @@ public class Test$OnUnlockCallMapAsync
 	public void _0MapAsync()
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
-		A_OnMapReadyCallback_Map map = mock(A_OnMapReadyCallback_Map.class);
+		A_OnMapReadyCallback_OnMapReady map = mock(A_OnMapReadyCallback_OnMapReady.class);
 		
 		new OnUnlock_AddOnMapReady(supportMapFragment, map);
 		
@@ -26,7 +25,7 @@ public class Test$OnUnlockCallMapAsync
 	public void unlocked__mapAsync()
 	{
 		SupportMapFragment supportMapFragment = mock(SupportMapFragment.class);
-		A_OnMapReadyCallback_Map map = mock(A_OnMapReadyCallback_Map.class);
+		A_OnMapReadyCallback_OnMapReady map = mock(A_OnMapReadyCallback_OnMapReady.class);
 		
 		OnUnlock_AddOnMapReady initializeMap = new OnUnlock_AddOnMapReady(supportMapFragment, map);
 		initializeMap.unlocked();

@@ -5,7 +5,6 @@ import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
@@ -27,9 +26,9 @@ public class A_Map
 		
 		A_Lock viewLock = new A_Lock(mapView, mapLock, accessFineLocationPermission);
 		
-		
-		A_OnMapReadyCallback_Map map = new A_OnMapReadyCallback_Map();
-		OnUnlock_AddOnMapReady addOnMapReady = new OnUnlock_AddOnMapReady(supportMapFragment, map);
+		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		A_OnMapReadyCallback_OnMapReady onMapReady = new A_OnMapReadyCallback_OnMapReady(multiple);
+		OnUnlock_AddOnMapReady addOnMapReady = new OnUnlock_AddOnMapReady(supportMapFragment, onMapReady);
 		viewLock.addOnUnlock(addOnMapReady);
 	}
 	
