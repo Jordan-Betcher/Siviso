@@ -1,6 +1,8 @@
 package com.jordan.betcher.siviso.siviso.map;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.location.Criteria;
 import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +37,11 @@ public class A_Map
 		accessFineLocationPermission.addOnGranted(enableCurrentLocation);
 		multiple.add(enableCurrentLocation);
 		
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation();
+		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
+		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteriaFactory, startAtCurrentLocation);
+		accessFineLocationPermission.addOnGranted(requestSingleUpdate);
+		multiple.add(startAtCurrentLocation);
 	}
 	
 }
