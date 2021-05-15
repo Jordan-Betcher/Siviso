@@ -39,7 +39,8 @@ public class A_Map
 		
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation();
 		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
-		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteriaFactory, startAtCurrentLocation);
+		Criteria accurateCriteria = accurateCriteriaFactory.build();
+		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);
 		accessFineLocationPermission.addOnGranted(requestSingleUpdate);
 		multiple.add(startAtCurrentLocation);
 	}
