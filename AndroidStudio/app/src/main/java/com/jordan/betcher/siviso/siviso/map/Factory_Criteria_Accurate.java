@@ -6,6 +6,8 @@ class Factory_Criteria_Accurate
 {
 	public Criteria build()
 	{
-		return null;
+		Criteria criteria = new Criteria();
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
+		return criteria;
 	}
 }
