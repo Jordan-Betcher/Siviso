@@ -11,13 +11,48 @@ import static org.mockito.Mockito.verify;
 public class Test$LockState
 {
 	@Test
-	public void unlockaddOnUnlockUnlock_onUnlock_1onUnlockUnlocked()
+	public void addOnUnlock__0Unlocked()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		OnUnlock onUnlock = mock(OnUnlock.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
+		lockState.addOnUnlock(onUnlock);
+		
+		verify(onUnlock, times(0)).unlocked();
+	}
+	
+	@Test
+	public void __lockVisible()
+	{
+		View item = mock(View.class);
+		View lock = mock(View.class);
+		
+		new LockState(item, lock);
+		
+		verify(lock, times(1)).setVisibility(View.VISIBLE);
+	}
+	
+	@Test
+	public void __itemGone()
+	{
+		View item = mock(View.class);
+		View lock = mock(View.class);
+		
+		new LockState(item, lock);
+		
+		verify(item, times(1)).setVisibility(View.GONE);
+	}
+	
+	@Test
+	public void unlockaddOnUnlockUnlock_onUnlock_1onUnlockUnlocked()
+	{
+		View item = mock(View.class);
+		View lock = mock(View.class);
+		OnUnlock onUnlock = mock(OnUnlock.class);
+		
+		LockState lockState = new LockState(item, lock);
 		lockState.unlock();
 		lockState.addOnUnlock(onUnlock);
 		lockState.unlock();
@@ -28,11 +63,11 @@ public class Test$LockState
 	@Test
 	public void addOnUnlockUnlockUnlock_onUnlock_1onUnlockUnlocked()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		OnUnlock onUnlock = mock(OnUnlock.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.addOnUnlock(onUnlock);
 		lockState.unlock();
 		lockState.unlock();
@@ -43,11 +78,11 @@ public class Test$LockState
 	@Test
 	public void unlockLockAddOnUnlock_onUnlock_0OnUnlockUnlocked()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		OnUnlock onUnlock = mock(OnUnlock.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.unlock();
 		lockState.lock();
 		lockState.addOnUnlock(onUnlock);
@@ -58,11 +93,11 @@ public class Test$LockState
 	@Test
 	public void unlockAddOnUnlock_onUnlock_onUnlockUnlocked()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		OnUnlock onUnlock = mock(OnUnlock.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.unlock();
 		lockState.addOnUnlock(onUnlock);
 		
@@ -72,11 +107,11 @@ public class Test$LockState
 	@Test
 	public void addOnUnlockUnlock_onUnlock_onUnlockUnlocked()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		OnUnlock onUnlock = mock(OnUnlock.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.addOnUnlock(onUnlock);
 		lockState.unlock();
 		
@@ -86,48 +121,48 @@ public class Test$LockState
 	@Test
 	public void unlock__lockGone()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.unlock();
 		
 		verify(lock, times(1)).setVisibility(View.GONE);
 	}
 	
 	@Test
-	public void unlock__viewVisible()
+	public void unlock__itemVisible()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.unlock();
 		
-		verify(view, times(1)).setVisibility(View.VISIBLE);
+		verify(item, times(1)).setVisibility(View.VISIBLE);
 	}
 	
 	@Test
 	public void lock__lockVisible()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.lock();
 		
-		verify(lock, times(1)).setVisibility(View.VISIBLE);
+		verify(lock, times(2)).setVisibility(View.VISIBLE);
 	}
 	
 	@Test
-	public void lock__viewGone()
+	public void lock__itemGone()
 	{
-		View view = mock(View.class);
+		View item = mock(View.class);
 		View lock = mock(View.class);
 		
-		LockState lockState = new LockState(view, lock);
+		LockState lockState = new LockState(item, lock);
 		lockState.lock();
 		
-		verify(view, times(1)).setVisibility(View.GONE);
+		verify(item, times(2)).setVisibility(View.GONE);
 	}
 }

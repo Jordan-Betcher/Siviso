@@ -6,20 +6,21 @@ import java.util.ArrayList;
 
 class LockState
 {
-	private View view;
+	private View item;
 	private View lock;
-	private boolean unlocked = false;
+	private boolean unlocked;
 	private ArrayList<OnUnlock> onUnlocks = new ArrayList<>();
 	
-	public LockState(View view, View lock)
+	public LockState(View item, View lock)
 	{
-		this.view = view;
+		this.item = item;
 		this.lock = lock;
+		lock();
 	}
 	
 	void lock()
 	{
-		setGone(view);
+		setGone(item);
 		setVisible(lock);
 		
 		unlocked = false;
@@ -27,7 +28,7 @@ class LockState
 	
 	void unlock()
 	{
-		setVisible(view);
+		setVisible(item);
 		setGone(lock);
 		
 		unlocked = true;
