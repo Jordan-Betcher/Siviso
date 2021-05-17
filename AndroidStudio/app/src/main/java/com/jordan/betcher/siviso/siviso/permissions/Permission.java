@@ -7,4 +7,6 @@ public interface Permission
 	void addOnGranted(OnPermissionGranted onPermissionGranted);
 	
 	boolean isGranted();
+	
+	void grant();
 }

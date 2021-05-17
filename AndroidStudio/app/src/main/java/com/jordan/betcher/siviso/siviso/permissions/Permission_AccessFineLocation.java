@@ -23,6 +23,12 @@ public class Permission_AccessFineLocation implements Permission
 	}
 	
 	@Override
+	public void grant()
+	{
+	
+	}
+	
+	@Override
 	public void request()
 	{
 		activityCompat.requestPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION);
