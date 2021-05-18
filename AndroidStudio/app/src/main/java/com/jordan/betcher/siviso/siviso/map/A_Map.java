@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Criteria;
 import android.location.LocationManager;
@@ -15,31 +14,56 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 
 public class A_Map
 {
+	A_Lock viewLock;
+	Permission_AccessFineLocation accessFineLocationPermission;
+	OnMapReady_Multiple multiple;
+	
 	public A_Map(A_Activity activity, Permission_AccessFineLocation accessFineLocationPermission)
 	{
-		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(
-		R.id.homeMap);
+		this.accessFineLocationPermission = accessFineLocationPermission;
+		
 		LocationManager locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
+		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
+		
+		viewLock = createViewLock(activity, supportMapFragment);
+		multiple = createMultiple(supportMapFragment, viewLock);
+		
+		enableCurrentLocation();
+		startAtCurrentLocation(locationManager);
+	}
+	
+	private A_Lock createViewLock(A_Activity activity, SupportMapFragment supportMapFragment)
+	{
 		Button mapLock = activity.findViewById(R.id.mapLock);
 		View mapView = supportMapFragment.getView();
-		
 		A_Lock viewLock = new A_Lock(mapView, mapLock, accessFineLocationPermission);
-		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		return viewLock;
+	}
+	
+	private OnMapReady_Multiple createMultiple(SupportMapFragment supportMapFragment, A_Lock viewLock)
+	{
+		OnMapReady_Multiple	multiple = new OnMapReady_Multiple();
 		A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(multiple);
 		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
 		viewLock.addOnUnlock(addOnMapReadyCallback);
-		
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
-		accessFineLocationPermission.addOnGranted(enableCurrentLocation);
-		multiple.add(enableCurrentLocation);
-		
+		return multiple;
+	}
+	
+	private void startAtCurrentLocation(LocationManager locationManager)
+	{
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation();
 		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
 		Criteria accurateCriteria = accurateCriteriaFactory.build();
 		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);
 		accessFineLocationPermission.addOnGranted(requestSingleUpdate);
 		multiple.add(startAtCurrentLocation);
+	}
+	
+	private void enableCurrentLocation()
+	{
+		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		accessFineLocationPermission.addOnGranted(enableCurrentLocation);
+		multiple.add(enableCurrentLocation);
 	}
 	
 }
