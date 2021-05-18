@@ -3,7 +3,6 @@ package com.jordan.betcher.siviso.siviso.lock;
 import android.view.View;
 
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
-import com.jordan.betcher.siviso.siviso.permissions.Permissions;
 
 class OnClickListener_RequestPermission implements View.OnClickListener
 {

@@ -11,7 +11,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.lock.A_Lock;
-import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 public class A_Map
