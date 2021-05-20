@@ -8,6 +8,12 @@ class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMapReady, 
 {
 	private Location location;
 	private Wrapper_GoogleMap googleMap;
+	private float zoom;
+	
+	public OnMapReady_LocationListener_StartAtCurrentLocation(float zoom)
+	{
+		this.zoom = zoom;
+	}
 	
 	@Override
 	public void ready(Wrapper_GoogleMap googleMap)
@@ -38,6 +44,7 @@ class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMapReady, 
 		if(location != null && googleMap != null)
 		{
 			googleMap.moveTo(location);
+			googleMap.zoomTo(zoom);
 		}
 	}
 }

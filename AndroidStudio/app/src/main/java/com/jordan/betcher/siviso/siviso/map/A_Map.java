@@ -15,21 +15,22 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 public class A_Map
 {
 	A_Lock viewLock;
+	private A_Activity activity;
 	Permission_AccessFineLocation accessFineLocationPermission;
 	OnMapReady_Multiple multiple;
 	
 	public A_Map(A_Activity activity, Permission_AccessFineLocation accessFineLocationPermission)
 	{
+		this.activity = activity;
 		this.accessFineLocationPermission = accessFineLocationPermission;
 		
-		LocationManager locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
 		
 		viewLock = createViewLock(activity, supportMapFragment);
 		multiple = createMultiple(supportMapFragment, viewLock);
 		
 		enableCurrentLocation();
-		startAtCurrentLocation(locationManager);
+		startAtCurrentLocation();
 	}
 	
 	private A_Lock createViewLock(A_Activity activity, SupportMapFragment supportMapFragment)
@@ -49,9 +50,11 @@ public class A_Map
 		return multiple;
 	}
 	
-	private void startAtCurrentLocation(LocationManager locationManager)
+	private void startAtCurrentLocation()
 	{
-		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation();
+		LocationManager locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
+		float zoom = activity.getResources().getInteger(R.integer.initial_zoom_times_a_hundred)/100;
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
 		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
 		Criteria accurateCriteria = accurateCriteriaFactory.build();
 		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);

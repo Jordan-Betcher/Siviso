@@ -33,4 +33,11 @@ class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
 		CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(latLng);
 		googleMap.moveCamera(cameraUpdate);
 	}
+	
+	@Override
+	public void zoomTo(float zoom)
+	{
+		CameraUpdate cameraUpdate = CameraUpdateFactory.zoomTo(zoom);
+		googleMap.moveCamera(cameraUpdate);
+	}
 }

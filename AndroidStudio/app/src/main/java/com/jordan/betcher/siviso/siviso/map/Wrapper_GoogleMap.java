@@ -7,4 +7,6 @@ interface Wrapper_GoogleMap
 	void enableCurrentLocation();
 	
 	void moveTo(Location location);
+	
+	void zoomTo(float zoom);
 }
