@@ -9,35 +9,40 @@ import android.widget.Button;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.database.LatLngData;
 import com.jordan.betcher.siviso.siviso.lock.A_Lock;
+import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 public class A_Map
 {
-	A_Lock viewLock;
-	private A_Activity activity;
-	Permission_AccessFineLocation accessFineLocationPermission;
-	OnMapReady_Multiple multiple;
 	
-	public A_Map(A_Activity activity, Permission_AccessFineLocation accessFineLocationPermission)
+	public A_Map(A_Activity activity, Permission_AccessFineLocation permission, LatLngData sivisoLatLng)
 	{
-		this.activity = activity;
-		this.accessFineLocationPermission = accessFineLocationPermission;
-		
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
 		
-		viewLock = createViewLock(activity, supportMapFragment);
-		multiple = createMultiple(supportMapFragment, viewLock);
+		A_Lock viewLock = createViewLock(activity, permission, supportMapFragment);
+		OnMapReady_Multiple multiple = createMultiple(supportMapFragment, viewLock);
 		
-		enableCurrentLocation();
-		startAtCurrentLocation();
+		enableCurrentLocation(permission, multiple);
+		startAtCurrentLocation(activity, permission, multiple);
+		onMapReadyIfLatLngExistsCreateCircle(multiple, sivisoLatLng);
+		//onClickSetSivisoLatLng();
 	}
 	
-	private A_Lock createViewLock(A_Activity activity, SupportMapFragment supportMapFragment)
+	private void onMapReadyIfLatLngExistsCreateCircle(
+	OnMapReady_Multiple multiple, LatLngData sivisoLatLng)
+	{
+		Factory_CircleOptions factory = new Factory_CircleOptions();
+		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircleIfExists(sivisoLatLng, factory);
+		multiple.add(createSiviso);
+	}
+	
+	private A_Lock createViewLock(A_Activity activity, Permission_AccessFineLocation permission, SupportMapFragment supportMapFragment)
 	{
 		Button mapLock = activity.findViewById(R.id.mapLock);
 		View mapView = supportMapFragment.getView();
-		A_Lock viewLock = new A_Lock(mapView, mapLock, accessFineLocationPermission);
+		A_Lock viewLock = new A_Lock(mapView, mapLock, permission);
 		return viewLock;
 	}
 	
@@ -50,22 +55,27 @@ public class A_Map
 		return multiple;
 	}
 	
-	private void startAtCurrentLocation()
+	private void startAtCurrentLocation(
+	Context context,
+	Permission_AccessFineLocation permission,
+	OnMapReady_Multiple multiple)
 	{
-		LocationManager locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
-		float zoom = activity.getResources().getInteger(R.integer.initial_zoom_times_a_hundred)/100;
+		LocationManager locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+		float zoom = context.getResources().getInteger(R.integer.initial_zoom_times_a_hundred)/100;
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
 		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
 		Criteria accurateCriteria = accurateCriteriaFactory.build();
 		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);
-		accessFineLocationPermission.addOnGranted(requestSingleUpdate);
+		permission.addOnGranted(requestSingleUpdate);
 		multiple.add(startAtCurrentLocation);
 	}
 	
-	private void enableCurrentLocation()
+	private void enableCurrentLocation(
+	Permission permission,
+	OnMapReady_Multiple multiple)
 	{
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
-		accessFineLocationPermission.addOnGranted(enableCurrentLocation);
+		permission.addOnGranted(enableCurrentLocation);
 		multiple.add(enableCurrentLocation);
 	}
 	

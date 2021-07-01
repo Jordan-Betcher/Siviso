@@ -6,6 +6,8 @@ import android.location.Location;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 
 class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
@@ -39,5 +41,13 @@ class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
 	{
 		CameraUpdate cameraUpdate = CameraUpdateFactory.zoomTo(zoom);
 		googleMap.moveCamera(cameraUpdate);
+	}
+	
+	@Override
+	public Wrapper_Circle createCircle(CircleOptions circleOptions)
+	{
+		Circle circle = googleMap.addCircle(circleOptions);
+		A_Wrapper_Circle wrapper_circle = new A_Wrapper_Circle(circle);
+		return wrapper_circle;
 	}
 }
