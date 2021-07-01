@@ -1,16 +1,13 @@
 package com.jordan.betcher.siviso.siviso;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.siviso.database.LatLngData;
+import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.map.A_Map;
-import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 public class A_Activity extends AppCompatActivity
@@ -23,11 +20,11 @@ public class A_Activity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		LatLngData sivisoLatLng = new LatLngData(){
+		SivisoData sivisoLatLng = new SivisoData(){
 			@Override
 			public boolean exists()
 			{
-				return false;
+				return true;
 			}
 			
 			@Override
@@ -39,7 +36,19 @@ public class A_Activity extends AppCompatActivity
 			@Override
 			public LatLng latLng()
 			{
-				return null;
+				return new LatLng(37.4220656,-122.0862784);
+			}
+			
+			@Override
+			public double radius()
+			{
+				return 1000;
+			}
+			
+			@Override
+			public int color()
+			{
+				return Color.GREEN;
 			}
 		};
 		

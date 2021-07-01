@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.database.LatLngData;
+import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.lock.A_Lock;
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -17,7 +17,7 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 public class A_Map
 {
 	
-	public A_Map(A_Activity activity, Permission_AccessFineLocation permission, LatLngData sivisoLatLng)
+	public A_Map(A_Activity activity, Permission_AccessFineLocation permission, SivisoData sivisoLatLng)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
 		
@@ -31,7 +31,7 @@ public class A_Map
 	}
 	
 	private void onMapReadyIfLatLngExistsCreateCircle(
-	OnMapReady_Multiple multiple, LatLngData sivisoLatLng)
+	OnMapReady_Multiple multiple, SivisoData sivisoLatLng)
 	{
 		Factory_CircleOptions factory = new Factory_CircleOptions();
 		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircleIfExists(sivisoLatLng, factory);
