@@ -12,6 +12,48 @@ import static org.mockito.Mockito.verify;
 public class Test$OnMapReady_Multiple
 {
 	@Test
+	public void addAddOnMapReady__times1()
+	{
+		OnMapReady onMapReady = mock(OnMapReady.class);
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		
+		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		multiple.add(onMapReady);
+		multiple.add(onMapReady);
+		multiple.onMapReady(googleMap);
+		
+		verify(onMapReady, times(1)).ready(googleMap);
+	}
+	
+	@Test
+	public void onMapReadyAddOnMapReady__times1()
+	{
+		OnMapReady onMapReady = mock(OnMapReady.class);
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		
+		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		multiple.onMapReady(googleMap);
+		multiple.add(onMapReady);
+		multiple.onMapReady(googleMap);
+		
+		verify(onMapReady, times(1)).ready(googleMap);
+	}
+	
+	@Test
+	public void onMapReady_runTwice_times1()
+	{
+		OnMapReady onMapReady = mock(OnMapReady.class);
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		
+		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		multiple.add(onMapReady);
+		multiple.onMapReady(googleMap);
+		multiple.onMapReady(googleMap);
+		
+		verify(onMapReady, times(1)).ready(googleMap);
+	}
+	
+	@Test
 	public void addOnMapReady__notNull()
 	{
 		OnMapReady onMapReady = mock(OnMapReady.class);

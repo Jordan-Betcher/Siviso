@@ -15,15 +15,24 @@ class OnMapReady_Multiple
 		{
 			onMapReady.ready(googleMap);
 		}
+		
+		onMapReadys.clear();
 	}
 	
 	public void add(OnMapReady onMapReady)
 	{
-		onMapReadys.add(onMapReady);
-		
 		if(googleMap != null)
 		{
 			onMapReady.ready(googleMap);
 		}
+		else if(notAlreadyAdded(onMapReady))
+		{
+			onMapReadys.add(onMapReady);
+		}
+	}
+	
+	private boolean notAlreadyAdded(OnMapReady onMapReady)
+	{
+		return !onMapReadys.contains(onMapReady);
 	}
 }
