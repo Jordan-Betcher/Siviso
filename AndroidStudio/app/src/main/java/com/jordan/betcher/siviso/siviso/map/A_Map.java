@@ -30,10 +30,19 @@ public class A_Map
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
-		onMapReadyIfLatLngExistsCreateCircles(multiple, sivisoDatas, onCircleClicked);
+		onMapReadyCreateCircles(multiple, sivisoDatas, onCircleClicked);
+		onMapReadyAddOnCircleClick(multiple, onCircleClicked);
 	}
 	
-	private void onMapReadyIfLatLngExistsCreateCircles(
+	private void onMapReadyAddOnCircleClick(
+	OnMapReady_CallOnMapReadys multiple,
+	OnCircleClicked onCircleClicked)
+	{
+		OnMapReady onMapReady = new OnMapReady_AddOnCircleClick(onCircleClicked);
+		multiple.add(onMapReady);
+	}
+	
+	private void onMapReadyCreateCircles(
 	OnMapReady_CallOnMapReadys multiple, ArrayList<SivisoData> sivisoDatas,
 	OnCircleClicked onCircleClicked)
 	{

@@ -16,6 +16,7 @@ class Factory_CircleOptions
 		circleOptions.strokeWidth(10);
 		circleOptions.fillColor(sivisoData.color());
 		circleOptions.strokeColor(Color.GREEN);
+		circleOptions.clickable(true);
 		return circleOptions;
 	}
 }

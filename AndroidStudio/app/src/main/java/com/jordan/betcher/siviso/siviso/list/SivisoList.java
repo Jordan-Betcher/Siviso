@@ -8,6 +8,6 @@ public class SivisoList implements OnCircleClicked
 	@Override
 	public void clicked(SivisoData sivisoData)
 	{
-	
+		//TODO: have list scroll and select the SivisoData
 	}
 }
