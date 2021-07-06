@@ -19,23 +19,26 @@ import java.util.ArrayList;
 public class A_Map
 {
 	
-	public A_Map(A_Activity activity, Permission_AccessFineLocation permission, ArrayList<SivisoData> sivisoDatas)
+	public A_Map(
+	A_Activity activity, OnMapReady_CallOnMapReadys multiple,
+	Permission_AccessFineLocation permission, ArrayList<SivisoData> sivisoDatas,
+	OnCircleClicked onCircleClicked)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
-		
 		A_Lock viewLock = createViewLock(activity, permission, supportMapFragment);
-		OnMapReady_CallOnMapReadys multiple = createMultiple(supportMapFragment, viewLock);
+		setupMultiple(multiple, supportMapFragment, viewLock);
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
-		onMapReadyIfLatLngExistsCreateCircles(multiple, sivisoDatas);
+		onMapReadyIfLatLngExistsCreateCircles(multiple, sivisoDatas, onCircleClicked);
 	}
 	
 	private void onMapReadyIfLatLngExistsCreateCircles(
-	OnMapReady_CallOnMapReadys multiple, ArrayList<SivisoData> sivisoDatas)
+	OnMapReady_CallOnMapReadys multiple, ArrayList<SivisoData> sivisoDatas,
+	OnCircleClicked onCircleClicked)
 	{
 		Factory_CircleOptions factory = new Factory_CircleOptions();
-		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircles(sivisoDatas, factory);
+		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircles(sivisoDatas, factory, onCircleClicked);
 		multiple.add(createSiviso);
 	}
 	
@@ -43,17 +46,16 @@ public class A_Map
 	{
 		Button mapLock = activity.findViewById(R.id.mapLock);
 		View mapView = supportMapFragment.getView();
-		A_Lock viewLock = new A_Lock(mapView, mapLock, permission);
-		return viewLock;
+		return new A_Lock(mapView, mapLock, permission);
 	}
 	
-	private OnMapReady_CallOnMapReadys createMultiple(SupportMapFragment supportMapFragment, A_Lock viewLock)
+	private void setupMultiple(
+	OnMapReady_CallOnMapReadys multiple,
+	SupportMapFragment supportMapFragment, A_Lock viewLock)
 	{
-		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(multiple);
 		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
 		viewLock.addOnUnlock(addOnMapReadyCallback);
-		return multiple;
 	}
 	
 	private void startAtCurrentLocation(
@@ -62,7 +64,7 @@ public class A_Map
 	OnMapReady_CallOnMapReadys multiple)
 	{
 		LocationManager locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
-		float zoom = context.getResources().getInteger(R.integer.initial_zoom_times_a_hundred)/100;
+		float zoom = (float)context.getResources().getInteger(R.integer.initial_zoom_times_a_hundred)/100;
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
 		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
 		Criteria accurateCriteria = accurateCriteriaFactory.build();

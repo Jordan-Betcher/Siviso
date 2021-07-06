@@ -1,13 +1,16 @@
 package com.jordan.betcher.siviso.siviso;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
+import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.map.A_Map;
+import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class A_Activity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		OnMapReady_CallOnMapReadys map = new OnMapReady_CallOnMapReadys();
 		SivisoData sivisoData = new SivisoData(){
 			
 			@Override
@@ -51,14 +55,15 @@ public class A_Activity extends AppCompatActivity
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(sivisoData);
 		
-		A_Map map = new A_Map(this, accessFineLocationPermission, sivisoDatas);
+		SivisoList sivisoList = new SivisoList();
+		new A_Map(this, map, accessFineLocationPermission, sivisoDatas, sivisoList);
 	}
 	
 	
 	
 	//Called after a permission is asked for
 	@Override
-	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
 	{
 		accessFineLocationPermission.grant();
 	}

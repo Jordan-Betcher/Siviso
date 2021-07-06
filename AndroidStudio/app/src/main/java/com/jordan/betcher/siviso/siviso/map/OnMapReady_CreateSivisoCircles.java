@@ -9,11 +9,15 @@ class OnMapReady_CreateSivisoCircles implements OnMapReady
 {
 	private ArrayList<SivisoData> sivisoDatas;
 	private Factory_CircleOptions factory;
+	private OnCircleClicked onCircleClicked;
 	
-	public OnMapReady_CreateSivisoCircles(ArrayList<SivisoData> sivisoDatas, Factory_CircleOptions factory)
+	public OnMapReady_CreateSivisoCircles(
+	ArrayList<SivisoData> sivisoDatas, Factory_CircleOptions factory,
+	OnCircleClicked onCircleClicked)
 	{
 		this.sivisoDatas = sivisoDatas;
 		this.factory = factory;
+		this.onCircleClicked = onCircleClicked;
 	}
 	
 	@Override
@@ -22,7 +26,8 @@ class OnMapReady_CreateSivisoCircles implements OnMapReady
 		for(SivisoData sivisoData : sivisoDatas)
 		{
 			CircleOptions circleOptions = factory.create(sivisoData);
-			googleMap.createCircle(circleOptions);
+			Wrapper_Circle circle = googleMap.createCircle(circleOptions);
+			circle.add(onCircleClicked);
 		}
 	}
 }

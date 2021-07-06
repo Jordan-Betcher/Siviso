@@ -8,4 +8,10 @@ class A_Wrapper_Circle implements Wrapper_Circle
 	{
 	
 	}
+	
+	@Override
+	public void add(OnCircleClicked onCircleClicked)
+	{
+	
+	}
 }
