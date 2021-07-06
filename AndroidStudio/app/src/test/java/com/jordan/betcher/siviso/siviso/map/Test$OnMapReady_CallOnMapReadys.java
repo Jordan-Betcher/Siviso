@@ -2,14 +2,13 @@ package com.jordan.betcher.siviso.siviso.map;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.mockito.Matchers.isNotNull;
 import static org.mockito.Matchers.notNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class Test$OnMapReady_Multiple
+public class Test$OnMapReady_CallOnMapReadys
 {
 	@Test
 	public void addAddOnMapReady__times1()
@@ -17,7 +16,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.add(onMapReady);
 		multiple.add(onMapReady);
 		multiple.onMapReady(googleMap);
@@ -31,7 +30,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.onMapReady(googleMap);
 		multiple.add(onMapReady);
 		multiple.onMapReady(googleMap);
@@ -45,7 +44,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.add(onMapReady);
 		multiple.onMapReady(googleMap);
 		multiple.onMapReady(googleMap);
@@ -59,7 +58,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.add(onMapReady);
 		multiple.onMapReady(googleMap);
 		
@@ -73,7 +72,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady2 = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.add(onMapReady1);
 		multiple.add(onMapReady2);
 		multiple.onMapReady(googleMap);
@@ -87,7 +86,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.onMapReady(googleMap);
 		multiple.add(onMapReady);
 		
@@ -100,7 +99,7 @@ public class Test$OnMapReady_Multiple
 		OnMapReady onMapReady = mock(OnMapReady.class);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_Multiple multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		multiple.add(onMapReady);
 		multiple.onMapReady(googleMap);
 		

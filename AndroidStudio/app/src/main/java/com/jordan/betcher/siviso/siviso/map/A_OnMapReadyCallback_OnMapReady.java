@@ -5,9 +5,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 
 class A_OnMapReadyCallback_OnMapReady implements OnMapReadyCallback
 {
-	private OnMapReady_Multiple multiple;
+	private OnMapReady_CallOnMapReadys multiple;
 	
-	public A_OnMapReadyCallback_OnMapReady(OnMapReady_Multiple multiple)
+	public A_OnMapReadyCallback_OnMapReady(OnMapReady_CallOnMapReadys multiple)
 	{
 		this.multiple = multiple;
 	}

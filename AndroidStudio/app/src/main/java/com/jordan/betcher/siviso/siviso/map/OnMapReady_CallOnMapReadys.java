@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.siviso.map;
 
 import java.util.ArrayList;
 
-class OnMapReady_Multiple
+class OnMapReady_CallOnMapReadys
 {
 	private ArrayList<OnMapReady> onMapReadys = new ArrayList<>();
 	private Wrapper_GoogleMap googleMap;

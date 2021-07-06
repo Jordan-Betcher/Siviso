@@ -24,7 +24,7 @@ public class A_Map
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
 		
 		A_Lock viewLock = createViewLock(activity, permission, supportMapFragment);
-		OnMapReady_Multiple multiple = createMultiple(supportMapFragment, viewLock);
+		OnMapReady_CallOnMapReadys multiple = createMultiple(supportMapFragment, viewLock);
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
@@ -32,7 +32,7 @@ public class A_Map
 	}
 	
 	private void onMapReadyIfLatLngExistsCreateCircles(
-	OnMapReady_Multiple multiple, ArrayList<SivisoData> sivisoDatas)
+	OnMapReady_CallOnMapReadys multiple, ArrayList<SivisoData> sivisoDatas)
 	{
 		Factory_CircleOptions factory = new Factory_CircleOptions();
 		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircles(sivisoDatas, factory);
@@ -47,9 +47,9 @@ public class A_Map
 		return viewLock;
 	}
 	
-	private OnMapReady_Multiple createMultiple(SupportMapFragment supportMapFragment, A_Lock viewLock)
+	private OnMapReady_CallOnMapReadys createMultiple(SupportMapFragment supportMapFragment, A_Lock viewLock)
 	{
-		OnMapReady_Multiple	multiple = new OnMapReady_Multiple();
+		OnMapReady_CallOnMapReadys multiple = new OnMapReady_CallOnMapReadys();
 		A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(multiple);
 		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
 		viewLock.addOnUnlock(addOnMapReadyCallback);
@@ -59,7 +59,7 @@ public class A_Map
 	private void startAtCurrentLocation(
 	Context context,
 	Permission_AccessFineLocation permission,
-	OnMapReady_Multiple multiple)
+	OnMapReady_CallOnMapReadys multiple)
 	{
 		LocationManager locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
 		float zoom = context.getResources().getInteger(R.integer.initial_zoom_times_a_hundred)/100;
@@ -73,7 +73,7 @@ public class A_Map
 	
 	private void enableCurrentLocation(
 	Permission permission,
-	OnMapReady_Multiple multiple)
+	OnMapReady_CallOnMapReadys multiple)
 	{
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
 		permission.addOnGranted(enableCurrentLocation);
