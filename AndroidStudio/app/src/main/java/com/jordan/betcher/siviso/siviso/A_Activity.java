@@ -10,6 +10,8 @@ import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.map.A_Map;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
+import java.util.ArrayList;
+
 public class A_Activity extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
@@ -20,12 +22,7 @@ public class A_Activity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		SivisoData sivisoLatLng = new SivisoData(){
-			@Override
-			public boolean exists()
-			{
-				return true;
-			}
+		SivisoData sivisoData = new SivisoData(){
 			
 			@Override
 			public void setLatLng(double latitude, double longitude)
@@ -51,8 +48,10 @@ public class A_Activity extends AppCompatActivity
 				return Color.GREEN;
 			}
 		};
+		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
+		sivisoDatas.add(sivisoData);
 		
-		A_Map map = new A_Map(this, accessFineLocationPermission, sivisoLatLng);
+		A_Map map = new A_Map(this, accessFineLocationPermission, sivisoDatas);
 	}
 	
 	

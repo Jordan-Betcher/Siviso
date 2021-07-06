@@ -14,10 +14,12 @@ import com.jordan.betcher.siviso.siviso.lock.A_Lock;
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
+import java.util.ArrayList;
+
 public class A_Map
 {
 	
-	public A_Map(A_Activity activity, Permission_AccessFineLocation permission, SivisoData sivisoLatLng)
+	public A_Map(A_Activity activity, Permission_AccessFineLocation permission, ArrayList<SivisoData> sivisoDatas)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
 		
@@ -26,15 +28,14 @@ public class A_Map
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
-		onMapReadyIfLatLngExistsCreateCircle(multiple, sivisoLatLng);
-		//onClickSetSivisoLatLng();
+		onMapReadyIfLatLngExistsCreateCircles(multiple, sivisoDatas);
 	}
 	
-	private void onMapReadyIfLatLngExistsCreateCircle(
-	OnMapReady_Multiple multiple, SivisoData sivisoLatLng)
+	private void onMapReadyIfLatLngExistsCreateCircles(
+	OnMapReady_Multiple multiple, ArrayList<SivisoData> sivisoDatas)
 	{
 		Factory_CircleOptions factory = new Factory_CircleOptions();
-		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircleIfExists(sivisoLatLng, factory);
+		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircles(sivisoDatas, factory);
 		multiple.add(createSiviso);
 	}
 	

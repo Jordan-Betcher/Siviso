@@ -1,24 +1,25 @@
 package com.jordan.betcher.siviso.siviso.map;
 
 import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
-class OnMapReady_CreateSivisoCircleIfExists implements OnMapReady
+import java.util.ArrayList;
+
+class OnMapReady_CreateSivisoCircles implements OnMapReady
 {
-	private SivisoData sivisoData;
+	private ArrayList<SivisoData> sivisoDatas;
 	private Factory_CircleOptions factory;
 	
-	public OnMapReady_CreateSivisoCircleIfExists(SivisoData sivisoData, Factory_CircleOptions factory)
+	public OnMapReady_CreateSivisoCircles(ArrayList<SivisoData> sivisoDatas, Factory_CircleOptions factory)
 	{
-		this.sivisoData = sivisoData;
+		this.sivisoDatas = sivisoDatas;
 		this.factory = factory;
 	}
 	
 	@Override
 	public void ready(Wrapper_GoogleMap googleMap)
 	{
-		if(sivisoData.exists())
+		for(SivisoData sivisoData : sivisoDatas)
 		{
 			CircleOptions circleOptions = factory.create(sivisoData);
 			googleMap.createCircle(circleOptions);
