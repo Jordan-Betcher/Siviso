@@ -1,13 +1,8 @@
 package com.jordan.betcher.siviso.siviso.list;
 
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
-import com.jordan.betcher.siviso.siviso.map.OnCircleClicked;
+import com.google.android.gms.maps.model.LatLng;
 
-public class SivisoList implements OnCircleClicked
+public interface SivisoList
 {
-	@Override
-	public void clicked(SivisoData sivisoData)
-	{
-		//TODO: have list scroll and select the SivisoData
-	}
+	void select(LatLng latLng);
 }

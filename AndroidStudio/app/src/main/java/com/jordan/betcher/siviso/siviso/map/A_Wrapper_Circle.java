@@ -11,10 +11,4 @@ class A_Wrapper_Circle implements Wrapper_Circle
 		
 		this.circle = circle;
 	}
-	
-	@Override
-	public void add(OnCircleClicked onCircleClicked)
-	{
-	
-	}
 }

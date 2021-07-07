@@ -6,10 +6,12 @@ import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
+import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.lock.A_Lock;
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -22,7 +24,7 @@ public class A_Map
 	public A_Map(
 	A_Activity activity, OnMapReady_CallOnMapReadys multiple,
 	Permission_AccessFineLocation permission, ArrayList<SivisoData> sivisoDatas,
-	OnCircleClicked onCircleClicked)
+	SivisoList sivisoList)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
 		A_Lock viewLock = createViewLock(activity, permission, supportMapFragment);
@@ -30,24 +32,24 @@ public class A_Map
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
-		onMapReadyCreateCircles(multiple, sivisoDatas, onCircleClicked);
-		onMapReadyAddOnCircleClick(multiple, onCircleClicked);
+		onMapReadyCreateCircles(multiple, sivisoDatas);
+		onMapReadyAddOnCircleClick(multiple, sivisoList);
 	}
 	
 	private void onMapReadyAddOnCircleClick(
 	OnMapReady_CallOnMapReadys multiple,
-	OnCircleClicked onCircleClicked)
+	SivisoList sivisoList)
 	{
-		OnMapReady onMapReady = new OnMapReady_AddOnCircleClick(onCircleClicked);
+		GoogleMap.OnCircleClickListener listener = new A_OnCircleClickListener_SelectSiviso(sivisoList);
+		OnMapReady onMapReady = new OnMapReady_AddOnCircleClickListener(listener);
 		multiple.add(onMapReady);
 	}
 	
 	private void onMapReadyCreateCircles(
-	OnMapReady_CallOnMapReadys multiple, ArrayList<SivisoData> sivisoDatas,
-	OnCircleClicked onCircleClicked)
+	OnMapReady_CallOnMapReadys multiple, ArrayList<SivisoData> sivisoDatas)
 	{
 		Factory_CircleOptions factory = new Factory_CircleOptions();
-		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircles(sivisoDatas, factory, onCircleClicked);
+		OnMapReady createSiviso = new OnMapReady_CreateSivisoCircles(sivisoDatas, factory);
 		multiple.add(createSiviso);
 	}
 	

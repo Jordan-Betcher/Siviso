@@ -55,7 +55,13 @@ public class A_Activity extends AppCompatActivity
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = new SivisoList();
+		SivisoList sivisoList = new SivisoList(){
+			@Override
+			public void select(LatLng latLng)
+			{
+			
+			}
+		};
 		new A_Map(this, map, accessFineLocationPermission, sivisoDatas, sivisoList);
 	}
 	
