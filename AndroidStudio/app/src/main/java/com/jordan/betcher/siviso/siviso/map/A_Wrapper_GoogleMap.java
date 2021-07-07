@@ -53,8 +53,8 @@ class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
 	
 	@Override
 	public void addOnCircleClickListener(
-	GoogleMap.OnCircleClickListener listener)
+	GoogleMap.OnCircleClickListener onCircleClicked)
 	{
-		//TODO
+		googleMap.setOnCircleClickListener(onCircleClicked);
 	}
 }
