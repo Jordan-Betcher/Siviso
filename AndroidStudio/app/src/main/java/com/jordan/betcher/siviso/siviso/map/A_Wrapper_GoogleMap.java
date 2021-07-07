@@ -50,4 +50,11 @@ class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
 		A_Wrapper_Circle wrapper_circle = new A_Wrapper_Circle(circle);
 		return wrapper_circle;
 	}
+	
+	@Override
+	public void addOnCircleClickListener(
+	GoogleMap.OnCircleClickListener listener)
+	{
+		//TODO
+	}
 }
