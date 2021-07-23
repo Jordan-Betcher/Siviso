@@ -15,6 +15,8 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 
 import java.util.ArrayList;
 
+;
+
 public class A_Activity extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
