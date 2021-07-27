@@ -8,15 +8,20 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
-public class Test$ViewHolder_Siviso
+public class Test$ViewHolder_Abstract
 {
+	private class ViewHolder_Mock extends ViewHolder_Abstract
+	{
+		public ViewHolder_Mock(View view){super(view);}
+	}
+	
 	@Test
 	public void equals_diffView_false()
 	{
 		View view1 = mock(View.class);
 		View view2 = mock(View.class);
-		ViewHolder_Siviso viewHolder = new ViewHolder_Siviso(view1);
-		ViewHolder_Siviso expected = new ViewHolder_Siviso(view2);
+		ViewHolder_Abstract viewHolder = new ViewHolder_Mock(view1);
+		ViewHolder_Abstract expected = new ViewHolder_Mock(view2);
 		
 		boolean actual = viewHolder.equals(expected);
 		assertFalse(actual);
@@ -26,8 +31,8 @@ public class Test$ViewHolder_Siviso
 	public void equals_sameView_true()
 	{
 		View view = mock(View.class);
-		ViewHolder_Siviso viewHolder = new ViewHolder_Siviso(view);
-		ViewHolder_Siviso expected = new ViewHolder_Siviso(view);
+		ViewHolder_Abstract viewHolder = new ViewHolder_Mock(view);
+		ViewHolder_Abstract expected = new ViewHolder_Mock(view);
 		
 		boolean actual = viewHolder.equals(expected);
 		assertTrue(actual);
