@@ -8,14 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
+import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.map.A_Map;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 import java.util.ArrayList;
-
-;
 
 public class A_Activity extends AppCompatActivity
 {
@@ -65,6 +64,7 @@ public class A_Activity extends AppCompatActivity
 			}
 		};
 		new A_Map(this, map, accessFineLocationPermission, sivisoDatas, sivisoList);
+		new A_List(this, sivisoDatas, sivisoList);
 	}
 	
 	
