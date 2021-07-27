@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.siviso.list;
 
 import android.view.LayoutInflater;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.A_Activity;
@@ -14,6 +15,7 @@ public class A_List
 	{
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		RecyclerView sivisoListView = activity.findViewById(R.id.recyclerViewSivisoList);
+		sivisoListView.setLayoutManager(new LinearLayoutManager(activity));
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		sivisoListView.setAdapter(adapter);
 	}
