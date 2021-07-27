@@ -12,9 +12,12 @@ import java.util.ArrayList;
 class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_Siviso>
 {
+	private ArrayList<SivisoData> sivisoDatas;
+	
 	public Adapter_SivisoListView(ArrayList<SivisoData> sivisoDatas, SivisoList sivisoList)
 	{
-	
+		
+		this.sivisoDatas = sivisoDatas;
 	}
 	
 	@NonNull
@@ -33,7 +36,7 @@ extends RecyclerView.Adapter<ViewHolder_Siviso>
 	@Override
 	public int getItemCount()
 	{
-		return 0;
+		return sivisoDatas.size() + 2;
 	}
 	//TODO
 }
