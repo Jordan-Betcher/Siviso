@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
@@ -56,15 +57,15 @@ public class A_Activity extends AppCompatActivity
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = new SivisoList(){
-			@Override
-			public void select(LatLng latLng)
-			{
-			
-			}
+		SivisoList sivisoList = latLng ->
+		{
+		
 		};
-		new A_Map(this, map, accessFineLocationPermission, sivisoDatas, sivisoList);
-		new A_List(this, sivisoDatas, sivisoList);
+		
+		Database database = () -> sivisoDatas;
+		
+		new A_Map(this, map, accessFineLocationPermission, database, sivisoList);
+		new A_List(this, database, sivisoList);
 	}
 	
 	
@@ -73,6 +74,7 @@ public class A_Activity extends AppCompatActivity
 	@Override
 	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
 	{
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 		accessFineLocationPermission.grant();
 	}
 }

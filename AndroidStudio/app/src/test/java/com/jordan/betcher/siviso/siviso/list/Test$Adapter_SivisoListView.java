@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
 import org.junit.Test;
@@ -17,18 +18,38 @@ import static org.mockito.Mockito.when;
 
 public class Test$Adapter_SivisoListView
 {
+	/*
+	@Test
+	public void onBindViewHolder_viewHolderDefaultPosition0_addDefaultSivisoToViewHolderDefault()
+	{
+		ViewHolder_Default viewHolder_default = mock(ViewHolder_Default.class);
+		int position = 0;
+		
+		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
+		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
+		LayoutInflater layoutInflater = mock(LayoutInflater.class);
+		
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
+		adapter.onBindViewHolder(viewHolder_default, position);
+		
+		verify(viewHolder_default, times(1)).setSiviso();
+	}//*/
 	
 	@Test
 	public void onCreateViewHolder_itemTypeADD_viewHolderAdd()
 	{
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		ViewGroup viewGroup = mock(ViewGroup.class);
 		View view = mock(View.class);
 		when(layoutInflater.inflate(R.layout.item_siviso, viewGroup, false)).thenReturn(view);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int itemType = Adapter_SivisoListView.ViewType.ADD.ordinal();
 		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -41,12 +62,14 @@ public class Test$Adapter_SivisoListView
 	{
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		ViewGroup viewGroup = mock(ViewGroup.class);
 		View view = mock(View.class);
 		when(layoutInflater.inflate(R.layout.item_siviso, viewGroup, false)).thenReturn(view);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int itemType = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
 		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -59,12 +82,14 @@ public class Test$Adapter_SivisoListView
 	{
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		ViewGroup viewGroup = mock(ViewGroup.class);
 		View view = mock(View.class);
 		when(layoutInflater.inflate(R.layout.item_siviso, viewGroup, false)).thenReturn(view);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int itemType = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
 		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -78,10 +103,12 @@ public class Test$Adapter_SivisoListView
 		int position = 1;
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(mock(SivisoData.class));
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		SivisoList sivisoList = mock(SivisoList.class);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
@@ -94,9 +121,11 @@ public class Test$Adapter_SivisoListView
 		int position = 0;
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
@@ -110,9 +139,11 @@ public class Test$Adapter_SivisoListView
 		int position = 1;
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.ADD.ordinal();
@@ -124,9 +155,11 @@ public class Test$Adapter_SivisoListView
 	{
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int actualItemCount = adapter.getItemCount();
 		int expectedItemCount = sivisoDatas.size() + 2;
@@ -138,10 +171,12 @@ public class Test$Adapter_SivisoListView
 	{
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(mock(SivisoData.class));
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		SivisoList sivisoList = mock(SivisoList.class);
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		
 		int actualItemCount = adapter.getItemCount();
 		int expectedItemCount = sivisoDatas.size() + 2;

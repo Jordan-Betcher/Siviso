@@ -6,17 +6,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
-
-import java.util.ArrayList;
+import com.jordan.betcher.siviso.siviso.database.Database;
 
 public class A_List
 {
-	public A_List(A_Activity activity, ArrayList<SivisoData> sivisoDatas, SivisoList sivisoList)
+	public A_List(A_Activity activity, Database database, SivisoList sivisoList)
 	{
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		RecyclerView sivisoListView = activity.findViewById(R.id.recyclerViewSivisoList);
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(sivisoDatas, layoutInflater, sivisoList);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		sivisoListView.setAdapter(adapter);
 	}
 }

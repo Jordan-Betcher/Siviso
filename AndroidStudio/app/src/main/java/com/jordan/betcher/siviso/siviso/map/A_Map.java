@@ -10,6 +10,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.lock.A_Lock;
@@ -23,7 +24,7 @@ public class A_Map
 	
 	public A_Map(
 	A_Activity activity, OnMapReady_CallOnMapReadys multiple,
-	Permission_AccessFineLocation permission, ArrayList<SivisoData> sivisoDatas,
+	Permission_AccessFineLocation permission, Database database,
 	SivisoList sivisoList)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
@@ -32,7 +33,7 @@ public class A_Map
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
-		onMapReadyCreateCircles(multiple, sivisoDatas);
+		onMapReadyCreateCircles(multiple, database.sivisoDatas());
 		onMapReadyAddOnCircleClick(multiple, sivisoList);
 	}
 	

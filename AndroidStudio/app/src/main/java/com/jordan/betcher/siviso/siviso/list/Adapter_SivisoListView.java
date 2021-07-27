@@ -8,20 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
-
-import java.util.ArrayList;
+import com.jordan.betcher.siviso.siviso.database.Database;
 
 class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_Abstract>
 {
-	private ArrayList<SivisoData> sivisoDatas;
+	private Database database;
 	private LayoutInflater layoutInflater;
 	
-	public Adapter_SivisoListView(ArrayList<SivisoData> sivisoDatas, LayoutInflater layoutInflater, SivisoList sivisoList)
+	public Adapter_SivisoListView(Database database, LayoutInflater layoutInflater, SivisoList sivisoList)
 	{
-		
-		this.sivisoDatas = sivisoDatas;
+		this.database = database;
 		this.layoutInflater = layoutInflater;
 	}
 	
@@ -73,12 +70,12 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	public void onBindViewHolder(@NonNull ViewHolder_Abstract holder, int position)
 	{
 		//Put data into holder
+		
 	}
 	
 	@Override
 	public int getItemCount()
 	{
-		return sivisoDatas.size() + 2;
+		return database.sivisoDatas().size() + 2;
 	}
-	//TODO
 }
