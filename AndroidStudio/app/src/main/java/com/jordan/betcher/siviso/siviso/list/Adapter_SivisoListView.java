@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.SivisoData;
+
+import java.util.ArrayList;
 
 class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_Abstract>
@@ -50,6 +53,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	@Override
 	public ViewHolder_Abstract onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
+		//Put this line into default and siviso, add has a different layout
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 		
 		if(viewType == ViewType.DEFAULT.ordinal())
@@ -67,10 +71,28 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	}
 	
 	@Override
-	public void onBindViewHolder(@NonNull ViewHolder_Abstract holder, int position)
+	public void onBindViewHolder(@NonNull ViewHolder_Abstract viewHolder, int position)
 	{
-		//Put data into holder
-		
+		if(viewHolder instanceof ViewHolder_Default)
+		{
+			ViewHolder_Default viewHolder_default = (ViewHolder_Default)viewHolder;
+			viewHolder_default.setSiviso(database.defaultSiviso());
+		}
+		else if(viewHolder instanceof ViewHolder_Siviso)
+		{
+			ViewHolder_Siviso viewHolder_siviso = (ViewHolder_Siviso)viewHolder;
+			int sivisoDataIndex = listPositionToSivisoIndex(position);
+			
+			ArrayList<SivisoData> sivisoDatas = database.sivisoDatas();
+			SivisoData sivisoData = sivisoDatas.get(sivisoDataIndex);
+			
+			viewHolder_siviso.setSivisoData(sivisoData);
+		}
+	}
+	
+	private int listPositionToSivisoIndex(int position)
+	{
+		return position - 1;
 	}
 	
 	@Override

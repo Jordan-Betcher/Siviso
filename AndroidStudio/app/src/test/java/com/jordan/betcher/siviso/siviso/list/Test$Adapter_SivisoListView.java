@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
 import org.junit.Test;
@@ -14,16 +15,38 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class Test$Adapter_SivisoListView
 {
-	/*
+	
 	@Test
-	public void onBindViewHolder_viewHolderDefaultPosition0_addDefaultSivisoToViewHolderDefault()
+	public void onBindViewHolder_viewHolderSivisoPosition1Database1SivisoData_setSivisoData()
 	{
-		ViewHolder_Default viewHolder_default = mock(ViewHolder_Default.class);
-		int position = 0;
+		ViewHolder_Siviso viewHolder_Siviso = mock(ViewHolder_Siviso.class);
+		int position = 1;
+		
+		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
+		SivisoData sivisoData = mock(SivisoData.class);
+		sivisoDatas.add(sivisoData);
+		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
+		LayoutInflater layoutInflater = mock(LayoutInflater.class);
+		
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
+		adapter.onBindViewHolder(viewHolder_Siviso, position);
+		
+		verify(viewHolder_Siviso, times(1)).setSivisoData(sivisoData);
+	}
+	
+	@Test
+	public void onBindViewHolder_viewHolderAddPosition1_doNothing()
+	{
+		ViewHolder_Add viewHolder_add = mock(ViewHolder_Add.class);
+		int position = 1;
 		
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		SivisoList sivisoList = mock(SivisoList.class);
@@ -32,10 +55,29 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
+		adapter.onBindViewHolder(viewHolder_add, position);
+	}
+	
+	@Test
+	public void onBindViewHolder_viewHolderDefaultPosition0DatabaseDefaultSivisoSilent_setSivisoSilent()
+	{
+		ViewHolder_Default viewHolder_default = mock(ViewHolder_Default.class);
+		int position = 0;
+		Siviso siviso = Siviso.SILENT;
+		
+		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
+		SivisoList sivisoList = mock(SivisoList.class);
+		Database database = mock(Database.class);
+		when(database.sivisoDatas()).thenReturn(sivisoDatas);
+		when(database.defaultSiviso()).thenReturn(siviso);
+		LayoutInflater layoutInflater = mock(LayoutInflater.class);
+		
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		adapter.onBindViewHolder(viewHolder_default, position);
 		
-		verify(viewHolder_default, times(1)).setSiviso();
-	}//*/
+		verify(viewHolder_default, times(1)).setSiviso(siviso);
+	}
+	
 	
 	@Test
 	public void onCreateViewHolder_itemTypeADD_viewHolderAdd()
