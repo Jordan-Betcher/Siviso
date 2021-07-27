@@ -20,6 +20,30 @@ extends RecyclerView.Adapter<ViewHolder_Siviso>
 		this.sivisoDatas = sivisoDatas;
 	}
 	
+	enum ViewType
+	{
+		DEFAULT,
+		SIVISO,
+		ADD
+	}
+	
+	@Override
+	public int getItemViewType(int position)
+	{
+		if(position == 0)
+		{
+			return ViewType.DEFAULT.ordinal();
+		}
+		else if(position == getItemCount() - 1)
+		{
+			return ViewType.ADD.ordinal();
+		}
+		else
+		{
+			return ViewType.SIVISO.ordinal();
+		}
+	}
+	
 	@NonNull
 	@Override
 	public ViewHolder_Siviso onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
