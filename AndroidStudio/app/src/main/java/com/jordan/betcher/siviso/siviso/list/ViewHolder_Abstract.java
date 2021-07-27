@@ -17,10 +17,12 @@ extends RecyclerView.ViewHolder
 	@Override
 	public boolean equals(@Nullable Object obj)
 	{
-		ViewHolder_Abstract other = (ViewHolder_Abstract)obj;
+		if(this.getClass().equals( obj.getClass() ))
+		{
+			ViewHolder_Abstract other = (ViewHolder_Abstract)obj;
+			return this.itemView == other.itemView;
+		}
 		
-		return this.itemView == other.itemView;
+		return false;
 	}
-	
-	//TODO
 }
