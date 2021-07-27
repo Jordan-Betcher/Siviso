@@ -53,19 +53,19 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	@Override
 	public ViewHolder_Abstract onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
-		//Put this line into default and siviso, add has a different layout
-		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-		
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
+			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 			return new ViewHolder_Default(view);
 		}
 		else if(viewType == ViewType.ADD.ordinal())
 		{
+			View view = layoutInflater.inflate(R.layout.item_siviso_add_button, parent, false);
 			return new ViewHolder_Add(view);
 		}
 		else
 		{
+			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 			return new ViewHolder_Siviso(view);
 		}
 	}

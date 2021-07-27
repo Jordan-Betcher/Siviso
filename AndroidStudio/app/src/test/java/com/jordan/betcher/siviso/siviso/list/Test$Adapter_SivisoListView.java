@@ -89,7 +89,7 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		ViewGroup viewGroup = mock(ViewGroup.class);
 		View view = mock(View.class);
-		when(layoutInflater.inflate(R.layout.item_siviso, viewGroup, false)).thenReturn(view);
+		when(layoutInflater.inflate(R.layout.item_siviso_add_button, viewGroup, false)).thenReturn(view);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, sivisoList);
 		

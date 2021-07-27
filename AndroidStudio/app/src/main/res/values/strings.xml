@@ -4,4 +4,5 @@
     <string name="title_home">Siviso</string>
     <string name="button_delete">Delete</string>
     <string name="button_edit">Edit</string>
+    <string name="button_add">Add</string>
 </resources>

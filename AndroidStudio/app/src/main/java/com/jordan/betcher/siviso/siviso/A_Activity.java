@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
@@ -62,7 +63,19 @@ public class A_Activity extends AppCompatActivity
 		
 		};
 		
-		Database database = () -> sivisoDatas;
+		Database database = new Database(){
+			@Override
+			public ArrayList<SivisoData> sivisoDatas()
+			{
+				return sivisoDatas;
+			}
+			
+			@Override
+			public Siviso defaultSiviso()
+			{
+				return Siviso.SILENT;
+			}
+		};
 		
 		new A_Map(this, map, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList);
