@@ -12,13 +12,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:translationX="8dp" />
+
         <Spinner
             android:id="@+id/spinnerHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:entries="@android:array/emailAddressTypes"
             android:gravity="center"
+            android:paddingStart="8dp"
             android:paddingEnd="8dp" />
 
     </androidx.cardview.widget.CardView>

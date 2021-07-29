@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.siviso.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +19,15 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 {
 	private Database database;
 	private LayoutInflater layoutInflater;
+	private OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation;
+	private ArrayAdapter<CharSequence> sivisoSpinnerAdapter;
 	
-	public Adapter_SivisoListView(Database database, LayoutInflater layoutInflater, SivisoList sivisoList)
+	public Adapter_SivisoListView(Database database, LayoutInflater layoutInflater, OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation, ArrayAdapter<CharSequence> sivisoSpinnerAdapter)
 	{
 		this.database = database;
 		this.layoutInflater = layoutInflater;
+		this.onClickGoToCurrentLocation = onClickGoToCurrentLocation;
+		this.sivisoSpinnerAdapter = sivisoSpinnerAdapter;
 	}
 	
 	enum ViewType
@@ -56,7 +61,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
 			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-			return new ViewHolder_Default(view);
+			return new ViewHolder_Default(view, onClickGoToCurrentLocation, sivisoSpinnerAdapter);
 		}
 		else if(viewType == ViewType.ADD.ordinal())
 		{

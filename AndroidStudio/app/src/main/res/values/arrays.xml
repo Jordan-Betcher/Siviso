@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sivisos">
+        <item>Silent</item>
+        <item>Vibrate</item>
+        <item>Sound</item>
+    </string-array>
+</resources>
