@@ -12,10 +12,13 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class ViewHolder_Default extends ViewHolder_Abstract
 {
+	private Spinner spinner;
+	
 	public ViewHolder_Default(
 	View view,
 	OnClickListener_GoToCurrentLocation clickListener,
-	ArrayAdapter<CharSequence> sivisoSpinnerAdapter)
+	ArrayAdapter sivisoSpinnerAdapter,
+	OnItemClickListener_SetDefaultSiviso onItemClickListener)
 	{
 		super(view);
 		TextView textView = view.findViewById(R.id.textViewName);
@@ -24,12 +27,14 @@ class ViewHolder_Default extends ViewHolder_Abstract
 		CardView cardView = view.findViewById(R.id.cardViewHome);
 		cardView.setOnClickListener(clickListener);
 		
-		Spinner spinner = view.findViewById(R.id.spinnerHome);
+		spinner = view.findViewById(R.id.spinnerHome);
 		spinner.setAdapter(sivisoSpinnerAdapter);
+		
+		spinner.setOnItemClickListener(onItemClickListener);
 	}
 	
 	public void setSiviso(Siviso siviso)
 	{
-		//TODO: set spinner to corrisponding index of Siviso
+		spinner.setSelection(siviso.ordinal());
 	}
 }

@@ -18,7 +18,9 @@ public class A_List
 		RecyclerView sivisoListView = activity.findViewById(R.id.recyclerViewSivisoList);
 		sivisoListView.setLayoutManager(new LinearLayoutManager(activity));
 		ArrayAdapter<CharSequence> sivisoSpinnerAdapter = ArrayAdapter.createFromResource(activity, R.array.sivisos, android.R.layout.simple_spinner_item);
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, new OnClickListener_GoToCurrentLocation(), sivisoSpinnerAdapter);
+		OnItemClickListener_SetDefaultSiviso setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso();
+		OnClickListener_GoToCurrentLocation goToCurrentLocation = new OnClickListener_GoToCurrentLocation();
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, goToCurrentLocation, sivisoSpinnerAdapter, setDefaultSiviso);
 		sivisoListView.setAdapter(adapter);
 	}
 }

@@ -21,13 +21,15 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	private LayoutInflater layoutInflater;
 	private OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation;
 	private ArrayAdapter<CharSequence> sivisoSpinnerAdapter;
+	private OnItemClickListener_SetDefaultSiviso setDefaultSiviso;
 	
-	public Adapter_SivisoListView(Database database, LayoutInflater layoutInflater, OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation, ArrayAdapter<CharSequence> sivisoSpinnerAdapter)
+	public Adapter_SivisoListView(Database database, LayoutInflater layoutInflater, OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation, ArrayAdapter<CharSequence> sivisoSpinnerAdapter, OnItemClickListener_SetDefaultSiviso setDefaultSiviso)
 	{
 		this.database = database;
 		this.layoutInflater = layoutInflater;
 		this.onClickGoToCurrentLocation = onClickGoToCurrentLocation;
 		this.sivisoSpinnerAdapter = sivisoSpinnerAdapter;
+		this.setDefaultSiviso = setDefaultSiviso;
 	}
 	
 	enum ViewType
@@ -61,7 +63,8 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
 			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-			return new ViewHolder_Default(view, onClickGoToCurrentLocation, sivisoSpinnerAdapter);
+			return new ViewHolder_Default(view, onClickGoToCurrentLocation, sivisoSpinnerAdapter,
+			                              setDefaultSiviso);
 		}
 		else if(viewType == ViewType.ADD.ordinal())
 		{
