@@ -7,4 +7,6 @@ public interface Database
 	ArrayList<SivisoData> sivisoDatas();
 	
 	Siviso defaultSiviso();
+	
+	void setDefaultSiviso(Siviso sivisoFromPosition);
 }
