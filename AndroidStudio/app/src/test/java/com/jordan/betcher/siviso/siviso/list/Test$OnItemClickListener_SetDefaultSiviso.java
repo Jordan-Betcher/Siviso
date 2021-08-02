@@ -21,7 +21,7 @@ public class Test$OnItemClickListener_SetDefaultSiviso
 		Siviso sivisoFromPosition = Siviso.VIBRATE;
 		Database database = mock(Database.class);
 		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
-		when(sivisoConverter.SivisoFrom(position)).thenReturn(sivisoFromPosition);
+		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
 		
 		OnItemClickListener_SetDefaultSiviso onItemClickListener_setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
 		onItemClickListener_setDefaultSiviso.onItemClick(null, null, position, 0);
@@ -36,7 +36,7 @@ public class Test$OnItemClickListener_SetDefaultSiviso
 		Siviso sivisoFromPosition = Siviso.SILENT;
 		Database database = mock(Database.class);
 		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
-		when(sivisoConverter.SivisoFrom(position)).thenReturn(sivisoFromPosition);
+		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
 		
 		new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
 		
@@ -50,7 +50,7 @@ public class Test$OnItemClickListener_SetDefaultSiviso
 		Siviso sivisoFromPosition = Siviso.SILENT;
 		Database database = mock(Database.class);
 		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
-		when(sivisoConverter.SivisoFrom(position)).thenReturn(sivisoFromPosition);
+		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
 		
 		OnItemClickListener_SetDefaultSiviso onItemClickListener_setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
 		onItemClickListener_setDefaultSiviso.onItemClick(null, null, position, 0);

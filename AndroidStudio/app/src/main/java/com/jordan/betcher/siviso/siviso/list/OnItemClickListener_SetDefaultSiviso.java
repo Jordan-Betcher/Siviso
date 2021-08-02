@@ -21,6 +21,6 @@ implements AdapterView.OnItemClickListener
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
 	{
-		database.setDefaultSiviso(sivisoConverter.SivisoFrom(position));
+		database.setDefaultSiviso(sivisoConverter.sivisoFrom(position));
 	}
 }

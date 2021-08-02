@@ -4,9 +4,13 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class SivisoConverter
 {
-	public Siviso SivisoFrom(int position)
+	public Siviso sivisoFrom(int position)
 	{
-		return Siviso.SILENT;
+		switch(position)
+		{
+			case 2: return Siviso.SOUND;
+			case 1: return Siviso.VIBRATE;
+			default: return Siviso.SILENT;
+		}
 	}
-	//TODO
 }
