@@ -14,6 +14,7 @@ import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.map.A_Map;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
+import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 import java.util.ArrayList;
@@ -63,6 +64,11 @@ public class A_Activity extends AppCompatActivity
 		
 		};
 		
+		SivisoMap sivisoMap = () ->
+		{
+		
+		};
+		
 		Database database = new Database(){
 			@Override
 			public ArrayList<SivisoData> sivisoDatas()
@@ -78,7 +84,7 @@ public class A_Activity extends AppCompatActivity
 		};
 		
 		new A_Map(this, map, accessFineLocationPermission, database, sivisoList);
-		new A_List(this, database, sivisoList);
+		new A_List(this, database, sivisoList, sivisoMap);
 	}
 	
 	
