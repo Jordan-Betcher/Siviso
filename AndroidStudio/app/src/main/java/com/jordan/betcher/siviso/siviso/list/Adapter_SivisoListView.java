@@ -1,14 +1,12 @@
 package com.jordan.betcher.siviso.siviso.list;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
@@ -69,18 +67,15 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	{
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
-			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-			return factoryViewHolder.createDefault(view);
+			return factoryViewHolder.createDefault(parent);
 		}
 		else if(viewType == ViewType.ADD.ordinal())
 		{
-			View view = layoutInflater.inflate(R.layout.item_siviso_add_button, parent, false);
-			return factoryViewHolder.createAdd(view);
+			return factoryViewHolder.createAdd(parent);
 		}
 		else
 		{
-			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-			return factoryViewHolder.createSiviso(view);
+			return factoryViewHolder.createSiviso(parent);
 		}
 	}
 	
