@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-abstract class ViewHolder_Abstract
+import com.jordan.betcher.siviso.siviso.database.SivisoData;
+
+abstract class ViewHolder_SetSpinner
 extends RecyclerView.ViewHolder
 {
-	public ViewHolder_Abstract(@NonNull View itemView)
+	public ViewHolder_SetSpinner(@NonNull View itemView)
 	{
 		super(itemView);
 	}
@@ -19,10 +21,15 @@ extends RecyclerView.ViewHolder
 	{
 		if(this.getClass().equals( obj.getClass() ))
 		{
-			ViewHolder_Abstract other = (ViewHolder_Abstract)obj;
+			ViewHolder_SetSpinner other = (ViewHolder_SetSpinner)obj;
 			return this.itemView == other.itemView;
 		}
 		
 		return false;
+	}
+	
+	public void setSivisoData(SivisoData sivisoData)
+	{
+		//TODO
 	}
 }

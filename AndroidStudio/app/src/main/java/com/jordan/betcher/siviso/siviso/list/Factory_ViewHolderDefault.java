@@ -26,13 +26,13 @@ class Factory_ViewHolderDefault
 		this.onItemClickListener = onItemClickListener;
 	}
 	
-	public ViewHolder_Default create(ViewGroup parent)
+	public ViewHolder_SivisoItem create(ViewGroup parent)
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 		Spinner spinner = view.findViewById(R.id.spinnerHome);
 		TextView name = view.findViewById(R.id.textViewName);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		int defaultNameId = R.string.siviso_list_name_default;
-		return new ViewHolder_Default(view, spinner, name, background, defaultNameId, clickListener, sivisoSpinnerAdapter, onItemClickListener);
+		return new ViewHolder_SivisoItem(view, spinner, name, background, defaultNameId, clickListener, sivisoSpinnerAdapter, onItemClickListener);
 	}
 }

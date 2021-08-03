@@ -9,11 +9,11 @@ import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 
-class ViewHolder_Default extends ViewHolder_Abstract
+class ViewHolder_SivisoItem extends ViewHolder_SetSpinner
 {
 	private Spinner spinner;
 	
-	public ViewHolder_Default(
+	public ViewHolder_SivisoItem(
 	View view,
 	Spinner spinner,
 	TextView name,

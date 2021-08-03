@@ -11,7 +11,7 @@ import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import java.util.ArrayList;
 
 class Adapter_SivisoListView
-extends RecyclerView.Adapter<ViewHolder_Abstract>
+extends RecyclerView.Adapter<ViewHolder_SetSpinner>
 {
 	private Database database;
 	private Factory_ViewHolderDefault factoryViewHolderDefault;
@@ -37,13 +37,13 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	}
 	
 	@Override
-	public int getItemViewType(int position)
+	public int getItemViewType(int index)
 	{
-		if(position == 0)
+		if(index == 0)
 		{
 			return ViewType.DEFAULT.ordinal();
 		}
-		else if(position == getItemCount() - 1)
+		else if(index == indexOfListItemAdd())
 		{
 			return ViewType.ADD.ordinal();
 		}
@@ -55,7 +55,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	
 	@NonNull
 	@Override
-	public ViewHolder_Abstract onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+	public ViewHolder_SetSpinner onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
@@ -72,32 +72,32 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	}
 	
 	@Override
-	public void onBindViewHolder(@NonNull ViewHolder_Abstract viewHolder, int position)
+	public void onBindViewHolder(@NonNull ViewHolder_SetSpinner viewHolder, int index)
 	{
-		//TODO swap to using Position instead of instanceof
-		//Position 0 -> Default
-		//getItemCount() - 1 is Add
-		//Inbetween is Siviso
-		if(viewHolder instanceof ViewHolder_Default)
+		if(index == 0)
 		{
-			ViewHolder_Default viewHolder_default = (ViewHolder_Default)viewHolder;
-			viewHolder_default.setSiviso(database.defaultSiviso());
+			ViewHolder_SivisoItem viewHolder_sivisoItem = (ViewHolder_SivisoItem)viewHolder;
+			viewHolder_sivisoItem.setSiviso(database.defaultSiviso());
 		}
-		else if(viewHolder instanceof ViewHolder_Siviso)
+		else if(index < indexOfListItemAdd())
 		{
-			ViewHolder_Siviso viewHolder_siviso = (ViewHolder_Siviso)viewHolder;
-			int sivisoDataIndex = listPositionToSivisoIndex(position);
-			
+			int sivisoDataIndex = listPositionToSivisoIndex(index);
+
 			ArrayList<SivisoData> sivisoDatas = database.sivisoDatas();
 			SivisoData sivisoData = sivisoDatas.get(sivisoDataIndex);
 			
-			viewHolder_siviso.setSivisoData(sivisoData);
+			viewHolder.setSivisoData(sivisoData);
 		}
 	}
 	
-	private int listPositionToSivisoIndex(int position)
+	private int indexOfListItemAdd()
 	{
-		return position - 1;
+		return getItemCount() - 1;
+	}
+	
+	private int listPositionToSivisoIndex(int index)
+	{
+		return index - 1;
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 package com.jordan.betcher.siviso.siviso.list;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -22,7 +23,7 @@ public class Test$Adapter_SivisoListView
 	@Test
 	public void onBindViewHolder_viewHolderSivisoPosition1Database1SivisoData_setSivisoData()
 	{
-		ViewHolder_Siviso viewHolder_Siviso = mock(ViewHolder_Siviso.class);
+		ViewHolder_SetSpinner viewHolderSetSpinner = mock(ViewHolder_SetSpinner.class);
 		int position = 1;
 		
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
@@ -32,9 +33,9 @@ public class Test$Adapter_SivisoListView
 		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
-		adapter.onBindViewHolder(viewHolder_Siviso, position);
+		adapter.onBindViewHolder(viewHolderSetSpinner, position);
 		
-		verify(viewHolder_Siviso, times(1)).setSivisoData(sivisoData);
+		verify(viewHolderSetSpinner, times(1)).setSivisoData(sivisoData);
 	}
 	
 	@Test
@@ -49,12 +50,14 @@ public class Test$Adapter_SivisoListView
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
 		adapter.onBindViewHolder(viewHolder_add, position);
+		
+		verify(viewHolder_add, times(0)).setSivisoData(any());
 	}
 	
 	@Test
 	public void onBindViewHolder_viewHolderDefaultPosition0DatabaseDefaultSivisoSilent_setSivisoSilent()
 	{
-		ViewHolder_Default viewHolder_default = mock(ViewHolder_Default.class);
+		ViewHolder_SivisoItem viewHolder_sivisoItem = mock(ViewHolder_SivisoItem.class);
 		int position = 0;
 		Siviso siviso = Siviso.SILENT;
 		
@@ -64,9 +67,9 @@ public class Test$Adapter_SivisoListView
 		when(database.defaultSiviso()).thenReturn(siviso);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
-		adapter.onBindViewHolder(viewHolder_default, position);
+		adapter.onBindViewHolder(viewHolder_sivisoItem, position);
 		
-		verify(viewHolder_default, times(1)).setSiviso(siviso);
+		verify(viewHolder_sivisoItem, times(1)).setSiviso(siviso);
 	}
 	
 	
@@ -95,14 +98,14 @@ public class Test$Adapter_SivisoListView
 		Database database = mock(Database.class);
 		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		ViewGroup viewGroup = mock(ViewGroup.class);
-		ViewHolder_Default viewHolderDefault = mock(ViewHolder_Default.class);
+		ViewHolder_SivisoItem viewHolderDefault = mock(ViewHolder_SivisoItem.class);
 		Factory_ViewHolderDefault factoryViewHolder = mock(Factory_ViewHolderDefault.class);
 		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderDefault);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolder, null, null);
 		
 		int itemType = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
-		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
+		ViewHolder_SetSpinner actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
 		assertEquals(viewHolderDefault, actualViewHolder);
 	}
 	
@@ -113,15 +116,15 @@ public class Test$Adapter_SivisoListView
 		Database database = mock(Database.class);
 		when(database.sivisoDatas()).thenReturn(sivisoDatas);
 		ViewGroup viewGroup = mock(ViewGroup.class);
-		ViewHolder_Siviso viewHolderSiviso = mock(ViewHolder_Siviso.class);
+		ViewHolder_SivisoItem viewHolderSivisoItem = mock(ViewHolder_SivisoItem.class);
 		Factory_ViewHolderSiviso factoryViewHolder = mock(Factory_ViewHolderSiviso.class);
-		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderSiviso);
+		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderSivisoItem);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, factoryViewHolder, null);
 		
 		int itemType = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
-		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
-		assertEquals(viewHolderSiviso, actualViewHolder);
+		ViewHolder_SetSpinner actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
+		assertEquals(viewHolderSivisoItem, actualViewHolder);
 	}
 	
 	@Test
