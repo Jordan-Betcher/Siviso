@@ -152,14 +152,16 @@ public class Test$Adapter_SivisoListView
 		View view = mock(View.class);
 		when(layoutInflater.inflate(R.layout.item_siviso, viewGroup, false)).thenReturn(view);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
+		ViewHolder_Siviso viewHolderSiviso = mock(ViewHolder_Siviso.class);
+		Factory_ViewHolder factoryViewHolder = mock(Factory_ViewHolder.class);
+		when(factoryViewHolder.createSiviso(view)).thenReturn(viewHolderSiviso);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
-		                                                            mock(Factory_ViewHolder.class));
+		                                                            factoryViewHolder);
 		
 		int itemType = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
-		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
-		ViewHolder_Abstract expected = new ViewHolder_Siviso(view);
-		assertEquals(expected, viewHolder);
+		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
+		assertEquals(viewHolderSiviso, actualViewHolder);
 	}
 	
 	@Test

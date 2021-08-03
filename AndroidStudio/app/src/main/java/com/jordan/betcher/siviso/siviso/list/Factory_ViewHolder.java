@@ -14,5 +14,10 @@ class Factory_ViewHolder
 		//View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 		return null;
 	}
+	
+	public ViewHolder_Siviso createSiviso(View view)
+	{
+		return null;
+	}
 	//TODO
 }

@@ -80,7 +80,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		else
 		{
 			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-			return new ViewHolder_Siviso(view);
+			return factoryViewHolder.createSiviso(view);
 		}
 	}
 	
