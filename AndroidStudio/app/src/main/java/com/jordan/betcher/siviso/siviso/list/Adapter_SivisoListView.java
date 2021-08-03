@@ -1,8 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
-import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,24 +14,11 @@ class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_Abstract>
 {
 	private Database database;
-	private LayoutInflater layoutInflater;
-	private OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation;
-	private ArrayAdapter<CharSequence> sivisoSpinnerAdapter;
-	private OnItemClickListener_SetDefaultSiviso setDefaultSiviso;
 	private Factory_ViewHolder factoryViewHolder;
 	
-	public Adapter_SivisoListView(
-	Database database, LayoutInflater layoutInflater,
-	OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation,
-	ArrayAdapter<CharSequence> sivisoSpinnerAdapter,
-	OnItemClickListener_SetDefaultSiviso setDefaultSiviso,
-	Factory_ViewHolder factoryViewHolder)
+	public Adapter_SivisoListView(Database database, Factory_ViewHolder factoryViewHolder)
 	{
 		this.database = database;
-		this.layoutInflater = layoutInflater;
-		this.onClickGoToCurrentLocation = onClickGoToCurrentLocation;
-		this.sivisoSpinnerAdapter = sivisoSpinnerAdapter;
-		this.setDefaultSiviso = setDefaultSiviso;
 		this.factoryViewHolder = factoryViewHolder;
 	}
 	
