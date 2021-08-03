@@ -22,14 +22,21 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	private OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation;
 	private ArrayAdapter<CharSequence> sivisoSpinnerAdapter;
 	private OnItemClickListener_SetDefaultSiviso setDefaultSiviso;
+	private Factory_ViewHolder factoryViewHolder;
 	
-	public Adapter_SivisoListView(Database database, LayoutInflater layoutInflater, OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation, ArrayAdapter<CharSequence> sivisoSpinnerAdapter, OnItemClickListener_SetDefaultSiviso setDefaultSiviso)
+	public Adapter_SivisoListView(
+	Database database, LayoutInflater layoutInflater,
+	OnClickListener_GoToCurrentLocation onClickGoToCurrentLocation,
+	ArrayAdapter<CharSequence> sivisoSpinnerAdapter,
+	OnItemClickListener_SetDefaultSiviso setDefaultSiviso,
+	Factory_ViewHolder factoryViewHolder)
 	{
 		this.database = database;
 		this.layoutInflater = layoutInflater;
 		this.onClickGoToCurrentLocation = onClickGoToCurrentLocation;
 		this.sivisoSpinnerAdapter = sivisoSpinnerAdapter;
 		this.setDefaultSiviso = setDefaultSiviso;
+		this.factoryViewHolder = factoryViewHolder;
 	}
 	
 	enum ViewType
@@ -69,7 +76,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		else if(viewType == ViewType.ADD.ordinal())
 		{
 			View view = layoutInflater.inflate(R.layout.item_siviso_add_button, parent, false);
-			return new ViewHolder_Add(view);
+			return factoryViewHolder.createAdd(view);
 		}
 		else
 		{

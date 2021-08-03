@@ -43,7 +43,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		adapter.onBindViewHolder(viewHolder_Siviso, position);
 		
 		verify(viewHolder_Siviso, times(1)).setSivisoData(sivisoData);
@@ -61,7 +62,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		adapter.onBindViewHolder(viewHolder_add, position);
 	}
 	
@@ -79,7 +81,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		adapter.onBindViewHolder(viewHolder_default, position);
 		
 		verify(viewHolder_default, times(1)).setSiviso(siviso);
@@ -97,13 +100,21 @@ public class Test$Adapter_SivisoListView
 		View view = mock(View.class);
 		when(layoutInflater.inflate(R.layout.item_siviso_add_button, viewGroup, false)).thenReturn(view);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
+		ViewHolder_Add viewHolderAdd = mock(ViewHolder_Add.class);
+		Factory_ViewHolder factoryViewHolderAdd = mock(Factory_ViewHolder.class);
+		when(factoryViewHolderAdd.createAdd(view)).thenReturn(viewHolderAdd);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter =
+		new Adapter_SivisoListView(database,
+		                           layoutInflater,
+		                           clickListener_goToCurrentLocation,
+		                           mock(ArrayAdapter.class),
+		                           mock(OnItemClickListener_SetDefaultSiviso.class),
+		                           factoryViewHolderAdd);
 		
 		int itemType = Adapter_SivisoListView.ViewType.ADD.ordinal();
-		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
-		ViewHolder_Abstract expected = new ViewHolder_Add(view);
-		assertEquals(expected, viewHolder);
+		ViewHolder_Add viewHolder = (ViewHolder_Add)adapter.onCreateViewHolder(viewGroup, itemType);
+		assertEquals(viewHolderAdd, viewHolder);
 	}
 	
 	@Test
@@ -121,7 +132,8 @@ public class Test$Adapter_SivisoListView
 		when(view.findViewById(R.id.spinnerHome)).thenReturn(mock(Spinner.class));
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		
 		int itemType = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
 		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -140,7 +152,8 @@ public class Test$Adapter_SivisoListView
 		when(layoutInflater.inflate(R.layout.item_siviso, viewGroup, false)).thenReturn(view);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		
 		int itemType = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
 		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -159,7 +172,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
@@ -176,7 +190,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
@@ -194,7 +209,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.ADD.ordinal();
@@ -210,7 +226,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		
 		int actualItemCount = adapter.getItemCount();
 		int expectedItemCount = sivisoDatas.size() + 2;
@@ -227,7 +244,8 @@ public class Test$Adapter_SivisoListView
 		LayoutInflater layoutInflater = mock(LayoutInflater.class);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class));
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
+		                                                            mock(Factory_ViewHolder.class));
 		int actualItemCount = adapter.getItemCount();
 		int expectedItemCount = sivisoDatas.size() + 2;
 		assertEquals(expectedItemCount, actualItemCount);

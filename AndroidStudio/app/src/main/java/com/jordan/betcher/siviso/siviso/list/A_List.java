@@ -20,10 +20,12 @@ public class A_List
 		sivisoListView.setLayoutManager(new LinearLayoutManager(activity));
 		ArrayAdapter<CharSequence> sivisoSpinnerAdapter = ArrayAdapter.createFromResource(activity, R.array.sivisos, android.R.layout.simple_spinner_item);
 		
+		Factory_ViewHolder factoryViewHolderAdd = new Factory_ViewHolder();
 		SivisoConverter sivisoConverter = new SivisoConverter();
 		OnItemClickListener_SetDefaultSiviso setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
 		OnClickListener_GoToCurrentLocation goToCurrentLocation = new OnClickListener_GoToCurrentLocation(sivisoMap);
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, goToCurrentLocation, sivisoSpinnerAdapter, setDefaultSiviso);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, goToCurrentLocation, sivisoSpinnerAdapter, setDefaultSiviso,
+		                                                            factoryViewHolderAdd);
 		sivisoListView.setAdapter(adapter);
 	}
 }
