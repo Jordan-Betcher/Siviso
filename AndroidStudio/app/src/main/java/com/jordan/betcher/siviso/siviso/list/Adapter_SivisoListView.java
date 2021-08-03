@@ -14,12 +14,19 @@ class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_Abstract>
 {
 	private Database database;
-	private Factory_ViewHolder factoryViewHolder;
+	private Factory_ViewHolderDefault factoryViewHolderDefault;
+	private Factory_ViewHolderSiviso factoryViewHolderSiviso;
+	private Factory_ViewHolderAdd factoryViewHolderAdd;
 	
-	public Adapter_SivisoListView(Database database, Factory_ViewHolder factoryViewHolder)
+	public Adapter_SivisoListView(Database database,
+	                              Factory_ViewHolderDefault factoryViewHolder,
+	                              Factory_ViewHolderSiviso factoryViewHolderSiviso,
+	                              Factory_ViewHolderAdd factoryViewHolderAdd)
 	{
 		this.database = database;
-		this.factoryViewHolder = factoryViewHolder;
+		this.factoryViewHolderDefault = factoryViewHolder;
+		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
+		this.factoryViewHolderAdd = factoryViewHolderAdd;
 	}
 	
 	enum ViewType
@@ -52,21 +59,25 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	{
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
-			return factoryViewHolder.createDefault(parent);
+			return factoryViewHolderDefault.create(parent);
 		}
 		else if(viewType == ViewType.ADD.ordinal())
 		{
-			return factoryViewHolder.createAdd(parent);
+			return factoryViewHolderAdd.create(parent);
 		}
 		else
 		{
-			return factoryViewHolder.createSiviso(parent);
+			return factoryViewHolderSiviso.create(parent);
 		}
 	}
 	
 	@Override
 	public void onBindViewHolder(@NonNull ViewHolder_Abstract viewHolder, int position)
 	{
+		//TODO swap to using Position instead of instanceof
+		//Position 0 -> Default
+		//getItemCount() - 1 is Add
+		//Inbetween is Siviso
 		if(viewHolder instanceof ViewHolder_Default)
 		{
 			ViewHolder_Default viewHolder_default = (ViewHolder_Default)viewHolder;

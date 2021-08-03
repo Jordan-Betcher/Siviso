@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
-import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class ViewHolder_Default extends ViewHolder_Abstract
@@ -16,25 +15,26 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	
 	public ViewHolder_Default(
 	View view,
+	Spinner spinner,
+	TextView name,
+	CardView background,
+	int nameID,
 	OnClickListener_GoToCurrentLocation clickListener,
 	ArrayAdapter sivisoSpinnerAdapter,
 	OnItemClickListener_SetDefaultSiviso onItemClickListener)
 	{
 		super(view);
-		TextView textView = view.findViewById(R.id.textViewName);
-		textView.setText(R.string.siviso_list_name_default);
-		
-		CardView cardView = view.findViewById(R.id.cardViewHome);
-		cardView.setOnClickListener(clickListener);
-		
-		spinner = view.findViewById(R.id.spinnerHome);
-		spinner.setAdapter(sivisoSpinnerAdapter);
-		
-		spinner.setOnItemClickListener(onItemClickListener);
+		this.spinner = spinner;
+//		TODO
+//		name.setText(nameID);
+//		background.setOnClickListener(clickListener);
+//		spinner.setAdapter(sivisoSpinnerAdapter);
+//		spinner.setOnItemClickListener(onItemClickListener);
 	}
 	
 	public void setSiviso(Siviso siviso)
 	{
-		spinner.setSelection(siviso.ordinal());
+//		spinner.setSelection(siviso.ordinal());
+		//TODO
 	}
 }
