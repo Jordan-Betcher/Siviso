@@ -55,6 +55,12 @@ public class A_Activity extends AppCompatActivity
 			{
 				return Color.GREEN;
 			}
+			
+			@Override
+			public Siviso siviso()
+			{
+				return null;
+			}
 		};
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(sivisoData);

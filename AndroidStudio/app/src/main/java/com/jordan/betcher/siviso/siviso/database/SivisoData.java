@@ -11,4 +11,6 @@ public interface SivisoData
 	double radius();
 	
 	int color();
+	
+	Siviso siviso();
 }

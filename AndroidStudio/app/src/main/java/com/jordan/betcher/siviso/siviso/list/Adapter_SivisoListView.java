@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
 import java.util.ArrayList;
@@ -85,8 +86,9 @@ extends RecyclerView.Adapter<ViewHolder_SetSpinner>
 
 			ArrayList<SivisoData> sivisoDatas = database.sivisoDatas();
 			SivisoData sivisoData = sivisoDatas.get(sivisoDataIndex);
+			Siviso siviso = sivisoData.siviso();
 			
-			viewHolder.setSivisoData(sivisoData);
+			viewHolder.setSiviso(siviso);
 		}
 	}
 	
