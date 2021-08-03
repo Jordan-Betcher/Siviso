@@ -29,10 +29,10 @@ class Factory_ViewHolderDefault
 	public ViewHolder_SivisoItem create(ViewGroup parent)
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
+		TextView textView = view.findViewById(R.id.textViewName);
 		Spinner spinner = view.findViewById(R.id.spinnerHome);
-		TextView name = view.findViewById(R.id.textViewName);
 		CardView background = view.findViewById(R.id.cardViewHome);
-		int defaultNameId = R.string.siviso_list_name_default;
-		return new ViewHolder_SivisoItem(view, spinner, name, background, defaultNameId, clickListener, sivisoSpinnerAdapter, onItemClickListener);
+		String name = view.getResources().getString(R.string.siviso_list_name_default);
+		return new ViewHolder_SivisoItem(view, textView, name, spinner, sivisoSpinnerAdapter, onItemClickListener, background, clickListener);
 	}
 }

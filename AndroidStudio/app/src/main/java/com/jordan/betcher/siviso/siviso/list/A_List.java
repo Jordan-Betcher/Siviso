@@ -24,7 +24,10 @@ public class A_List
 		OnItemClickListener_SetDefaultSiviso setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
 		OnClickListener_GoToCurrentLocation goToCurrentLocation = new OnClickListener_GoToCurrentLocation(sivisoMap);
 		Factory_ViewHolderDefault factoryViewHolderDefault = new Factory_ViewHolderDefault(layoutInflater, goToCurrentLocation, sivisoSpinnerAdapter, setDefaultSiviso);
-		Factory_ViewHolderSiviso factoryViewHolderSiviso = new Factory_ViewHolderSiviso();
+		
+		OnClickListener_GoToSivisoLocation goToSivisoLocation = new OnClickListener_GoToSivisoLocation();
+		OnItemClickListener_SetSiviso setSiviso = new OnItemClickListener_SetSiviso();
+		Factory_ViewHolderSiviso factoryViewHolderSiviso = new Factory_ViewHolderSiviso(layoutInflater, goToSivisoLocation, sivisoSpinnerAdapter, setSiviso);
 		Factory_ViewHolderAdd factoryViewHolderAdd = new Factory_ViewHolderAdd(layoutInflater);
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolderDefault, factoryViewHolderSiviso, factoryViewHolderAdd);
 		sivisoListView.setAdapter(adapter);
