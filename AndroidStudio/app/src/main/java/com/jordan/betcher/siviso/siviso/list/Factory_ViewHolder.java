@@ -8,5 +8,11 @@ class Factory_ViewHolder
 	{
 		return null;
 	}
+	
+	public ViewHolder_Default createDefault(View view)
+	{
+		//View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
+		return null;
+	}
 	//TODO
 }

@@ -70,8 +70,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
 			View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-			return new ViewHolder_Default(view, onClickGoToCurrentLocation, sivisoSpinnerAdapter,
-			                              setDefaultSiviso);
+			return factoryViewHolder.createDefault(view);
 		}
 		else if(viewType == ViewType.ADD.ordinal())
 		{

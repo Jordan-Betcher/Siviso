@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.siviso.list;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -101,8 +99,8 @@ public class Test$Adapter_SivisoListView
 		when(layoutInflater.inflate(R.layout.item_siviso_add_button, viewGroup, false)).thenReturn(view);
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
 		ViewHolder_Add viewHolderAdd = mock(ViewHolder_Add.class);
-		Factory_ViewHolder factoryViewHolderAdd = mock(Factory_ViewHolder.class);
-		when(factoryViewHolderAdd.createAdd(view)).thenReturn(viewHolderAdd);
+		Factory_ViewHolder factoryViewHolder = mock(Factory_ViewHolder.class);
+		when(factoryViewHolder.createAdd(view)).thenReturn(viewHolderAdd);
 		
 		Adapter_SivisoListView adapter =
 		new Adapter_SivisoListView(database,
@@ -110,7 +108,7 @@ public class Test$Adapter_SivisoListView
 		                           clickListener_goToCurrentLocation,
 		                           mock(ArrayAdapter.class),
 		                           mock(OnItemClickListener_SetDefaultSiviso.class),
-		                           factoryViewHolderAdd);
+		                           factoryViewHolder);
 		
 		int itemType = Adapter_SivisoListView.ViewType.ADD.ordinal();
 		ViewHolder_Add viewHolder = (ViewHolder_Add)adapter.onCreateViewHolder(viewGroup, itemType);
@@ -131,13 +129,16 @@ public class Test$Adapter_SivisoListView
 		when(view.findViewById(R.id.cardViewHome)).thenReturn(mock(CardView.class));
 		when(view.findViewById(R.id.spinnerHome)).thenReturn(mock(Spinner.class));
 		OnClickListener_GoToCurrentLocation clickListener_goToCurrentLocation = mock(OnClickListener_GoToCurrentLocation.class);
+		ViewHolder_Default viewHolderDefault = mock(ViewHolder_Default.class);
+		Factory_ViewHolder factoryViewHolder = mock(Factory_ViewHolder.class);
+		when(factoryViewHolder.createDefault(view)).thenReturn(viewHolderDefault);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, layoutInflater, clickListener_goToCurrentLocation, mock(ArrayAdapter.class), mock(OnItemClickListener_SetDefaultSiviso.class),
-		                                                            mock(Factory_ViewHolder.class));
+		                                                            factoryViewHolder);
 		
 		int itemType = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
-		ViewHolder_Abstract viewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
-		assertThat(viewHolder, instanceOf(ViewHolder_Default.class));
+		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
+		assertEquals(viewHolderDefault, actualViewHolder);
 	}
 	
 	@Test
