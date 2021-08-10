@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.view.View;
 import android.widget.Spinner;
@@ -10,12 +11,37 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_CharSequence;
 
 import org.junit.Test;
 
 public class Test$ViewHolder_SivisoItem
 {
+	
+	@Test
+	public void init_Factory_setSpinnerToFactoryOutput()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		Database database = mock(Database.class);
+		int index = 1;
+		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
+		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		viewHolder.init(database, index);
+		
+		verify(spinner, times(1)).setOnItemSelectedListener(onItemClick);
+	}
 	
 	@Test
 	public void _spinnerAdapter_setSpinnerAdapter()
@@ -25,7 +51,8 @@ public class Test$ViewHolder_SivisoItem
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListener_SetSiviso factoryOnItemClickListener = mock(Factory_OnItemClickListener_SetSiviso.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
 		
@@ -42,7 +69,8 @@ public class Test$ViewHolder_SivisoItem
 		String name = "A";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListener_SetSiviso factoryOnItemClickListener = mock(Factory_OnItemClickListener_SetSiviso.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
 		
@@ -59,7 +87,8 @@ public class Test$ViewHolder_SivisoItem
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListener_SetSiviso factoryOnItemClickListener = mock(Factory_OnItemClickListener_SetSiviso.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
 		

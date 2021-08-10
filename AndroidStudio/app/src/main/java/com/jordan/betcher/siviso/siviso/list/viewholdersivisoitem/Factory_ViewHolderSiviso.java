@@ -18,7 +18,7 @@ public class Factory_ViewHolderSiviso
 	private LayoutInflater layoutInflater;
 	private Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground;
 	private ArrayAdapter spinnerAdapter;
-	private Factory_OnItemClickListener_SetSiviso factoryOnItemClickListenerSetSiviso;
+	private Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListenerSetSiviso;
 	private SivisoMap sivisoMap;
 	
 	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, ArrayAdapter spinnerAdapter, SivisoMap sivisoMap)
@@ -26,7 +26,7 @@ public class Factory_ViewHolderSiviso
 		this.layoutInflater = layoutInflater;
 		this.factoryOnClickBackground = new Factory_OnClickListenerGoToSivisoLocation();
 		this.spinnerAdapter = spinnerAdapter;
-		this.factoryOnItemClickListenerSetSiviso = new Factory_OnItemClickListener_SetSiviso();
+		this.factoryOnItemClickListenerSetSiviso = new Factory_OnItemSelectedListenerSetSiviso();
 		this.sivisoMap = sivisoMap;
 	}
 	
