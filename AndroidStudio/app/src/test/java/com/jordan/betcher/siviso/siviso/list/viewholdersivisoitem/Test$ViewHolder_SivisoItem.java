@@ -20,7 +20,31 @@ public class Test$ViewHolder_SivisoItem
 {
 	
 	@Test
-	public void init_Factory_setSpinnerToFactoryOutput()
+	public void init_FactoryIndex2_setSpinnerToFactoryOutput()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		Database database = mock(Database.class);
+		int index = 2;
+		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
+		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		viewHolder.init(database, index);
+		
+		verify(spinner, times(1)).setOnItemSelectedListener(onItemClick);
+	}
+	
+	@Test
+	public void init_FactoryIndex1_setSpinnerToFactoryOutput()
 	{
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);

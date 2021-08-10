@@ -28,10 +28,10 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	}
 	
 	@Override
-	public void init(Database database, int sivisoDataIndex)
+	public void init(Database database, int sivisoIndex)
 	{
 		//TODO
-		AdapterView.OnItemSelectedListener onItemSelected = factoryOnItemClickListenerSetSiviso.create(database, sivisoDataIndex);
+		AdapterView.OnItemSelectedListener onItemSelected = factoryOnItemClickListenerSetSiviso.create(database, sivisoIndex);
 		spinner.setOnItemSelectedListener(onItemSelected);
 	}
 	
