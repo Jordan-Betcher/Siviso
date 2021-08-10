@@ -62,7 +62,7 @@ public class Test$Adapter_SivisoListView
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolder, null, null);
 		
 		int itemType = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
-		ViewHolder_SetSpinner actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
+		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
 		assertEquals(viewHolderDefault, actualViewHolder);
 	}
 	
@@ -78,7 +78,7 @@ public class Test$Adapter_SivisoListView
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, factoryViewHolder, null);
 		
 		int itemType = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
-		ViewHolder_SetSpinner actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
+		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
 		assertEquals(viewHolderSivisoItem, actualViewHolder);
 	}
 	

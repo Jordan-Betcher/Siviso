@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -10,11 +9,12 @@ import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 
-class ViewHolder_SivisoItem extends ViewHolder_Abstract
+class ViewHolder_Default extends ViewHolder_Abstract
 {
-	
-	public ViewHolder_SivisoItem(
-	View view, TextView textView, String name, Spinner spinner, ArrayAdapter spinnerAdapter, AdapterView.OnItemClickListener sivisoOnClick, CardView background, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground)
+	public ViewHolder_Default(
+	View view, TextView textView, String name, Spinner spinner, ArrayAdapter sivisoSpinnerAdapter,
+	OnItemClickListener_SetDefaultSiviso onItemClickListener, CardView background,
+	OnClickListener_GoToCurrentLocation clickListener)
 	{
 		super(view);
 	}
@@ -22,7 +22,7 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	@Override
 	public void init(Database database, int sivisoDataIndex)
 	{
-		//TODO
-	}
 	
+	}
+	//TODO
 }

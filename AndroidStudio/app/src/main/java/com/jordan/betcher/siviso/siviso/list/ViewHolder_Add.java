@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 
-class ViewHolder_Add extends ViewHolder_SetSpinner
+class ViewHolder_Add extends ViewHolder_Abstract
 {
 	public ViewHolder_Add(View view){super(view);}
 	

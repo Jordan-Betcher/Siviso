@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jordan.betcher.siviso.siviso.database.Database;
 
 class Adapter_SivisoListView
-extends RecyclerView.Adapter<ViewHolder_SetSpinner>
+extends RecyclerView.Adapter<ViewHolder_Abstract>
 {
 	private Database database;
 	private Factory_ViewHolderDefault factoryViewHolderDefault;
@@ -52,7 +52,7 @@ extends RecyclerView.Adapter<ViewHolder_SetSpinner>
 	
 	@NonNull
 	@Override
-	public ViewHolder_SetSpinner onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+	public ViewHolder_Abstract onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
@@ -69,7 +69,7 @@ extends RecyclerView.Adapter<ViewHolder_SetSpinner>
 	}
 	
 	@Override
-	public void onBindViewHolder(@NonNull ViewHolder_SetSpinner viewHolder, int index)
+	public void onBindViewHolder(@NonNull ViewHolder_Abstract viewHolder, int index)
 	{
 		int sivisoDataIndex = listPositionToSivisoIndex(index);
 		viewHolder.init(database, sivisoDataIndex);

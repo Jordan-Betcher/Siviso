@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
 class Factory_ViewHolderSiviso
 {
@@ -18,25 +19,25 @@ class Factory_ViewHolderSiviso
 	private Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground;
 	private ArrayAdapter spinnerAdapter;
 	private AdapterView.OnItemClickListener sivisoOnClick;
+	private SivisoMap sivisoMap;
 	
-	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground, ArrayAdapter spinnerAdapter, OnItemClickListener_SetSiviso sivisoOnClick)
+	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground, ArrayAdapter spinnerAdapter, OnItemClickListener_SetSiviso sivisoOnClick, SivisoMap sivisoMap)
 	{
 		this.layoutInflater = layoutInflater;
 		this.factoryOnClickBackground = factoryOnClickBackground;
 		this.spinnerAdapter = spinnerAdapter;
 		this.sivisoOnClick = sivisoOnClick;
+		this.sivisoMap = sivisoMap;
 	}
 	
-	public ViewHolder_SivisoItem create(ViewGroup parent)
+	public ViewHolder_Abstract create(ViewGroup parent)
 	{
-		
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 		Spinner spinner = view.findViewById(R.id.spinnerHome);
 		TextView textView = view.findViewById(R.id.textViewName);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = "";
-		OnClickListener_GoToSivisoLocation backgroundOnClick = factoryOnClickBackground.create();
 		return new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, sivisoOnClick, background,
-		                                 backgroundOnClick);
+		                                 factoryOnClickBackground);
 	}
 }

@@ -70,9 +70,18 @@ public class A_Activity extends AppCompatActivity
 		
 		};
 		
-		SivisoMap sivisoMap = () ->
-		{
-		
+		SivisoMap sivisoMap = new SivisoMap(){
+			@Override
+			public void goToCurrentLocation()
+			{
+			
+			}
+			
+			@Override
+			public void goToLocation(LatLng sivisoLocation)
+			{
+			
+			}
 		};
 		
 		Database database = new Database()
