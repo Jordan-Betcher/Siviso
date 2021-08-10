@@ -121,6 +121,12 @@ public class A_Activity extends AppCompatActivity
 			{
 				Toast.makeText(activity, "A_Activity: Database setSiviso", Toast.LENGTH_SHORT).show();
 			}
+			
+			@Override
+			public LatLng sivisoLatLng(int index)
+			{
+				return new LatLng(0, 0);
+			}
 		};
 		
 		new A_Map(this, map, accessFineLocationPermission, database, sivisoList);

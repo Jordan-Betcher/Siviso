@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 
@@ -16,6 +17,8 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	
 	private Spinner spinner;
 	private Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListenerSetSiviso;
+	private final CardView background;
+	private final Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground;
 	
 	public ViewHolder_SivisoItem(
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter spinnerAdapter, Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListenerSetSiviso, CardView background, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground)
@@ -23,6 +26,8 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 		super(view);
 		this.spinner = spinner;
 		this.factoryOnItemClickListenerSetSiviso = factoryOnItemClickListenerSetSiviso;
+		this.background = background;
+		this.factoryOnClickBackground = factoryOnClickBackground;
 		textView.setText(name);
 		spinner.setAdapter(spinnerAdapter);
 	}
@@ -30,9 +35,11 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	@Override
 	public void init(Database database, int sivisoIndex)
 	{
-		//TODO
 		AdapterView.OnItemSelectedListener onItemSelected = factoryOnItemClickListenerSetSiviso.create(database, sivisoIndex);
 		spinner.setOnItemSelectedListener(onItemSelected);
+		LatLng sivisoLatLng = database.sivisoLatLng(sivisoIndex);
+		OnClickListener_GoToSivisoLocation onClickListener = factoryOnClickBackground.create(sivisoLatLng);
+		background.setOnClickListener(onClickListener);
 	}
 	
 }

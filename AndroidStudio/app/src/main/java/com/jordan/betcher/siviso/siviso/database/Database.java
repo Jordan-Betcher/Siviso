@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 public interface Database
@@ -13,4 +15,6 @@ public interface Database
 	ArrayList<SivisoData> sivisos();
 	
 	void setSiviso(int sivisoIndex, int itemIndex);
+	
+	LatLng sivisoLatLng(int index);
 }

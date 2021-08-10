@@ -5,7 +5,15 @@ import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
 class Factory_OnClickListenerGoToSivisoLocation
 {
-	public OnClickListener_GoToSivisoLocation create(SivisoMap sivisoMap, LatLng sivisoLocation)
+	private SivisoMap sivisoMap;
+	
+	public Factory_OnClickListenerGoToSivisoLocation(SivisoMap sivisoMap)
+	{
+		
+		this.sivisoMap = sivisoMap;
+	}
+	
+	public OnClickListener_GoToSivisoLocation create(LatLng sivisoLocation)
 	{
 		return new OnClickListener_GoToSivisoLocation(sivisoMap, sivisoLocation);
 	}

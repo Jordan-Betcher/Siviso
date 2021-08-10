@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_CharSequence;
 
@@ -18,6 +19,61 @@ import org.junit.Test;
 
 public class Test$ViewHolder_SivisoItem
 {
+	@Test
+	public void init_FactoryIndex1SivisoLatLng01_setBackgroundOnClickListener()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		Database database = mock(Database.class);
+		int index = 1;
+		LatLng sivisoLatLng = new LatLng(0, 1);
+		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
+		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
+		OnClickListener_GoToSivisoLocation onClickListener = mock(OnClickListener_GoToSivisoLocation.class);
+		when(database.sivisoLatLng(index)).thenReturn(sivisoLatLng);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		viewHolder.init(database, index);
+		
+		verify(background, times(1)).setOnClickListener(onClickListener);
+	}
+	
+	@Test
+	public void init_FactoryIndex1SivisoLatLng00_setBackgroundOnClickListener()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		Database database = mock(Database.class);
+		int index = 1;
+		LatLng sivisoLatLng = new LatLng(0, 0);
+		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
+		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
+		OnClickListener_GoToSivisoLocation onClickListener = mock(OnClickListener_GoToSivisoLocation.class);
+		when(database.sivisoLatLng(index)).thenReturn(sivisoLatLng);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		viewHolder.init(database, index);
+		
+		verify(background, times(1)).setOnClickListener(onClickListener);
+	}
 	
 	@Test
 	public void init_FactoryIndex2_setSpinnerToFactoryOutput()

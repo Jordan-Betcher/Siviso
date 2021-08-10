@@ -24,10 +24,10 @@ public class Factory_ViewHolderSiviso
 	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, ArrayAdapter spinnerAdapter, SivisoMap sivisoMap)
 	{
 		this.layoutInflater = layoutInflater;
-		this.factoryOnClickBackground = new Factory_OnClickListenerGoToSivisoLocation();
 		this.spinnerAdapter = spinnerAdapter;
-		this.factoryOnItemClickListenerSetSiviso = new Factory_OnItemSelectedListenerSetSiviso();
 		this.sivisoMap = sivisoMap;
+		this.factoryOnClickBackground = new Factory_OnClickListenerGoToSivisoLocation(sivisoMap);
+		this.factoryOnItemClickListenerSetSiviso = new Factory_OnItemSelectedListenerSetSiviso();
 	}
 	
 	public ViewHolder_Abstract create(ViewGroup parent)
