@@ -17,7 +17,24 @@ import org.junit.Test;
 public class Test$ViewHolder_Default
 {
 	@Test
-	public void init_backgroundOnClickListener_SetBackgroundOnClickListener()
+	public void _spinnerOnItemClick_SetSpinnerOnItemClick()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
+		OnItemClickListener_SetDefaultSiviso onItemClickListener = mock(OnItemClickListener_SetDefaultSiviso.class);
+		CardView cardView = mock(CardView.class);
+		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
+		
+		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		
+		verify(spinner, times(1)).setOnItemClickListener(onItemClickListener);
+	}
+	
+	@Test
+	public void _backgroundOnClickListener_SetBackgroundOnClickListener()
 	{
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
@@ -34,7 +51,7 @@ public class Test$ViewHolder_Default
 	}
 	
 	@Test
-	public void init_spinnerArrayAdapter_SetSpinnerAdapterToArrayAdapter()
+	public void _spinnerArrayAdapter_SetSpinnerAdapterToArrayAdapter()
 	{
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);

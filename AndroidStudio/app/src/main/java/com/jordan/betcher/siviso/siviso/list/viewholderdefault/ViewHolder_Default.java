@@ -20,13 +20,13 @@ class ViewHolder_Default extends ViewHolder_Abstract
 		super(view);
 		textView.setText(name);
 		spinner.setAdapter(adapter);
+		spinner.setOnItemClickListener(onItemClickListener);
 		background.setOnClickListener(onClick);
 	}
 	
 	@Override
 	public void init(Database database, int sivisoDataIndex)
 	{
-	
+		//Do Nothing
 	}
-	//TODO
 }
