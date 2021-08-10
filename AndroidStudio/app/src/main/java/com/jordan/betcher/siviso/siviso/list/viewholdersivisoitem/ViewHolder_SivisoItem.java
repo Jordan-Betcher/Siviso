@@ -17,6 +17,7 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter spinnerAdapter, Factory_OnItemClickListener_SetSiviso factoryOnItemClickListenerSetSiviso, CardView background, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground)
 	{
 		super(view);
+		textView.setText(name);
 	}
 	
 	@Override

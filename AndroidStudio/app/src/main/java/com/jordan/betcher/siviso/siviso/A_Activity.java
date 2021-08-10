@@ -31,6 +31,7 @@ public class A_Activity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		Activity activity = this;
 		OnMapReady_CallOnMapReadys map = new OnMapReady_CallOnMapReadys();
 		SivisoData sivisoData = new SivisoData(){
 			
@@ -76,7 +77,7 @@ public class A_Activity extends AppCompatActivity
 			@Override
 			public void goToCurrentLocation()
 			{
-			
+				Toast.makeText(activity, "A_Activity: SivisoMap goToCurrentLocation", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
@@ -86,7 +87,6 @@ public class A_Activity extends AppCompatActivity
 			}
 		};
 		
-		Activity activity = this;
 		Database database = new Database()
 		{
 			@Override
