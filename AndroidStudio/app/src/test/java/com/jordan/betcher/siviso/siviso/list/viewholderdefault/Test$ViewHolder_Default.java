@@ -24,7 +24,7 @@ public class Test$ViewHolder_Default
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListenerSetDefaultSiviso onItemClickListener = mock(Factory_OnItemClickListenerSetDefaultSiviso.class);
+		OnItemClickListener_SetDefaultSiviso onItemClickListener = mock(OnItemClickListener_SetDefaultSiviso.class);
 		CardView background = mock(CardView.class);
 		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
@@ -41,7 +41,7 @@ public class Test$ViewHolder_Default
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListenerSetDefaultSiviso onItemClickListener = mock(Factory_OnItemClickListenerSetDefaultSiviso.class);
+		OnItemClickListener_SetDefaultSiviso onItemClickListener = mock(OnItemClickListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
 		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
@@ -58,7 +58,7 @@ public class Test$ViewHolder_Default
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListenerSetDefaultSiviso onItemClickListener = mock(Factory_OnItemClickListenerSetDefaultSiviso.class);
+		OnItemClickListener_SetDefaultSiviso onItemClickListener = mock(OnItemClickListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
 		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
@@ -75,7 +75,7 @@ public class Test$ViewHolder_Default
 		String name = "Default";
 		Spinner spinner = mock(Spinner.class);
 		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
-		Factory_OnItemClickListenerSetDefaultSiviso onItemClickListener = mock(Factory_OnItemClickListenerSetDefaultSiviso.class);
+		OnItemClickListener_SetDefaultSiviso onItemClickListener = mock(OnItemClickListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
 		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		

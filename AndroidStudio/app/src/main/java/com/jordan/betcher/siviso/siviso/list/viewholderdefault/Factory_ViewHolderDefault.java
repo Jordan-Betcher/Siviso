@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_CharSequence;
+import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
@@ -38,7 +39,8 @@ public class Factory_ViewHolderDefault
 		Spinner spinner = view.findViewById(R.id.spinnerHome);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = view.getResources().getString(R.string.siviso_list_name_default);
-		Factory_OnItemClickListenerSetDefaultSiviso onItemClickListener = new Factory_OnItemClickListenerSetDefaultSiviso(database);
+		SivisoConverter sivisoConverter = new SivisoConverter();
+		OnItemClickListener_SetDefaultSiviso onItemClickListener = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
 		return new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, background, clickListener);
 	}
 }

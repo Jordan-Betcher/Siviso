@@ -14,7 +14,7 @@ class ViewHolder_Default extends ViewHolder_Abstract
 {
 	public ViewHolder_Default(
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter_CharSequence adapter,
-	Factory_OnItemClickListenerSetDefaultSiviso factoryOnItemClickListenerSetDefaultSiviso, CardView background,
+	OnItemClickListener_SetDefaultSiviso onItemClickListener, CardView background,
 	OnClickListener_GoToCurrentLocation onClick)
 	{
 		super(view);
