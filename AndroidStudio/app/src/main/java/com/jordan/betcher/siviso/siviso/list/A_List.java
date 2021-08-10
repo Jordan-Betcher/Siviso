@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jordan.betcher.siviso.siviso.A_Activity;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
+import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
+import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
 public class A_List
@@ -20,14 +23,8 @@ public class A_List
 		
 		ArrayAdapter<CharSequence> sivisoSpinnerAdapter = ArrayAdapter.createFromResource(activity, R.array.sivisos, android.R.layout.simple_spinner_item);
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
-		SivisoConverter sivisoConverter = new SivisoConverter();
-		OnItemClickListener_SetDefaultSiviso setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
-		OnClickListener_GoToCurrentLocation goToCurrentLocation = new OnClickListener_GoToCurrentLocation(sivisoMap);
-		Factory_ViewHolderDefault factoryViewHolderDefault = new Factory_ViewHolderDefault(layoutInflater, goToCurrentLocation, sivisoSpinnerAdapter, setDefaultSiviso);
-		
-		Factory_OnClickListenerGoToSivisoLocation factoryOnClickListenerGoToSivisoLocation = new Factory_OnClickListenerGoToSivisoLocation();
-		Factory_OnItemClickListener_SetSiviso factorySetSiviso = new Factory_OnItemClickListener_SetSiviso();
-		Factory_ViewHolderSiviso factoryViewHolderSiviso = new Factory_ViewHolderSiviso(layoutInflater, factoryOnClickListenerGoToSivisoLocation, sivisoSpinnerAdapter, factorySetSiviso, sivisoMap);
+		Factory_ViewHolderDefault factoryViewHolderDefault = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
+		Factory_ViewHolderSiviso factoryViewHolderSiviso = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap);
 		Factory_ViewHolderAdd factoryViewHolderAdd = new Factory_ViewHolderAdd(layoutInflater);
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolderDefault, factoryViewHolderSiviso, factoryViewHolderAdd);
 		sivisoListView.setAdapter(adapter);

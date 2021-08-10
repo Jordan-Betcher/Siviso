@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem;
 
 import android.view.View;
 

@@ -1,9 +1,10 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.list.viewholderdefault;
 
 import android.view.View;
 import android.widget.AdapterView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
 
 class OnItemClickListener_SetDefaultSiviso
 implements AdapterView.OnItemClickListener

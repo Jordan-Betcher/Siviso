@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.list.viewholderdefault;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
+import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
 
 import org.junit.Test;
 

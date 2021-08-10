@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
+import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
+import com.jordan.betcher.siviso.siviso.list.viewholderadd.ViewHolder_Add;
+import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
+import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 
 import org.junit.Test;
 
@@ -20,7 +24,7 @@ public class Test$Adapter_SivisoListView
 	@Test
 	public void onBindViewHolder_Count0Position0_initMinus1()
 	{
-		ViewHolder_SivisoItem viewHolder_sivisoItem = mock(ViewHolder_SivisoItem.class);
+		ViewHolder_Abstract viewHolder_sivisoItem = mock(ViewHolder_Abstract.class);
 		int position = 0;
 		int count = 0;
 		
@@ -55,7 +59,7 @@ public class Test$Adapter_SivisoListView
 	{
 		Database database = mock(Database.class);
 		ViewGroup viewGroup = mock(ViewGroup.class);
-		ViewHolder_SivisoItem viewHolderDefault = mock(ViewHolder_SivisoItem.class);
+		ViewHolder_Abstract viewHolderDefault = mock(ViewHolder_Abstract.class);
 		Factory_ViewHolderDefault factoryViewHolder = mock(Factory_ViewHolderDefault.class);
 		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderDefault);
 		
@@ -71,7 +75,7 @@ public class Test$Adapter_SivisoListView
 	{
 		Database database = mock(Database.class);
 		ViewGroup viewGroup = mock(ViewGroup.class);
-		ViewHolder_SivisoItem viewHolderSivisoItem = mock(ViewHolder_SivisoItem.class);
+		ViewHolder_Abstract viewHolderSivisoItem = mock(ViewHolder_Abstract.class);
 		Factory_ViewHolderSiviso factoryViewHolder = mock(Factory_ViewHolderSiviso.class);
 		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderSivisoItem);
 		

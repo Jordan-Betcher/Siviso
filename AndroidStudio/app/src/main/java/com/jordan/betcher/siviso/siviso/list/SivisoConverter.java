@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.siviso.list;
 
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 
-class SivisoConverter
+public class SivisoConverter
 {
 	public Siviso sivisoFrom(int position)
 	{

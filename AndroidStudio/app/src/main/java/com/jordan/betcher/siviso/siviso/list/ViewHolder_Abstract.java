@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 
-abstract class ViewHolder_Abstract
+public abstract class ViewHolder_Abstract
 extends RecyclerView.ViewHolder
 {
 	public ViewHolder_Abstract(@NonNull View itemView)

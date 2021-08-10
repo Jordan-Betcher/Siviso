@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +10,10 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
-class Factory_ViewHolderSiviso
+public class Factory_ViewHolderSiviso
 {
 	private LayoutInflater layoutInflater;
 	private Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground;
@@ -20,12 +21,12 @@ class Factory_ViewHolderSiviso
 	private Factory_OnItemClickListener_SetSiviso factoryOnItemClickListenerSetSiviso;
 	private SivisoMap sivisoMap;
 	
-	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground, ArrayAdapter spinnerAdapter, Factory_OnItemClickListener_SetSiviso factoryOnItemClickListenerSetSiviso, SivisoMap sivisoMap)
+	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, ArrayAdapter spinnerAdapter, SivisoMap sivisoMap)
 	{
 		this.layoutInflater = layoutInflater;
-		this.factoryOnClickBackground = factoryOnClickBackground;
+		this.factoryOnClickBackground = new Factory_OnClickListenerGoToSivisoLocation();
 		this.spinnerAdapter = spinnerAdapter;
-		this.factoryOnItemClickListenerSetSiviso = factoryOnItemClickListenerSetSiviso;
+		this.factoryOnItemClickListenerSetSiviso = new Factory_OnItemClickListener_SetSiviso();
 		this.sivisoMap = sivisoMap;
 	}
 	

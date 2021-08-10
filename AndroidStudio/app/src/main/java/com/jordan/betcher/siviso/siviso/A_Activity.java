@@ -107,7 +107,7 @@ public class A_Activity extends AppCompatActivity
 			@Override
 			public ArrayList<SivisoData> sivisos()
 			{
-				return null;
+				return sivisoDatas;
 			}
 			
 			@Override

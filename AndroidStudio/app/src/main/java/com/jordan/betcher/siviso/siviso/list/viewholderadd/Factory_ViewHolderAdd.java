@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.list.viewholderadd;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.jordan.betcher.siviso.siviso.R;
 
-class Factory_ViewHolderAdd
+public class Factory_ViewHolderAdd
 {
 	private LayoutInflater layoutInflater;
 	

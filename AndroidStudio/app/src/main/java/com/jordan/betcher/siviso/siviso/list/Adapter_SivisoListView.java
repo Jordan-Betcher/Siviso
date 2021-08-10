@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
+import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
+import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 
 class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_Abstract>

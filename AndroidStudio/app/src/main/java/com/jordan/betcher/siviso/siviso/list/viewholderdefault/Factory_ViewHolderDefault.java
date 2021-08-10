@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.list.viewholderdefault;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,20 +10,28 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
+import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
+import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
-class Factory_ViewHolderDefault
+public class Factory_ViewHolderDefault
 {
 	private LayoutInflater layoutInflater;
 	private OnClickListener_GoToCurrentLocation clickListener;
 	private ArrayAdapter sivisoSpinnerAdapter;
 	private OnItemClickListener_SetDefaultSiviso onItemClickListener;
 	
-	public Factory_ViewHolderDefault(LayoutInflater layoutInflater, OnClickListener_GoToCurrentLocation clickListener, ArrayAdapter sivisoSpinnerAdapter, OnItemClickListener_SetDefaultSiviso onItemClickListener)
+	public Factory_ViewHolderDefault(
+	LayoutInflater layoutInflater, ArrayAdapter sivisoSpinnerAdapter,
+	SivisoMap sivisoMap, Database database)
 	{
 		this.layoutInflater = layoutInflater;
-		this.clickListener = clickListener;
 		this.sivisoSpinnerAdapter = sivisoSpinnerAdapter;
-		this.onItemClickListener = onItemClickListener;
+		
+		SivisoConverter sivisoConverter = new SivisoConverter();
+		this.onItemClickListener = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
+		this.clickListener = new OnClickListener_GoToCurrentLocation(sivisoMap);
 	}
 	
 	public ViewHolder_Abstract create(ViewGroup parent)
