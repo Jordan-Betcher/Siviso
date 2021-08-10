@@ -75,13 +75,8 @@ public class A_Activity extends AppCompatActivity
 		
 		};
 		
-		Database database = new Database(){
-			@Override
-			public ArrayList<SivisoData> sivisoDatas()
-			{
-				return sivisoDatas;
-			}
-			
+		Database database = new Database()
+		{
 			@Override
 			public Siviso defaultSiviso()
 			{
@@ -92,6 +87,18 @@ public class A_Activity extends AppCompatActivity
 			public void setDefaultSiviso(Siviso sivisoFromPosition)
 			{
 			
+			}
+			
+			@Override
+			public int count()
+			{
+				return 0;
+			}
+			
+			@Override
+			public ArrayList<SivisoData> sivisos()
+			{
+				return null;
 			}
 		};
 		

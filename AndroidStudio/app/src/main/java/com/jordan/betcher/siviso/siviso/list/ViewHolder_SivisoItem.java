@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
-import com.jordan.betcher.siviso.siviso.database.Siviso;
+import com.jordan.betcher.siviso.siviso.database.Database;
 
 class ViewHolder_SivisoItem extends ViewHolder_SetSpinner
 {
@@ -17,19 +17,11 @@ class ViewHolder_SivisoItem extends ViewHolder_SetSpinner
 	{
 		super(view);
 	}
-	//private Spinner spinner;
 	
-		//this.spinner = spinner;
-//		TODO
-//		name.setText(nameID);
-//		background.setOnClickListener(clickListener);
-//		spinner.setAdapter(sivisoSpinnerAdapter);
-//		spinner.setOnItemClickListener(onItemClickListener);
-	
-	
-	public void setSiviso(Siviso siviso)
+	@Override
+	public void init(Database database, int sivisoDataIndex)
 	{
-//		spinner.setSelection(siviso.ordinal());
 		//TODO
 	}
+	
 }

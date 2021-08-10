@@ -33,7 +33,7 @@ public class A_Map
 		
 		enableCurrentLocation(permission, multiple);
 		startAtCurrentLocation(activity, permission, multiple);
-		onMapReadyCreateCircles(multiple, database.sivisoDatas());
+		onMapReadyCreateCircles(multiple, database.sivisos());
 		onMapReadyAddOnCircleClick(multiple, sivisoList);
 	}
 	

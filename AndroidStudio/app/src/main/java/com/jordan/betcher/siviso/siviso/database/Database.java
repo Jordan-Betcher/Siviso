@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public interface Database
 {
-	ArrayList<SivisoData> sivisoDatas();
-	
 	Siviso defaultSiviso();
 	
 	void setDefaultSiviso(Siviso sivisoFromPosition);
+	
+	int count();
+	
+	ArrayList<SivisoData> sivisos();
 }

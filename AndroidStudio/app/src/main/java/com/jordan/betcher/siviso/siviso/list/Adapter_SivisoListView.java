@@ -6,10 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.Siviso;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
-
-import java.util.ArrayList;
 
 class Adapter_SivisoListView
 extends RecyclerView.Adapter<ViewHolder_SetSpinner>
@@ -75,21 +71,8 @@ extends RecyclerView.Adapter<ViewHolder_SetSpinner>
 	@Override
 	public void onBindViewHolder(@NonNull ViewHolder_SetSpinner viewHolder, int index)
 	{
-		if(index == 0)
-		{
-			ViewHolder_SivisoItem viewHolder_sivisoItem = (ViewHolder_SivisoItem)viewHolder;
-			viewHolder_sivisoItem.setSiviso(database.defaultSiviso());
-		}
-		else if(index < indexOfListItemAdd())
-		{
-			int sivisoDataIndex = listPositionToSivisoIndex(index);
-
-			ArrayList<SivisoData> sivisoDatas = database.sivisoDatas();
-			SivisoData sivisoData = sivisoDatas.get(sivisoDataIndex);
-			Siviso siviso = sivisoData.siviso();
-			
-			viewHolder.setSiviso(siviso);
-		}
+		int sivisoDataIndex = listPositionToSivisoIndex(index);
+		viewHolder.init(database, sivisoDataIndex);
 	}
 	
 	private int indexOfListItemAdd()
@@ -105,6 +88,6 @@ extends RecyclerView.Adapter<ViewHolder_SetSpinner>
 	@Override
 	public int getItemCount()
 	{
-		return database.sivisoDatas().size() + 2;
+		return database.count() + 2;
 	}
 }

@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.jordan.betcher.siviso.siviso.database.Siviso;
+import com.jordan.betcher.siviso.siviso.database.Database;
 
 abstract class ViewHolder_SetSpinner
 extends RecyclerView.ViewHolder
@@ -15,5 +15,5 @@ extends RecyclerView.ViewHolder
 		super(itemView);
 	}
 	
-	public abstract void setSiviso(Siviso siviso);
+	public abstract void init(Database database, int sivisoDataIndex);
 }
