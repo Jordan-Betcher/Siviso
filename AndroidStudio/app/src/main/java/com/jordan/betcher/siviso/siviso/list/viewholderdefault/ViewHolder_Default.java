@@ -19,6 +19,7 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	{
 		super(view);
 		textView.setText(name);
+		spinner.setAdapter(sivisoSpinnerAdapter);
 	}
 	
 	@Override
