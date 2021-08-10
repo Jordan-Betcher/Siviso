@@ -18,6 +18,7 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	{
 		super(view);
 		textView.setText(name);
+		spinner.setAdapter(spinnerAdapter);
 	}
 	
 	@Override

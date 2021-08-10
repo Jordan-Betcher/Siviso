@@ -16,6 +16,24 @@ import org.junit.Test;
 
 public class Test$ViewHolder_SivisoItem
 {
+	
+	@Test
+	public void _spinnerAdapter_setSpinnerAdapter()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_CharSequence spinnerAdapter = mock(ArrayAdapter_CharSequence.class);
+		Factory_OnItemClickListener_SetSiviso factoryOnItemClickListener = mock(Factory_OnItemClickListener_SetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		
+		verify(spinner, times(1)).setAdapter(spinnerAdapter);
+	}
+	
 	@Test
 	public void _textViewNameA_setTextViewTextToNameA()
 	{
