@@ -18,6 +18,7 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	OnClickListener_GoToCurrentLocation clickListener)
 	{
 		super(view);
+		textView.setText(name);
 	}
 	
 	@Override
