@@ -109,6 +109,12 @@ public class A_Activity extends AppCompatActivity
 			{
 				return null;
 			}
+			
+			@Override
+			public void setSiviso(int sivisoIndex, int itemIndex)
+			{
+			
+			}
 		};
 		
 		new A_Map(this, map, accessFineLocationPermission, database, sivisoList);

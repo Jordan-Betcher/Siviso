@@ -3,7 +3,6 @@ package com.jordan.betcher.siviso.siviso.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,15 +17,15 @@ class Factory_ViewHolderSiviso
 	private LayoutInflater layoutInflater;
 	private Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground;
 	private ArrayAdapter spinnerAdapter;
-	private AdapterView.OnItemClickListener sivisoOnClick;
+	private Factory_OnItemClickListener_SetSiviso factoryOnItemClickListenerSetSiviso;
 	private SivisoMap sivisoMap;
 	
-	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground, ArrayAdapter spinnerAdapter, OnItemClickListener_SetSiviso sivisoOnClick, SivisoMap sivisoMap)
+	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground, ArrayAdapter spinnerAdapter, Factory_OnItemClickListener_SetSiviso factoryOnItemClickListenerSetSiviso, SivisoMap sivisoMap)
 	{
 		this.layoutInflater = layoutInflater;
 		this.factoryOnClickBackground = factoryOnClickBackground;
 		this.spinnerAdapter = spinnerAdapter;
-		this.sivisoOnClick = sivisoOnClick;
+		this.factoryOnItemClickListenerSetSiviso = factoryOnItemClickListenerSetSiviso;
 		this.sivisoMap = sivisoMap;
 	}
 	
@@ -37,7 +36,8 @@ class Factory_ViewHolderSiviso
 		TextView textView = view.findViewById(R.id.textViewName);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = "";
-		return new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, sivisoOnClick, background,
+		return new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter,
+		                                 factoryOnItemClickListenerSetSiviso, background,
 		                                 factoryOnClickBackground);
 	}
 }

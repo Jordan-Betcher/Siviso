@@ -11,4 +11,6 @@ public interface Database
 	int count();
 	
 	ArrayList<SivisoData> sivisos();
+	
+	void setSiviso(int sivisoIndex, int itemIndex);
 }
