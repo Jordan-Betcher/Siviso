@@ -1,7 +1,9 @@
 package com.jordan.betcher.siviso.siviso;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -84,36 +86,40 @@ public class A_Activity extends AppCompatActivity
 			}
 		};
 		
+		Activity activity = this;
 		Database database = new Database()
 		{
 			@Override
 			public Siviso defaultSiviso()
 			{
+				Toast.makeText(activity, "A_Activity: Database defaultSiviso", Toast.LENGTH_SHORT).show();
 				return Siviso.SILENT;
 			}
 			
 			@Override
 			public void setDefaultSiviso(Siviso sivisoFromPosition)
 			{
-			
+				Toast.makeText(activity, "A_Activity: Database setDefaultSiviso", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
 			public int count()
 			{
+				//Toast.makeText(activity, "A_Activity: Database count", Toast.LENGTH_SHORT).show();
 				return 0;
 			}
 			
 			@Override
 			public ArrayList<SivisoData> sivisos()
 			{
+				//Toast.makeText(activity, "A_Activity: Database sivisos", Toast.LENGTH_SHORT).show();
 				return sivisoDatas;
 			}
 			
 			@Override
 			public void setSiviso(int sivisoIndex, int itemIndex)
 			{
-			
+				Toast.makeText(activity, "A_Activity: Database setSiviso", Toast.LENGTH_SHORT).show();
 			}
 		};
 		

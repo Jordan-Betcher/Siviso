@@ -14,13 +14,13 @@ class ViewHolder_Default extends ViewHolder_Abstract
 {
 	public ViewHolder_Default(
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter_CharSequence adapter,
-	OnItemClickListener_SetDefaultSiviso onItemClickListener, CardView background,
+	OnItemSelectedListener_SetDefaultSiviso onItemSelected, CardView background,
 	OnClickListener_GoToCurrentLocation onClick)
 	{
 		super(view);
 		textView.setText(name);
 		spinner.setAdapter(adapter);
-		spinner.setOnItemClickListener(onItemClickListener);
+		spinner.setOnItemSelectedListener(onItemSelected);
 		background.setOnClickListener(onClick);
 	}
 	

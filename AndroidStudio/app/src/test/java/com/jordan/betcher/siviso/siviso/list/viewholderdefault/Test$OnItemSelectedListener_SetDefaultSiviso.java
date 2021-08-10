@@ -12,9 +12,8 @@ import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
 
 import org.junit.Test;
 
-public class Test$OnItemClickListener_SetDefaultSiviso
+public class Test$OnItemSelectedListener_SetDefaultSiviso
 {
-	
 	@Test
 	public void onItemClick_DatabasePosition1_DatabaseSetDefaultSivisoVIBRATE()
 	{
@@ -24,8 +23,8 @@ public class Test$OnItemClickListener_SetDefaultSiviso
 		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
 		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
 		
-		OnItemClickListener_SetDefaultSiviso onItemClickListener_setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
-		onItemClickListener_setDefaultSiviso.onItemClick(null, null, position, 0);
+		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
+		onItemSelectedListener_setDefaultSiviso.onItemSelected(null, null, position, 0);
 		
 		verify(database, times(1)).setDefaultSiviso(sivisoFromPosition);
 	}
@@ -39,7 +38,7 @@ public class Test$OnItemClickListener_SetDefaultSiviso
 		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
 		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
 		
-		new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
+		new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
 		
 		verify(database, times(0)).setDefaultSiviso(any());
 	}
@@ -53,8 +52,8 @@ public class Test$OnItemClickListener_SetDefaultSiviso
 		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
 		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
 		
-		OnItemClickListener_SetDefaultSiviso onItemClickListener_setDefaultSiviso = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
-		onItemClickListener_setDefaultSiviso.onItemClick(null, null, position, 0);
+		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
+		onItemSelectedListener_setDefaultSiviso.onItemSelected(null, null, position, 0);
 		
 		verify(database, times(1)).setDefaultSiviso(sivisoFromPosition);
 	}

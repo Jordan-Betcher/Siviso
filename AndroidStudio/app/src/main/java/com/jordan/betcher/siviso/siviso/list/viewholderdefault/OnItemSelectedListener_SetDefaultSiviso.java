@@ -6,13 +6,13 @@ import android.widget.AdapterView;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
 
-class OnItemClickListener_SetDefaultSiviso
-implements AdapterView.OnItemClickListener
+class OnItemSelectedListener_SetDefaultSiviso
+implements AdapterView.OnItemSelectedListener
 {
 	private Database database;
 	private SivisoConverter sivisoConverter;
 	
-	public OnItemClickListener_SetDefaultSiviso(
+	public OnItemSelectedListener_SetDefaultSiviso(
 	Database database, SivisoConverter sivisoConverter)
 	{
 		this.database = database;
@@ -20,8 +20,14 @@ implements AdapterView.OnItemClickListener
 	}
 	
 	@Override
-	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+	public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l)
 	{
 		database.setDefaultSiviso(sivisoConverter.sivisoFrom(position));
+	}
+	
+	@Override
+	public void onNothingSelected(AdapterView<?> adapterView)
+	{
+	
 	}
 }

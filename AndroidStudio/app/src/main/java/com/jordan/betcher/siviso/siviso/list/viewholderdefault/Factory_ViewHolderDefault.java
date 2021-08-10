@@ -40,7 +40,7 @@ public class Factory_ViewHolderDefault
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = view.getResources().getString(R.string.siviso_list_name_default);
 		SivisoConverter sivisoConverter = new SivisoConverter();
-		OnItemClickListener_SetDefaultSiviso onItemClickListener = new OnItemClickListener_SetDefaultSiviso(database, sivisoConverter);
+		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
 		return new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, background, clickListener);
 	}
 }
