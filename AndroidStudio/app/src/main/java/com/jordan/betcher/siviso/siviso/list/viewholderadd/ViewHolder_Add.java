@@ -17,14 +17,12 @@ public class ViewHolder_Add extends ViewHolder_Abstract
 	Factory_OnClickListener_StartActivityAdd factory)
 	{
 		super(view);
-		this.button = button;
-		this.factory = factory;
+		View.OnClickListener onClickListener = factory.create();
+		button.setOnClickListener(onClickListener);
 	}
 	
 	@Override
 	public void init(Database database, int sivisoDataIndex)
 	{
-		View.OnClickListener onClickListener = factory.create(sivisoDataIndex);
-		button.setOnClickListener(onClickListener);
 	}
 }

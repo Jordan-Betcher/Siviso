@@ -13,9 +13,9 @@ public class Factory_OnClickListener_StartActivityAdd
 		this.activity = activity;
 	}
 	
-	public View.OnClickListener create(int index)
+	public View.OnClickListener create()
 	{
-		Intent_Add intentAdd = new Intent_Add();
+		Factory_Intent_Add intentAdd = new Factory_Intent_Add(activity);
 		
 		return new OnClickListener_StartActivityAdd(activity, intentAdd);
 	}

@@ -15,33 +15,15 @@ import org.junit.Test;
 public class Test$ViewHolder_Add
 {
 	@Test
-	public void init_Index1_setButtonOnClickFromFactory()
+	public void _ButtonFactory_setButtonOnClickFromFactory()
 	{
-		int index = 1;
 		View view = mock(View.class);
 		Button button = mock(Button.class);
 		Factory_OnClickListener_StartActivityAdd factory = mock(Factory_OnClickListener_StartActivityAdd.class);
 		View.OnClickListener onClickListener = mock(View.OnClickListener.class);
-		when(factory.create(index)).thenReturn(onClickListener);
+		when(factory.create()).thenReturn(onClickListener);
 		
-		ViewHolder_Add viewHolderAdd = new ViewHolder_Add(view, button, factory);
-		viewHolderAdd.init(null, index);
-		
-		verify(button, times(1)).setOnClickListener(onClickListener);
-	}
-	
-	@Test
-	public void init_Index0_setButtonOnClickFromFactory()
-	{
-		int index = 0;
-		View view = mock(View.class);
-		Button button = mock(Button.class);
-		Factory_OnClickListener_StartActivityAdd factory = mock(Factory_OnClickListener_StartActivityAdd.class);
-		View.OnClickListener onClickListener = mock(View.OnClickListener.class);
-		when(factory.create(index)).thenReturn(onClickListener);
-		
-		ViewHolder_Add viewHolderAdd = new ViewHolder_Add(view, button, factory);
-		viewHolderAdd.init(null, index);
+		new ViewHolder_Add(view, button, factory);
 		
 		verify(button, times(1)).setOnClickListener(onClickListener);
 	}
