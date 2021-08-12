@@ -6,23 +6,23 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.add.OnClickListener_StartActivityAdd;
+import com.jordan.betcher.siviso.siviso.add.Factory_OnClickListener_StartActivityAdd;
 
 public class Factory_ViewHolderAdd
 {
 	private LayoutInflater layoutInflater;
-	private OnClickListener_StartActivityAdd startActivityAdd;
+	private Factory_OnClickListener_StartActivityAdd factory;
 	
-	public Factory_ViewHolderAdd(LayoutInflater layoutInflater, OnClickListener_StartActivityAdd startActivityAdd)
+	public Factory_ViewHolderAdd(LayoutInflater layoutInflater, Factory_OnClickListener_StartActivityAdd factory)
 	{
 		this.layoutInflater = layoutInflater;
-		this.startActivityAdd = startActivityAdd;
+		this.factory = factory;
 	}
 	
 	public ViewHolder_Add create(ViewGroup parent)
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso_add_button, parent, false);
 		Button button = view.findViewById(R.id.buttonAdd);
-		return new ViewHolder_Add(view, button, startActivityAdd);
+		return new ViewHolder_Add(view, button, factory);
 	}
 }
