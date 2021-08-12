@@ -22,7 +22,7 @@ public class Factory_ViewHolderAdd
 	public ViewHolder_Add create(ViewGroup parent)
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso_add_button, parent, false);
-		Button button = view.findViewById(R.id.buttonAdd);
+		Button button = view.findViewById(R.id.buttonConfirm);
 		return new ViewHolder_Add(view, button, factory);
 	}
 }

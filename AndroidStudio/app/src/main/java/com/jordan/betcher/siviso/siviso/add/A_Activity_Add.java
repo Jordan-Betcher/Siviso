@@ -16,7 +16,7 @@ public class A_Activity_Add extends AppCompatActivity
 		
 		new A_AddMap();
 		new A_AddSiviso();
-		new A_CancelButton();
+		new A_CancelButton(this);
 		new A_ConfirmButton();
 	}
 }
