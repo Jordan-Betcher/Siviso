@@ -26,7 +26,7 @@ public class A_List
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		Factory_ViewHolderDefault factoryViewHolderDefault = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
 		Factory_ViewHolderSiviso factoryViewHolderSiviso = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap);
-		Factory_OnClickListener_StartActivityAdd startActivityAdd = new Factory_OnClickListener_StartActivityAdd();
+		Factory_OnClickListener_StartActivityAdd startActivityAdd = new Factory_OnClickListener_StartActivityAdd(activity);
 		Factory_ViewHolderAdd factoryViewHolderAdd = new Factory_ViewHolderAdd(layoutInflater, startActivityAdd);
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolderDefault, factoryViewHolderSiviso, factoryViewHolderAdd);
 		sivisoListView.setAdapter(adapter);
