@@ -83,7 +83,7 @@ public class A_Activity extends AppCompatActivity
 			@Override
 			public void goToLocation(LatLng sivisoLocation)
 			{
-			
+				Toast.makeText(activity, "A_Activity: SivisoMap goToLocation " + sivisoLocation.toString(), Toast.LENGTH_SHORT).show();
 			}
 		};
 		
@@ -106,7 +106,7 @@ public class A_Activity extends AppCompatActivity
 			public int count()
 			{
 				//Toast.makeText(activity, "A_Activity: Database count", Toast.LENGTH_SHORT).show();
-				return 0;
+				return sivisoDatas.size();
 			}
 			
 			@Override
