@@ -21,7 +21,7 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 
 import java.util.ArrayList;
 
-public class A_Activity extends AppCompatActivity
+public class A_Activity_Main extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
 	
@@ -67,6 +67,10 @@ public class A_Activity extends AppCompatActivity
 		};
 		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
 		sivisoDatas.add(sivisoData);
+		sivisoDatas.add(sivisoData);
+		sivisoDatas.add(sivisoData);
+		sivisoDatas.add(sivisoData);
+		sivisoDatas.add(sivisoData);
 		
 		SivisoList sivisoList = latLng ->
 		{
@@ -77,13 +81,13 @@ public class A_Activity extends AppCompatActivity
 			@Override
 			public void goToCurrentLocation()
 			{
-				Toast.makeText(activity, "A_Activity: SivisoMap goToCurrentLocation", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity, "A_Activity_Main: SivisoMap goToCurrentLocation", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
 			public void goToLocation(LatLng sivisoLocation)
 			{
-				Toast.makeText(activity, "A_Activity: SivisoMap goToLocation " + sivisoLocation.toString(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity, "A_Activity_Main: SivisoMap goToLocation " + sivisoLocation.toString(), Toast.LENGTH_SHORT).show();
 			}
 		};
 		
@@ -92,34 +96,34 @@ public class A_Activity extends AppCompatActivity
 			@Override
 			public Siviso defaultSiviso()
 			{
-				Toast.makeText(activity, "A_Activity: Database defaultSiviso", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity, "A_Activity_Main: Database defaultSiviso", Toast.LENGTH_SHORT).show();
 				return Siviso.SILENT;
 			}
 			
 			@Override
 			public void setDefaultSiviso(Siviso sivisoFromPosition)
 			{
-				Toast.makeText(activity, "A_Activity: Database setDefaultSiviso", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity, "A_Activity_Main: Database setDefaultSiviso", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
 			public int count()
 			{
-				//Toast.makeText(activity, "A_Activity: Database count", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: Database count", Toast.LENGTH_SHORT).show();
 				return sivisoDatas.size();
 			}
 			
 			@Override
 			public ArrayList<SivisoData> sivisos()
 			{
-				//Toast.makeText(activity, "A_Activity: Database sivisos", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: Database sivisos", Toast.LENGTH_SHORT).show();
 				return sivisoDatas;
 			}
 			
 			@Override
 			public void setSiviso(int sivisoIndex, int itemIndex)
 			{
-				Toast.makeText(activity, "A_Activity: Database setSiviso", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity, "A_Activity_Main: Database setSiviso", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override

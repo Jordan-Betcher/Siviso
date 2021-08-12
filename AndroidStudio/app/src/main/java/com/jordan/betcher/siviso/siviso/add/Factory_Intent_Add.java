@@ -2,13 +2,13 @@ package com.jordan.betcher.siviso.siviso.add;
 
 import android.content.Intent;
 
-import com.jordan.betcher.siviso.siviso.A_Activity;
+import com.jordan.betcher.siviso.siviso.A_Activity_Main;
 
 class Factory_Intent_Add
 {
-	private A_Activity activity;
+	private A_Activity_Main activity;
 	
-	public Factory_Intent_Add(A_Activity activity)
+	public Factory_Intent_Add(A_Activity_Main activity)
 	{
 		
 		this.activity = activity;

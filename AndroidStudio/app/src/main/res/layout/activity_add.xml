@@ -7,12 +7,12 @@
     tools:context=".A_Activity_Main">
 
     <TextView
-        android:id="@+id/homeTitle"
+        android:id="@+id/addTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/title_home"
+        android:text="@string/title_add"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,37 +20,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/mapLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/homeTitle"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/onOffLock"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@android:drawable/ic_lock_lock"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchOnOff"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="@string/text_for_switch_on_off"
-            android:textColorLink="#8BC34A"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/mapLayout"
+        android:id="@+id/addMapLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -61,13 +31,14 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTitle">
+        app:layout_constraintTop_toBottomOf="@+id/addTitle">
 
         <Button
-            android:id="@+id/homeMapLock"
+            android:id="@+id/addMapLock"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@android:drawable/ic_lock_lock"
+            android:contentDescription="@string/lock_description_map"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +53,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <fragment
-                android:id="@+id/homeMap"
+                android:id="@+id/addMap"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -91,41 +62,28 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewSivisoList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDelete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapLayout"
-        tools:listitem="@layout/item_siviso" />
-
     <Button
-        android:id="@+id/buttonDelete"
+        android:id="@+id/buttonBack"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/button_delete"
+        android:text="@string/button_back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonEdit"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonEdit"
+        android:id="@+id/buttonAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/button_edit"
+        android:text="@string/add_button_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonDelete" />
+        app:layout_constraintStart_toEndOf="@+id/buttonBack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

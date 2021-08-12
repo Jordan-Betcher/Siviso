@@ -2,13 +2,13 @@ package com.jordan.betcher.siviso.siviso.add;
 
 import android.view.View;
 
-import com.jordan.betcher.siviso.siviso.A_Activity;
+import com.jordan.betcher.siviso.siviso.A_Activity_Main;
 
 public class Factory_OnClickListener_StartActivityAdd
 {
-	private A_Activity activity;
+	private A_Activity_Main activity;
 	
-	public Factory_OnClickListener_StartActivityAdd(A_Activity activity)
+	public Factory_OnClickListener_StartActivityAdd(A_Activity_Main activity)
 	{
 		this.activity = activity;
 	}

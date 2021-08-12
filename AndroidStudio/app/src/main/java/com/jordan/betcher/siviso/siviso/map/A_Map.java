@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.jordan.betcher.siviso.siviso.A_Activity;
+import com.jordan.betcher.siviso.siviso.A_Activity_Main;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
@@ -23,7 +23,7 @@ public class A_Map
 {
 	
 	public A_Map(
-	A_Activity activity, OnMapReady_CallOnMapReadys multiple,
+	A_Activity_Main activity, OnMapReady_CallOnMapReadys multiple,
 	Permission_AccessFineLocation permission, Database database,
 	SivisoList sivisoList)
 	{
@@ -54,9 +54,9 @@ public class A_Map
 		multiple.add(createSiviso);
 	}
 	
-	private A_Lock createViewLock(A_Activity activity, Permission_AccessFineLocation permission, SupportMapFragment supportMapFragment)
+	private A_Lock createViewLock(A_Activity_Main activity, Permission_AccessFineLocation permission, SupportMapFragment supportMapFragment)
 	{
-		Button mapLock = activity.findViewById(R.id.mapLock);
+		Button mapLock = activity.findViewById(R.id.homeMapLock);
 		View mapView = supportMapFragment.getView();
 		return new A_Lock(mapView, mapLock, permission);
 	}
