@@ -14,11 +14,9 @@ public class A_Activity_Add extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add);
 		
-		//TODO
-		
-		//Map
-		//Siviso
-		//Back Button
-		//Add Button
+		new A_AddMap();
+		new A_AddSiviso();
+		new A_CancelButton();
+		new A_ConfirmButton();
 	}
 }
