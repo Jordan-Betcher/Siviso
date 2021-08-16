@@ -6,9 +6,10 @@ import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.jordan.betcher.siviso.siviso.A_Activity_Main;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
@@ -23,12 +24,14 @@ public class A_Map
 {
 	
 	public A_Map(
-	A_Activity_Main activity, OnMapReady_CallOnMapReadys multiple,
+	AppCompatActivity activity,
+	OnMapReady_CallOnMapReadys multiple,
+	SupportMapFragment supportMapFragment,
+	Button mapLock,
 	Permission_AccessFineLocation permission, Database database,
 	SivisoList sivisoList)
 	{
-		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
-		A_Lock viewLock = createViewLock(activity, permission, supportMapFragment);
+		A_Lock viewLock = createViewLock(mapLock, permission, supportMapFragment);
 		setupMultiple(multiple, supportMapFragment, viewLock);
 		
 		enableCurrentLocation(permission, multiple);
@@ -54,9 +57,8 @@ public class A_Map
 		multiple.add(createSiviso);
 	}
 	
-	private A_Lock createViewLock(A_Activity_Main activity, Permission_AccessFineLocation permission, SupportMapFragment supportMapFragment)
+	private A_Lock createViewLock(Button mapLock, Permission_AccessFineLocation permission, SupportMapFragment supportMapFragment)
 	{
-		Button mapLock = activity.findViewById(R.id.homeMapLock);
 		View mapView = supportMapFragment.getView();
 		return new A_Lock(mapView, mapLock, permission);
 	}
