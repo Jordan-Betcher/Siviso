@@ -28,7 +28,7 @@ class A_Map_Main
 		
 		Factory_SetupMap setupMapFactory = new Factory_SetupMap();
 		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation();
-		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation();
+		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
 		Factory_CreateCircles createCirclesFactory = new Factory_CreateCircles(database);
 		Factory_AddOnCircleClickSelectSiviso addOnCircleClickSelectSivisoFactory = new Factory_AddOnCircleClickSelectSiviso(sivisoList);
 		

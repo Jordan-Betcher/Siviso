@@ -24,7 +24,7 @@ class A_Map_Add
 		
 		Factory_SetupMap setupMapFactory = new Factory_SetupMap();
 		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation();
-		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation();
+		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
 		
 		OnMapReady_CallOnMapReadys multiple = setupMapFactory.onMapReady();
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = enableCurrentLocationFactory.create();
