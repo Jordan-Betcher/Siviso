@@ -4,14 +4,14 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-class LockState
+class ViewLock implements EventUnlock
 {
 	private View item;
 	private View lock;
 	private boolean unlocked;
 	private ArrayList<OnUnlock> onUnlocks = new ArrayList<>();
 	
-	public LockState(View item, View lock)
+	public ViewLock(View item, View lock)
 	{
 		this.item = item;
 		this.lock = lock;

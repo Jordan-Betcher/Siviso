@@ -6,23 +6,26 @@ import android.widget.Button;
 import com.jordan.betcher.siviso.siviso.permissions.OnPermissionGranted;
 import com.jordan.betcher.siviso.siviso.permissions.Permission;
 
-public class A_Lock
+public class Factory_SetupEventUnLock
 {
-	LockState lockState;
-	//TODO Make Tests
-	public A_Lock(View map, Button mapLock, Permission permission)
+	private ViewLock lock;
+	
+	
+	public Factory_SetupEventUnLock(View view, Button mapLock, Permission permission)
 	{
-		lockState = new LockState(map, mapLock);
+		this.lock = new ViewLock(view, mapLock);
 		
+		//On Button Press Call Permission Request
 		View.OnClickListener requestPermission = new OnClickListener_RequestPermission(permission);
 		mapLock.setOnClickListener(requestPermission);
 		
-		OnPermissionGranted unlock = new OnPermissionGranted_Unlock(lockState);
+		//On Permisson Granted Unlock
+		OnPermissionGranted unlock = new OnPermissionGranted_Unlock(lock);
 		permission.addOnGranted(unlock);
 	}
 	
-	public void addOnUnlock(OnUnlock onUnlock)
+	public EventUnlock eventUnlock()
 	{
-		lockState.addOnUnlock(onUnlock);
+		return lock;
 	}
 }

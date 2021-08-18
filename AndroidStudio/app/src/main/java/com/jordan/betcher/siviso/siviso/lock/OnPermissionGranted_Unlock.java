@@ -5,16 +5,16 @@ import com.jordan.betcher.siviso.siviso.permissions.OnPermissionGranted;
 
 class OnPermissionGranted_Unlock implements OnPermissionGranted
 {
-	private LockState lockState;
+	private ViewLock lock;
 	
-	public OnPermissionGranted_Unlock(LockState lockState)
+	public OnPermissionGranted_Unlock(ViewLock lock)
 	{
-		this.lockState = lockState;
+		this.lock = lock;
 	}
 	
 	@Override
 	public void granted()
 	{
-		lockState.unlock();
+		lock.unlock();
 	}
 }
