@@ -1,32 +1,30 @@
 package com.jordan.betcher.siviso.siviso.map;
 
+import android.view.View;
+import android.widget.Button;
+
+import com.google.android.gms.maps.SupportMapFragment;
+import com.jordan.betcher.siviso.siviso.lock.A_Lock;
+import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
+
 public class Factory_SetupMap
 {
-	public Factory_SetupMap()
+	private A_Lock viewLock;
+	private SupportMapFragment supportMapFragment;
+	
+	public Factory_SetupMap(SupportMapFragment supportMapFragment, Button mapLock, Permission_AccessFineLocation permission)
 	{
-		//A_Lock viewLock = createViewLock(mapLock, permission, supportMapFragment);
-		//setupMultiple(multiple, supportMapFragment, viewLock);
-		
-//		private A_Lock createViewLock(Button mapLock, Permission_AccessFineLocation
-//		permission, SupportMapFragment supportMapFragment)
-//		{
-//			View mapView = supportMapFragment.getView();
-//			return new A_Lock(mapView, mapLock, permission);
-//		}
-//
-//		private void setupMultiple(
-//	OnMapReady_CallOnMapReadys multiple,
-//	SupportMapFragment supportMapFragment, A_Lock viewLock)
-//		{
-//			A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(multiple);
-//			OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
-//			viewLock.addOnUnlock(addOnMapReadyCallback);
-//		}
+		this.supportMapFragment = supportMapFragment;
+		View mapView = supportMapFragment.getView();
+		viewLock = new A_Lock(mapView, mapLock, permission);
 	}
 	
 	public OnMapReady_CallOnMapReadys onMapReady()
 	{
-		return null;
-		//TODO
+		OnMapReady_CallOnMapReadys onMapReady = new OnMapReady_CallOnMapReadys();
+		A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(onMapReady);
+		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
+		viewLock.addOnUnlock(addOnMapReadyCallback);
+		return onMapReady;
 	}
 }

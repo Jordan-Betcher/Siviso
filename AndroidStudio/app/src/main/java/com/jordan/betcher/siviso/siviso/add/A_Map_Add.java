@@ -19,10 +19,10 @@ class A_Map_Add
 	A_Activity_Add activity, Database database,
 	Permission_AccessFineLocation permission)
 	{
-		Button mapLock = activity.findViewById(R.id.addMapLock);
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.addMap);
+		Button mapLock = activity.findViewById(R.id.addMapLock);
 		
-		Factory_SetupMap setupMapFactory = new Factory_SetupMap();
+		Factory_SetupMap setupMapFactory = new Factory_SetupMap(supportMapFragment, mapLock, permission);
 		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
 		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
 		

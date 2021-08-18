@@ -1,7 +1,11 @@
 package com.jordan.betcher.siviso.siviso.main;
 
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.SupportMapFragment;
+import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.map.Factory_AddOnCircleClickSelectSiviso;
@@ -23,10 +27,10 @@ class A_Map_Main
 	Permission_AccessFineLocation permission, Database database,
 	SivisoList sivisoList)
 	{
-//		Button mapLock = activity.findViewById(R.id.homeMapLock);
-//		SupportMapFragment supportMapFragment = (SupportMapFragment)this.getSupportFragmentManager().findFragmentById(R.id.homeMap);
+		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
+		Button mapLock = activity.findViewById(R.id.homeMapLock);
 		
-		Factory_SetupMap setupMapFactory = new Factory_SetupMap();
+		Factory_SetupMap setupMapFactory = new Factory_SetupMap(supportMapFragment, mapLock, permission);
 		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
 		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
 		Factory_CreateCircles createCirclesFactory = new Factory_CreateCircles(database);
