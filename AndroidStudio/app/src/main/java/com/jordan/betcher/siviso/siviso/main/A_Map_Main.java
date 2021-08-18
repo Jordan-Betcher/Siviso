@@ -30,7 +30,7 @@ class A_Map_Main
 		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation();
 		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation();
 		Factory_CreateCircles createCirclesFactory = new Factory_CreateCircles();
-		Factory_AddOnCircleClickSelectSiviso addOnCircleClickSelectSivisoFactory = new Factory_AddOnCircleClickSelectSiviso();
+		Factory_AddOnCircleClickSelectSiviso addOnCircleClickSelectSivisoFactory = new Factory_AddOnCircleClickSelectSiviso(sivisoList);
 		
 		OnMapReady_CallOnMapReadys onMapReady = setupMapFactory.onMapReady();
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = enableCurrentLocationFactory.create();
