@@ -4,7 +4,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 
-class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMapReady, LocationListener
+public class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMapReady, LocationListener
 {
 	private Location location;
 	private Wrapper_GoogleMap googleMap;

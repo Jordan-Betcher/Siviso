@@ -1,22 +1,20 @@
-package com.jordan.betcher.siviso.siviso;
+package com.jordan.betcher.siviso.siviso.main;
 
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
-import com.jordan.betcher.siviso.siviso.map.A_Map;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -134,9 +132,8 @@ public class A_Activity_Main extends AppCompatActivity
 				return new LatLng(0, 0);
 			}
 		};
-		Button mapLock = activity.findViewById(R.id.homeMapLock);
-		SupportMapFragment supportMapFragment = (SupportMapFragment)this.getSupportFragmentManager().findFragmentById(R.id.homeMap);
-		new A_Map(this, map, supportMapFragment, mapLock, accessFineLocationPermission, database, sivisoList);
+		
+		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);
 	}
 	

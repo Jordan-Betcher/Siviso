@@ -5,7 +5,7 @@ import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
 import java.util.ArrayList;
 
-class OnMapReady_CreateSivisoCircles implements OnMapReady
+public class OnMapReady_CreateSivisoCircles implements OnMapReady
 {
 	private ArrayList<SivisoData> sivisoDatas;
 	private Factory_CircleOptions factory;

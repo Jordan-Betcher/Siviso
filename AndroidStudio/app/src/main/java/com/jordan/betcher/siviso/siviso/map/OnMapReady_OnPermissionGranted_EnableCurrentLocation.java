@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.siviso.map;
 
 import com.jordan.betcher.siviso.siviso.permissions.OnPermissionGranted;
 
-class OnMapReady_OnPermissionGranted_EnableCurrentLocation implements OnMapReady, OnPermissionGranted
+public class OnMapReady_OnPermissionGranted_EnableCurrentLocation implements OnMapReady, OnPermissionGranted
 {
 	boolean granted = false;
 	Wrapper_GoogleMap googleMap = null;

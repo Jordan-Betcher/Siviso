@@ -3,19 +3,16 @@ package com.jordan.betcher.siviso.siviso.add;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
-import com.jordan.betcher.siviso.siviso.map.A_Map;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -136,10 +133,8 @@ public class A_Activity_Add extends AppCompatActivity
 			}
 		};
 		
-		SupportMapFragment supportMapFragment = (SupportMapFragment)this.getSupportFragmentManager().findFragmentById(R.id.addMap);
 		
-		Button mapLock = activity.findViewById(R.id.addMapLock);
-		new A_Map(this, map, supportMapFragment, mapLock, accessFineLocationPermission, database, sivisoList);
+		new A_Map_Add(this, database, accessFineLocationPermission);
 		new A_AddSiviso();
 		new A_CancelButton(this);
 		new A_ConfirmButton();

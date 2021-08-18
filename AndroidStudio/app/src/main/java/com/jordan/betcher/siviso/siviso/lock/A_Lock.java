@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.siviso.lock;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,7 +9,7 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission;
 public class A_Lock
 {
 	LockState lockState;
-	
+	//TODO Make Tests
 	public A_Lock(View map, Button mapLock, Permission permission)
 	{
 		lockState = new LockState(map, mapLock);

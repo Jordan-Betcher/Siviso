@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.siviso.map;
 
 import com.google.android.gms.maps.GoogleMap;
 
-class OnMapReady_AddOnCircleClickListener implements OnMapReady
+public class OnMapReady_AddOnCircleClickListener implements OnMapReady
 {
 	private GoogleMap.OnCircleClickListener onCircleClicked;
 	
