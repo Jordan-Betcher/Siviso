@@ -23,7 +23,7 @@ class A_Map_Add
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.addMap);
 		
 		Factory_SetupMap setupMapFactory = new Factory_SetupMap();
-		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation();
+		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
 		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
 		
 		OnMapReady_CallOnMapReadys multiple = setupMapFactory.onMapReady();
