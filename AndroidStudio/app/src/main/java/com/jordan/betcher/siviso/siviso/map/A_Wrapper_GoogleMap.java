@@ -57,4 +57,10 @@ class A_Wrapper_GoogleMap implements Wrapper_GoogleMap
 	{
 		googleMap.setOnCircleClickListener(onCircleClicked);
 	}
+	
+	@Override
+	public void addOnMapClickListener(GoogleMap.OnMapClickListener listener)
+	{
+		googleMap.setOnMapClickListener(listener);
+	}
 }

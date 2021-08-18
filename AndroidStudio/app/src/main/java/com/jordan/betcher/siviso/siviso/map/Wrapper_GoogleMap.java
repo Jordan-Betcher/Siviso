@@ -16,4 +16,6 @@ interface Wrapper_GoogleMap
 	Wrapper_Circle createCircle(CircleOptions circleOptions);
 	
 	void addOnCircleClickListener(GoogleMap.OnCircleClickListener listener);
+	
+	void addOnMapClickListener(GoogleMap.OnMapClickListener listener);
 }
