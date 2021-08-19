@@ -10,7 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.add.cancel.A_CancelButton;
-import com.jordan.betcher.siviso.siviso.add.siviso.A_AddSiviso;
+import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
+import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
@@ -135,10 +136,10 @@ public class A_Activity_Add extends AppCompatActivity
 			}
 		};
 		
-		
-		new A_Map_Add(this, database, accessFineLocationPermission);
-		new A_AddSiviso(this);
+		PossibleSivisoData possibleSivisoData = new PossibleSivisoData();
+		new A_Map_Add(this, possibleSivisoData, accessFineLocationPermission);
+		new A_Siviso(this, possibleSivisoData);
 		new A_CancelButton(this);
-		new A_ConfirmButton();
+		new A_ConfirmButton(this, possibleSivisoData, database);
 	}
 }

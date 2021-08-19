@@ -9,11 +9,7 @@ import com.jordan.betcher.siviso.siviso.R;
 
 public class ArrayAdapter_Sivisos extends ArrayAdapter<CharSequence>
 {
-	//TODO make it sivisos
-	//Change class name to ArrayAdapater_sivisos
-	//Make it not accept resource and objects, provide them instead
-	public ArrayAdapter_Sivisos(
-	@NonNull Context context)
+	public ArrayAdapter_Sivisos(@NonNull Context context)
 	{
 		super(context, android.R.layout.simple_spinner_item, getSivisos(context));
 	}

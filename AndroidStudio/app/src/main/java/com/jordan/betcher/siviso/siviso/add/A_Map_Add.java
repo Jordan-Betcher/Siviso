@@ -4,7 +4,6 @@ import android.widget.Button;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.map.Factory_EnableCurrentLocation;
 import com.jordan.betcher.siviso.siviso.map.Factory_SelectCircle;
 import com.jordan.betcher.siviso.siviso.map.Factory_SetupMap;
@@ -17,8 +16,9 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 
 class A_Map_Add
 {
+	//TODO set possibleSivisoData
 	public A_Map_Add(
-	A_Activity_Add activity, Database database,
+	A_Activity_Add activity, PossibleSivisoData possibleSivisoData,
 	Permission_AccessFineLocation permission)
 	{
 		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.addMap);
