@@ -7,7 +7,7 @@ class ConfirmButton
 	public ConfirmButton(
 	Button button, OnClick_SaveSivisoData saveData)
 	{
-	
+		button.setOnClickListener(saveData);
 	}
 	//TODO
 }
