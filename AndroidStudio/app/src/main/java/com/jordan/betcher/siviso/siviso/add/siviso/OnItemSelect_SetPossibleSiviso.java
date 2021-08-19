@@ -8,15 +8,17 @@ import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 class OnItemSelect_SetPossibleSiviso
 implements AdapterView.OnItemSelectedListener
 {
+	private PossibleSivisoData possibleSivisoData;
+	
 	public OnItemSelect_SetPossibleSiviso(PossibleSivisoData possibleSivisoData)
 	{
-		possibleSivisoData.setSiviso(0);
+		this.possibleSivisoData = possibleSivisoData;
 	}
 	
 	@Override
-	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+	public void onItemSelected(AdapterView<?> adapterView, View view, int index, long l)
 	{
-	
+		possibleSivisoData.setSiviso(index);
 	}
 	
 	@Override
