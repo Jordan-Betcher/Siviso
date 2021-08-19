@@ -39,9 +39,4 @@ class A_Map_Add
 		multiple.add(selectCircle);
 	}
 	
-	//enableCurrentLocation(permission, multiple);
-	//startAtCurrentLocation(activity, permission, multiple);
-	//TODO map OnClick set circle
-	//TODO map onClick again move circle
-	
 }

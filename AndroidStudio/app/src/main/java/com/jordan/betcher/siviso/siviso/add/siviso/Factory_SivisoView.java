@@ -14,7 +14,7 @@ class Factory_SivisoView
 	public SivisoView create(A_Activity_Add activity, LayoutInflater layoutInflater)
 	{
 		ViewGroup parent = activity.findViewById(R.id.addSiviso);
-		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
+		View view = layoutInflater.inflate(R.layout.item_siviso, parent, true);
 		Spinner spinner = view.findViewById(R.id.spinner);
 		
 		ArrayAdapter_CharSequence arrayAdapter_charSequence = new ArrayAdapter_CharSequence(activity, 0, new CharSequence[0]);

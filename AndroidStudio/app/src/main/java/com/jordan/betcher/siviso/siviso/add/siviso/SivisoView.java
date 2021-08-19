@@ -10,8 +10,4 @@ class SivisoView
 	{
 		spinner.setAdapter(arrayAdapter);
 	}
-	//TODO
-	
-	//Setup spinner
-	//Spinner onitemclick get select to confirm
 }
