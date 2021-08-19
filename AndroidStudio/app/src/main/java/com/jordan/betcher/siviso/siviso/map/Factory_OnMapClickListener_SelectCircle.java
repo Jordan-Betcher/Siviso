@@ -4,7 +4,6 @@ class Factory_OnMapClickListener_SelectCircle
 {
 	public OnMapClickListener_SelectCircle create(Wrapper_GoogleMap googleMap)
 	{
-		return null;
+		return new OnMapClickListener_SelectCircle();
 	}
-	//TODO
 }
