@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
@@ -130,6 +131,13 @@ public class A_Activity_Main extends AppCompatActivity
 			public LatLng sivisoLatLng(int index)
 			{
 				return new LatLng(0, 0);
+			}
+			
+			@Override
+			public void saveNewSiviso(
+			PossibleSivisoData possibleSivisoData)
+			{
+			
 			}
 		};
 		

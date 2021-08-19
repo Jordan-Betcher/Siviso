@@ -4,12 +4,11 @@ import android.widget.Button;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
-import com.jordan.betcher.siviso.siviso.add.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 
 public class A_ConfirmButton
 {
-	//TODO
 	public A_ConfirmButton(
 	A_Activity_Add activity, PossibleSivisoData possibleSivisoData,
 	Database database)

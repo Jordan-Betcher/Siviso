@@ -9,5 +9,4 @@ class ConfirmButton
 	{
 		button.setOnClickListener(saveData);
 	}
-	//TODO
 }

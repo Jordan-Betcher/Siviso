@@ -13,6 +13,7 @@ import com.jordan.betcher.siviso.siviso.add.cancel.A_CancelButton;
 import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
 import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
@@ -133,6 +134,13 @@ public class A_Activity_Add extends AppCompatActivity
 			public LatLng sivisoLatLng(int index)
 			{
 				return new LatLng(0, 0);
+			}
+			
+			@Override
+			public void saveNewSiviso(
+			PossibleSivisoData possibleSivisoData)
+			{
+			
 			}
 		};
 		

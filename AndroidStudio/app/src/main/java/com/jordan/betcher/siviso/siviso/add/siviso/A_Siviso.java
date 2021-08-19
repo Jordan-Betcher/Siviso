@@ -3,7 +3,7 @@ package com.jordan.betcher.siviso.siviso.add.siviso;
 import android.view.LayoutInflater;
 
 import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
-import com.jordan.betcher.siviso.siviso.add.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 
 public class A_Siviso
 {

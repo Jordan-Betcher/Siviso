@@ -4,6 +4,7 @@ import android.widget.Button;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.map.Factory_EnableCurrentLocation;
 import com.jordan.betcher.siviso.siviso.map.Factory_SelectCircle;
 import com.jordan.betcher.siviso.siviso.map.Factory_SetupMap;
