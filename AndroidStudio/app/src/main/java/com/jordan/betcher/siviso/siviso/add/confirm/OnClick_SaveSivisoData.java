@@ -7,16 +7,19 @@ import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 
 class OnClick_SaveSivisoData implements View.OnClickListener
 {
+	private Database database;
+	private PossibleSivisoData possibleSivisoData;
+	
 	public OnClick_SaveSivisoData(
 	Database database, PossibleSivisoData possibleSivisoData)
 	{
-		database.saveNewSiviso(possibleSivisoData);
+		this.database = database;
+		this.possibleSivisoData = possibleSivisoData;
 	}
 	
 	@Override
 	public void onClick(View view)
 	{
-	
+		database.saveNewSiviso(possibleSivisoData);
 	}
-	//TODO
 }
