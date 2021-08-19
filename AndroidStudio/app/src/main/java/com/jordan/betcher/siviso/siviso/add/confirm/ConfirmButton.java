@@ -9,4 +9,9 @@ class ConfirmButton
 	{
 		button.setOnClickListener(saveData);
 	}
+	
+	public void enable()
+	{
+		//TODO
+	}
 }
