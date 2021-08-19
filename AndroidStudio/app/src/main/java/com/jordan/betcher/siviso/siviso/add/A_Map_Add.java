@@ -9,7 +9,7 @@ import com.jordan.betcher.siviso.siviso.map.Factory_EnableCurrentLocation;
 import com.jordan.betcher.siviso.siviso.map.Factory_SelectCircle;
 import com.jordan.betcher.siviso.siviso.map.Factory_SetupMap;
 import com.jordan.betcher.siviso.siviso.map.Factory_StartAtCurrentLocation;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_AddOnMapClickListener;
+import com.jordan.betcher.siviso.siviso.map.OnMapReady_AddOnMapClick_SelectCircle;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_LocationListener_StartAtCurrentLocation;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_OnPermissionGranted_EnableCurrentLocation;
@@ -32,7 +32,7 @@ class A_Map_Add
 		OnMapReady_CallOnMapReadys multiple = setupMapFactory.onMapReady();
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = enableCurrentLocationFactory.create();
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = startAtCurrentLocationFactory.create();
-		OnMapReady_AddOnMapClickListener selectCircle = selectCircleFactory.create();
+		OnMapReady_AddOnMapClick_SelectCircle selectCircle = selectCircleFactory.create();
 		
 		multiple.add(enableCurrentLocation);
 		multiple.add(startAtCurrentLocation);

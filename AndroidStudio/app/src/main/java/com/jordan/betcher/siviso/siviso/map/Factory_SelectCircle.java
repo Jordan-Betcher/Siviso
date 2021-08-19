@@ -2,9 +2,9 @@ package com.jordan.betcher.siviso.siviso.map;
 
 public class Factory_SelectCircle
 {
-	public OnMapReady_AddOnMapClickListener create()
+	public OnMapReady_AddOnMapClick_SelectCircle create()
 	{
-		return null;
+		Factory_OnMapClickListener_SelectCircle selectCircle = new Factory_OnMapClickListener_SelectCircle();
+		return new OnMapReady_AddOnMapClick_SelectCircle(selectCircle);
 	}
-	//TODO
 }
