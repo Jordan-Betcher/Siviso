@@ -12,6 +12,17 @@ public class Test$ConfirmButton
 {
 	
 	@Test
+	public void _buttonSaveData_0setButtonEnabledFalse()
+	{
+		Button button = mock(Button.class);
+		OnClick_SaveSivisoData saveData = mock(OnClick_SaveSivisoData.class);
+		
+		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
+		
+		verify(button, times(0)).setEnabled(true);
+	}
+	
+	@Test
 	public void enable_buttonSaveData_setButtonEnabledFalse()
 	{
 		Button button = mock(Button.class);

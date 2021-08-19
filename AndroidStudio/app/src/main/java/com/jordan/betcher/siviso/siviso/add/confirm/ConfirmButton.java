@@ -4,16 +4,19 @@ import android.widget.Button;
 
 class ConfirmButton
 {
+	@androidx.annotation.NonNull
+	private final Button button;
+	
 	public ConfirmButton(
 	Button button, OnClick_SaveSivisoData saveData)
 	{
+		this.button = button;
 		button.setOnClickListener(saveData);
 		button.setEnabled(false);
-		button.setEnabled(true);
 	}
 	
 	public void enable()
 	{
-		//TODO
+		button.setEnabled(true);
 	}
 }
