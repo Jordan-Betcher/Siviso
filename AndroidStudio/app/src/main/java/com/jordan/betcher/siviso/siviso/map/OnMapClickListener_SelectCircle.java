@@ -24,6 +24,6 @@ class OnMapClickListener_SelectCircle implements GoogleMap.OnMapClickListener
 		{
 			circle.setCenter(latLng);
 		}
-		googleMap.createCircle(factory.create(latLng));
+		circle = googleMap.createCircle(factory.create(latLng));
 	}
 }
