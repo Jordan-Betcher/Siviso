@@ -7,14 +7,18 @@ import com.google.android.gms.maps.model.LatLng;
 
 class OnMapClickListener_SelectCircle implements GoogleMap.OnMapClickListener
 {
+	private Wrapper_GoogleMap googleMap;
+	private Factory_CircleOptions_NewSivisoCircle factory;
+	
 	public OnMapClickListener_SelectCircle(Wrapper_GoogleMap googleMap, Factory_CircleOptions_NewSivisoCircle factory)
 	{
-		googleMap.createCircle(factory.create(new LatLng(0, 0)));
+		this.googleMap = googleMap;
+		this.factory = factory;
 	}
 	
 	@Override
 	public void onMapClick(@NonNull LatLng latLng)
 	{
-	//TODO
+		googleMap.createCircle(factory.create(latLng));
 	}
 }
