@@ -8,6 +8,7 @@ class ConfirmButton
 	Button button, OnClick_SaveSivisoData saveData)
 	{
 		button.setOnClickListener(saveData);
+		button.setEnabled(false);
 	}
 	
 	public void enable()

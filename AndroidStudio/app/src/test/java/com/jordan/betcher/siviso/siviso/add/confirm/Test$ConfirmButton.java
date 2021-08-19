@@ -11,6 +11,17 @@ import org.junit.Test;
 public class Test$ConfirmButton
 {
 	@Test
+	public void _buttonSaveData_setButtonEnabledFalse()
+	{
+		Button button = mock(Button.class);
+		OnClick_SaveSivisoData saveData = mock(OnClick_SaveSivisoData.class);
+		
+		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
+		
+		verify(button, times(1)).setEnabled(false);
+	}
+	
+	@Test
 	public void _buttonSaveData_setOnClickSaveData()
 	{
 		Button button = mock(Button.class);
