@@ -127,7 +127,7 @@ public class A_Activity_Add extends AppCompatActivity
 			@Override
 			public void setSiviso(int sivisoIndex, int itemIndex)
 			{
-				Toast.makeText(activity, "A_Activity_Main: Database setSiviso", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: Database setSiviso", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
@@ -140,7 +140,7 @@ public class A_Activity_Add extends AppCompatActivity
 			public void saveNewSiviso(
 			PossibleSivisoData possibleSivisoData)
 			{
-			
+				Toast.makeText(activity, "A_Activity_Add: Database saveNewSiviso", Toast.LENGTH_SHORT).show();
 			}
 		};
 		

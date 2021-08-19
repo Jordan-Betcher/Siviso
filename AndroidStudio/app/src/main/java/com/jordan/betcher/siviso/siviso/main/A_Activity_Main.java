@@ -3,7 +3,6 @@ package com.jordan.betcher.siviso.siviso.main;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,13 +81,13 @@ public class A_Activity_Main extends AppCompatActivity
 			@Override
 			public void goToCurrentLocation()
 			{
-				Toast.makeText(activity, "A_Activity_Main: SivisoMap goToCurrentLocation", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: SivisoMap goToCurrentLocation", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
 			public void goToLocation(LatLng sivisoLocation)
 			{
-				Toast.makeText(activity, "A_Activity_Main: SivisoMap goToLocation " + sivisoLocation.toString(), Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: SivisoMap goToLocation " + sivisoLocation.toString(), Toast.LENGTH_SHORT).show();
 			}
 		};
 		
@@ -97,14 +96,14 @@ public class A_Activity_Main extends AppCompatActivity
 			@Override
 			public Siviso defaultSiviso()
 			{
-				Toast.makeText(activity, "A_Activity_Main: Database defaultSiviso", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: Database defaultSiviso", Toast.LENGTH_SHORT).show();
 				return Siviso.SILENT;
 			}
 			
 			@Override
 			public void setDefaultSiviso(Siviso sivisoFromPosition)
 			{
-				Toast.makeText(activity, "A_Activity_Main: Database setDefaultSiviso", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: Database setDefaultSiviso", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override
@@ -124,7 +123,7 @@ public class A_Activity_Main extends AppCompatActivity
 			@Override
 			public void setSiviso(int sivisoIndex, int itemIndex)
 			{
-				Toast.makeText(activity, "A_Activity_Main: Database setSiviso", Toast.LENGTH_SHORT).show();
+				//Toast.makeText(activity, "A_Activity_Main: Database setSiviso", Toast.LENGTH_SHORT).show();
 			}
 			
 			@Override

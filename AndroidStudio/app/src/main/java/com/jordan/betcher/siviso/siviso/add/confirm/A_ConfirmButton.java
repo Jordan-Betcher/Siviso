@@ -14,6 +14,7 @@ public class A_ConfirmButton
 	Database database)
 	{
 		Button button = activity.findViewById(R.id.buttonConfirm);
+		//TODO on click go back to home ?Database.save go to home
 		OnClick_SaveSivisoData saveData = new OnClick_SaveSivisoData(database, possibleSivisoData);
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		OnComplete_EnableButton enableButton = new OnComplete_EnableButton(confirmButton);
