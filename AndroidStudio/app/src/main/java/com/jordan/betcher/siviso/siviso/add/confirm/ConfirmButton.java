@@ -9,6 +9,7 @@ class ConfirmButton
 	{
 		button.setOnClickListener(saveData);
 		button.setEnabled(false);
+		button.setEnabled(true);
 	}
 	
 	public void enable()
