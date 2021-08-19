@@ -21,7 +21,7 @@ class Factory_SivisoView
 		Spinner spinner = view.findViewById(R.id.spinner);
 		
 		ArrayAdapter_Sivisos arrayAdapter_sivisos = new ArrayAdapter_Sivisos(activity);
-		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso();
+		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso(possibleSivisoData);
 		return new SivisoView(spinner, arrayAdapter_sivisos, onItemSelect);
 	}
 	

@@ -13,5 +13,10 @@ public class PossibleSivisoData
 	{
 	
 	}
+	
+	public void setSiviso(int index)
+	{
+	
+	}
 	//TODO
 }
