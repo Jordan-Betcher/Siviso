@@ -9,6 +9,16 @@ import org.junit.Test;
 public class Test$OnComplete_EnableButton
 {
 	@Test
+	public void __0enableConfirmButton()
+	{
+		ConfirmButton confirmButton = mock(ConfirmButton.class);
+		
+		OnComplete_EnableButton onComplete = new OnComplete_EnableButton(confirmButton);
+		
+		verify(confirmButton, times(0)).enable();
+	}
+	
+	@Test
 	public void onComplete__enableConfirmButton()
 	{
 		ConfirmButton confirmButton = mock(ConfirmButton.class);

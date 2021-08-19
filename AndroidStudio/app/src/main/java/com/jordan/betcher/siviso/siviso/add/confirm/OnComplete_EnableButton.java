@@ -5,16 +5,17 @@ import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 
 class OnComplete_EnableButton implements OnComplete
 {
+	private ConfirmButton confirmButton;
+	
 	public OnComplete_EnableButton(ConfirmButton confirmButton)
 	{
-		confirmButton.enable();
+		this.confirmButton = confirmButton;
 	}
 	
 	@Override
 	public void onComplete(
 	PossibleSivisoData possibleSivisoData)
 	{
-	
+		confirmButton.enable();
 	}
-	//TODO
 }
