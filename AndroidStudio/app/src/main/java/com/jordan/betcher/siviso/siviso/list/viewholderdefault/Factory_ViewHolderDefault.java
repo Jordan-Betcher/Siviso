@@ -10,7 +10,7 @@ import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_CharSequence;
+import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
@@ -20,10 +20,10 @@ public class Factory_ViewHolderDefault
 	private LayoutInflater layoutInflater;
 	private OnClickListener_GoToCurrentLocation clickListener;
 	private Database database;
-	private ArrayAdapter_CharSequence adapter;
+	private ArrayAdapter_Sivisos adapter;
 	
 	public Factory_ViewHolderDefault(
-	LayoutInflater layoutInflater, ArrayAdapter_CharSequence adapter,
+	LayoutInflater layoutInflater, ArrayAdapter_Sivisos adapter,
 	SivisoMap sivisoMap, Database database)
 	{
 		this.layoutInflater = layoutInflater;

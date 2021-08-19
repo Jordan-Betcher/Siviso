@@ -6,7 +6,7 @@ import static org.mockito.Mockito.verify;
 
 import android.widget.Spinner;
 
-import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_CharSequence;
+import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class Test$SivisoView
 	public void _spinnerArrayAdapter_setAdapter()
 	{
 		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_CharSequence arrayAdapter = mock(ArrayAdapter_CharSequence.class);
+		ArrayAdapter_Sivisos arrayAdapter = mock(ArrayAdapter_Sivisos.class);
 		
 		SivisoView sivisoView = new SivisoView(spinner, arrayAdapter);
 		

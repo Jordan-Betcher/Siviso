@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
-import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_CharSequence;
+import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ public class Test$ViewHolder_Default
 		TextView textView = mock(TextView.class);
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
@@ -41,7 +41,7 @@ public class Test$ViewHolder_Default
 		TextView textView = mock(TextView.class);
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView background = mock(CardView.class);
@@ -59,7 +59,7 @@ public class Test$ViewHolder_Default
 		TextView textView = mock(TextView.class);
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
@@ -77,7 +77,7 @@ public class Test$ViewHolder_Default
 		TextView textView = mock(TextView.class);
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
@@ -95,7 +95,7 @@ public class Test$ViewHolder_Default
 		TextView textView = mock(TextView.class);
 		String name = "Default";
 		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_CharSequence adapter = mock(ArrayAdapter_CharSequence.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);

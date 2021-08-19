@@ -21,8 +21,7 @@ public class A_List
 		RecyclerView sivisoListView = activity.findViewById(R.id.recyclerViewSivisoList);
 		sivisoListView.setLayoutManager(new LinearLayoutManager(activity));
 		
-		CharSequence[] arrayOfSivisos = activity.getResources().getStringArray(R.array.sivisos);
-		ArrayAdapter_CharSequence sivisoSpinnerAdapter = new ArrayAdapter_CharSequence(activity, android.R.layout.simple_spinner_item, arrayOfSivisos);
+		ArrayAdapter_Sivisos sivisoSpinnerAdapter = new ArrayAdapter_Sivisos(activity);
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		Factory_ViewHolderDefault factoryViewHolderDefault = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
 		Factory_ViewHolderSiviso factoryViewHolderSiviso = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap);
