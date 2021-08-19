@@ -36,7 +36,7 @@ public class Factory_ViewHolderDefault
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
 		TextView textView = view.findViewById(R.id.textViewName);
-		Spinner spinner = view.findViewById(R.id.spinnerHome);
+		Spinner spinner = view.findViewById(R.id.spinner);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = view.getResources().getString(R.string.siviso_list_name_default);
 		SivisoConverter sivisoConverter = new SivisoConverter();

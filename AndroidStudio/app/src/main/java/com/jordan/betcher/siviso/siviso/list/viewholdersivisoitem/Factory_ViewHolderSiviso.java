@@ -33,7 +33,7 @@ public class Factory_ViewHolderSiviso
 	public ViewHolder_Abstract create(ViewGroup parent)
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-		Spinner spinner = view.findViewById(R.id.spinnerHome);
+		Spinner spinner = view.findViewById(R.id.spinner);
 		TextView textView = view.findViewById(R.id.textViewName);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = "";

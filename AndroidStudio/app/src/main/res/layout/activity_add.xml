@@ -24,10 +24,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +57,17 @@
                 android:layout_height="match_parent"
                 tools:context=".Locations" />
         </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addSiviso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/addMapLayout"
+        app:layout_constraintStart_toStartOf="@+id/addMapLayout"
+        app:layout_constraintTop_toBottomOf="@+id/addMapLayout">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

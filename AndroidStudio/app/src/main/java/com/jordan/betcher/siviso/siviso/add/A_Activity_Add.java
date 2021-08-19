@@ -137,7 +137,7 @@ public class A_Activity_Add extends AppCompatActivity
 		
 		
 		new A_Map_Add(this, database, accessFineLocationPermission);
-		new A_AddSiviso();
+		new A_AddSiviso(this);
 		new A_CancelButton(this);
 		new A_ConfirmButton();
 	}

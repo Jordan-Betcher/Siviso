@@ -1,10 +1,10 @@
-package com.jordan.betcher.siviso.siviso.add;
+package com.jordan.betcher.siviso.siviso.add.cancel;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import com.jordan.betcher.siviso.siviso.add.cancel.OnClickListener_StopActivity;
+import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
 
 import org.junit.Test;
 

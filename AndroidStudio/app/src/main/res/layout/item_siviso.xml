@@ -22,7 +22,7 @@
             android:translationX="8dp" />
 
         <Spinner
-            android:id="@+id/spinnerHome"
+            android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
