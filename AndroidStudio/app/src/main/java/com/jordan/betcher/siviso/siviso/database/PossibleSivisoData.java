@@ -4,17 +4,16 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class PossibleSivisoData
 {
-	int siviso;
-	LatLng latLng;
+	private OnComplete onComplete;
 	
-	public void addOnComplete(OnComplete onComplete)
+	public void setOnComplete(OnComplete onComplete)
 	{
-		onComplete.onComplete(this);
+		this.onComplete = onComplete;
 	}
 	
 	public void setLatLng(LatLng latLng)
 	{
-	
+		onComplete.onComplete(this);
 	}
 	
 	public void setSiviso(int index)
