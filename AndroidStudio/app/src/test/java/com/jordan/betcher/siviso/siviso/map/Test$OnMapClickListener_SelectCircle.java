@@ -13,6 +13,23 @@ import org.junit.Test;
 public class Test$OnMapClickListener_SelectCircle
 {
 	@Test
+	public void onMapClick_00Circle_moveCircleTo00()
+	{
+		LatLng latLng = new LatLng(0, 1);
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		Factory_CircleOptions_NewSivisoCircle factory = mock(Factory_CircleOptions_NewSivisoCircle.class);
+		CircleOptions circleOptions  = new CircleOptions();
+		when(factory.create(latLng)).thenReturn(circleOptions);
+		Wrapper_Circle circle = mock(Wrapper_Circle.class);
+		
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory);
+		selectCircle.circle = circle;
+		selectCircle.onMapClick(latLng);
+		
+		verify(circle, times(1)).setCenter(latLng);
+	}
+	
+	@Test
 	public void onMapClick_01_createCircle01()
 	{
 		LatLng latLng = new LatLng(0, 1);
