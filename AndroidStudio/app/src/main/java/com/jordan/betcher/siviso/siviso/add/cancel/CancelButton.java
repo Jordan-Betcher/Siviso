@@ -1,4 +1,4 @@
-package com.jordan.betcher.siviso.siviso.add;
+package com.jordan.betcher.siviso.siviso.add.cancel;
 
 import android.widget.Button;
 

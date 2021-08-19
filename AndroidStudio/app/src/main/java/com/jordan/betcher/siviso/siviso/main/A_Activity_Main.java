@@ -135,6 +135,9 @@ public class A_Activity_Main extends AppCompatActivity
 		
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);
+		//TODO delete button
+		//TODO edit button
+		//TODO on/off button
 	}
 	
 	

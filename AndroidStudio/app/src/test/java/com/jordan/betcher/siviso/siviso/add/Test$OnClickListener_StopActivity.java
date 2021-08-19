@@ -4,6 +4,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import com.jordan.betcher.siviso.siviso.add.cancel.OnClickListener_StopActivity;
+
 import org.junit.Test;
 
 public class Test$OnClickListener_StopActivity

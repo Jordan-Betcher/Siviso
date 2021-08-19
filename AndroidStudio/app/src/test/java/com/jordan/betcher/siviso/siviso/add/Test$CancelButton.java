@@ -6,6 +6,9 @@ import static org.mockito.Mockito.verify;
 
 import android.widget.Button;
 
+import com.jordan.betcher.siviso.siviso.add.cancel.CancelButton;
+import com.jordan.betcher.siviso.siviso.add.cancel.OnClickListener_StopActivity;
+
 import org.junit.Test;
 
 public class Test$CancelButton
