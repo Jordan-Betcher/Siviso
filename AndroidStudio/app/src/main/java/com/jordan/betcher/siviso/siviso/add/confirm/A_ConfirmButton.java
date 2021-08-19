@@ -17,6 +17,6 @@ public class A_ConfirmButton
 		OnClick_SaveSivisoData saveData = new OnClick_SaveSivisoData(database, possibleSivisoData);
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		OnComplete_EnableButton enableButton = new OnComplete_EnableButton(confirmButton);
-		possibleSivisoData.onComplete(enableButton);
+		possibleSivisoData.addOnComplete(enableButton);
 	}
 }

@@ -17,7 +17,6 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 
 class A_Map_Add
 {
-	//TODO set possibleSivisoData
 	public A_Map_Add(
 	A_Activity_Add activity, PossibleSivisoData possibleSivisoData,
 	Permission_AccessFineLocation permission)
@@ -28,7 +27,7 @@ class A_Map_Add
 		Factory_SetupMap setupMapFactory = new Factory_SetupMap(supportMapFragment, mapLock, permission);
 		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
 		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
-		Factory_SelectCircle selectCircleFactory = new Factory_SelectCircle();
+		Factory_SelectCircle selectCircleFactory = new Factory_SelectCircle(possibleSivisoData);
 		
 		OnMapReady_CallOnMapReadys multiple = setupMapFactory.onMapReady();
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = enableCurrentLocationFactory.create();
