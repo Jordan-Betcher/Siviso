@@ -5,4 +5,6 @@ import com.google.android.gms.maps.model.LatLng;
 public interface SivisoList
 {
 	void select(LatLng latLng);
+	
+	void addOnSelect(OnSelect onSelect);
 }

@@ -14,7 +14,9 @@ import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
+import com.jordan.betcher.siviso.siviso.list.OnSelect;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
+import com.jordan.betcher.siviso.siviso.main.delete.button.A_DeleteButton;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -72,9 +74,18 @@ public class A_Activity_Main extends AppCompatActivity
 		sivisoDatas.add(sivisoData);
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = latLng ->
-		{
-		
+		SivisoList sivisoList = new SivisoList(){
+			@Override
+			public void select(LatLng latLng)
+			{
+			
+			}
+			
+			@Override
+			public void addOnSelect(OnSelect onSelect)
+			{
+			
+			}
 		};
 		
 		SivisoMap sivisoMap = new SivisoMap(){
@@ -143,6 +154,7 @@ public class A_Activity_Main extends AppCompatActivity
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);
 		//TODO delete button
+		new A_DeleteButton(this, database, sivisoList);
 		//TODO edit button
 		//TODO on/off button
 	}

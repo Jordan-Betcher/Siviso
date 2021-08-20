@@ -16,6 +16,7 @@ import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
+import com.jordan.betcher.siviso.siviso.list.OnSelect;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
@@ -76,10 +77,19 @@ public class A_Activity_Add extends AppCompatActivity
 		sivisoDatas.add(sivisoData);
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = latLng ->
-		{
-		
-		};
+		SivisoList sivisoList = new SivisoList(){
+			@Override
+			public void select(LatLng latLng)
+			{
+			
+			}
+			
+			@Override
+			public void addOnSelect(OnSelect onSelect)
+			{
+			
+			}
+		}
 		
 		SivisoMap sivisoMap = new SivisoMap(){
 			@Override
