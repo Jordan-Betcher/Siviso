@@ -4,11 +4,11 @@ import android.view.View;
 
 import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
 
-class OnClickListener_StopActivity implements View.OnClickListener
+class OnClickListener_FinishActivity implements View.OnClickListener
 {
 	private A_Activity_Add activity;
 	
-	public OnClickListener_StopActivity(A_Activity_Add activity)
+	public OnClickListener_FinishActivity(A_Activity_Add activity)
 	{
 		this.activity = activity;
 	}

@@ -8,14 +8,14 @@ import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
 
 import org.junit.Test;
 
-public class Test$OnClickListener_StopActivity
+public class Test$OnClickListener_FinishActivity
 {
 	@Test
 	public void _activity_finishActivity()
 	{
 		A_Activity_Add activity = mock(A_Activity_Add.class);
 		
-		new OnClickListener_StopActivity(activity);
+		new OnClickListener_FinishActivity(activity);
 		
 		verify(activity, times(0)).finish();
 	}
@@ -25,7 +25,7 @@ public class Test$OnClickListener_StopActivity
 	{
 		A_Activity_Add activity = mock(A_Activity_Add.class);
 		
-		OnClickListener_StopActivity stopActivity = new OnClickListener_StopActivity(activity);
+		OnClickListener_FinishActivity stopActivity = new OnClickListener_FinishActivity(activity);
 		stopActivity.onClick(null);
 		
 		verify(activity, times(1)).finish();

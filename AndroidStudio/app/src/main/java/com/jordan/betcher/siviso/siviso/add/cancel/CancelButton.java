@@ -4,7 +4,7 @@ import android.widget.Button;
 
 class CancelButton
 {
-	public CancelButton(Button button, OnClickListener_StopActivity onClickListener)
+	public CancelButton(Button button, OnClickListener_FinishActivity onClickListener)
 	{
 		button.setOnClickListener(onClickListener);
 	}

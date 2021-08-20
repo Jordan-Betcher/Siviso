@@ -14,7 +14,7 @@ public class Test$CancelButton
 	public void _buttonOnClickListener_setButtonOnClickListener()
 	{
 		Button button = mock(Button.class);
-		OnClickListener_StopActivity onClickListener = mock(OnClickListener_StopActivity.class);
+		OnClickListener_FinishActivity onClickListener = mock(OnClickListener_FinishActivity.class);
 		
 		new CancelButton(button, onClickListener);
 		

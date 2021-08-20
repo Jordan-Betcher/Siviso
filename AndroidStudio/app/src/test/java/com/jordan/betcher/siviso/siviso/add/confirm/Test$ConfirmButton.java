@@ -15,7 +15,8 @@ public class Test$ConfirmButton
 	public void _buttonSaveData_0setButtonEnabledFalse()
 	{
 		Button button = mock(Button.class);
-		OnClick_SaveSivisoData saveData = mock(OnClick_SaveSivisoData.class);
+		OnClick_SaveSivisoDataAndFinishActivity saveData = mock(
+		OnClick_SaveSivisoDataAndFinishActivity.class);
 		
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		
@@ -26,7 +27,8 @@ public class Test$ConfirmButton
 	public void enable_buttonSaveData_setButtonEnabledFalse()
 	{
 		Button button = mock(Button.class);
-		OnClick_SaveSivisoData saveData = mock(OnClick_SaveSivisoData.class);
+		OnClick_SaveSivisoDataAndFinishActivity saveData = mock(
+		OnClick_SaveSivisoDataAndFinishActivity.class);
 		
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		confirmButton.enable();
@@ -38,7 +40,8 @@ public class Test$ConfirmButton
 	public void _buttonSaveData_setButtonEnabledFalse()
 	{
 		Button button = mock(Button.class);
-		OnClick_SaveSivisoData saveData = mock(OnClick_SaveSivisoData.class);
+		OnClick_SaveSivisoDataAndFinishActivity saveData = mock(
+		OnClick_SaveSivisoDataAndFinishActivity.class);
 		
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		
@@ -49,7 +52,8 @@ public class Test$ConfirmButton
 	public void _buttonSaveData_setOnClickSaveData()
 	{
 		Button button = mock(Button.class);
-		OnClick_SaveSivisoData saveData = mock(OnClick_SaveSivisoData.class);
+		OnClick_SaveSivisoDataAndFinishActivity saveData = mock(
+		OnClick_SaveSivisoDataAndFinishActivity.class);
 		
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		
