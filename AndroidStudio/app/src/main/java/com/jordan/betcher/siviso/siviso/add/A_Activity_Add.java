@@ -18,6 +18,7 @@ import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
+import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -77,7 +78,7 @@ public class A_Activity_Add extends AppCompatActivity
 		sivisoDatas.add(sivisoData);
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = new SivisoList_Temp();
+		SivisoList sivisoList = new SivisoList_Siviso();
 		
 		SivisoMap sivisoMap = new SivisoMap(){
 			@Override
