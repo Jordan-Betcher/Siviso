@@ -27,7 +27,7 @@ public class A_DeleteButton
 	private DeleteButton deleteButton()
 	{
 		Button button = activity.findViewById(R.id.buttonDelete);
-		OnClickListener_DeleteSelected deleteSelected = new OnClickListener_DeleteSelected(database, sivisoList);
-		return new DeleteButton(button, deleteSelected);
+		OnClickListener_DeleteSelected onClick = new OnClickListener_DeleteSelected(database, sivisoList);
+		return new DeleteButton(button, onClick);
 	}
 }
