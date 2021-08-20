@@ -14,6 +14,18 @@ import org.junit.Test;
 public class Test$OnClick_SaveSivisoDataAndFinishActivity
 {
 	@Test
+	public void _activity_0finishActivity()
+	{
+		Database database = mock(Database.class);
+		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		Activity activity = mock(Activity.class);
+		
+		OnClick_SaveSivisoDataAndFinishActivity saveSivisoData = new OnClick_SaveSivisoDataAndFinishActivity(activity, database, possibleSivisoData);
+		
+		verify(activity, times(0)).finish();
+	}
+	
+	@Test
 	public void onClick_activity_finishActivity()
 	{
 		Database database = mock(Database.class);
