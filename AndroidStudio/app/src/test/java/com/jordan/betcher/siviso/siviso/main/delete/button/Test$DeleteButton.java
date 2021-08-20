@@ -18,7 +18,7 @@ public class Test$DeleteButton
 		
 		DeleteButton deleteButton = new DeleteButton(button, deleteSelected);
 		
-		verify(button, times(1)).setEnabled(true);
+		verify(button, times(0)).setEnabled(true);
 	}
 	
 	@Test

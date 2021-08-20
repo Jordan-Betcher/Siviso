@@ -4,15 +4,17 @@ import android.widget.Button;
 
 class DeleteButton
 {
+	private final Button button;
+	
 	public DeleteButton(Button button, OnClickListener_DeleteSelected deleteSelected)
 	{
+		this.button = button;
 		button.setEnabled(false);
 		button.setOnClickListener(deleteSelected);
-		button.setEnabled(true);
 	}
 	
 	public void enable()
 	{
-		//TODO DeleteButton enable
+		button.setEnabled(true);
 	}
 }
