@@ -89,7 +89,7 @@ public class A_Activity_Add extends AppCompatActivity
 			{
 			
 			}
-		}
+		};
 		
 		SivisoMap sivisoMap = new SivisoMap(){
 			@Override
