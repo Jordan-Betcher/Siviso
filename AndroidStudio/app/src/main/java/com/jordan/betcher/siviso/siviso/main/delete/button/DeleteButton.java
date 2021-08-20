@@ -1,6 +1,12 @@
 package com.jordan.betcher.siviso.siviso.main.delete.button;
 
+import android.widget.Button;
+
 class DeleteButton
 {
-	//TODO
+	public DeleteButton(Button button, OnClickListener_DeleteSelected deleteSelected)
+	{
+		button.setEnabled(false);
+		button.setOnClickListener(deleteSelected);
+	}
 }

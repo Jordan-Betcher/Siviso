@@ -14,5 +14,4 @@ public class A_DeleteButton
 		OnSelect_EnableButton onSelect = new OnSelect_EnableButton(deleteButton);
 		sivisoList.addOnSelect(onSelect);
 	}
-	//TODO
 }
