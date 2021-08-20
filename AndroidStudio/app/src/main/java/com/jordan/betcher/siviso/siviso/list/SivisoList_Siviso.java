@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class SivisoList_Siviso implements SivisoList
 {
 	private ArrayList<OnSelect> onSelects = new ArrayList<>();
+	private LatLng selected;
 	
 	@Override
 	public void select(LatLng latLng)
@@ -15,6 +16,8 @@ public class SivisoList_Siviso implements SivisoList
 		{
 			onSelect.onSelect(latLng);
 		}
+		
+		selected = latLng;
 	}
 	
 	@Override
@@ -26,6 +29,6 @@ public class SivisoList_Siviso implements SivisoList
 	@Override
 	public LatLng selected()
 	{
-		return new LatLng(0, 0);
+		return selected;
 	}
 }

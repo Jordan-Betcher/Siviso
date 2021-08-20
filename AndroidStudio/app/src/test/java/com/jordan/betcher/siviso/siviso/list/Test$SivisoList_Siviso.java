@@ -13,6 +13,18 @@ public class Test$SivisoList_Siviso
 {
 	
 	@Test
+	public void selected_01_01()
+	{
+		LatLng latLng = new LatLng(0, 1);
+		
+		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
+		sivisoList.select(latLng);
+		
+		LatLng acutalSelected = sivisoList.selected();
+		assertEquals(latLng, acutalSelected);
+	}
+	
+	@Test
 	public void selected_00_00()
 	{
 		LatLng latLng = new LatLng(0, 0);
