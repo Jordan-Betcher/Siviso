@@ -10,6 +10,20 @@ import org.junit.Test;
 
 public class Test$SivisoList_Siviso
 {
+	
+	@Test
+	public void select_01OnSelect_onSelect01()
+	{
+		LatLng latLng = new LatLng(0, 1);
+		OnSelect onSelect = mock(OnSelect.class);
+		
+		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
+		sivisoList.addOnSelect(onSelect);
+		sivisoList.select(latLng);
+		
+		verify(onSelect, times(1)).onSelect(latLng);
+	}
+	
 	@Test
 	public void select_00OnSelect_onSelect00()
 	{
