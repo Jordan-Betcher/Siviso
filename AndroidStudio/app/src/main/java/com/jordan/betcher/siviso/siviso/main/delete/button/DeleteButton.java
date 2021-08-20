@@ -8,6 +8,7 @@ class DeleteButton
 	{
 		button.setEnabled(false);
 		button.setOnClickListener(deleteSelected);
+		button.setEnabled(true);
 	}
 	
 	public void enable()

@@ -11,6 +11,18 @@ import org.junit.Test;
 public class Test$DeleteButton
 {
 	@Test
+	public void enable_button_setEnabledTrue()
+	{
+		Button button = mock(Button.class);
+		OnClickListener_DeleteSelected deleteSelected = mock(OnClickListener_DeleteSelected.class);
+		
+		DeleteButton deleteButton = new DeleteButton(button, deleteSelected);
+		deleteButton.enable();
+		
+		verify(button, times(1)).setEnabled(true);
+	}
+	
+	@Test
 	public void _buttonOnClickListener_buttonSetOnClickListener()
 	{
 		Button button = mock(Button.class);
@@ -22,7 +34,7 @@ public class Test$DeleteButton
 	}
 	
 	@Test
-	public void _button_enabledFalse()
+	public void _button_setEnabledFalse()
 	{
 		Button button = mock(Button.class);
 		OnClickListener_DeleteSelected deleteSelected = mock(OnClickListener_DeleteSelected.class);
