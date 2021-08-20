@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -11,6 +12,17 @@ import org.junit.Test;
 public class Test$SivisoList_Siviso
 {
 	
+	@Test
+	public void selected_00_00()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		
+		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
+		sivisoList.select(latLng);
+		
+		LatLng acutalSelected = sivisoList.selected();
+		assertEquals(latLng, acutalSelected);
+	}
 	
 	@Test
 	public void select_002OnSelect_2onSelect00()

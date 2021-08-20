@@ -26,6 +26,6 @@ public class SivisoList_Siviso implements SivisoList
 	@Override
 	public LatLng selected()
 	{
-		return null;
+		return new LatLng(0, 0);
 	}
 }
