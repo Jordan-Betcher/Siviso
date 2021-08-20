@@ -14,6 +14,20 @@ import org.junit.Test;
 public class Test$OnClickListener_DeleteSelected
 {
 	@Test
+	public void onClick_sivisoListSelected01_databaseDeleteSelected01()
+	{
+		LatLng selected = new LatLng(0, 1);
+		Database database = mock(Database.class);
+		SivisoList sivisoList = mock(SivisoList.class);
+		when(sivisoList.selected()).thenReturn(selected);
+		
+		OnClickListener_DeleteSelected deleteSelected = new OnClickListener_DeleteSelected(database, sivisoList);
+		deleteSelected.onClick(null);
+		
+		verify(database, times(1)).delete(selected);
+	}
+	
+	@Test
 	public void onClick_sivisoListSelected00_databaseDeleteSelected00()
 	{
 		LatLng selected = new LatLng(0, 0);
