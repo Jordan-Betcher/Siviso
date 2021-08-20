@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.Database_Temp;
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.SivisoList_Temp;
 import com.jordan.betcher.siviso.siviso.add.cancel.A_CancelButton;
 import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
 import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;

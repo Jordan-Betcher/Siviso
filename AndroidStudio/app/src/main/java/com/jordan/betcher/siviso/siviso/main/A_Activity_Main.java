@@ -10,12 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.Database_Temp;
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.SivisoList_Temp;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
+import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.main.delete.button.A_DeleteButton;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
@@ -74,7 +74,7 @@ public class A_Activity_Main extends AppCompatActivity
 		sivisoDatas.add(sivisoData);
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = new SivisoList_Temp();
+		SivisoList sivisoList = new SivisoList_Siviso();
 		
 		SivisoMap sivisoMap = new SivisoMap(){
 			@Override

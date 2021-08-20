@@ -1,10 +1,8 @@
-package com.jordan.betcher.siviso.siviso;
+package com.jordan.betcher.siviso.siviso.list;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.siviso.list.OnSelect;
-import com.jordan.betcher.siviso.siviso.list.SivisoList;
 
-public class SivisoList_Temp implements SivisoList
+public class SivisoList_Siviso implements SivisoList
 {
 	@Override
 	public void select(LatLng latLng)
