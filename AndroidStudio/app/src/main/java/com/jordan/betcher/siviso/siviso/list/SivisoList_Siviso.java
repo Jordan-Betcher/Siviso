@@ -9,7 +9,10 @@ public class SivisoList_Siviso implements SivisoList
 	@Override
 	public void select(LatLng latLng)
 	{
-		onSelect.onSelect(latLng);
+		if(onSelect != null)
+		{
+			onSelect.onSelect(latLng);
+		}
 	}
 	
 	@Override

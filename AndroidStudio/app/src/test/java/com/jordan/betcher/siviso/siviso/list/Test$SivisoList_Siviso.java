@@ -11,6 +11,16 @@ import org.junit.Test;
 public class Test$SivisoList_Siviso
 {
 	
+	
+	@Test
+	public void select_00_()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		
+		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
+		sivisoList.select(latLng);
+	}
+	
 	@Test
 	public void select_01OnSelect_onSelect01()
 	{
