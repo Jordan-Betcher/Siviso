@@ -9,4 +9,9 @@ class DeleteButton
 		button.setEnabled(false);
 		button.setOnClickListener(deleteSelected);
 	}
+	
+	public void enable()
+	{
+		//TODO DeleteButton enable
+	}
 }
