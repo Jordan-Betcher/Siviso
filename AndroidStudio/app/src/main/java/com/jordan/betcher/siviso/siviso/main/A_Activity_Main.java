@@ -90,7 +90,7 @@ public class A_Activity_Main extends AppCompatActivity
 			}
 		};
 		
-		Database database = new Database_Temp();
+		Database database = new Database_Temp(this);
 		
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);

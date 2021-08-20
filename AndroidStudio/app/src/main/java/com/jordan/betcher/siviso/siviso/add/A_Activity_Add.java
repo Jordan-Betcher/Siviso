@@ -94,7 +94,7 @@ public class A_Activity_Add extends AppCompatActivity
 			}
 		};
 		
-		Database database = new Database_Temp();
+		Database database = new Database_Temp(this);
 		
 		PossibleSivisoData possibleSivisoData = new PossibleSivisoData();
 		new A_Map_Add(this, possibleSivisoData, accessFineLocationPermission);
