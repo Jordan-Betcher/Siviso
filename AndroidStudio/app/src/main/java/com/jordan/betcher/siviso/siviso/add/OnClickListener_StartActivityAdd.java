@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-class OnClickListener_StartActivityAdd
+public class OnClickListener_StartActivityAdd
 implements View.OnClickListener
 {
 	private Activity activity;
 	private Intent intent;
 	
-	public OnClickListener_StartActivityAdd(Activity activity, Factory_Intent_Add factory)
+	public OnClickListener_StartActivityAdd(Activity activity, Intent intent)
 	{
 		this.activity = activity;
-		intent = factory.create();
+		this.intent = intent;
 	}
 	
 	@Override
