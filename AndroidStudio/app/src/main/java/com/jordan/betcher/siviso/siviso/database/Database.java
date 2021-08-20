@@ -19,4 +19,6 @@ public interface Database
 	LatLng sivisoLatLng(int index);
 	
 	void saveNewSiviso(PossibleSivisoData possibleSivisoData);
+	
+	void delete(LatLng selected);
 }

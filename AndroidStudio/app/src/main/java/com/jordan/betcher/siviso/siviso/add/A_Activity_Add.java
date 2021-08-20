@@ -8,7 +8,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.jordan.betcher.siviso.siviso.Database_Temp;
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.SivisoList_Temp;
 import com.jordan.betcher.siviso.siviso.add.cancel.A_CancelButton;
 import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
 import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;
@@ -16,7 +18,6 @@ import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.SivisoData;
-import com.jordan.betcher.siviso.siviso.list.OnSelect;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
@@ -77,19 +78,7 @@ public class A_Activity_Add extends AppCompatActivity
 		sivisoDatas.add(sivisoData);
 		sivisoDatas.add(sivisoData);
 		
-		SivisoList sivisoList = new SivisoList(){
-			@Override
-			public void select(LatLng latLng)
-			{
-			
-			}
-			
-			@Override
-			public void addOnSelect(OnSelect onSelect)
-			{
-			
-			}
-		};
+		SivisoList sivisoList = new SivisoList_Temp();
 		
 		SivisoMap sivisoMap = new SivisoMap(){
 			@Override
@@ -105,54 +94,7 @@ public class A_Activity_Add extends AppCompatActivity
 			}
 		};
 		
-		Database database = new Database()
-		{
-			@Override
-			public Siviso defaultSiviso()
-			{
-				Toast.makeText(activity, "A_Activity_Main: Database defaultSiviso", Toast.LENGTH_SHORT).show();
-				return Siviso.SILENT;
-			}
-			
-			@Override
-			public void setDefaultSiviso(Siviso sivisoFromPosition)
-			{
-				Toast.makeText(activity, "A_Activity_Main: Database setDefaultSiviso", Toast.LENGTH_SHORT).show();
-			}
-			
-			@Override
-			public int count()
-			{
-				//Toast.makeText(activity, "A_Activity_Main: Database count", Toast.LENGTH_SHORT).show();
-				return sivisoDatas.size();
-			}
-			
-			@Override
-			public ArrayList<SivisoData> sivisos()
-			{
-				//Toast.makeText(activity, "A_Activity_Main: Database sivisos", Toast.LENGTH_SHORT).show();
-				return sivisoDatas;
-			}
-			
-			@Override
-			public void setSiviso(int sivisoIndex, int itemIndex)
-			{
-				//Toast.makeText(activity, "A_Activity_Main: Database setSiviso", Toast.LENGTH_SHORT).show();
-			}
-			
-			@Override
-			public LatLng sivisoLatLng(int index)
-			{
-				return new LatLng(0, 0);
-			}
-			
-			@Override
-			public void saveNewSiviso(
-			PossibleSivisoData possibleSivisoData)
-			{
-				Toast.makeText(activity, "A_Activity_Add: Database saveNewSiviso", Toast.LENGTH_SHORT).show();
-			}
-		};
+		Database database = new Database_Temp();
 		
 		PossibleSivisoData possibleSivisoData = new PossibleSivisoData();
 		new A_Map_Add(this, possibleSivisoData, accessFineLocationPermission);
