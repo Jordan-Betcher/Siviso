@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Ringmode;
-import com.jordan.betcher.siviso.siviso.list.RingmodeConverter;
+import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class Test$OnItemSelectedListener_SetDefaultSiviso
 		Ringmode ringmodeFromPosition = Ringmode.VIBRATE;
 		Database database = mock(Database.class);
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
-		when(ringmodeConverter.sivisoFrom(position)).thenReturn(ringmodeFromPosition);
+		when(ringmodeConverter.ringmodeFrom(position)).thenReturn(ringmodeFromPosition);
 		
 		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database,
 		                                                                                                                              ringmodeConverter);
@@ -37,7 +37,7 @@ public class Test$OnItemSelectedListener_SetDefaultSiviso
 		Ringmode ringmodeFromPosition = Ringmode.SILENT;
 		Database database = mock(Database.class);
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
-		when(ringmodeConverter.sivisoFrom(position)).thenReturn(ringmodeFromPosition);
+		when(ringmodeConverter.ringmodeFrom(position)).thenReturn(ringmodeFromPosition);
 		
 		new OnItemSelectedListener_SetDefaultSiviso(database, ringmodeConverter);
 		
@@ -51,7 +51,7 @@ public class Test$OnItemSelectedListener_SetDefaultSiviso
 		Ringmode ringmodeFromPosition = Ringmode.SILENT;
 		Database database = mock(Database.class);
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
-		when(ringmodeConverter.sivisoFrom(position)).thenReturn(ringmodeFromPosition);
+		when(ringmodeConverter.ringmodeFrom(position)).thenReturn(ringmodeFromPosition);
 		
 		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database,
 		                                                                                                                              ringmodeConverter);

@@ -1,10 +1,8 @@
-package com.jordan.betcher.siviso.siviso.list;
-
-import com.jordan.betcher.siviso.siviso.database.Ringmode;
+package com.jordan.betcher.siviso.siviso.database;
 
 public class RingmodeConverter
 {
-	public Ringmode sivisoFrom(int position)
+	public Ringmode ringmodeFrom(int position)
 	{
 		switch(position)
 		{

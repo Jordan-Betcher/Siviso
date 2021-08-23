@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.list.RingmodeConverter;
+import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
 
 class OnItemSelectedListener_SetDefaultSiviso
 implements AdapterView.OnItemSelectedListener
@@ -22,7 +22,7 @@ implements AdapterView.OnItemSelectedListener
 	@Override
 	public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l)
 	{
-		database.setDefaultRingmode(ringmodeConverter.sivisoFrom(position));
+		database.setDefaultRingmode(ringmodeConverter.ringmodeFrom(position));
 	}
 	
 	@Override

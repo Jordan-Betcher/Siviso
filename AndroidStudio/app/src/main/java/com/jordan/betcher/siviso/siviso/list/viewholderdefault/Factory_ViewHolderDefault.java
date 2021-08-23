@@ -10,8 +10,8 @@ import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
-import com.jordan.betcher.siviso.siviso.list.RingmodeConverter;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 

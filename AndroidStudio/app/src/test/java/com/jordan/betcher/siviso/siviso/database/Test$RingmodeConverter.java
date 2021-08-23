@@ -1,8 +1,6 @@
-package com.jordan.betcher.siviso.siviso.list;
+package com.jordan.betcher.siviso.siviso.database;
 
 import static org.junit.Assert.assertEquals;
-
-import com.jordan.betcher.siviso.siviso.database.Ringmode;
 
 import org.junit.Test;
 
@@ -16,7 +14,7 @@ public class Test$RingmodeConverter
 		
 		RingmodeConverter ringmodeConverter = new RingmodeConverter();
 		
-		Ringmode actualRingmode = ringmodeConverter.sivisoFrom(position);
+		Ringmode actualRingmode = ringmodeConverter.ringmodeFrom(position);
 		assertEquals(ringmode, actualRingmode);
 	}
 	
@@ -28,7 +26,7 @@ public class Test$RingmodeConverter
 		
 		RingmodeConverter ringmodeConverter = new RingmodeConverter();
 		
-		Ringmode actualRingmode = ringmodeConverter.sivisoFrom(position);
+		Ringmode actualRingmode = ringmodeConverter.ringmodeFrom(position);
 		assertEquals(ringmode, actualRingmode);
 	}
 	
@@ -40,7 +38,7 @@ public class Test$RingmodeConverter
 		
 		RingmodeConverter ringmodeConverter = new RingmodeConverter();
 		
-		Ringmode actualRingmode = ringmodeConverter.sivisoFrom(position);
+		Ringmode actualRingmode = ringmodeConverter.ringmodeFrom(position);
 		assertEquals(ringmode, actualRingmode);
 	}
 }
