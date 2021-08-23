@@ -33,7 +33,7 @@ public class Database_Siviso implements Database
 	public void setDefaultRingmode(Ringmode ringmode)
 	{
 		SharedPreferences.Editor editor1 = sharedPreference.edit();
-		SharedPreferences.Editor editor2 = editor1.putInt(DEFAULT_RINGMODE_ID, 0);
+		SharedPreferences.Editor editor2 = editor1.putInt(DEFAULT_RINGMODE_ID, ringmode.ordinal());
 		editor2.apply();
 	}
 	
