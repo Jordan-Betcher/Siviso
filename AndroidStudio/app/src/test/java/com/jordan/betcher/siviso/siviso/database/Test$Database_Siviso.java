@@ -17,6 +17,36 @@ import org.junit.Test;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void sivisos_nameAnameB_SivisosWithB()
+	{
+		String name1 = "A";
+		String name2 = "B";
+		LatLng latLng = new LatLng(45.3294524,-32.4952345892);
+		int radius = 0;
+		int ringmode = 0;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name1, latLng.latitude, latLng.longitude, radius, ringmode);
+		String sivisoString2 = String.format("[%s][%f,%f][%d][%d]", name2, latLng.latitude, latLng.longitude, radius, ringmode);
+		String sivisosString = String.format("{%s}{%s}", sivisoString1, sivisoString2);
+		
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso siviso2 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Activity activity = mock(Activity.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
+		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
+		when(sivisoFromString.siviso(sivisoString1)).thenReturn(siviso1);
+		when(sivisoFromString.siviso(sivisoString2)).thenReturn(siviso2);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
+		
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
+	}
+	
 	
 	@Test
 	public void sivisos_nameB_SivisosWithB()

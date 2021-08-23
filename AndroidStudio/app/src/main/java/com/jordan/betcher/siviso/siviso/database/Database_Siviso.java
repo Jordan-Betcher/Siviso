@@ -49,14 +49,16 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
-		/*
-		new ArrayList<>()
-		String sivisoString1 = sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "").replaceAll("[{]","").split("[}]");
-		Siviso siviso = sivisoFromString.siviso(sivisoString1);
-		ArrayList<Siviso> sivisos = new ArrayList<>();
-		sivisos.add(siviso);
-		return sivisos;//*/
-		return null;
+		String[] sivisosString = sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "").replaceAll("[{]","").split("[}]");
+		Siviso[] sivisos = new Siviso[sivisosString.length];
+		for(int i = 0; i < sivisosString.length; i++)
+		{
+			String sivisoString = sivisosString[i];
+			Siviso siviso = sivisoFromString.siviso(sivisoString);
+			sivisos[i] = siviso;
+		}
+		
+		return sivisos;
 	}
 	
 	@Override
