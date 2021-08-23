@@ -2,8 +2,6 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.ArrayList;
-
 public interface Database
 {
 	Ringmode defaultRingmode();
@@ -12,7 +10,7 @@ public interface Database
 	
 	int count();
 	
-	ArrayList<Siviso> sivisos();
+	Siviso[] sivisos();
 	
 	//TODO change from int ringmodeIndex to Ringmode ringmode
 	void setRingmode(int sivisoIndex, int ringmodeIndex);

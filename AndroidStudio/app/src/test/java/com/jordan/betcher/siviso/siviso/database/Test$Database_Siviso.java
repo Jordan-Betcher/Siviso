@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -14,8 +15,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 public class Test$Database_Siviso
 {
 	
@@ -29,10 +28,8 @@ public class Test$Database_Siviso
 		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode);
 		String sivisosString = String.format("{%s}", sivisoString1);
 		
-		
 		Siviso siviso1 = mock(Siviso.class);
-		ArrayList<Siviso> sivisos = new ArrayList<>();
-		sivisos.add(siviso1);
+		Siviso[] sivisos = new Siviso[]{siviso1};
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
@@ -43,8 +40,8 @@ public class Test$Database_Siviso
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
-		ArrayList<Siviso> actualSivisos = database.sivisos();
-		assertEquals(sivisos, actualSivisos);
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
 	}
 	
 	@Test
@@ -59,8 +56,7 @@ public class Test$Database_Siviso
 		
 		
 		Siviso siviso1 = mock(Siviso.class);
-		ArrayList<Siviso> sivisos = new ArrayList<>();
-		sivisos.add(siviso1);
+		Siviso[] sivisos = new Siviso[]{siviso1};
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
@@ -71,8 +67,8 @@ public class Test$Database_Siviso
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
-		ArrayList<Siviso> actualSivisos = database.sivisos();
-		assertEquals(sivisos, actualSivisos);
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
 	}
 	
 	@Test

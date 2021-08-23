@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.ArrayList;
-
 public class Database_Siviso implements Database
 {
 	public static final String SIVISOS_ID = "sivisosId";
@@ -49,13 +47,16 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public ArrayList<Siviso> sivisos()
+	public Siviso[] sivisos()
 	{
-		String sivisoString1 = sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "").replaceAll("[{}]","");
+		/*
+		new ArrayList<>()
+		String sivisoString1 = sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "").replaceAll("[{]","").split("[}]");
 		Siviso siviso = sivisoFromString.siviso(sivisoString1);
 		ArrayList<Siviso> sivisos = new ArrayList<>();
 		sivisos.add(siviso);
-		return sivisos;
+		return sivisos;//*/
+		return null;
 	}
 	
 	@Override
