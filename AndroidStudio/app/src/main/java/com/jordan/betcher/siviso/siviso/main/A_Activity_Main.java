@@ -12,6 +12,7 @@ import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Ringmode;
+import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
@@ -90,7 +91,8 @@ public class A_Activity_Main extends AppCompatActivity
 			}
 		};
 		
-		Database database = new Database_Siviso();
+		RingmodeConverter ringmodeConverter = new RingmodeConverter();
+		Database database = new Database_Siviso(this, ringmodeConverter);
 		
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);

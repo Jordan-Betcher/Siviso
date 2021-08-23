@@ -1,17 +1,32 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
 public class Database_Siviso implements Database
 {
-	public static String defaultRingmodeId;
+	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
+	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
+	SharedPreferences sharedPreference;
+	private RingmodeConverter ringmodeConverter;
+	
+	public Database_Siviso(Activity activity, RingmodeConverter ringmodeConverter)
+	{
+		this.ringmodeConverter = ringmodeConverter;
+		sharedPreference = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
+	}
 	
 	@Override
 	public Ringmode defaultRingmode()
 	{
-		return Ringmode.SILENT;
+		int ringmodeInt = sharedPreference.getInt(DEFAULT_RINGMODE_ID, 0);
+		Ringmode ringmode = ringmodeConverter.ringmodeFrom(ringmodeInt);
+		return ringmode;
 	}
 	
 	@Override
