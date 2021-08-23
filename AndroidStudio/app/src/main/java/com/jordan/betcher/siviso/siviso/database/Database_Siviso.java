@@ -56,9 +56,12 @@ public class Database_Siviso implements Database
 			String sivisoString = sivisosString[i];
 			String[] vars = sivisoString.replaceAll("\\[", "").split("\\]");
 			String[] latLngString = vars[1].split(",");
+			String name = vars[0];
 			double latitude = Double.parseDouble(latLngString[0]);
+			double longitude = Double.parseDouble(latLngString[1]);
+			int radius = Integer.parseInt(vars[2]);
 			
-			Siviso siviso = sivisoFromString.siviso(vars[0], new LatLng(latitude, 0), 0, Ringmode.SILENT);
+			Siviso siviso = sivisoFromString.siviso(name, new LatLng(latitude, longitude), radius, Ringmode.SILENT);
 			sivisos[i] = siviso;
 		}
 		
