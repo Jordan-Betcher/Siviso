@@ -19,6 +19,33 @@ public class Test$Database_Siviso
 {
 	
 	@Test
+	public void sivisos_ringmodeVIBRATE_VIBRATE()
+	{
+		String name = "A";
+		LatLng latLng = new LatLng(0.0,0.0);
+		int radius = 0;
+		Ringmode ringmode = Ringmode.VIBRATE;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode.ordinal());
+		String sivisosString = String.format("{%s}", sivisoString1);
+		
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso1};
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		Activity activity = mock(Activity.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
+		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
+		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
+		
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
+	}
+	
+	@Test
 	public void sivisos_radius1_radius1()
 	{
 		String name = "A";
@@ -37,6 +64,7 @@ public class Test$Database_Siviso
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -63,6 +91,7 @@ public class Test$Database_Siviso
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -89,6 +118,7 @@ public class Test$Database_Siviso
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -119,6 +149,7 @@ public class Test$Database_Siviso
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name1, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(sivisoFromString.siviso(name2, latLng, radius, ringmode)).thenReturn(siviso2);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -146,6 +177,7 @@ public class Test$Database_Siviso
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -172,6 +204,7 @@ public class Test$Database_Siviso
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		

@@ -46,6 +46,7 @@ public class Database_Siviso implements Database
 		return 0;
 	}
 	
+	//TODO make error proof
 	@Override
 	public Siviso[] sivisos()
 	{
@@ -56,12 +57,14 @@ public class Database_Siviso implements Database
 			String sivisoString = sivisosString[i];
 			String[] vars = sivisoString.replaceAll("\\[", "").split("\\]");
 			String[] latLngString = vars[1].split(",");
+			int ringmodeInt = Integer.parseInt(vars[3]);
 			String name = vars[0];
 			double latitude = Double.parseDouble(latLngString[0]);
 			double longitude = Double.parseDouble(latLngString[1]);
 			int radius = Integer.parseInt(vars[2]);
+			Ringmode ringmode = ringmodeConverter.ringmodeFrom(ringmodeInt);
 			
-			Siviso siviso = sivisoFromString.siviso(name, new LatLng(latitude, longitude), radius, Ringmode.SILENT);
+			Siviso siviso = sivisoFromString.siviso(name, new LatLng(latitude, longitude), radius, ringmode);
 			sivisos[i] = siviso;
 		}
 		
