@@ -17,6 +17,7 @@ public interface Database
 	//TODO change from int ringmodeIndex to Ringmode ringmode
 	void setRingmode(int sivisoIndex, int ringmodeIndex);
 	
+	//TODO change this to just get siviso instead of latlng
 	LatLng sivisoLatLng(int index);
 	
 	void saveNewSiviso(PossibleSiviso possibleSiviso);

@@ -8,12 +8,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.siviso.Database_Temp;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.add.cancel.A_CancelButton;
 import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
 import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
 import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
@@ -94,7 +94,7 @@ public class A_Activity_Add extends AppCompatActivity
 			}
 		};
 		
-		Database database = new Database_Temp(this);
+		Database database = new Database_Siviso();
 		
 		PossibleSiviso possibleSiviso = new PossibleSiviso();
 		new A_Map_Add(this, possibleSiviso, accessFineLocationPermission);
