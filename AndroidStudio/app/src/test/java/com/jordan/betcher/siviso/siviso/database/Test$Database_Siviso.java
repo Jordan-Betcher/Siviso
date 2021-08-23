@@ -22,11 +22,11 @@ public class Test$Database_Siviso
 	{
 		String name1 = "A";
 		String name2 = "B";
-		LatLng latLng = new LatLng(45.3294524,-32.4952345892);
+		LatLng latLng = new LatLng(0,0);
 		int radius = 0;
-		int ringmode = 0;
-		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name1, latLng.latitude, latLng.longitude, radius, ringmode);
-		String sivisoString2 = String.format("[%s][%f,%f][%d][%d]", name2, latLng.latitude, latLng.longitude, radius, ringmode);
+		Ringmode ringmode = Ringmode.SILENT;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name1, latLng.latitude, latLng.longitude, radius, ringmode.ordinal());
+		String sivisoString2 = String.format("[%s][%f,%f][%d][%d]", name2, latLng.latitude, latLng.longitude, radius, ringmode.ordinal());
 		String sivisosString = String.format("{%s}{%s}", sivisoString1, sivisoString2);
 		
 		Siviso siviso1 = mock(Siviso.class);
@@ -38,8 +38,8 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
-		when(sivisoFromString.siviso(sivisoString1)).thenReturn(siviso1);
-		when(sivisoFromString.siviso(sivisoString2)).thenReturn(siviso2);
+		when(sivisoFromString.siviso(name1, latLng, radius, ringmode)).thenReturn(siviso1);
+		when(sivisoFromString.siviso(name2, latLng, radius, ringmode)).thenReturn(siviso2);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -52,10 +52,10 @@ public class Test$Database_Siviso
 	public void sivisos_nameB_SivisosWithB()
 	{
 		String name = "B";
-		LatLng latLng = new LatLng(45.3294524,-32.4952345892);
+		LatLng latLng = new LatLng(0,0);
 		int radius = 0;
-		int ringmode = 0;
-		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode);
+		Ringmode ringmode = Ringmode.SILENT;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode.ordinal());
 		String sivisosString = String.format("{%s}", sivisoString1);
 		
 		Siviso siviso1 = mock(Siviso.class);
@@ -66,7 +66,7 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
-		when(sivisoFromString.siviso(sivisoString1)).thenReturn(siviso1);
+		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		
@@ -80,10 +80,9 @@ public class Test$Database_Siviso
 		String name = "A";
 		LatLng latLng = new LatLng(0,0);
 		int radius = 0;
-		int ringmode = 0;
-		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode);
+		Ringmode ringmode = Ringmode.SILENT;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode.ordinal());
 		String sivisosString = String.format("{%s}", sivisoString1);
-		
 		
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[]{siviso1};
@@ -93,7 +92,7 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
 		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
-		when(sivisoFromString.siviso(sivisoString1)).thenReturn(siviso1);
+		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		
 		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisoFromString);
 		

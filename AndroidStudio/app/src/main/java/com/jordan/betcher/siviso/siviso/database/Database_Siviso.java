@@ -54,7 +54,8 @@ public class Database_Siviso implements Database
 		for(int i = 0; i < sivisosString.length; i++)
 		{
 			String sivisoString = sivisosString[i];
-			Siviso siviso = sivisoFromString.siviso(sivisoString);
+			String[] vars = sivisoString.replaceAll("\\[", "").split("\\]");
+			Siviso siviso = sivisoFromString.siviso(vars[0], new LatLng(0, 0), 0, Ringmode.SILENT);
 			sivisos[i] = siviso;
 		}
 		
