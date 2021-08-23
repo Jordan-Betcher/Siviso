@@ -4,7 +4,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 
 import org.junit.Test;
 
@@ -14,23 +14,25 @@ public class Test$OnItemSelect_SetPossibleSiviso
 	public void onItemSelected_1_setSiviso1()
 	{
 		int index = 1;
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso(possibleSivisoData);
+		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso(
+		possibleSiviso);
 		onItemSelect.onItemSelected(null, null, index, 0);
 		
-		verify(possibleSivisoData, times(1)).setSiviso(index);
+		verify(possibleSiviso, times(1)).setSiviso(index);
 	}
 	
 	@Test
 	public void onItemSelected_0_setSiviso0()
 	{
 		int index = 0;
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso(possibleSivisoData);
+		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso(
+		possibleSiviso);
 		onItemSelect.onItemSelected(null, null, index, 0);
 		
-		verify(possibleSivisoData, times(1)).setSiviso(index);
+		verify(possibleSiviso, times(1)).setSiviso(index);
 	}
 }

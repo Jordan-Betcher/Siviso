@@ -3,22 +3,22 @@ package com.jordan.betcher.siviso.siviso.add.siviso;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 
 class OnItemSelect_SetPossibleSiviso
 implements AdapterView.OnItemSelectedListener
 {
-	private PossibleSivisoData possibleSivisoData;
+	private PossibleSiviso possibleSiviso;
 	
-	public OnItemSelect_SetPossibleSiviso(PossibleSivisoData possibleSivisoData)
+	public OnItemSelect_SetPossibleSiviso(PossibleSiviso possibleSiviso)
 	{
-		this.possibleSivisoData = possibleSivisoData;
+		this.possibleSiviso = possibleSiviso;
 	}
 	
 	@Override
 	public void onItemSelected(AdapterView<?> adapterView, View view, int index, long l)
 	{
-		possibleSivisoData.setSiviso(index);
+		possibleSiviso.setSiviso(index);
 	}
 	
 	@Override

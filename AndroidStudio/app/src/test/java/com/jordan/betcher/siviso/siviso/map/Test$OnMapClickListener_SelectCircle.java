@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when;
 
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 
 import org.junit.Test;
 
@@ -25,13 +25,14 @@ public class Test$OnMapClickListener_SelectCircle
 		when(factory.create(latLng)).thenReturn(circleOptions);
 		Wrapper_Circle circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(circle);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.circle = mock(Wrapper_Circle.class);
 		selectCircle.onMapClick(latLng);
 		
-		verify(possibleSivisoData, times(1)).setLatLng(latLng);
+		verify(possibleSiviso, times(1)).setLatLng(latLng);
 	}
 	
 	@Test
@@ -44,12 +45,13 @@ public class Test$OnMapClickListener_SelectCircle
 		when(factory.create(latLng)).thenReturn(circleOptions);
 		Wrapper_Circle circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(circle);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.onMapClick(latLng);
 		
-		verify(possibleSivisoData, times(1)).setLatLng(latLng);
+		verify(possibleSiviso, times(1)).setLatLng(latLng);
 	}
 	
 	@Test
@@ -62,12 +64,13 @@ public class Test$OnMapClickListener_SelectCircle
 		when(factory.create(latLng)).thenReturn(circleOptions);
 		Wrapper_Circle circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(circle);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.onMapClick(latLng);
 		
-		verify(possibleSivisoData, times(1)).setLatLng(latLng);
+		verify(possibleSiviso, times(1)).setLatLng(latLng);
 	}
 	
 	@Test
@@ -80,9 +83,10 @@ public class Test$OnMapClickListener_SelectCircle
 		when(factory.create(latLng)).thenReturn(circleOptions);
 		Wrapper_Circle circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(circle);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.onMapClick(latLng);
 		selectCircle.onMapClick(latLng);
 		
@@ -99,9 +103,10 @@ public class Test$OnMapClickListener_SelectCircle
 		when(factory.create(latLng)).thenReturn(circleOptions);
 		Wrapper_Circle circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(circle);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.onMapClick(latLng);
 		
 		Wrapper_Circle actualCircle = selectCircle.circle;
@@ -117,9 +122,10 @@ public class Test$OnMapClickListener_SelectCircle
 		CircleOptions circleOptions  = new CircleOptions();
 		when(factory.create(latLng)).thenReturn(circleOptions);
 		Wrapper_Circle circle = mock(Wrapper_Circle.class);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.circle = circle;
 		selectCircle.onMapClick(latLng);
 		
@@ -134,9 +140,10 @@ public class Test$OnMapClickListener_SelectCircle
 		Factory_CircleOptions_NewSivisoCircle factory = mock(Factory_CircleOptions_NewSivisoCircle.class);
 		CircleOptions circleOptions  = new CircleOptions();
 		when(factory.create(latLng)).thenReturn(circleOptions);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.onMapClick(latLng);
 		
 		verify(googleMap, times(1)).createCircle(circleOptions);
@@ -150,9 +157,10 @@ public class Test$OnMapClickListener_SelectCircle
 		Factory_CircleOptions_NewSivisoCircle factory = mock(Factory_CircleOptions_NewSivisoCircle.class);
 		CircleOptions circleOptions  = new CircleOptions();
 		when(factory.create(latLng)).thenReturn(circleOptions);
-		PossibleSivisoData possibleSivisoData = mock(PossibleSivisoData.class);
+		PossibleSiviso possibleSiviso = mock(PossibleSiviso.class);
 		
-		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory, possibleSivisoData);
+		OnMapClickListener_SelectCircle selectCircle = new OnMapClickListener_SelectCircle(googleMap, factory,
+		                                                                                   possibleSiviso);
 		selectCircle.onMapClick(latLng);
 		
 		verify(googleMap, times(1)).createCircle(circleOptions);

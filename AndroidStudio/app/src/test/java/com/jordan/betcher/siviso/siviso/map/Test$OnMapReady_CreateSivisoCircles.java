@@ -1,16 +1,16 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import com.google.android.gms.maps.model.CircleOptions;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
-
-import org.junit.Test;
-
-import java.util.ArrayList;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import com.google.android.gms.maps.model.CircleOptions;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class Test$OnMapReady_CreateSivisoCircles
 {
@@ -19,20 +19,20 @@ public class Test$OnMapReady_CreateSivisoCircles
 	{
 		CircleOptions circleOptions = new CircleOptions();
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
-		SivisoData sivisoData1 = mock(SivisoData.class);
-		when(factory.create(sivisoData1)).thenReturn(circleOptions);
-		SivisoData sivisoData2 = mock(SivisoData.class);
-		when(factory.create(sivisoData2)).thenReturn(circleOptions);
-		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
-		sivisoDatas.add(sivisoData1);
-		sivisoDatas.add(sivisoData2);
+		Siviso siviso1 = mock(Siviso.class);
+		when(factory.create(siviso1)).thenReturn(circleOptions);
+		Siviso siviso2 = mock(Siviso.class);
+		when(factory.create(siviso2)).thenReturn(circleOptions);
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso1);
+		sivisos.add(siviso2);
 		
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Wrapper_Circle wrapper_circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(wrapper_circle);
 		
 		OnMapReady_CreateSivisoCircles onMapReady = new OnMapReady_CreateSivisoCircles(
-		sivisoDatas, factory);
+		sivisos, factory);
 		onMapReady.ready(googleMap);
 		
 		verify(googleMap, times(2)).createCircle(circleOptions);
@@ -43,12 +43,12 @@ public class Test$OnMapReady_CreateSivisoCircles
 	{
 		CircleOptions circleOptions = new CircleOptions();
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
-		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
 		OnMapReady_CreateSivisoCircles onMapReady = new OnMapReady_CreateSivisoCircles(
-		sivisoDatas, factory);
+		sivisos, factory);
 		onMapReady.ready(googleMap);
 		
 		verify(googleMap, times(0)).createCircle(circleOptions);
@@ -59,17 +59,17 @@ public class Test$OnMapReady_CreateSivisoCircles
 	{
 		CircleOptions circleOptions = new CircleOptions();
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
-		SivisoData sivisoData = mock(SivisoData.class);
-		when(factory.create(sivisoData)).thenReturn(circleOptions);
-		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
-		sivisoDatas.add(sivisoData);
+		Siviso siviso = mock(Siviso.class);
+		when(factory.create(siviso)).thenReturn(circleOptions);
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso);
 		
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Wrapper_Circle wrapper_circle = mock(Wrapper_Circle.class);
 		when(googleMap.createCircle(circleOptions)).thenReturn(wrapper_circle);
 		
 		OnMapReady_CreateSivisoCircles onMapReady = new OnMapReady_CreateSivisoCircles(
-		sivisoDatas, factory);
+		sivisos, factory);
 		onMapReady.ready(googleMap);
 		
 		verify(googleMap, times(1)).createCircle(circleOptions);

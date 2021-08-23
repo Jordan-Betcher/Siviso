@@ -18,9 +18,9 @@ implements AdapterView.OnItemSelectedListener
 	}
 	
 	@Override
-	public void onItemSelected(AdapterView<?> adapterView, View view, int itemIndex, long l)
+	public void onItemSelected(AdapterView<?> adapterView, View view, int ringmodeIndex, long l)
 	{
-		database.setSiviso(sivisoIndex, itemIndex);
+		database.setRingmode(sivisoIndex, ringmodeIndex);
 	}
 	
 	@Override

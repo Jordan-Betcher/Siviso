@@ -11,8 +11,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.Database_Temp;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
@@ -35,7 +35,7 @@ public class A_Activity_Main extends AppCompatActivity
 		
 		Activity activity = this;
 		OnMapReady_CallOnMapReadys map = new OnMapReady_CallOnMapReadys();
-		SivisoData sivisoData = new SivisoData(){
+		Siviso siviso = new Siviso(){
 			
 			@Override
 			public void setLatLng(double latitude, double longitude)
@@ -62,17 +62,17 @@ public class A_Activity_Main extends AppCompatActivity
 			}
 			
 			@Override
-			public Siviso siviso()
+			public Ringmode siviso()
 			{
 				return null;
 			}
 		};
-		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
-		sivisoDatas.add(sivisoData);
-		sivisoDatas.add(sivisoData);
-		sivisoDatas.add(sivisoData);
-		sivisoDatas.add(sivisoData);
-		sivisoDatas.add(sivisoData);
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso);
+		sivisos.add(siviso);
+		sivisos.add(siviso);
+		sivisos.add(siviso);
+		sivisos.add(siviso);
 		
 		SivisoList sivisoList = new SivisoList_Siviso();
 		

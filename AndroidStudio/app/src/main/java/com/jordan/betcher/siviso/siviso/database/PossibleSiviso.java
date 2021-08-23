@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class PossibleSivisoData
+public class PossibleSiviso
 {
 	private OnComplete onComplete;
 	

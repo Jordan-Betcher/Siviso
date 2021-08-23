@@ -4,25 +4,25 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
+import com.jordan.betcher.siviso.siviso.list.RingmodeConverter;
 
 class OnItemSelectedListener_SetDefaultSiviso
 implements AdapterView.OnItemSelectedListener
 {
 	private Database database;
-	private SivisoConverter sivisoConverter;
+	private RingmodeConverter ringmodeConverter;
 	
 	public OnItemSelectedListener_SetDefaultSiviso(
-	Database database, SivisoConverter sivisoConverter)
+	Database database, RingmodeConverter ringmodeConverter)
 	{
 		this.database = database;
-		this.sivisoConverter = sivisoConverter;
+		this.ringmodeConverter = ringmodeConverter;
 	}
 	
 	@Override
 	public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l)
 	{
-		database.setDefaultSiviso(sivisoConverter.sivisoFrom(position));
+		database.setDefaultRingmode(ringmodeConverter.sivisoFrom(position));
 	}
 	
 	@Override

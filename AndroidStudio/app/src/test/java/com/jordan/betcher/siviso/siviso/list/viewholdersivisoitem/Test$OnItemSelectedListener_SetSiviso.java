@@ -20,7 +20,7 @@ public class Test$OnItemSelectedListener_SetSiviso
 		OnItemSelectedListener_SetSiviso onItemClickListener = new OnItemSelectedListener_SetSiviso(database, sivisoIndex);
 		onItemClickListener.onItemSelected(null, null, itemIndex, 0);
 		
-		verify(database, times(1)).setSiviso(sivisoIndex, itemIndex);
+		verify(database, times(1)).setRingmode(sivisoIndex, itemIndex);
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class Test$OnItemSelectedListener_SetSiviso
 		OnItemSelectedListener_SetSiviso onItemClickListener = new OnItemSelectedListener_SetSiviso(database, sivisoIndex);
 		onItemClickListener.onItemSelected(null, null, itemIndex, 0);
 		
-		verify(database, times(1)).setSiviso(sivisoIndex, itemIndex);
+		verify(database, times(1)).setRingmode(sivisoIndex, itemIndex);
 	}
 	
 	@Test
@@ -46,6 +46,6 @@ public class Test$OnItemSelectedListener_SetSiviso
 		OnItemSelectedListener_SetSiviso onItemClickListener = new OnItemSelectedListener_SetSiviso(database, sivisoIndex);
 		onItemClickListener.onItemSelected(null, null, itemIndex, 0);
 		
-		verify(database, times(1)).setSiviso(sivisoIndex, itemIndex);
+		verify(database, times(1)).setRingmode(sivisoIndex, itemIndex);
 	}
 }

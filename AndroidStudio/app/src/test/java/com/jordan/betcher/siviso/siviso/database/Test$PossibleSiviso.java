@@ -8,17 +8,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.junit.Test;
 
-public class Test$PossibleSivisoData
+public class Test$PossibleSiviso
 {
 	@Test
 	public void setOnComplete_onComplete_0callOnComplete()
 	{
 		OnComplete onComplete = mock(OnComplete.class);
 		
-		PossibleSivisoData possibleSivisoData = new PossibleSivisoData();
-		possibleSivisoData.setOnComplete(onComplete);
+		PossibleSiviso possibleSiviso = new PossibleSiviso();
+		possibleSiviso.setOnComplete(onComplete);
 		
-		verify(onComplete, times(0)).onComplete(possibleSivisoData);
+		verify(onComplete, times(0)).onComplete(possibleSiviso);
 	}
 	
 	@Test
@@ -27,10 +27,10 @@ public class Test$PossibleSivisoData
 		LatLng latLng = new LatLng(0, 0);
 		OnComplete onComplete = mock(OnComplete.class);
 		
-		PossibleSivisoData possibleSivisoData = new PossibleSivisoData();
-		possibleSivisoData.setOnComplete(onComplete);
-		possibleSivisoData.setLatLng(latLng);
+		PossibleSiviso possibleSiviso = new PossibleSiviso();
+		possibleSiviso.setOnComplete(onComplete);
+		possibleSiviso.setLatLng(latLng);
 		
-		verify(onComplete, times(1)).onComplete(possibleSivisoData);
+		verify(onComplete, times(1)).onComplete(possibleSiviso);
 	}
 }

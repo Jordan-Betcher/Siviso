@@ -1,9 +1,16 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-//TODO Change this to ringmode
-public enum Siviso
+import com.google.android.gms.maps.model.LatLng;
+
+public interface Siviso
 {
-	SILENT,
-	VIBRATE,
-	SOUND
+	void setLatLng(double latitude, double longitude);
+	
+	LatLng latLng();
+	
+	double radius();
+	
+	int color();
+	
+	Ringmode siviso();
 }

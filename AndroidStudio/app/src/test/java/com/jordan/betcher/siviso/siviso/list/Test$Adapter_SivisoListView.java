@@ -9,7 +9,7 @@ import static org.mockito.Mockito.when;
 import android.view.ViewGroup;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
 import com.jordan.betcher.siviso.siviso.list.viewholderadd.ViewHolder_Add;
 import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
@@ -147,8 +147,8 @@ public class Test$Adapter_SivisoListView
 	public void getItemCount_1SivisoData_3()
 	{
 		int count = 1;
-		ArrayList<SivisoData> sivisoDatas = new ArrayList<>();
-		sivisoDatas.add(mock(SivisoData.class));
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(mock(Siviso.class));
 		Database database = mock(Database.class);
 		when(database.count()).thenReturn(count);
 		

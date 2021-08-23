@@ -4,20 +4,20 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
-import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 
 class OnMapClickListener_SelectCircle implements GoogleMap.OnMapClickListener
 {
 	Wrapper_Circle circle;
 	private Wrapper_GoogleMap googleMap;
 	private Factory_CircleOptions_NewSivisoCircle factory;
-	private PossibleSivisoData possibleSivisoData;
+	private PossibleSiviso possibleSiviso;
 	
-	public OnMapClickListener_SelectCircle(Wrapper_GoogleMap googleMap, Factory_CircleOptions_NewSivisoCircle factory, PossibleSivisoData possibleSivisoData)
+	public OnMapClickListener_SelectCircle(Wrapper_GoogleMap googleMap, Factory_CircleOptions_NewSivisoCircle factory, PossibleSiviso possibleSiviso)
 	{
 		this.googleMap = googleMap;
 		this.factory = factory;
-		this.possibleSivisoData = possibleSivisoData;
+		this.possibleSiviso = possibleSiviso;
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ class OnMapClickListener_SelectCircle implements GoogleMap.OnMapClickListener
 		{
 			circle = googleMap.createCircle(factory.create(latLng));
 		}
-		possibleSivisoData.setLatLng(latLng);
+		possibleSiviso.setLatLng(latLng);
 	}
 }

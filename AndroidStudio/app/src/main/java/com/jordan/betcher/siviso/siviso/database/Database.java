@@ -6,19 +6,20 @@ import java.util.ArrayList;
 
 public interface Database
 {
-	Siviso defaultSiviso();
+	Ringmode defaultRingmode();
 	
-	void setDefaultSiviso(Siviso sivisoFromPosition);
+	void setDefaultRingmode(Ringmode ringmodeFromPosition);
 	
 	int count();
 	
-	ArrayList<SivisoData> sivisos();
+	ArrayList<Siviso> sivisos();
 	
-	void setSiviso(int sivisoIndex, int itemIndex);
+	//TODO change from int ringmodeIndex to Ringmode ringmode
+	void setRingmode(int sivisoIndex, int ringmodeIndex);
 	
 	LatLng sivisoLatLng(int index);
 	
-	void saveNewSiviso(PossibleSivisoData possibleSivisoData);
+	void saveNewSiviso(PossibleSiviso possibleSiviso);
 	
 	void delete(LatLng selected);
 }

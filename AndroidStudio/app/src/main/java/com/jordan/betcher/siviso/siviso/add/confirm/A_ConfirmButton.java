@@ -5,19 +5,19 @@ import android.widget.Button;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 
 public class A_ConfirmButton
 {
 	public A_ConfirmButton(
-	A_Activity_Add activity, PossibleSivisoData possibleSivisoData,
+	A_Activity_Add activity, PossibleSiviso possibleSiviso,
 	Database database)
 	{
 		Button button = activity.findViewById(R.id.buttonConfirm);
-		OnClick_SaveSivisoDataAndFinishActivity saveData = new OnClick_SaveSivisoDataAndFinishActivity(
-		activity, database, possibleSivisoData);
+		OnClick_SaveSivisoAndFinishActivity saveData = new OnClick_SaveSivisoAndFinishActivity(
+		activity, database, possibleSiviso);
 		ConfirmButton confirmButton = new ConfirmButton(button, saveData);
 		OnComplete_EnableButton enableButton = new OnComplete_EnableButton(confirmButton);
-		possibleSivisoData.setOnComplete(enableButton);
+		possibleSiviso.setOnComplete(enableButton);
 	}
 }

@@ -8,7 +8,7 @@ class ConfirmButton
 	private final Button button;
 	
 	public ConfirmButton(
-	Button button, OnClick_SaveSivisoDataAndFinishActivity saveData)
+	Button button, OnClick_SaveSivisoAndFinishActivity saveData)
 	{
 		this.button = button;
 		button.setOnClickListener(saveData);

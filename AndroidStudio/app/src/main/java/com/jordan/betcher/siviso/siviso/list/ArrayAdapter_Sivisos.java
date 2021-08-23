@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.jordan.betcher.siviso.siviso.R;
 
+
 public class ArrayAdapter_Sivisos extends ArrayAdapter<CharSequence>
 {
 	public ArrayAdapter_Sivisos(@NonNull Context context)

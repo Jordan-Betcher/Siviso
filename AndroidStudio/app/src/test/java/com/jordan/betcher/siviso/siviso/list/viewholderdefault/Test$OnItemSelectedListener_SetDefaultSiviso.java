@@ -7,8 +7,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.Siviso;
-import com.jordan.betcher.siviso.siviso.list.SivisoConverter;
+import com.jordan.betcher.siviso.siviso.database.Ringmode;
+import com.jordan.betcher.siviso.siviso.list.RingmodeConverter;
 
 import org.junit.Test;
 
@@ -18,43 +18,45 @@ public class Test$OnItemSelectedListener_SetDefaultSiviso
 	public void onItemClick_DatabasePosition1_DatabaseSetDefaultSivisoVIBRATE()
 	{
 		int position = 1;
-		Siviso sivisoFromPosition = Siviso.VIBRATE;
+		Ringmode ringmodeFromPosition = Ringmode.VIBRATE;
 		Database database = mock(Database.class);
-		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
-		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
+		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		when(ringmodeConverter.sivisoFrom(position)).thenReturn(ringmodeFromPosition);
 		
-		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
+		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database,
+		                                                                                                                              ringmodeConverter);
 		onItemSelectedListener_setDefaultSiviso.onItemSelected(null, null, position, 0);
 		
-		verify(database, times(1)).setDefaultSiviso(sivisoFromPosition);
+		verify(database, times(1)).setDefaultRingmode(ringmodeFromPosition);
 	}
 	
 	@Test
 	public void __0DatabaseSetDefaultSiviso()
 	{
 		int position = 0;
-		Siviso sivisoFromPosition = Siviso.SILENT;
+		Ringmode ringmodeFromPosition = Ringmode.SILENT;
 		Database database = mock(Database.class);
-		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
-		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
+		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		when(ringmodeConverter.sivisoFrom(position)).thenReturn(ringmodeFromPosition);
 		
-		new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
+		new OnItemSelectedListener_SetDefaultSiviso(database, ringmodeConverter);
 		
-		verify(database, times(0)).setDefaultSiviso(any());
+		verify(database, times(0)).setDefaultRingmode(any());
 	}
 	
 	@Test
 	public void onItemClick_DatabasePosition0_DatabaseSetDefaultSivisoSILENT()
 	{
 		int position = 0;
-		Siviso sivisoFromPosition = Siviso.SILENT;
+		Ringmode ringmodeFromPosition = Ringmode.SILENT;
 		Database database = mock(Database.class);
-		SivisoConverter sivisoConverter = mock(SivisoConverter.class);
-		when(sivisoConverter.sivisoFrom(position)).thenReturn(sivisoFromPosition);
+		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		when(ringmodeConverter.sivisoFrom(position)).thenReturn(ringmodeFromPosition);
 		
-		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database, sivisoConverter);
+		OnItemSelectedListener_SetDefaultSiviso onItemSelectedListener_setDefaultSiviso = new OnItemSelectedListener_SetDefaultSiviso(database,
+		                                                                                                                              ringmodeConverter);
 		onItemSelectedListener_setDefaultSiviso.onItemSelected(null, null, position, 0);
 		
-		verify(database, times(1)).setDefaultSiviso(sivisoFromPosition);
+		verify(database, times(1)).setDefaultRingmode(ringmodeFromPosition);
 	}
 }

@@ -6,22 +6,22 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.PossibleSivisoData;
+import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
+import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
-import com.jordan.betcher.siviso.siviso.database.SivisoData;
 
 import java.util.ArrayList;
 
 public class Database_Temp implements Database
 {
 	private Activity activity;
-	ArrayList<SivisoData> sivisos = new ArrayList<>();
+	ArrayList<Siviso> sivisos = new ArrayList<>();
 	
 	public Database_Temp(Activity activity)
 	{
 		this.activity = activity;
 		
-		sivisos.add(new SivisoData(){
+		sivisos.add(new Siviso(){
 			@Override
 			public void setLatLng(double latitude, double longitude)
 			{
@@ -47,21 +47,21 @@ public class Database_Temp implements Database
 			}
 			
 			@Override
-			public Siviso siviso()
+			public Ringmode siviso()
 			{
-				return Siviso.SILENT;
+				return Ringmode.SILENT;
 			}
 		});
 	}
 	
 	@Override
-	public Siviso defaultSiviso()
+	public Ringmode defaultRingmode()
 	{
-		return Siviso.VIBRATE;
+		return Ringmode.VIBRATE;
 	}
 	
 	@Override
-	public void setDefaultSiviso(Siviso sivisoFromPosition)
+	public void setDefaultRingmode(Ringmode ringmodeFromPosition)
 	{
 	
 	}
@@ -73,13 +73,13 @@ public class Database_Temp implements Database
 	}
 	
 	@Override
-	public ArrayList<SivisoData> sivisos()
+	public ArrayList<Siviso> sivisos()
 	{
 		return sivisos;
 	}
 	
 	@Override
-	public void setSiviso(int sivisoIndex, int itemIndex)
+	public void setRingmode(int sivisoIndex, int ringmodeIndex)
 	{
 	
 	}
@@ -93,7 +93,7 @@ public class Database_Temp implements Database
 	
 	@Override
 	public void saveNewSiviso(
-	PossibleSivisoData possibleSivisoData)
+	PossibleSiviso possibleSiviso)
 	{
 	
 	}
