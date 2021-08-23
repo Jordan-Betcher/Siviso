@@ -30,9 +30,11 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void setDefaultRingmode(Ringmode ringmodeFromPosition)
+	public void setDefaultRingmode(Ringmode ringmode)
 	{
-	
+		SharedPreferences.Editor editor1 = sharedPreference.edit();
+		SharedPreferences.Editor editor2 = editor1.putInt(DEFAULT_RINGMODE_ID, 0);
+		editor2.apply();
 	}
 	
 	@Override
