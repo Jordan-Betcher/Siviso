@@ -11,6 +11,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
+import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
 import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
@@ -92,7 +93,8 @@ public class A_Activity_Main extends AppCompatActivity
 		};
 		
 		RingmodeConverter ringmodeConverter = new RingmodeConverter();
-		Database database = new Database_Siviso(this, ringmodeConverter);
+		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
+		Database database = new Database_Siviso(this, ringmodeConverter, sivisoFromString);
 		
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);

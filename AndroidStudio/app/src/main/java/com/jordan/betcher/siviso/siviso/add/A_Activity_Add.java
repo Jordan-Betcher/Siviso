@@ -14,6 +14,7 @@ import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
 import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
+import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
 import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
@@ -96,7 +97,8 @@ public class A_Activity_Add extends AppCompatActivity
 		};
 		
 		RingmodeConverter ringmodeConverter = new RingmodeConverter();
-		Database database = new Database_Siviso(this, ringmodeConverter);
+		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
+		Database database = new Database_Siviso(this, ringmodeConverter, sivisoFromString);
 		
 		PossibleSiviso possibleSiviso = new PossibleSiviso();
 		new A_Map_Add(this, possibleSiviso, accessFineLocationPermission);

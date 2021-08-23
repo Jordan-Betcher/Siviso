@@ -10,15 +10,20 @@ import java.util.ArrayList;
 
 public class Database_Siviso implements Database
 {
+	public static final String SIVISOS_ID = "sivisosId";
 	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
 	SharedPreferences sharedPreference;
+	private Factory_SivisoFromString sivisoFromString;
 	private RingmodeConverter ringmodeConverter;
 	
-	public Database_Siviso(Activity activity, RingmodeConverter ringmodeConverter)
+	public Database_Siviso(
+	Activity activity, RingmodeConverter ringmodeConverter,
+	Factory_SivisoFromString sivisoFromString)
 	{
 		this.ringmodeConverter = ringmodeConverter;
 		sharedPreference = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
+		this.sivisoFromString = sivisoFromString;
 	}
 	
 	@Override
@@ -46,7 +51,15 @@ public class Database_Siviso implements Database
 	@Override
 	public ArrayList<Siviso> sivisos()
 	{
-		return null;
+		String name = "John's Street\n 4511";
+		LatLng latLng = new LatLng(45.3294524,-32.4952345892);
+		int radius = 0;
+		int ringmode = 0;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode);
+		Siviso siviso = sivisoFromString.siviso(sivisoString1);
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso);
+		return sivisos;
 	}
 	
 	@Override
