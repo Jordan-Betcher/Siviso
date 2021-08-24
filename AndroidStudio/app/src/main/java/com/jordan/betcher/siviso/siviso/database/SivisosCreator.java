@@ -19,6 +19,11 @@ public class SivisosCreator
 	//TODO make it so that if the same string is passed in, the same return is passed out
 	public Siviso[] from(String sivisosString)
 	{
+		if(sivisos != null)
+		{
+			return sivisos;
+		}
+		
 		String[] sivisosStrings = sivisosString.replaceAll("[{]","").split("[}]");
 		Siviso[] sivisos = new Siviso[sivisosStrings.length];
 		for(int i = 0; i < sivisosStrings.length; i++)

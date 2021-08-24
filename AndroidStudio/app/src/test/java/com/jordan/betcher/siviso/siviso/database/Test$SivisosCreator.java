@@ -12,6 +12,28 @@ public class Test$SivisosCreator
 {
 	
 	@Test
+	public void sivisos_sameStringA_sameSivisosA()
+	{
+		String name = "A";
+		LatLng latLng = new LatLng(0.0,0.0);
+		int radius = 0;
+		Ringmode ringmode = Ringmode.VIBRATE;
+		String sivisoString1 = String.format("[%s][%f,%f][%d][%d]", name, latLng.latitude, latLng.longitude, radius, ringmode.ordinal());
+		String sivisosString = String.format("{%s}", sivisoString1);
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso1};
+		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		
+		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		sivisosCreator.sivisosString = sivisosString;
+		sivisosCreator.sivisos = sivisos;
+		
+		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		assertArrayEquals(sivisos, actualSivisos);
+	}
+	
+	@Test
 	public void sivisos_ringmodeVIBRATE_VIBRATE()
 	{
 		String name = "A";
