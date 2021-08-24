@@ -33,8 +33,8 @@ public class Siviso
 		return radius;
 	}
 	
-	public Ringmode siviso()
+	public Ringmode ringmode()
 	{
-		return null;
+		return Ringmode.SILENT;
 	}
 }
