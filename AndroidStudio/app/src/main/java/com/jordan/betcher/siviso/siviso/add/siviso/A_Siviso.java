@@ -13,6 +13,7 @@ public class A_Siviso
 	{
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		
+		//TODO undo factory and instead put it into a method
 		Factory_SivisoView sivisoViewFactory = new Factory_SivisoView();
 		sivisoViewFactory.create(activity, layoutInflater, possibleSiviso);
 	}

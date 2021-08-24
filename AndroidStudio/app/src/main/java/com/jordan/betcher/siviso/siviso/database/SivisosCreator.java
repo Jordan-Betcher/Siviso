@@ -2,12 +2,14 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class Sivisos
+public class SivisosCreator
 {
 	private final Factory_SivisoFromString sivisoFromString;
 	private final Ringmodes ringmodes;
+	Siviso[] sivisos;
+	String sivisosString;
 	
-	public Sivisos(Factory_SivisoFromString sivisoFromString, Ringmodes ringmodes)
+	public SivisosCreator(Factory_SivisoFromString sivisoFromString, Ringmodes ringmodes)
 	{
 		this.sivisoFromString = sivisoFromString;
 		this.ringmodes = ringmodes;
