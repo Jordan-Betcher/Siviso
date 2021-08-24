@@ -9,9 +9,9 @@ import org.junit.Test;
 public class Test$Siviso
 {
 	@Test
-	public void name_A_A()
+	public void name_B_B()
 	{
-		String name = "A";
+		String name = "B";
 		LatLng latLng = new LatLng(0, 0);
 		int radius = 0;
 		Ringmode ringmode = Ringmode.SILENT;
