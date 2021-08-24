@@ -6,10 +6,10 @@ public class Siviso
 {
 	private final String name;
 	private LatLng latLng;
-	private final int radius;
+	private final double radius;
 	private final Ringmode ringmode;
 	
-	public Siviso(String name, LatLng latLng, int radius, Ringmode ringmode)
+	public Siviso(String name, LatLng latLng, double radius, Ringmode ringmode)
 	{
 		this.name = name;
 		this.latLng = latLng;
@@ -30,7 +30,7 @@ public class Siviso
 	
 	public double radius()
 	{
-		return 0;
+		return 1;
 	}
 	
 	public Ringmode siviso()
