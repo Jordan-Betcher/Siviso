@@ -30,7 +30,7 @@ public class Siviso
 	
 	public double radius()
 	{
-		return 1;
+		return radius;
 	}
 	
 	public Ringmode siviso()

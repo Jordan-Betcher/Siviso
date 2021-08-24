@@ -9,6 +9,20 @@ import org.junit.Test;
 public class Test$Siviso
 {
 	@Test
+	public void radius_0_0()
+	{
+		String name = "";
+		LatLng latLng = new LatLng(0, 0);
+		int radius = 0;
+		Ringmode ringmode = Ringmode.SILENT;
+		
+		Siviso siviso = new Siviso(name, latLng, radius, ringmode);
+		
+		double actualRadius = siviso.radius();
+		assertEquals(radius, actualRadius, 0.1);
+	}
+	
+	@Test
 	public void radius_1_1()
 	{
 		String name = "";
