@@ -5,18 +5,14 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 
-import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.database.Ringmode;
+import com.jordan.betcher.siviso.siviso.database.Ringmodes;
 
 
-public class ArrayAdapter_Sivisos extends ArrayAdapter<CharSequence>
+public class ArrayAdapter_Sivisos extends ArrayAdapter<Ringmode>
 {
-	public ArrayAdapter_Sivisos(@NonNull Context context)
+	public ArrayAdapter_Sivisos(@NonNull Context context, Ringmodes ringmodes)
 	{
-		super(context, android.R.layout.simple_spinner_item, getSivisos(context));
-	}
-	
-	private static String[] getSivisos(Context context)
-	{
-		return context.getResources().getStringArray(R.array.sivisos);
+		super(context, android.R.layout.simple_spinner_item, ringmodes.list());
 	}
 }

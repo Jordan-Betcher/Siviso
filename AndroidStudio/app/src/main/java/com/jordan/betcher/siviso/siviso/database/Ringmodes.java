@@ -11,4 +11,9 @@ public class Ringmodes
 			default: return Ringmode.SILENT;
 		}
 	}
+	
+	public Ringmode[] list()
+	{
+		return null; //TODO Ringmodes list
+	}
 }

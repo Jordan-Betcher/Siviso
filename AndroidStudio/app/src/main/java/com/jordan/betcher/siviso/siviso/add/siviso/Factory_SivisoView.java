@@ -8,6 +8,7 @@ import android.widget.Spinner;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
 import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
+import com.jordan.betcher.siviso.siviso.database.Ringmodes;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 
 class Factory_SivisoView
@@ -20,7 +21,8 @@ class Factory_SivisoView
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, true);
 		Spinner spinner = view.findViewById(R.id.spinner);
 		
-		ArrayAdapter_Sivisos arrayAdapter_sivisos = new ArrayAdapter_Sivisos(activity);
+		Ringmodes ringmodes = new Ringmodes();
+		ArrayAdapter_Sivisos arrayAdapter_sivisos = new ArrayAdapter_Sivisos(activity, ringmodes);
 		OnItemSelect_SetPossibleSiviso onItemSelect = new OnItemSelect_SetPossibleSiviso(
 		possibleSiviso);
 		return new SivisoView(spinner, arrayAdapter_sivisos, onItemSelect);
