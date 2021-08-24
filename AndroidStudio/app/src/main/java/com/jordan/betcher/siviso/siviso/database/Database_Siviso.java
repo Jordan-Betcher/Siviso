@@ -49,7 +49,8 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
-		return sivisos.from("A");
+		String sivisosString = sharedPreferences.getString(SIVISOS_ID, "");
+		return sivisos.from(sivisosString);
 	}
 	
 	@Override

@@ -15,6 +15,27 @@ import org.junit.Test;
 
 public class Test$Database_Siviso
 {
+	
+	@Test
+	public void sivisos_B_returnSiviso1()
+	{
+		String string = "B";
+		Activity activity = mock(Activity.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Sivisos sivisos = mock(Sivisos.class);
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso[] list = new Siviso[]{siviso1};
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(string);
+		when(sivisos.from(string)).thenReturn(list);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisos);
+		Siviso[] actualList = database.sivisos();
+		
+		assertArrayEquals(list, actualList);
+	}
+	
 	@Test
 	public void sivisos_A_returnSiviso1()
 	{
