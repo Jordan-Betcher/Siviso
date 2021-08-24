@@ -4,14 +4,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Siviso
 {
+	private LatLng latLng;
+	
 	public Siviso(String name, LatLng latLng, int radius, Ringmode ringmode)
 	{
-	
+		
+		this.latLng = latLng;
 	}
 	
 	public LatLng latLng()
 	{
-		return new LatLng(0, 0);
+		return latLng;
 	}
 	
 	public double radius()
