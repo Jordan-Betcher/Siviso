@@ -22,7 +22,7 @@ public class Test$Database_Siviso
 		String string = "B";
 		Activity activity = mock(Activity.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Sivisos sivisos = mock(Sivisos.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso[] list = new Siviso[]{siviso1};
@@ -30,7 +30,7 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(string);
 		when(sivisos.from(string)).thenReturn(list);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisos);
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, sivisos);
 		Siviso[] actualList = database.sivisos();
 		
 		assertArrayEquals(list, actualList);
@@ -42,7 +42,7 @@ public class Test$Database_Siviso
 		String string = "A";
 		Activity activity = mock(Activity.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Sivisos sivisos = mock(Sivisos.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso[] list = new Siviso[]{siviso1};
@@ -50,7 +50,7 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(string);
 		when(sivisos.from(string)).thenReturn(list);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter, sivisos);
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, sivisos);
 		Siviso[] actualList = database.sivisos();
 		
 		assertArrayEquals(list, actualList);
@@ -67,9 +67,9 @@ public class Test$Database_Siviso
 		when(editor1.putInt(Database_Siviso.DEFAULT_RINGMODE_ID, ringmode.ordinal())).thenReturn(editor2);
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter,
+		Database_Siviso database = new Database_Siviso(activity, ringmodes,
 		                                               null);
 		database.setDefaultRingmode(ringmode);
 		
@@ -87,9 +87,9 @@ public class Test$Database_Siviso
 		when(editor1.putInt(Database_Siviso.DEFAULT_RINGMODE_ID, ringmode.ordinal())).thenReturn(editor2);
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter,
+		Database_Siviso database = new Database_Siviso(activity, ringmodes,
 		                                               null);
 		
 		verify(editor2, times(0)).apply();
@@ -106,9 +106,9 @@ public class Test$Database_Siviso
 		when(editor1.putInt(Database_Siviso.DEFAULT_RINGMODE_ID, ringmode.ordinal())).thenReturn(editor2);
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter,
+		Database_Siviso database = new Database_Siviso(activity, ringmodes,
 		                                               null);
 		database.setDefaultRingmode(ringmode);
 		
@@ -123,10 +123,10 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getInt(Database_Siviso.DEFAULT_RINGMODE_ID, 0)).thenReturn(ringmode.ordinal());
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter,
+		Database_Siviso database = new Database_Siviso(activity, ringmodes,
 		                                               null);
 		
 		Ringmode actualRingmode = database.defaultRingmode();
@@ -141,10 +141,10 @@ public class Test$Database_Siviso
 		when(sharedPreferences.getInt(Database_Siviso.DEFAULT_RINGMODE_ID, 0)).thenReturn(ringmode.ordinal());
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Database_Siviso database = new Database_Siviso(activity, ringmodeConverter,
+		Database_Siviso database = new Database_Siviso(activity, ringmodes,
 		                                               null);
 		
 		Ringmode actualRingmode = database.defaultRingmode();

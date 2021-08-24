@@ -10,7 +10,7 @@ import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
+import com.jordan.betcher.siviso.siviso.database.Ringmodes;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
@@ -39,9 +39,9 @@ public class Factory_ViewHolderDefault
 		Spinner spinner = view.findViewById(R.id.spinner);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = view.getResources().getString(R.string.siviso_list_name_default);
-		RingmodeConverter ringmodeConverter = new RingmodeConverter();
+		Ringmodes ringmodes = new Ringmodes();
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = new OnItemSelectedListener_SetDefaultSiviso(database,
-		                                                                                                          ringmodeConverter);
+		                                                                                                          ringmodes);
 		return new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, background, clickListener);
 	}
 }

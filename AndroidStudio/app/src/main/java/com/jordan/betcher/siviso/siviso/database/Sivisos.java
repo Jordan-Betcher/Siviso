@@ -5,12 +5,12 @@ import com.google.android.gms.maps.model.LatLng;
 public class Sivisos
 {
 	private final Factory_SivisoFromString sivisoFromString;
-	private final RingmodeConverter ringmodeConverter;
+	private final Ringmodes ringmodes;
 	
-	public Sivisos(Factory_SivisoFromString sivisoFromString, RingmodeConverter ringmodeConverter)
+	public Sivisos(Factory_SivisoFromString sivisoFromString, Ringmodes ringmodes)
 	{
 		this.sivisoFromString = sivisoFromString;
-		this.ringmodeConverter = ringmodeConverter;
+		this.ringmodes = ringmodes;
 	}
 	
 	//TODO make error proof, check the number of boxes, handle wrong ints and wrong doubles
@@ -29,7 +29,7 @@ public class Sivisos
 			double latitude = Double.parseDouble(latLngString[0]);
 			double longitude = Double.parseDouble(latLngString[1]);
 			int radius = Integer.parseInt(vars[2]);
-			Ringmode ringmode = ringmodeConverter.ringmodeFrom(ringmodeInt);
+			Ringmode ringmode = ringmodes.from(ringmodeInt);
 			
 			Siviso siviso = sivisoFromString.siviso(name, new LatLng(latitude, longitude), radius, ringmode);
 			sivisos[i] = siviso;

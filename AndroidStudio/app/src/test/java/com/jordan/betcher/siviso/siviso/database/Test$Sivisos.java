@@ -31,12 +31,12 @@ public class Test$Sivisos
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
@@ -58,12 +58,12 @@ public class Test$Sivisos
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
@@ -85,12 +85,12 @@ public class Test$Sivisos
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
@@ -112,12 +112,12 @@ public class Test$Sivisos
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
@@ -142,13 +142,13 @@ public class Test$Sivisos
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name1, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(sivisoFromString.siviso(name2, latLng, radius, ringmode)).thenReturn(siviso2);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
@@ -171,12 +171,12 @@ public class Test$Sivisos
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
@@ -196,12 +196,12 @@ public class Test$Sivisos
 		Siviso[] list = new Siviso[]{siviso1};
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
-		RingmodeConverter ringmodeConverter = mock(RingmodeConverter.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
-		when(ringmodeConverter.ringmodeFrom(ringmode.ordinal())).thenReturn(ringmode);
+		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodes);
 		
 		Siviso[] actualSivisos = sivisos.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);

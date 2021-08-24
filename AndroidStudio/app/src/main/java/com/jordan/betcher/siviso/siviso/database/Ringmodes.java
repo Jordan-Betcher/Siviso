@@ -1,9 +1,8 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-public class RingmodeConverter
+public class Ringmodes
 {
-	//TODO get rid of this class and do Ringmode.from(position) instead.
-	public Ringmode ringmodeFrom(int position)
+	public Ringmode from(int position)
 	{
 		switch(position)
 		{

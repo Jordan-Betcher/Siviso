@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class Test$RingmodeConverter
+public class Test$Ringmodes
 {
 	@Test
 	public void sivisoFrom_0_SILENT()
@@ -12,9 +12,9 @@ public class Test$RingmodeConverter
 		int position = 0;
 		Ringmode ringmode = Ringmode.SILENT;
 		
-		RingmodeConverter ringmodeConverter = new RingmodeConverter();
+		Ringmodes ringmodes = new Ringmodes();
 		
-		Ringmode actualRingmode = ringmodeConverter.ringmodeFrom(position);
+		Ringmode actualRingmode = ringmodes.from(position);
 		assertEquals(ringmode, actualRingmode);
 	}
 	
@@ -24,9 +24,9 @@ public class Test$RingmodeConverter
 		int position = 1;
 		Ringmode ringmode = Ringmode.VIBRATE;
 		
-		RingmodeConverter ringmodeConverter = new RingmodeConverter();
+		Ringmodes ringmodes = new Ringmodes();
 		
-		Ringmode actualRingmode = ringmodeConverter.ringmodeFrom(position);
+		Ringmode actualRingmode = ringmodes.from(position);
 		assertEquals(ringmode, actualRingmode);
 	}
 	
@@ -36,9 +36,9 @@ public class Test$RingmodeConverter
 		int position = 2;
 		Ringmode ringmode = Ringmode.SOUND;
 		
-		RingmodeConverter ringmodeConverter = new RingmodeConverter();
+		Ringmodes ringmodes = new Ringmodes();
 		
-		Ringmode actualRingmode = ringmodeConverter.ringmodeFrom(position);
+		Ringmode actualRingmode = ringmodes.from(position);
 		assertEquals(ringmode, actualRingmode);
 	}
 }
