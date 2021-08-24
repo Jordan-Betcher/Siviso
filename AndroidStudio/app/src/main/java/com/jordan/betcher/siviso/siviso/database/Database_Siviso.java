@@ -17,7 +17,7 @@ public class Database_Siviso implements Database
 	
 	public Database_Siviso(
 	Activity activity, RingmodeConverter ringmodeConverter,
-	Factory_SivisoFromString sivisoFromString)
+	Sivisos sivisos)
 	{
 		this.ringmodeConverter = ringmodeConverter;
 		sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
@@ -46,29 +46,10 @@ public class Database_Siviso implements Database
 		return 0;
 	}
 	
-	//TODO make error proof
 	@Override
 	public Siviso[] sivisos()
 	{
-		String[] sivisosString = sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "").replaceAll("[{]","").split("[}]");
-		Siviso[] sivisos = new Siviso[sivisosString.length];
-		for(int i = 0; i < sivisosString.length; i++)
-		{
-			String sivisoString = sivisosString[i];
-			String[] vars = sivisoString.replaceAll("\\[", "").split("\\]");
-			String[] latLngString = vars[1].split(",");
-			int ringmodeInt = Integer.parseInt(vars[3]);
-			String name = vars[0];
-			double latitude = Double.parseDouble(latLngString[0]);
-			double longitude = Double.parseDouble(latLngString[1]);
-			int radius = Integer.parseInt(vars[2]);
-			Ringmode ringmode = ringmodeConverter.ringmodeFrom(ringmodeInt);
-			
-			Siviso siviso = sivisoFromString.siviso(name, new LatLng(latitude, longitude), radius, ringmode);
-			sivisos[i] = siviso;
-		}
-		
-		return sivisos;
+		return null;
 	}
 	
 	@Override
@@ -93,6 +74,6 @@ public class Database_Siviso implements Database
 	@Override
 	public void delete(LatLng selected)
 	{
-
+	
 	}
 }

@@ -15,6 +15,7 @@ import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
 import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.RingmodeConverter;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
+import com.jordan.betcher.siviso.siviso.database.Sivisos;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
@@ -91,11 +92,7 @@ public class A_Activity_Main extends AppCompatActivity
 				//Toast.makeText(activity, "A_Activity_Main: SivisoMap goToLocation " + sivisoLocation.toString(), Toast.LENGTH_SHORT).show();
 			}
 		};
-		
-		RingmodeConverter ringmodeConverter = new RingmodeConverter();
-		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
-		Database database = new Database_Siviso(this, ringmodeConverter, sivisoFromString);
-		
+		Database database = createDatabase();
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);
 		//TODO delete button
@@ -104,6 +101,14 @@ public class A_Activity_Main extends AppCompatActivity
 		//TODO on/off button
 	}
 	
+	private Database createDatabase()
+	{
+		RingmodeConverter ringmodeConverter = new RingmodeConverter();
+		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
+		Sivisos sivisos = new Sivisos(sivisoFromString, ringmodeConverter);
+		return new Database_Siviso(this, ringmodeConverter, sivisos);
+		
+	}
 	
 	
 	//Called after a permission is asked for
