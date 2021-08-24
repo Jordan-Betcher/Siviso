@@ -6,17 +6,12 @@ public class Siviso
 {
 	public Siviso(String name, LatLng latLng, int radius, Ringmode ringmode)
 	{
-		//TODO Siviso Siviso
-	}
-	
-	public void setLatLng(double latitude, double longitude)
-	{
 	
 	}
 	
 	public LatLng latLng()
 	{
-		return null;
+		return new LatLng(0, 0);
 	}
 	
 	public double radius()
@@ -33,5 +28,4 @@ public class Siviso
 	{
 		return null;
 	}
-	//TODO
 }

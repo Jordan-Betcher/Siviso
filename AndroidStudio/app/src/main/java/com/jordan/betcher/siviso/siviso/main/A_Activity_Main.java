@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.siviso.main;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,19 +10,14 @@ import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
-import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
-import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.database.Sivisos;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.main.delete.button.A_DeleteButton;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
-
-import java.util.ArrayList;
 
 public class A_Activity_Main extends AppCompatActivity
 {
@@ -35,47 +28,6 @@ public class A_Activity_Main extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		Activity activity = this;
-		OnMapReady_CallOnMapReadys map = new OnMapReady_CallOnMapReadys();
-		Siviso siviso = new Siviso(){
-			
-			@Override
-			public void setLatLng(double latitude, double longitude)
-			{
-			
-			}
-			
-			@Override
-			public LatLng latLng()
-			{
-				return new LatLng(37.4220656,-122.0862784);
-			}
-			
-			@Override
-			public double radius()
-			{
-				return 1000;
-			}
-			
-			@Override
-			public int color()
-			{
-				return Color.GREEN;
-			}
-			
-			@Override
-			public Ringmode siviso()
-			{
-				return null;
-			}
-		};
-		ArrayList<Siviso> sivisos = new ArrayList<>();
-		sivisos.add(siviso);
-		sivisos.add(siviso);
-		sivisos.add(siviso);
-		sivisos.add(siviso);
-		sivisos.add(siviso);
 		
 		SivisoList sivisoList = new SivisoList_Siviso();
 		
