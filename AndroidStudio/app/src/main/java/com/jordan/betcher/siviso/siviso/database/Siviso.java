@@ -35,6 +35,6 @@ public class Siviso
 	
 	public Ringmode ringmode()
 	{
-		return Ringmode.SILENT;
+		return ringmode;
 	}
 }
