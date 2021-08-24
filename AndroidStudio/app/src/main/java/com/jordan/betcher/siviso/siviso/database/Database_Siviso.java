@@ -12,7 +12,7 @@ public class Database_Siviso implements Database
 	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
 	private SharedPreferences sharedPreferences;
-	private Factory_SivisoFromString sivisoFromString;
+	private Sivisos sivisos;
 	private RingmodeConverter ringmodeConverter;
 	
 	public Database_Siviso(
@@ -21,7 +21,7 @@ public class Database_Siviso implements Database
 	{
 		this.ringmodeConverter = ringmodeConverter;
 		sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
-		this.sivisoFromString = sivisoFromString;
+		this.sivisos = sivisos;
 	}
 	
 	@Override
@@ -49,7 +49,7 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
-		return new Siviso[]{};
+		return sivisos.from("A");
 	}
 	
 	@Override
