@@ -49,7 +49,7 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
-		return null;
+		return new Siviso[]{};
 	}
 	
 	@Override

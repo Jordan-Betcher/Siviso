@@ -13,7 +13,8 @@ public class Sivisos
 		this.ringmodeConverter = ringmodeConverter;
 	}
 	
-	//TODO make error proof
+	//TODO make error proof, check the number of boxes, handle wrong ints and wrong doubles
+	//TODO make it so that if the same string is passed in, the same return is passed out
 	public Siviso[] from(String sivisosString)
 	{
 		String[] sivisosStrings = sivisosString.replaceAll("[{]","").split("[}]");
