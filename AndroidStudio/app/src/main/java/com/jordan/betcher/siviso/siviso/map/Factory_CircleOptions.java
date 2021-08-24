@@ -14,7 +14,7 @@ class Factory_CircleOptions
 		circleOptions.radius(siviso.radius());
 		circleOptions.visible(true);
 		circleOptions.strokeWidth(10);
-		circleOptions.fillColor(siviso.color());
+		circleOptions.fillColor(Color.GRAY);
 		circleOptions.strokeColor(Color.GREEN);
 		circleOptions.clickable(true);
 		return circleOptions;

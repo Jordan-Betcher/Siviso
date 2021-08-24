@@ -17,6 +17,12 @@ public class Siviso
 		this.ringmode = ringmode;
 	}
 	
+	
+	public String name()
+	{
+		return name;
+	}
+	
 	public LatLng latLng()
 	{
 		return latLng;
@@ -27,18 +33,8 @@ public class Siviso
 		return 0;
 	}
 	
-	public int color()
-	{
-		return 0;
-	}
-	
 	public Ringmode siviso()
 	{
 		return null;
-	}
-	
-	public String name()
-	{
-		return name;
 	}
 }

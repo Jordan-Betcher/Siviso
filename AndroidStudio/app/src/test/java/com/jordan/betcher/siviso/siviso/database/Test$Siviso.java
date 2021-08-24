@@ -23,6 +23,20 @@ public class Test$Siviso
 	}
 	
 	@Test
+	public void name_A_A()
+	{
+		String name = "A";
+		LatLng latLng = new LatLng(0, 0);
+		int radius = 0;
+		Ringmode ringmode = Ringmode.SILENT;
+		
+		Siviso siviso = new Siviso(name, latLng, radius, ringmode);
+		
+		String actualName = siviso.name();
+		assertEquals(name, actualName);
+	}
+	
+	@Test
 	public void latLng_01_01()
 	{
 		String name = "";
