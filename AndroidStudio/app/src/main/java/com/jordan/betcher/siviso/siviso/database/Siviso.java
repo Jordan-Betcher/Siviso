@@ -2,15 +2,36 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public interface Siviso
+public class Siviso
 {
-	void setLatLng(double latitude, double longitude);
+	public Siviso(String name, LatLng latLng, int radius, Ringmode ringmode)
+	{
+		//TODO Siviso Siviso
+	}
 	
-	LatLng latLng();
+	public void setLatLng(double latitude, double longitude)
+	{
 	
-	double radius();
+	}
 	
-	int color();
+	public LatLng latLng()
+	{
+		return null;
+	}
 	
-	Ringmode siviso();
+	public double radius()
+	{
+		return 0;
+	}
+	
+	public int color()
+	{
+		return 0;
+	}
+	
+	public Ringmode siviso()
+	{
+		return null;
+	}
+	//TODO
 }
