@@ -6,8 +6,8 @@ public class SivisosCreator
 {
 	private final Factory_SivisoFromString sivisoFromString;
 	private final Ringmodes ringmodes;
-	Siviso[] sivisos;
-	String sivisosString;
+	Siviso[] previousSivisos;
+	String previousSivisosString;
 	
 	public SivisosCreator(Factory_SivisoFromString sivisoFromString, Ringmodes ringmodes)
 	{
@@ -19,9 +19,9 @@ public class SivisosCreator
 	//TODO make it so that if the same string is passed in, the same return is passed out
 	public Siviso[] from(String sivisosString)
 	{
-		if(sivisos != null)
+		if(previousSivisos != null && previousSivisosString == sivisosString)
 		{
-			return sivisos;
+			return previousSivisos;
 		}
 		
 		String[] sivisosStrings = sivisosString.replaceAll("[{]","").split("[}]");
