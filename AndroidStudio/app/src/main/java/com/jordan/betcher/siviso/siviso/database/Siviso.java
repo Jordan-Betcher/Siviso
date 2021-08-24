@@ -31,4 +31,9 @@ public class Siviso
 	{
 		return null;
 	}
+	
+	public String name()
+	{
+		return "A";
+	}
 }
