@@ -44,4 +44,19 @@ public class SivisoCreator
 		
 		return sivisos;
 	}
+	
+	public boolean isValidSection(String section)
+	{
+		return false; //TODO SivisoCreator isValidSection
+	}
+	
+	public Siviso sivisoFrom(String section)
+	{
+		return null; //TODO SivisoCreator sivisoFrom
+	}
+	
+	public String[] sectionsFrom(String fullSivisoString)
+	{
+		return null; //TODO SivisoCreator sectionsFrom
+	}
 }
