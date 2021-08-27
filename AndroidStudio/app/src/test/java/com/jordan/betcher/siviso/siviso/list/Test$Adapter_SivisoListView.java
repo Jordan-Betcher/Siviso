@@ -17,8 +17,6 @@ import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHo
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 public class Test$Adapter_SivisoListView
 {
 	@Test
@@ -28,8 +26,9 @@ public class Test$Adapter_SivisoListView
 		int position = 0;
 		int count = 0;
 		
+		Siviso[] sivisos = new Siviso[count];
 		Database database = mock(Database.class);
-		when(database.count()).thenReturn(count);
+		when(database.sivisos()).thenReturn(sivisos);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
 		adapter.onBindViewHolder(viewHolder_sivisoItem, position);
@@ -92,8 +91,9 @@ public class Test$Adapter_SivisoListView
 		int count = 1;
 		int position = 1;
 		
+		Siviso[] sivisos = new Siviso[count];
 		Database database = mock(Database.class);
-		when(database.count()).thenReturn(count);
+		when(database.sivisos()).thenReturn(sivisos);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
 		
@@ -122,6 +122,9 @@ public class Test$Adapter_SivisoListView
 		int position = 1;
 		Database database = mock(Database.class);
 		
+		Siviso[] sivisos = new Siviso[0];
+		when(database.sivisos()).thenReturn(sivisos);
+		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
 		
 		int actualViewType = adapter.getItemViewType(position);
@@ -133,8 +136,9 @@ public class Test$Adapter_SivisoListView
 	public void getItemCount_0SivisoData_2()
 	{
 		int count = 0;
+		Siviso[] sivisos = new Siviso[count];
 		Database database = mock(Database.class);
-		when(database.count()).thenReturn(count);
+		when(database.sivisos()).thenReturn(sivisos);
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
 		
@@ -147,10 +151,9 @@ public class Test$Adapter_SivisoListView
 	public void getItemCount_1SivisoData_3()
 	{
 		int count = 1;
-		ArrayList<Siviso> sivisos = new ArrayList<>();
-		sivisos.add(mock(Siviso.class));
+		Siviso[] sivisos = new Siviso[count];
 		Database database = mock(Database.class);
-		when(database.count()).thenReturn(count);
+		when(database.sivisos()).thenReturn(sivisos);
 		
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);

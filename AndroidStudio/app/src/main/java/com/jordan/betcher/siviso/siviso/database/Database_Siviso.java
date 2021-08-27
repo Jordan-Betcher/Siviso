@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.google.gson.Gson;
 
 public class Database_Siviso implements Database
 {
@@ -13,11 +12,11 @@ public class Database_Siviso implements Database
 	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
 	private SharedPreferences sharedPreferences;
-	private Gson gson;
+	private Wrapper_Gson gson;
 	private Ringmodes ringmodes;
 	
 	public Database_Siviso(
-	Activity activity, Ringmodes ringmodes, Gson gson)
+	Activity activity, Ringmodes ringmodes, Wrapper_Gson gson)
 	{
 		this.ringmodes = ringmodes;
 		sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
@@ -27,6 +26,7 @@ public class Database_Siviso implements Database
 	@Override
 	public Ringmode defaultRingmode()
 	{
+		//TODO make this get convert with gson and get rid of ringmodes
 		int ringmodeInt = sharedPreferences.getInt(DEFAULT_RINGMODE_ID, 0);
 		return ringmodes.from(ringmodeInt);
 	}
@@ -40,29 +40,17 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public int count()
-	{
-		return 0;
-	}
-	
-	@Override
 	public Siviso[] sivisos()
 	{
 		//TODO make this test
 		String fullSivisoString = sharedPreferences.getString(SIVISOS_ID, "");
-		return gson.fromJson(fullSivisoString, Siviso[].class);
+		return gson.fromJson(fullSivisoString);
 	}
 	
 	@Override
 	public void setRingmode(int sivisoIndex, int ringmodeIndex)
 	{
 	
-	}
-	
-	@Override
-	public LatLng sivisoLatLng(int index)
-	{
-		return null;
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -14,6 +15,26 @@ import org.junit.Test;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void sivisos_gsonSharedPreferences_sivisos()
+	{
+		String sivisosString = "";
+		Siviso[] sivisos = new Siviso[0];
+		
+		Activity activity = mock(Activity.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		Wrapper_Gson gson = mock(Wrapper_Gson.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, gson);
+		
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
+	}
+	
 	@Test
 	public void setDefaultRingmode_VIBRATE_sharedPreferencesSetDefaultRingmode1()
 	{

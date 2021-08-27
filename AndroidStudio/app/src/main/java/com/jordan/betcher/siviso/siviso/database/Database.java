@@ -8,13 +8,9 @@ public interface Database
 	
 	void setDefaultRingmode(Ringmode ringmodeFromPosition);
 	
-	int count();
-	
 	Siviso[] sivisos();
 	
 	void setRingmode(int sivisoIndex, int ringmodeIndex);
-	
-	LatLng sivisoLatLng(int index);
 	
 	void saveNewSiviso(PossibleSiviso possibleSiviso);
 	
