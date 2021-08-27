@@ -4,16 +4,15 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.add.cancel.A_CancelButton;
 import com.jordan.betcher.siviso.siviso.add.confirm.A_ConfirmButton;
 import com.jordan.betcher.siviso.siviso.add.siviso.A_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
-import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
 import com.jordan.betcher.siviso.siviso.database.PossibleSiviso;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
-import com.jordan.betcher.siviso.siviso.database.SivisoCreator;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 public class A_Activity_Add extends AppCompatActivity
@@ -40,9 +39,8 @@ public class A_Activity_Add extends AppCompatActivity
 	private Database createDatabase()
 	{
 		Ringmodes ringmodes = new Ringmodes();
-		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
-		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
-		return new Database_Siviso(this, ringmodes, sivisoCreator);
+		Gson gson = new Gson();
+		return new Database_Siviso(this, ringmodes, gson);
 		
 	}
 }

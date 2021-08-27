@@ -6,12 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.Gson;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
-import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
-import com.jordan.betcher.siviso.siviso.database.SivisoCreator;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
@@ -56,9 +55,8 @@ public class A_Activity_Main extends AppCompatActivity
 	private Database createDatabase()
 	{
 		Ringmodes ringmodes = new Ringmodes();
-		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
-		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
-		return new Database_Siviso(this, ringmodes, sivisoCreator);
+		Gson gson = new Gson();
+		return new Database_Siviso(this, ringmodes, gson);
 		
 	}
 	

@@ -5,8 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.android.gms.maps.model.LatLng;
-
-import java.util.ArrayList;
+import com.google.gson.Gson;
 
 public class Database_Siviso implements Database
 {
@@ -14,24 +13,22 @@ public class Database_Siviso implements Database
 	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
 	private SharedPreferences sharedPreferences;
-	private SivisoCreator sivisoCreator;
+	private Gson gson;
 	private Ringmodes ringmodes;
 	
 	public Database_Siviso(
-	Activity activity, Ringmodes ringmodes,
-	SivisoCreator sivisoCreator)
+	Activity activity, Ringmodes ringmodes, Gson gson)
 	{
 		this.ringmodes = ringmodes;
 		sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
-		this.sivisoCreator = sivisoCreator;
+		this.gson = gson;
 	}
 	
 	@Override
 	public Ringmode defaultRingmode()
 	{
 		int ringmodeInt = sharedPreferences.getInt(DEFAULT_RINGMODE_ID, 0);
-		Ringmode ringmode = ringmodes.from(ringmodeInt);
-		return ringmode;
+		return ringmodes.from(ringmodeInt);
 	}
 	
 	@Override
@@ -51,20 +48,9 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
+		//TODO make this test
 		String fullSivisoString = sharedPreferences.getString(SIVISOS_ID, "");
-		String[] sections = sivisoCreator.sectionsFrom(fullSivisoString);
-		ArrayList<Siviso> sivisos = new ArrayList<>();
-		for(String section : sections)
-		{
-			if(sivisoCreator.isValidSection(section))
-			{
-				Siviso siviso = sivisoCreator.sivisoFrom(section);
-				sivisos.add(siviso);
-			}
-		}
-		Siviso[] sivisoArray = new Siviso[sivisos.size()];
-		sivisos.toArray(sivisoArray);
-		return sivisoArray;
+		return gson.fromJson(fullSivisoString, Siviso[].class);
 	}
 	
 	@Override

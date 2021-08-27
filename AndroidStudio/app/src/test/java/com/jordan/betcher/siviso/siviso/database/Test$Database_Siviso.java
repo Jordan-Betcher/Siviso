@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -15,89 +14,6 @@ import org.junit.Test;
 
 public class Test$Database_Siviso
 {
-	@Test
-	public void sivisos_aNotValid_0siviso()
-	{
-		String section1 = "a";
-		String[] sections = new String[]{section1};
-		String fullSivisoString = String.format("{%s}", section1);
-		boolean section1Valid = false;
-		Siviso siviso1 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{};
-		
-		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		SivisoCreator sivisoCreator = mock(SivisoCreator.class);
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(fullSivisoString);
-		when(sivisoCreator.sectionsFrom(fullSivisoString)).thenReturn(sections);
-		when(sivisoCreator.isValidSection(section1)).thenReturn(section1Valid);
-		when(sivisoCreator.sivisoFrom(section1)).thenReturn(siviso1);
-		
-		Database_Siviso database = new Database_Siviso(activity, ringmodes, sivisoCreator);
-		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
-	}
-	
-	@Test
-	public void sivisos_abValid_2siviso()
-	{
-		String section1 = "a";
-		String section2 = "b";
-		String[] sections = new String[]{section1, section2};
-		String fullSivisoString = String.format("{%s,%s}", section1, section2);
-		boolean section1Valid = true;
-		boolean section2Valid = true;
-		Siviso siviso1 = mock(Siviso.class);
-		Siviso siviso2 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
-		
-		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		SivisoCreator sivisoCreator = mock(SivisoCreator.class);
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(fullSivisoString);
-		when(sivisoCreator.sectionsFrom(fullSivisoString)).thenReturn(sections);
-		when(sivisoCreator.isValidSection(section1)).thenReturn(section1Valid);
-		when(sivisoCreator.isValidSection(section2)).thenReturn(section2Valid);
-		when(sivisoCreator.sivisoFrom(section1)).thenReturn(siviso1);
-		when(sivisoCreator.sivisoFrom(section2)).thenReturn(siviso2);
-		
-		Database_Siviso database = new Database_Siviso(activity, ringmodes, sivisoCreator);
-		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
-	}
-	
-	@Test
-	public void sivisos_aValid_siviso()
-	{
-		String section1 = "a";
-		String[] sections = new String[]{section1};
-		String fullSivisoString = String.format("{%s}", section1);
-		boolean section1Valid = true;
-		Siviso siviso1 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso1};
-		
-		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		SivisoCreator sivisoCreator = mock(SivisoCreator.class);
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(fullSivisoString);
-		when(sivisoCreator.sectionsFrom(fullSivisoString)).thenReturn(sections);
-		when(sivisoCreator.isValidSection(section1)).thenReturn(section1Valid);
-		when(sivisoCreator.sivisoFrom(section1)).thenReturn(siviso1);
-		
-		Database_Siviso database = new Database_Siviso(activity, ringmodes, sivisoCreator);
-		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
-	}
-	
 	@Test
 	public void setDefaultRingmode_VIBRATE_sharedPreferencesSetDefaultRingmode1()
 	{
