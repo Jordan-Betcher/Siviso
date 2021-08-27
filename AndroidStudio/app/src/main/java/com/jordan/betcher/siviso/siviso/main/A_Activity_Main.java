@@ -11,7 +11,7 @@ import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Factory_SivisoFromString;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
-import com.jordan.betcher.siviso.siviso.database.SivisosCreator;
+import com.jordan.betcher.siviso.siviso.database.SivisoCreator;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
@@ -57,8 +57,8 @@ public class A_Activity_Main extends AppCompatActivity
 	{
 		Ringmodes ringmodes = new Ringmodes();
 		Factory_SivisoFromString sivisoFromString = new Factory_SivisoFromString();
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
-		return new Database_Siviso(this, ringmodes, sivisosCreator);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
+		return new Database_Siviso(this, ringmodes, sivisoCreator);
 		
 	}
 	

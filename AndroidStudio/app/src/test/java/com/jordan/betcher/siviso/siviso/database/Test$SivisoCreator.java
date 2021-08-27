@@ -8,7 +8,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.junit.Test;
 
-public class Test$SivisosCreator
+public class Test$SivisoCreator
 {
 	@Test
 	public void sivisos_differentStringA_differentSivisosA()
@@ -29,11 +29,11 @@ public class Test$SivisosCreator
 		Ringmodes ringmodes = mock(Ringmodes.class);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
-		sivisosCreator.previousSivisosString = previousSivisoString;
-		sivisosCreator.previousSivisos = previousSivios;
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
+		sivisoCreator.previousSivisosString = previousSivisoString;
+		sivisoCreator.previousSivisos = previousSivios;
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(sivisos, actualSivisos);
 	}
 	
@@ -52,11 +52,11 @@ public class Test$SivisosCreator
 		Factory_SivisoFromString sivisoFromString = mock(Factory_SivisoFromString.class);
 		Ringmodes ringmodes = mock(Ringmodes.class);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
-		sivisosCreator.previousSivisosString = sivisosString;
-		sivisosCreator.previousSivisos = sivisos;
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
+		sivisoCreator.previousSivisosString = sivisosString;
+		sivisoCreator.previousSivisos = sivisos;
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(sivisos, actualSivisos);
 	}
 	
@@ -77,9 +77,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 	
@@ -100,9 +100,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 	
@@ -123,9 +123,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 	
@@ -146,9 +146,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 	
@@ -173,9 +173,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name2, latLng, radius, ringmode)).thenReturn(siviso2);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 	
@@ -197,9 +197,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 	
@@ -220,9 +220,9 @@ public class Test$SivisosCreator
 		when(sivisoFromString.siviso(name, latLng, radius, ringmode)).thenReturn(siviso1);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
 		
-		SivisosCreator sivisosCreator = new SivisosCreator(sivisoFromString, ringmodes);
+		SivisoCreator sivisoCreator = new SivisoCreator(sivisoFromString, ringmodes);
 		
-		Siviso[] actualSivisos = sivisosCreator.from(sivisosString);
+		Siviso[] actualSivisos = sivisoCreator.from(sivisosString);
 		assertArrayEquals(list, actualSivisos);
 	}
 }
