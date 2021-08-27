@@ -56,10 +56,10 @@ public class Database_Siviso implements Database
 		ArrayList<Siviso> sivisos = new ArrayList<>();
 		for(String section : sections)
 		{
-			Siviso siviso = sivisoCreator.sivisoFrom(section);
-			sivisos.add(siviso);
 			if(sivisoCreator.isValidSection(section))
 			{
+				Siviso siviso = sivisoCreator.sivisoFrom(section);
+				sivisos.add(siviso);
 			}
 		}
 		Siviso[] sivisoArray = new Siviso[sivisos.size()];

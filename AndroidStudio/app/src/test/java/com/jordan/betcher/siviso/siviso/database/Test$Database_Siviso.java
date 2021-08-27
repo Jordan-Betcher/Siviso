@@ -16,6 +16,32 @@ import org.junit.Test;
 public class Test$Database_Siviso
 {
 	@Test
+	public void sivisos_aNotValid_0siviso()
+	{
+		String section1 = "a";
+		String[] sections = new String[]{section1};
+		String fullSivisoString = String.format("{%s}", section1);
+		boolean section1Valid = false;
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{};
+		
+		Activity activity = mock(Activity.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		SivisoCreator sivisoCreator = mock(SivisoCreator.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(fullSivisoString);
+		when(sivisoCreator.sectionsFrom(fullSivisoString)).thenReturn(sections);
+		when(sivisoCreator.isValidSection(section1)).thenReturn(section1Valid);
+		when(sivisoCreator.sivisoFrom(section1)).thenReturn(siviso1);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, sivisoCreator);
+		
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
+	}
+	
+	@Test
 	public void sivisos_abValid_2siviso()
 	{
 		String section1 = "a";
@@ -45,7 +71,6 @@ public class Test$Database_Siviso
 		Siviso[] actualSivisos = database.sivisos();
 		assertArrayEquals(sivisos, actualSivisos);
 	}
-	
 	
 	@Test
 	public void sivisos_aValid_siviso()
