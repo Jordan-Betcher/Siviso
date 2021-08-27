@@ -16,7 +16,28 @@ import org.junit.Test;
 public class Test$Database_Siviso
 {
 	@Test
-	public void sivisos_gsonSharedPreferences_sivisos()
+	public void sivisos_gsonSharedPreferencesaA_Asivisos()
+	{
+		String sivisosString = "a";
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA};
+		
+		Activity activity = mock(Activity.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		Wrapper_Gson gson = mock(Wrapper_Gson.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, gson);
+		
+		Siviso[] actualSivisos = database.sivisos();
+		assertArrayEquals(sivisos, actualSivisos);
+	}
+	
+	@Test
+	public void sivisos_gsonSharedPreferences_0sivisos()
 	{
 		String sivisosString = "";
 		Siviso[] sivisos = new Siviso[0];

@@ -42,7 +42,6 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
-		//TODO make this test
 		String fullSivisoString = sharedPreferences.getString(SIVISOS_ID, "");
 		return gson.fromJson(fullSivisoString);
 	}
