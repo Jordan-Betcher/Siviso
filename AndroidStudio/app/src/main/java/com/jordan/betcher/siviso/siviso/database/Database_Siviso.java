@@ -42,7 +42,8 @@ public class Database_Siviso implements Database
 	public Siviso[] sivisos()
 	{
 		String fullSivisoString = sharedPreferences.getString(SIVISOS_ID, "");
-		return gson.fromJson(fullSivisoString);//TODO return empty array when null
+		Siviso[] sivisos = gson.fromJson(fullSivisoString);
+		return sivisos == null ? new Siviso[0] : sivisos;
 	}
 	
 	@Override
