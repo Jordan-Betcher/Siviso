@@ -13,6 +13,24 @@ import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
+	
+	@Test
+	public void setRingmode_1Silent_changeSiviso1RingmodeSilent()
+	{
+		int index = 1;
+		Ringmode ringmode = Ringmode.SILENT;
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso sivisoB = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.setRingmode(index, ringmode);
+		
+		verify(sivisoB, times(1)).setRingmode(ringmode);
+	}
+	
 	@Test
 	public void setRingmode_0Vibrate_changeSiviso0RingmodeVibrate()
 	{

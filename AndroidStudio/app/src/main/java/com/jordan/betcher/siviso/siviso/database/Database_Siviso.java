@@ -34,7 +34,7 @@ public class Database_Siviso implements Database
 	int sivisoIndex, Ringmode ringmode)
 	{
 		Siviso[] sivisos = sivisos();
-		sivisos[0].setRingmode(ringmode);
+		sivisos[sivisoIndex].setRingmode(ringmode);
 		useSharedPreferences.setSivisos(sivisos);
 	}
 	
