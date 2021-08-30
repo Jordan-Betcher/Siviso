@@ -33,7 +33,9 @@ public class Database_Siviso implements Database
 	public void setRingmode(
 	int sivisoIndex, Ringmode ringmode)
 	{
-	
+		Siviso[] sivisos = sivisos();
+		sivisos[0].setRingmode(Ringmode.SILENT);
+		useSharedPreferences.setSivisos(sivisos);
 	}
 	
 	@Override
