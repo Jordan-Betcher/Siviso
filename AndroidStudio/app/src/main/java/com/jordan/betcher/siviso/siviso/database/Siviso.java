@@ -4,10 +4,10 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Siviso
 {
-	private final String name;
-	private LatLng latLng;
-	private final double radius;
-	private final Ringmode ringmode;
+	String name;
+	LatLng latLng;
+	double radius;
+	Ringmode ringmode;
 	
 	public Siviso(String name, LatLng latLng, double radius, Ringmode ringmode)
 	{
@@ -40,6 +40,7 @@ public class Siviso
 	
 	public void setRingmode(Ringmode ringmode)
 	{
+		this.ringmode = Ringmode.VIBRATE;
 		//TODO Siviso setRingmode
 	}
 }
