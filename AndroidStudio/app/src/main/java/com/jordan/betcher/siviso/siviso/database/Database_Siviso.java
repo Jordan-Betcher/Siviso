@@ -4,15 +4,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Database_Siviso implements Database
 {
+	private UseSharedPreferences useSharedPreferences;
+	
 	public Database_Siviso(UseSharedPreferences useSharedPreferences)
 	{
-		//TODO Database_Siviso Database_Siviso
+		this.useSharedPreferences = useSharedPreferences;
 	}
 	
 	@Override
 	public Ringmode defaultRingmode()
 	{
-		return null;
+		return Ringmode.SILENT;
 	}
 	
 	@Override
