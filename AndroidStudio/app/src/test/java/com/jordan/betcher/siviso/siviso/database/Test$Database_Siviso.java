@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -15,7 +16,28 @@ import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
-	
+	@Test
+	public void delete_LatLng00SivisoAHas01SivisoBHas01_0delete()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		
+		Siviso sivisoA = mock(Siviso.class);
+		LatLng latLngA = new LatLng(0, 1);
+		when(sivisoA.latLng()).thenReturn(latLngA);
+		
+		Siviso sivisoB = mock(Siviso.class);
+		LatLng latLngB = new LatLng(0, 1);
+		when(sivisoB.latLng()).thenReturn(latLngB);
+		
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.delete(latLng);
+		
+		verify(useSharedPreferences, times(0)).setSivisos(any());
+	}
 	
 	@Test
 	public void delete_LatLng01SivisoAHas01SivisoBHas00_deleteSivisoA()
