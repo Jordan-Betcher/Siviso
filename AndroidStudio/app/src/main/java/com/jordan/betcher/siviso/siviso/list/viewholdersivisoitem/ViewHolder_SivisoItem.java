@@ -35,10 +35,11 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	@Override
 	public void init(Database database, int sivisoIndex)
 	{
-		//TODO set spinner to siviso ringmode
 		AdapterView.OnItemSelectedListener onItemSelected = factoryOnItemClickListenerSetSiviso.create(database, sivisoIndex);
 		spinner.setOnItemSelectedListener(onItemSelected);
 		LatLng sivisoLatLng = database.sivisos()[sivisoIndex].latLng();
+		//TODO set spinner to siviso ringmode
+		spinner.setSelection(1);//database.sivisos()[sivisoIndex].ringmode().ordinal());
 		OnClickListener_GoToSivisoLocation onClickListener = factoryOnClickBackground.create(sivisoLatLng);
 		background.setOnClickListener(onClickListener);
 	}
