@@ -11,6 +11,18 @@ import org.junit.Test;
 public class Test$Database_Siviso
 {
 	@Test
+	public void setDefaultRingmode_Vibrate_saveVibrate()
+	{
+		Ringmode ringmode = Ringmode.VIBRATE;
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		
+		database.setDefaultRingmode(ringmode);
+		verify(useSharedPreferences,times(1)).setDefaultRingmode(ringmode);
+	}
+	
+	@Test
 	public void setDefaultRingmode_Silent_saveSilent()
 	{
 		Ringmode ringmode = Ringmode.SILENT;

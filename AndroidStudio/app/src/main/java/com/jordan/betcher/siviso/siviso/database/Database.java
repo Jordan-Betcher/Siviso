@@ -6,7 +6,7 @@ public interface Database
 {
 	Ringmode defaultRingmode();
 	
-	void setDefaultRingmode(Ringmode ringmodeFromPosition);
+	void setDefaultRingmode(Ringmode ringmode);
 	
 	Siviso[] sivisos();
 	
