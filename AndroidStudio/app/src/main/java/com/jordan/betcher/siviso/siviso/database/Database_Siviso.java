@@ -39,12 +39,6 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void saveNewSiviso(PossibleSiviso possibleSiviso)
-	{
-	
-	}
-	
-	@Override
 	public void delete(LatLng selected)
 	{
 	
