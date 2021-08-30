@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
-import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
-import com.jordan.betcher.siviso.siviso.list.viewholderadd.ViewHolder_Add;
 import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
 import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 
@@ -30,27 +28,10 @@ public class Test$Adapter_SivisoListView
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
 		adapter.onBindViewHolder(viewHolder_sivisoItem, position);
 		
 		verify(viewHolder_sivisoItem, times(1)).init(database, position - 1);
-	}
-	
-	
-	@Test
-	public void onCreateViewHolder_itemTypeADD_viewHolderAdd()
-	{
-		Database database = mock(Database.class);
-		ViewGroup viewGroup = mock(ViewGroup.class);
-		ViewHolder_Add viewHolderAdd = mock(ViewHolder_Add.class);
-		Factory_ViewHolderAdd factoryViewHolder = mock(Factory_ViewHolderAdd.class);
-		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderAdd);
-		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, factoryViewHolder);
-		
-		int itemType = Adapter_SivisoListView.ViewType.ADD.ordinal();
-		ViewHolder_Add viewHolder = (ViewHolder_Add)adapter.onCreateViewHolder(viewGroup, itemType);
-		assertEquals(viewHolderAdd, viewHolder);
 	}
 	
 	@Test
@@ -62,7 +43,7 @@ public class Test$Adapter_SivisoListView
 		Factory_ViewHolderDefault factoryViewHolder = mock(Factory_ViewHolderDefault.class);
 		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderDefault);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolder, null, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, factoryViewHolder, null);
 		
 		int itemType = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
 		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -78,7 +59,7 @@ public class Test$Adapter_SivisoListView
 		Factory_ViewHolderSiviso factoryViewHolder = mock(Factory_ViewHolderSiviso.class);
 		when(factoryViewHolder.create(viewGroup)).thenReturn(viewHolderSivisoItem);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, factoryViewHolder, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, factoryViewHolder);
 		
 		int itemType = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
 		ViewHolder_Abstract actualViewHolder = adapter.onCreateViewHolder(viewGroup, itemType);
@@ -95,7 +76,7 @@ public class Test$Adapter_SivisoListView
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.SIVISO.ordinal();
@@ -108,47 +89,30 @@ public class Test$Adapter_SivisoListView
 		int position = 0;
 		Database database = mock(Database.class);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
 		
 		int actualViewType = adapter.getItemViewType(position);
 		int expected = Adapter_SivisoListView.ViewType.DEFAULT.ordinal();
 		assertEquals(expected, actualViewType);
 	}
 	
-	
 	@Test
-	public void getItemViewType_SivisoData0Position1_ADD()
-	{
-		int position = 1;
-		Database database = mock(Database.class);
-		
-		Siviso[] sivisos = new Siviso[0];
-		when(database.sivisos()).thenReturn(sivisos);
-		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
-		
-		int actualViewType = adapter.getItemViewType(position);
-		int expected = Adapter_SivisoListView.ViewType.ADD.ordinal();
-		assertEquals(expected, actualViewType);
-	}
-	
-	@Test
-	public void getItemCount_0SivisoData_2()
+	public void getItemCount_0SivisoData_1()
 	{
 		int count = 0;
 		Siviso[] sivisos = new Siviso[count];
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
 		
 		int actualItemCount = adapter.getItemCount();
-		int expectedItemCount = count + 2;
+		int expectedItemCount = count + 1;
 		assertEquals(expectedItemCount, actualItemCount);
 	}
 	
 	@Test
-	public void getItemCount_1SivisoData_3()
+	public void getItemCount_1SivisoData_2()
 	{
 		int count = 1;
 		Siviso[] sivisos = new Siviso[count];
@@ -156,9 +120,9 @@ public class Test$Adapter_SivisoListView
 		when(database.sivisos()).thenReturn(sivisos);
 		
 		
-		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null, null);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
 		int actualItemCount = adapter.getItemCount();
-		int expectedItemCount = count + 2;
+		int expectedItemCount = count + 1;
 		assertEquals(expectedItemCount, actualItemCount);
 	}
 }
