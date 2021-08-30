@@ -1,17 +1,13 @@
 package com.jordan.betcher.siviso.siviso.list;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.add.A_Activity_Add;
-import com.jordan.betcher.siviso.siviso.add.OnClickListener_StartActivityAdd;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
-import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
 import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
 import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 import com.jordan.betcher.siviso.siviso.main.A_Activity_Main;
@@ -56,14 +52,6 @@ public class A_List
 		Factory_ViewHolderDefault defaultViewHolderFactory = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
 		Factory_ViewHolderSiviso sivisoViewHolderFactory = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap);
 		
-		Factory_ViewHolderAdd addViewHolderFactory = addViewHolderFactory(layoutInflater);
-		return new Adapter_SivisoListView(database, defaultViewHolderFactory, sivisoViewHolderFactory, addViewHolderFactory);
-	}
-	
-	private Factory_ViewHolderAdd addViewHolderFactory(LayoutInflater layoutInflater)
-	{
-		Intent intent = new Intent(activity, A_Activity_Add.class);
-		OnClickListener_StartActivityAdd onClick = new OnClickListener_StartActivityAdd(activity, intent);
-		return new Factory_ViewHolderAdd(layoutInflater, onClick);
+		return new Adapter_SivisoListView(database, defaultViewHolderFactory, sivisoViewHolderFactory);
 	}
 }

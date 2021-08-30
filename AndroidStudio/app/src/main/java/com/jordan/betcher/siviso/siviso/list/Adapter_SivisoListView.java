@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.list.viewholderadd.Factory_ViewHolderAdd;
 import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
 import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 
@@ -16,24 +15,20 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	private Database database;
 	private Factory_ViewHolderDefault factoryViewHolderDefault;
 	private Factory_ViewHolderSiviso factoryViewHolderSiviso;
-	private Factory_ViewHolderAdd factoryViewHolderAdd;
 	
 	public Adapter_SivisoListView(Database database,
 	                              Factory_ViewHolderDefault factoryViewHolder,
-	                              Factory_ViewHolderSiviso factoryViewHolderSiviso,
-	                              Factory_ViewHolderAdd factoryViewHolderAdd)
+	                              Factory_ViewHolderSiviso factoryViewHolderSiviso)
 	{
 		this.database = database;
 		this.factoryViewHolderDefault = factoryViewHolder;
 		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
-		this.factoryViewHolderAdd = factoryViewHolderAdd;
 	}
 	
 	enum ViewType
 	{
 		DEFAULT,
-		SIVISO,
-		ADD
+		SIVISO
 	}
 	
 	@Override
@@ -42,10 +37,6 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		if(index == 0)
 		{
 			return ViewType.DEFAULT.ordinal();
-		}
-		else if(index == indexOfListItemAdd())
-		{
-			return ViewType.ADD.ordinal();
 		}
 		else
 		{
@@ -61,10 +52,6 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		{
 			return factoryViewHolderDefault.create(parent);
 		}
-		else if(viewType == ViewType.ADD.ordinal())
-		{
-			return factoryViewHolderAdd.create(parent);
-		}
 		else
 		{
 			return factoryViewHolderSiviso.create(parent);
@@ -78,11 +65,6 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		viewHolder.init(database, sivisoDataIndex);
 	}
 	
-	private int indexOfListItemAdd()
-	{
-		return getItemCount() - 1;
-	}
-	
 	private int listPositionToSivisoIndex(int index)
 	{
 		return index - 1;
@@ -91,6 +73,6 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	@Override
 	public int getItemCount()
 	{
-		return database.sivisos().length + 2;
+		return database.sivisos().length + 1;
 	}
 }
