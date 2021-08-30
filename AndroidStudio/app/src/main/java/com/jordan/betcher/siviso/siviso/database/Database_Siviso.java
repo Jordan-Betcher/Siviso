@@ -14,7 +14,7 @@ public class Database_Siviso implements Database
 	@Override
 	public Ringmode defaultRingmode()
 	{
-		return Ringmode.SILENT;
+		return useSharedPreferences.defaultRingmode();
 	}
 	
 	@Override

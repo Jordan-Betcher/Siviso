@@ -9,6 +9,19 @@ import org.junit.Test;
 public class Test$Database_Siviso
 {
 	@Test
+	public void defaultRingmode_savedVibrate_Vibrate()
+	{
+		Ringmode ringmode = Ringmode.VIBRATE;
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.defaultRingmode()).thenReturn(ringmode);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		
+		Ringmode actualRingmode = database.defaultRingmode();
+		assertEquals(ringmode, actualRingmode);
+	}
+	
+	@Test
 	public void defaultRingmode_savedSilent_Silent()
 	{
 		Ringmode ringmode = Ringmode.SILENT;
