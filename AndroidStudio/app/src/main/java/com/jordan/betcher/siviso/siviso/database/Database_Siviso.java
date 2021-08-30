@@ -48,7 +48,10 @@ public class Database_Siviso implements Database
 	@Override
 	public void setRingmode(int sivisoIndex, Ringmode ringmode)
 	{
-		//TODO
+		Siviso[] sivisos = sivisos();
+		sivisos[sivisoIndex].setRingmode(ringmode);
+		String editedString = gson.toJsonString(sivisos);
+		sharedPreferences.edit().putString(SIVISOS_ID, editedString).apply();
 	}
 	
 	@Override

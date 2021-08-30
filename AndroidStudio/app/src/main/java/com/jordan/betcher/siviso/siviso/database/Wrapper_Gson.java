@@ -10,4 +10,9 @@ public class Wrapper_Gson
 	{
 		return gson.fromJson(sivisosString, Siviso[].class);
 	}
+	
+	public String toJsonString(Siviso[] sivisos)
+	{
+		return gson.toJson(sivisos);
+	}
 }

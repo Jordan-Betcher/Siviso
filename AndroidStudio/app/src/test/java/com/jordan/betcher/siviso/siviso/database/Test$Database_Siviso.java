@@ -15,6 +15,70 @@ import org.junit.Test;
 
 public class Test$Database_Siviso
 {
+	
+	@Test
+	public void setRingmode_1VIBRATE_siviso1RingmodeVibrateAndSharedPreferencesPut()
+	{
+		int sivisoIndex = 1;
+		Ringmode ringmode = Ringmode.VIBRATE;
+		String sivisosString = "ab";
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso sivisoB = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		String sivisosEditedString = "abVibrate";
+		
+		Activity activity = mock(Activity.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		Wrapper_Gson gson = mock(Wrapper_Gson.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
+		when(gson.toJsonString(sivisos)).thenReturn(sivisosEditedString);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putString(Database_Siviso.SIVISOS_ID, sivisosEditedString)).thenReturn(editor2);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, gson);
+		database.setRingmode(sivisoIndex, ringmode);
+		
+		verify(sivisoB, times(1)).setRingmode(ringmode);
+		verify(editor2, times(1)).apply();
+	}
+	
+	@Test
+	public void setRingmode_0Silent_siviso0RingmodeSilentAndSharedPreferencesPut()
+	{
+		int sivisoIndex = 0;
+		Ringmode ringmode = Ringmode.SILENT;
+		String sivisosString = "a";
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA};
+		String sivisosEditedString = "aSilent";
+		
+		Activity activity = mock(Activity.class);
+		Ringmodes ringmodes = mock(Ringmodes.class);
+		Wrapper_Gson gson = mock(Wrapper_Gson.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
+		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(Database_Siviso.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
+		when(gson.toJsonString(sivisos)).thenReturn(sivisosEditedString);
+		when(activity.getSharedPreferences(Database_Siviso.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.edit()).thenReturn(editor1);
+		when(editor1.putString(Database_Siviso.SIVISOS_ID, sivisosEditedString)).thenReturn(editor2);
+		
+		Database_Siviso database = new Database_Siviso(activity, ringmodes, gson);
+		database.setRingmode(sivisoIndex, ringmode);
+		
+		verify(sivisoA, times(1)).setRingmode(ringmode);
+		verify(editor2, times(1)).apply();
+	}
+	
 	@Test
 	public void sivisos_gsonSharedPreferencesaA_Asivisos()
 	{
