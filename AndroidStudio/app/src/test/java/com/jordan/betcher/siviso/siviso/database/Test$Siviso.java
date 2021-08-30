@@ -9,6 +9,21 @@ import org.junit.Test;
 public class Test$Siviso
 {
 	@Test
+	public void setRingmode_Silent_Silent()
+	{
+		String name = "";
+		LatLng latLng = new LatLng(0, 0);
+		int radius = 0;
+		Ringmode ringmode = Ringmode.SILENT;
+		Ringmode newRingmode = Ringmode.SILENT;
+		
+		Siviso siviso = new Siviso(name, latLng, radius, ringmode);
+		siviso.setRingmode(newRingmode);
+		
+		assertEquals(newRingmode, siviso.ringmode);
+	}
+	
+	@Test
 	public void setRingmode_Vibrate_Vibrate()
 	{
 		String name = "";

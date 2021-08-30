@@ -40,7 +40,6 @@ public class Siviso
 	
 	public void setRingmode(Ringmode ringmode)
 	{
-		this.ringmode = Ringmode.VIBRATE;
-		//TODO Siviso setRingmode
+		this.ringmode = ringmode;
 	}
 }
