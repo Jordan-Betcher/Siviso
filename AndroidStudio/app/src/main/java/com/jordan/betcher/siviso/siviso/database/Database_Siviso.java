@@ -21,7 +21,7 @@ public class Database_Siviso implements Database
 	public void setDefaultRingmode(
 	Ringmode ringmodeFromPosition)
 	{
-	
+		useSharedPreferences.setDefaultRingmode(Ringmode.SILENT);
 	}
 	
 	@Override

@@ -2,12 +2,26 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void setDefaultRingmode_Silent_saveSilent()
+	{
+		Ringmode ringmode = Ringmode.SILENT;
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		
+		database.setDefaultRingmode(ringmode);
+		verify(useSharedPreferences,times(1)).setDefaultRingmode(ringmode);
+	}
+	
 	@Test
 	public void defaultRingmode_savedVibrate_Vibrate()
 	{
