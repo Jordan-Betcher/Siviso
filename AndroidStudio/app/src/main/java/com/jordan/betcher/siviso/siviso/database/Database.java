@@ -10,7 +10,7 @@ public interface Database
 	
 	Siviso[] sivisos();
 	
-	void setRingmode(int sivisoIndex, int ringmodeIndex);
+	void setRingmode(int sivisoIndex, Ringmode ringmode);
 	
 	void saveNewSiviso(PossibleSiviso possibleSiviso);
 	

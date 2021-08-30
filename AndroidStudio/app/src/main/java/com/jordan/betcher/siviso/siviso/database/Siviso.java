@@ -37,4 +37,9 @@ public class Siviso
 	{
 		return ringmode;
 	}
+	
+	public void setRingmode(Ringmode ringmode)
+	{
+		//TODO Siviso setRingmode
+	}
 }

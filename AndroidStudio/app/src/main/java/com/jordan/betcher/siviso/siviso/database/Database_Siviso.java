@@ -26,7 +26,6 @@ public class Database_Siviso implements Database
 	@Override
 	public Ringmode defaultRingmode()
 	{
-		//TODO make this get convert with gson and get rid of ringmodes
 		int ringmodeInt = sharedPreferences.getInt(DEFAULT_RINGMODE_ID, 0);
 		return ringmodes.from(ringmodeInt);
 	}
@@ -47,21 +46,21 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void setRingmode(int sivisoIndex, int ringmodeIndex)
+	public void setRingmode(int sivisoIndex, Ringmode ringmode)
 	{
-	
+		//TODO
 	}
 	
 	@Override
 	public void saveNewSiviso(
 	PossibleSiviso possibleSiviso)
 	{
-	
+		//TODO
 	}
 	
 	@Override
 	public void delete(LatLng selected)
 	{
-	
+		//TODO
 	}
 }
