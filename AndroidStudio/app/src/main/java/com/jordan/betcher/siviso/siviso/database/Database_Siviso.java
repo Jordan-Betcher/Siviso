@@ -18,8 +18,7 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void setDefaultRingmode(
-	Ringmode ringmode)
+	public void setDefaultRingmode(Ringmode ringmode)
 	{
 		useSharedPreferences.setDefaultRingmode(ringmode);
 	}
@@ -27,7 +26,7 @@ public class Database_Siviso implements Database
 	@Override
 	public Siviso[] sivisos()
 	{
-		return new Siviso[0];
+		return useSharedPreferences.sivisos();
 	}
 	
 	@Override
