@@ -1,11 +1,23 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 public class Test$Ringmodes
 {
+	@Test
+	public void list__listWithSilentVibrateSound()
+	{
+		Ringmode[] ringmodes = new Ringmode[]{Ringmode.SILENT, Ringmode.VIBRATE, Ringmode.SOUND};
+		
+		Ringmodes ringmodes1 = new Ringmodes();
+		
+		Ringmode[] actualRingmodes = ringmodes1.list();
+		assertArrayEquals(ringmodes, actualRingmodes);
+	}
+	
 	@Test
 	public void sivisoFrom_0_SILENT()
 	{

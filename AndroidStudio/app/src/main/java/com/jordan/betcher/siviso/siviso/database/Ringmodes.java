@@ -14,6 +14,6 @@ public class Ringmodes
 	
 	public Ringmode[] list()
 	{
-		return null; //TODO Ringmodes list
+		return new Ringmode[]{Ringmode.SILENT, Ringmode.VIBRATE, Ringmode.SOUND};
 	}
 }
