@@ -24,6 +24,42 @@ public class Test$ViewHolder_SivisoItem
 	
 	
 	@Test
+	public void init_databaseIndex0SivisoRingmodeSilent_spinnerSetSelectionOrdinal()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_Sivisos spinnerAdapter = mock(ArrayAdapter_Sivisos.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		Ringmode ringmode = Ringmode.SILENT;
+		Database database = mock(Database.class);
+		int index = 0;
+		int size = index + 1;
+		LatLng sivisoLatLng = new LatLng(0, 1);
+		Siviso siviso = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[size];
+		sivisos[index] = siviso;
+		when(database.sivisos()).thenReturn(sivisos);
+		when(siviso.latLng()).thenReturn(sivisoLatLng);
+		when(siviso.ringmode()).thenReturn(ringmode);
+		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
+		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
+		OnClickListener_GoToSivisoLocation onClickListener = mock(OnClickListener_GoToSivisoLocation.class);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
+		
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		viewHolder.init(database, index);
+		
+		verify(spinner, times(1)).setSelection(ringmode.ordinal());
+	}
+	
+	@Test
 	public void init_databaseIndex0SivisoRingmodeVibrate_spinnerSetSelectionOrdinal()
 	{
 		View view = mock(View.class);
@@ -79,6 +115,7 @@ public class Test$ViewHolder_SivisoItem
 		Siviso siviso = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[index+1];
 		sivisos[index] = siviso;
+		when(siviso.ringmode()).thenReturn(Ringmode.SILENT);
 		when(database.sivisos()).thenReturn(sivisos);
 		when(siviso.latLng()).thenReturn(sivisoLatLng);
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
@@ -112,6 +149,7 @@ public class Test$ViewHolder_SivisoItem
 		Siviso siviso = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[index+1];
 		sivisos[index] = siviso;
+		when(siviso.ringmode()).thenReturn(Ringmode.SILENT);
 		when(database.sivisos()).thenReturn(sivisos);
 		when(siviso.latLng()).thenReturn(sivisoLatLng);
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
@@ -144,6 +182,7 @@ public class Test$ViewHolder_SivisoItem
 		Siviso siviso = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[index+1];
 		sivisos[index] = siviso;
+		when(siviso.ringmode()).thenReturn(Ringmode.SILENT);
 		when(database.sivisos()).thenReturn(sivisos);
 		when(siviso.latLng()).thenReturn(sivisoLatLng);
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
@@ -174,6 +213,7 @@ public class Test$ViewHolder_SivisoItem
 		Siviso siviso = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[index+1];
 		sivisos[index] = siviso;
+		when(siviso.ringmode()).thenReturn(Ringmode.SILENT);
 		when(database.sivisos()).thenReturn(sivisos);
 		when(siviso.latLng()).thenReturn(sivisoLatLng);
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
