@@ -10,6 +10,7 @@ import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
+import com.jordan.betcher.siviso.siviso.database.UseSharedPreferences;
 import com.jordan.betcher.siviso.siviso.database.Wrapper_Gson;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
@@ -56,10 +57,9 @@ public class A_Activity_Main extends AppCompatActivity
 	{
 		Ringmodes ringmodes = new Ringmodes();
 		Wrapper_Gson gson = new Wrapper_Gson();
-		return new Database_Siviso(this, ringmodes, gson);
-		
+		UseSharedPreferences useSharedPreferences = new UseSharedPreferences(this, ringmodes, gson);
+		return new Database_Siviso(useSharedPreferences);
 	}
-	
 	
 	//Called after a permission is asked for
 	@Override
