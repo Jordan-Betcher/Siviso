@@ -16,7 +16,31 @@ import org.mockito.Mockito;
 public class Test$Database_Siviso
 {
 	@Test
-	public void delete_LatLng00_deleteSivisoWithLatLng00()
+	public void delete_LatLng00SivisoBHas00_deleteSivisoB()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		
+		Siviso sivisoA = mock(Siviso.class);
+		LatLng latLngA = new LatLng(0, 1);;
+		when(sivisoA.latLng()).thenReturn(latLngA);
+		
+		Siviso sivisoB = mock(Siviso.class);
+		LatLng latLngB = latLng;
+		when(sivisoB.latLng()).thenReturn(latLngB);
+		
+		Siviso[] expectedSivisos = new Siviso[]{sivisoA};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.delete(latLng);
+		
+		verify(useSharedPreferences, times(1)).setSivisos(expectedSivisos);
+	}
+	
+	@Test
+	public void delete_LatLng00SivisoAHas00_deleteSivisoA()
 	{
 		LatLng latLng = new LatLng(0, 0);
 		
@@ -25,8 +49,8 @@ public class Test$Database_Siviso
 		when(sivisoA.latLng()).thenReturn(latLngA);
 		
 		Siviso sivisoB = mock(Siviso.class);
-		LatLng latLngB = new LatLng(0, 0);
-		when(sivisoA.latLng()).thenReturn(latLngB);
+		LatLng latLngB = new LatLng(0, 1);
+		when(sivisoB.latLng()).thenReturn(latLngB);
 		
 		Siviso[] expectedSivisos = new Siviso[]{sivisoB};
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);

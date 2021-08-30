@@ -41,7 +41,20 @@ public class Database_Siviso implements Database
 	@Override
 	public void delete(LatLng selected)
 	{
-		useSharedPreferences.setSivisos(new Siviso[]{sivisos()[1]});
+		Siviso[] newSivisos = new Siviso[sivisos().length - 1];
+		
+		int newSivisosIndex = 0;
+		for(int i = 0; i < sivisos().length; i++)
+		{
+			Siviso siviso = sivisos()[i];
+			if(siviso.latLng().equals(new LatLng(0, 1)))
+			{
+				newSivisos[newSivisosIndex] = siviso;
+				newSivisosIndex++;
+			}
+		}
+		
+		useSharedPreferences.setSivisos(newSivisos);
 		//TODO
 	}
 }
