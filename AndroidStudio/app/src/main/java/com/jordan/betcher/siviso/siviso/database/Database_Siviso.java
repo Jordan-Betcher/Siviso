@@ -47,7 +47,7 @@ public class Database_Siviso implements Database
 		for(int i = 0; i < sivisos().length; i++)
 		{
 			Siviso siviso = sivisos()[i];
-			if(!siviso.latLng().equals(new LatLng(0, 0)))
+			if(!siviso.latLng().equals(selected))
 			{
 				newSivisos[newSivisosIndex] = siviso;
 				newSivisosIndex++;

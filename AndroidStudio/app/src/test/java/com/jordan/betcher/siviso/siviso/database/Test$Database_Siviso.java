@@ -18,6 +18,30 @@ public class Test$Database_Siviso
 	
 	
 	@Test
+	public void delete_LatLng01SivisoAHas01SivisoBHas00_deleteSivisoA()
+	{
+		LatLng latLng = new LatLng(0, 1);
+		
+		Siviso sivisoA = mock(Siviso.class);
+		LatLng latLngA = latLng;
+		when(sivisoA.latLng()).thenReturn(latLngA);
+		
+		Siviso sivisoB = mock(Siviso.class);
+		LatLng latLngB = new LatLng(0, 0);
+		when(sivisoB.latLng()).thenReturn(latLngB);
+		
+		Siviso[] expectedSivisos = new Siviso[]{sivisoB};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.delete(latLng);
+		
+		verify(useSharedPreferences, times(1)).setSivisos(expectedSivisos);
+	}
+	
+	@Test
 	public void delete_LatLng00SivisoAHas00SivisoBHas11_deleteSivisoA()
 	{
 		LatLng latLng = new LatLng(0, 0);
