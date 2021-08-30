@@ -41,7 +41,7 @@ public class Database_Siviso implements Database
 	@Override
 	public void delete(LatLng selected)
 	{
-	
+		useSharedPreferences.setSivisos(new Siviso[]{sivisos()[1]});
+		//TODO
 	}
-	//TODO
 }

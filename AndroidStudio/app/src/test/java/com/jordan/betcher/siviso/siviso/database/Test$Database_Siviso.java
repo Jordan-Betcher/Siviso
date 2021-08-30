@@ -7,12 +7,37 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void delete_LatLng00_deleteSivisoWithLatLng00()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		
+		Siviso sivisoA = mock(Siviso.class);
+		LatLng latLngA = latLng;
+		when(sivisoA.latLng()).thenReturn(latLngA);
+		
+		Siviso sivisoB = mock(Siviso.class);
+		LatLng latLngB = new LatLng(0, 0);
+		when(sivisoA.latLng()).thenReturn(latLngB);
+		
+		Siviso[] expectedSivisos = new Siviso[]{sivisoB};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.delete(latLng);
+		
+		verify(useSharedPreferences, times(1)).setSivisos(expectedSivisos);
+	}
 	
 	@Test
 	public void setRingmode_1Silent_changeSiviso1RingmodeSilent()
