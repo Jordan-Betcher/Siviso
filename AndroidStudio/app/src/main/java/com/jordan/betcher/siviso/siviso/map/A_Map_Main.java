@@ -53,7 +53,7 @@ public class A_Map_Main
 	
 	private OnMapReady_AddOnClickListener_SaveNewSiviso createSaveNewSiviso()
 	{
-		Factory_Siviso factorySiviso = new Factory_Siviso();
+		Factory_Siviso factorySiviso = new Factory_Siviso(activity);
 		OnMapClickListener_SaveNewSiviso saveNewSiviso = new OnMapClickListener_SaveNewSiviso(database, factorySiviso);
 		return new OnMapReady_AddOnClickListener_SaveNewSiviso(saveNewSiviso);
 	}

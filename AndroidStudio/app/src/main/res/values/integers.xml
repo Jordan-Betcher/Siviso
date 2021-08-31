@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="initial_zoom_times_a_hundred">1500</integer>
+    <integer name="circle_radius_times_100">10000</integer>
 </resources>
