@@ -13,6 +13,22 @@ import org.junit.Test;
 
 public class Test$OnMapClickListener_SaveNewSiviso
 {
+	
+	@Test
+	public void onMapClick_01_saveSiviso01ToDatabase()
+	{
+		LatLng latLng = new LatLng(0, 1);
+		Database database = mock(Database.class);
+		Siviso siviso = mock(Siviso.class);
+		Factory_Siviso factorySiviso = mock(Factory_Siviso.class);
+		when(factorySiviso.create(latLng)).thenReturn(siviso);
+		
+		OnMapClickListener_SaveNewSiviso saveNewSiviso = new OnMapClickListener_SaveNewSiviso(database, factorySiviso);
+		saveNewSiviso.onMapClick(latLng);
+		
+		verify(database, times(1)).save(siviso);
+	}
+	
 	@Test
 	public void onMapClick_00_saveSiviso00ToDatabase()
 	{

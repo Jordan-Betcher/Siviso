@@ -9,15 +9,18 @@ import com.jordan.betcher.siviso.siviso.database.Database;
 class OnMapClickListener_SaveNewSiviso
 implements GoogleMap.OnMapClickListener
 {
+	private Database database;
+	private Factory_Siviso factorySiviso;
+	
 	public OnMapClickListener_SaveNewSiviso(Database database, Factory_Siviso factorySiviso)
 	{
-		database.save(factorySiviso.create(new LatLng(0, 0)));
+		this.database = database;
+		this.factorySiviso = factorySiviso;
 	}
 	
 	@Override
 	public void onMapClick(@NonNull LatLng latLng)
 	{
-	
+		database.save(factorySiviso.create(latLng));
 	}
-	//TODO
 }
