@@ -53,7 +53,8 @@ public class A_Map_Main
 	
 	private OnMapReady_AddOnClickListener_SaveNewSiviso createSaveNewSiviso()
 	{
-		return new OnMapReady_AddOnClickListener_SaveNewSiviso();
+		OnMapClickListener_SaveNewSiviso saveNewSiviso = new OnMapClickListener_SaveNewSiviso();
+		return new OnMapReady_AddOnClickListener_SaveNewSiviso(saveNewSiviso);
 	}
 	
 	private EventUnlock getMapUnlock(
