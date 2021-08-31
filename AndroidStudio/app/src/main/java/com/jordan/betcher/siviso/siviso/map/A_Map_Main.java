@@ -88,9 +88,9 @@ public class A_Map_Main
 	
 	private OnMapReady_OnPermissionGranted_EnableCurrentLocation createEnableCurrentLocation()
 	{
-		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
-		
-		return enableCurrentLocationFactory.create();
+		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		permission.addOnGranted(enableCurrentLocation);
+		return enableCurrentLocation;
 	}
 	
 	private OnMapReady_CallOnMapReadys createCallOnMapReady(
