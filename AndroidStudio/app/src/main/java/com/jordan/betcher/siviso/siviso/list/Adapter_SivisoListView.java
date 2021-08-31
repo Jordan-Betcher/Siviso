@@ -75,4 +75,6 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	{
 		return database.sivisos().length + 1;
 	}
+	
+	
 }

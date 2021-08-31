@@ -30,6 +30,7 @@ public class A_List
 		RecyclerView listView = activity.findViewById(R.id.recyclerViewSivisoList);
 		setLayoutManager(listView);
 		setAdapter(listView);
+		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
 	}
 	
 	private void setAdapter(RecyclerView sivisoListView)

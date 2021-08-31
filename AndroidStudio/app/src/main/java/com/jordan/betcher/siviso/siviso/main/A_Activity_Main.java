@@ -15,7 +15,6 @@ import com.jordan.betcher.siviso.siviso.database.Wrapper_Gson;
 import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
-import com.jordan.betcher.siviso.siviso.main.delete.button.A_DeleteButton;
 import com.jordan.betcher.siviso.siviso.map.A_Map_Main;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
@@ -48,9 +47,6 @@ public class A_Activity_Main extends AppCompatActivity
 		Database database = createDatabase();
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);
-		//TODO delete button
-		new A_DeleteButton(this, database, sivisoList);
-		//TODO edit button
 		//TODO on/off button
 	}
 	

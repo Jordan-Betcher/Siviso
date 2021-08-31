@@ -5,4 +5,5 @@
     <string name="button_delete">Delete</string>
     <string name="button_edit">Edit</string>
     <string name="siviso_list_name_default">Default</string>
+    <string name="accessability_on_off_lock">A button in the shape of a lock, click to get a permission prompt.</string>
 </resources>
