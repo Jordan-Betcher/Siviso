@@ -1,32 +1,21 @@
-package com.jordan.betcher.siviso.siviso.main;
+package com.jordan.betcher.siviso.siviso.map;
 
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.lock.EventUnlock;
 import com.jordan.betcher.siviso.siviso.lock.Factory_SetupEventUnLock;
-import com.jordan.betcher.siviso.siviso.map.A_OnMapReadyCallback_OnMapReady;
-import com.jordan.betcher.siviso.siviso.map.Factory_AddOnCircleClickSelectSiviso;
-import com.jordan.betcher.siviso.siviso.map.Factory_CreateCircles;
-import com.jordan.betcher.siviso.siviso.map.Factory_EnableCurrentLocation;
-import com.jordan.betcher.siviso.siviso.map.Factory_StartAtCurrentLocation;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_AddOnCircleClickListener;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_CreateSivisoCircles;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_LocationListener_StartAtCurrentLocation;
-import com.jordan.betcher.siviso.siviso.map.OnMapReady_OnPermissionGranted_EnableCurrentLocation;
-import com.jordan.betcher.siviso.siviso.map.OnUnlock_AddOnMapReadyCallback;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
-class A_Map_Main
+public class A_Map_Main
 {
-	@androidx.annotation.NonNull
 	private final AppCompatActivity activity;
 	private final Permission_AccessFineLocation permission;
 	private final Database database;
@@ -69,9 +58,8 @@ class A_Map_Main
 	
 	private OnMapReady_AddOnCircleClickListener createSelectSiviso()
 	{
-		Factory_AddOnCircleClickSelectSiviso addOnCircleClickSelectSivisoFactory = new Factory_AddOnCircleClickSelectSiviso(sivisoList);
-		
-		return addOnCircleClickSelectSivisoFactory.create();
+		GoogleMap.OnCircleClickListener listener = new A_OnCircleClickListener_SelectSiviso(sivisoList);
+		return new OnMapReady_AddOnCircleClickListener(listener);
 	}
 	
 	private OnMapReady_CreateSivisoCircles createCreateSivisoCircles()
