@@ -22,11 +22,12 @@ class ViewHolder_Default extends ViewHolder_Abstract
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(onItemSelected);
 		background.setOnClickListener(onClick);
+		spinner.setSelection(0);
 	}
 	
 	@Override
 	public void init(Database database, int sivisoDataIndex)
 	{
-		//Do Nothing
+		//TODO Set spinner selection to default
 	}
 }

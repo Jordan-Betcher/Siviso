@@ -10,12 +10,36 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 
 import org.junit.Test;
 
 public class Test$ViewHolder_Default
 {
+	@Test
+	public void init_databaseDefaultRingmodeSilent_setSpinnerSelectionToSilentOrdinal()
+	{
+		Ringmode ringmode = Ringmode.SILENT;
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
+		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
+		OnItemSelectedListener_SetDefaultSiviso.class);
+		CardView cardView = mock(CardView.class);
+		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
+		Database database = mock(Database.class);
+		
+		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		viewHolder.init(database, -1);
+		
+		verify(spinner, times(1)).setSelection(ringmode.ordinal());
+	}
+	
+	
 	@Test
 	public void _spinnerOnItemClick_SetSpinnerOnItemClick()
 	{
