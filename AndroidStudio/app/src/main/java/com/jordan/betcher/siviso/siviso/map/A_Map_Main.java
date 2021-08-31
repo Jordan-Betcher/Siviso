@@ -9,6 +9,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.lock.EventUnlock;
 import com.jordan.betcher.siviso.siviso.lock.Factory_SetupEventUnLock;
@@ -64,8 +65,9 @@ public class A_Map_Main
 	
 	private OnMapReady_CreateSivisoCircles createCreateSivisoCircles()
 	{
-		Factory_CreateCircles createCirclesFactory = new Factory_CreateCircles(database);
-		return createCirclesFactory.create();
+		Siviso[] sivisos = database.sivisos();
+		Factory_CircleOptions factory = new Factory_CircleOptions();
+		return new OnMapReady_CreateSivisoCircles(sivisos, factory);
 	}
 	
 	private OnMapReady_LocationListener_StartAtCurrentLocation createStartAtCurrentLocation()
