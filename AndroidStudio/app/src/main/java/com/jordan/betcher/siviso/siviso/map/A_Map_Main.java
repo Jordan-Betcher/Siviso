@@ -49,6 +49,7 @@ public class A_Map_Main
 		onMapReady.add(startAtCurrentLocation);
 		onMapReady.add(createSivisoCircles);
 		onMapReady.add(selectSiviso);
+		onMapReady.add(saveNewSiviso);
 	}
 	
 	private OnMapReady_AddOnClickListener_SaveNewSiviso createSaveNewSiviso()
