@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.siviso.list.viewholderdefault;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.view.View;
 import android.widget.Spinner;
@@ -19,6 +20,28 @@ import org.junit.Test;
 public class Test$ViewHolder_Default
 {
 	@Test
+	public void init_databaseDefaultRingmodeVibrate_setSpinnerSelectionToVibrateOrdinal()
+	{
+		Ringmode ringmode = Ringmode.VIBRATE;
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
+		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
+		OnItemSelectedListener_SetDefaultSiviso.class);
+		CardView cardView = mock(CardView.class);
+		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
+		Database database = mock(Database.class);
+		when(database.defaultRingmode()).thenReturn(ringmode);
+		
+		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		viewHolder.init(database, -1);
+		
+		verify(spinner, times(1)).setSelection(ringmode.ordinal());
+	}
+	
+	@Test
 	public void init_databaseDefaultRingmodeSilent_setSpinnerSelectionToSilentOrdinal()
 	{
 		Ringmode ringmode = Ringmode.SILENT;
@@ -32,6 +55,7 @@ public class Test$ViewHolder_Default
 		CardView cardView = mock(CardView.class);
 		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		Database database = mock(Database.class);
+		when(database.defaultRingmode()).thenReturn(ringmode);
 		
 		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
 		viewHolder.init(database, -1);

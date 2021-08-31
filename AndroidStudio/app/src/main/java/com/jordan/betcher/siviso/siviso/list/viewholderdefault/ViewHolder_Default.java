@@ -12,22 +12,24 @@ import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 
 class ViewHolder_Default extends ViewHolder_Abstract
 {
+	private Spinner spinner;
+	
 	public ViewHolder_Default(
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter_Sivisos adapter,
 	OnItemSelectedListener_SetDefaultSiviso onItemSelected, CardView background,
 	OnClickListener_GoToCurrentLocation onClick)
 	{
 		super(view);
+		this.spinner = spinner;
 		textView.setText(name);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(onItemSelected);
 		background.setOnClickListener(onClick);
-		spinner.setSelection(0);
 	}
 	
 	@Override
 	public void init(Database database, int sivisoDataIndex)
 	{
-		//TODO Set spinner selection to default
+		spinner.setSelection(database.defaultRingmode().ordinal());
 	}
 }
