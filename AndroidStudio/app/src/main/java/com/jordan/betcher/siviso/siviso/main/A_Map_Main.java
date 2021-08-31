@@ -22,29 +22,67 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 
 class A_Map_Main
 {
+	@androidx.annotation.NonNull
+	private final AppCompatActivity activity;
+	private final Permission_AccessFineLocation permission;
+	private final Database database;
+	private final SivisoList sivisoList;
+	
 	public A_Map_Main(
 	AppCompatActivity activity,
 	Permission_AccessFineLocation permission, Database database,
 	SivisoList sivisoList)
 	{
-		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
-		Button mapLock = activity.findViewById(R.id.homeMapLock);
+		this.activity = activity;
+		this.permission = permission;
+		this.database = database;
+		this.sivisoList = sivisoList;
 		
-		Factory_SetupMap setupMapFactory = new Factory_SetupMap(supportMapFragment, mapLock, permission);
-		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
-		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
-		Factory_CreateCircles createCirclesFactory = new Factory_CreateCircles(database);
-		Factory_AddOnCircleClickSelectSiviso addOnCircleClickSelectSivisoFactory = new Factory_AddOnCircleClickSelectSiviso(sivisoList);
-		
-		OnMapReady_CallOnMapReadys onMapReady = setupMapFactory.onMapReady();
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = enableCurrentLocationFactory.create();
-		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = startAtCurrentLocationFactory.create();
-		OnMapReady_CreateSivisoCircles createSivisoCircles = createCirclesFactory.create();
-		OnMapReady_AddOnCircleClickListener selectSiviso = addOnCircleClickSelectSivisoFactory.create();
+		OnMapReady_CallOnMapReadys onMapReady = createCallOnMapReady();
+		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = createEnableCurrentLocation();
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = createStartAtCurrentLocation();
+		OnMapReady_CreateSivisoCircles createSivisoCircles = createCreateSivisoCircles();
+		OnMapReady_AddOnCircleClickListener selectSiviso = createSelectSiviso();
 		
 		onMapReady.add(enableCurrentLocation);
 		onMapReady.add(startAtCurrentLocation);
 		onMapReady.add(createSivisoCircles);
 		onMapReady.add(selectSiviso);
+	}
+	
+	private OnMapReady_AddOnCircleClickListener createSelectSiviso()
+	{
+		Factory_AddOnCircleClickSelectSiviso addOnCircleClickSelectSivisoFactory = new Factory_AddOnCircleClickSelectSiviso(sivisoList);
+		
+		return addOnCircleClickSelectSivisoFactory.create();
+	}
+	
+	private OnMapReady_CreateSivisoCircles createCreateSivisoCircles()
+	{
+		Factory_CreateCircles createCirclesFactory = new Factory_CreateCircles(database);
+		return createCirclesFactory.create();
+	}
+	
+	private OnMapReady_LocationListener_StartAtCurrentLocation createStartAtCurrentLocation()
+	{
+		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
+		
+		return startAtCurrentLocationFactory.create();
+	}
+	
+	private OnMapReady_OnPermissionGranted_EnableCurrentLocation createEnableCurrentLocation()
+	{
+		Factory_EnableCurrentLocation enableCurrentLocationFactory = new Factory_EnableCurrentLocation(permission);
+		
+		return enableCurrentLocationFactory.create();
+	}
+	
+	private OnMapReady_CallOnMapReadys createCallOnMapReady()
+	{
+		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
+		Button mapLock = activity.findViewById(R.id.homeMapLock);
+		Factory_SetupMap setupMapFactory = new Factory_SetupMap(supportMapFragment, mapLock, permission);
+		
+		return setupMapFactory.onMapReady();
 	}
 }
