@@ -3,7 +3,7 @@ package com.jordan.betcher.siviso.siviso.map;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
-class A_OnMapReadyCallback_OnMapReady implements OnMapReadyCallback
+public class A_OnMapReadyCallback_OnMapReady implements OnMapReadyCallback
 {
 	private OnMapReady_CallOnMapReadys multiple;
 	

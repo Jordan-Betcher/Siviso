@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.main;
 
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,16 +9,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
+import com.jordan.betcher.siviso.siviso.lock.EventUnlock;
+import com.jordan.betcher.siviso.siviso.lock.Factory_SetupEventUnLock;
+import com.jordan.betcher.siviso.siviso.map.A_OnMapReadyCallback_OnMapReady;
 import com.jordan.betcher.siviso.siviso.map.Factory_AddOnCircleClickSelectSiviso;
 import com.jordan.betcher.siviso.siviso.map.Factory_CreateCircles;
 import com.jordan.betcher.siviso.siviso.map.Factory_EnableCurrentLocation;
-import com.jordan.betcher.siviso.siviso.map.Factory_SetupMap;
 import com.jordan.betcher.siviso.siviso.map.Factory_StartAtCurrentLocation;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_AddOnCircleClickListener;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CallOnMapReadys;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_CreateSivisoCircles;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_LocationListener_StartAtCurrentLocation;
 import com.jordan.betcher.siviso.siviso.map.OnMapReady_OnPermissionGranted_EnableCurrentLocation;
+import com.jordan.betcher.siviso.siviso.map.OnUnlock_AddOnMapReadyCallback;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
 class A_Map_Main
@@ -38,7 +42,10 @@ class A_Map_Main
 		this.database = database;
 		this.sivisoList = sivisoList;
 		
-		OnMapReady_CallOnMapReadys onMapReady = createCallOnMapReady();
+		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
+		
+		EventUnlock mapUnlock = getMapUnlock(supportMapFragment);
+		OnMapReady_CallOnMapReadys onMapReady = createCallOnMapReady(supportMapFragment, mapUnlock);
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = createEnableCurrentLocation();
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = createStartAtCurrentLocation();
 		OnMapReady_CreateSivisoCircles createSivisoCircles = createCreateSivisoCircles();
@@ -48,6 +55,16 @@ class A_Map_Main
 		onMapReady.add(startAtCurrentLocation);
 		onMapReady.add(createSivisoCircles);
 		onMapReady.add(selectSiviso);
+	}
+	
+	private EventUnlock getMapUnlock(
+	SupportMapFragment supportMapFragment)
+	{
+		Button mapLock = activity.findViewById(R.id.homeMapLock);
+		View mapView = supportMapFragment.getView();
+		Factory_SetupEventUnLock lockFactory = new Factory_SetupEventUnLock(mapView, mapLock, permission);
+		
+		return lockFactory.eventUnlock();
 	}
 	
 	private OnMapReady_AddOnCircleClickListener createSelectSiviso()
@@ -77,12 +94,15 @@ class A_Map_Main
 		return enableCurrentLocationFactory.create();
 	}
 	
-	private OnMapReady_CallOnMapReadys createCallOnMapReady()
+	private OnMapReady_CallOnMapReadys createCallOnMapReady(
+	SupportMapFragment supportMapFragment, EventUnlock mapUnlock)
 	{
-		SupportMapFragment supportMapFragment = (SupportMapFragment)activity.getSupportFragmentManager().findFragmentById(R.id.homeMap);
-		Button mapLock = activity.findViewById(R.id.homeMapLock);
-		Factory_SetupMap setupMapFactory = new Factory_SetupMap(supportMapFragment, mapLock, permission);
+
+		OnMapReady_CallOnMapReadys onMapReady = new OnMapReady_CallOnMapReadys();
+		A_OnMapReadyCallback_OnMapReady onMapReadyCallback = new A_OnMapReadyCallback_OnMapReady(onMapReady);
+		OnUnlock_AddOnMapReadyCallback addOnMapReadyCallback = new OnUnlock_AddOnMapReadyCallback(supportMapFragment, onMapReadyCallback);
 		
-		return setupMapFactory.onMapReady();
+		mapUnlock.addOnUnlock(addOnMapReadyCallback);
+		return onMapReady;
 	}
 }
