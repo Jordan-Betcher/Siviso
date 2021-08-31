@@ -17,7 +17,23 @@ import org.mockito.Mockito;
 public class Test$Database_Siviso
 {
 	@Test
-	public void save_Siviso_addToAndSaveSivisos()
+	public void save_SivisoB_setSivisoASivisoB()
+	{
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso sivisoB = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA};
+		Siviso[] newSivisos = new Siviso[]{sivisoA, sivisoB};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.save(sivisoB);
+		
+		verify(useSharedPreferences, times(1)).setSivisos(newSivisos);
+	}
+	
+	@Test
+	public void save_SivisoA_setSivisoA()
 	{
 		Siviso sivisoA = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[]{};

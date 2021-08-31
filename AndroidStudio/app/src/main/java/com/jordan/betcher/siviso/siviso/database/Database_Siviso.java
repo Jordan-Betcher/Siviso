@@ -63,9 +63,17 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void save(Siviso siviso)
+	public void save(Siviso newSiviso)
 	{
-		//TODO
-		useSharedPreferences.setSivisos(new Siviso[]{siviso});
+		Siviso[] sivisos = sivisos();
+		Siviso[] newSivisos = new Siviso[sivisos.length + 1];
+		
+		for(int i = 0; i < sivisos.length; i++)
+		{
+			newSivisos[i] = sivisos[i];
+		}
+		
+		newSivisos[sivisos.length] = newSiviso;
+		useSharedPreferences.setSivisos(newSivisos);
 	}
 }
