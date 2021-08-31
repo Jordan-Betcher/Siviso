@@ -4,10 +4,5 @@
     <string name="title_home">Siviso</string>
     <string name="button_delete">Delete</string>
     <string name="button_edit">Edit</string>
-    <string name="button_add">Add</string>
     <string name="siviso_list_name_default">Default</string>
-    <string name="add_button_cancel">Cancel</string>
-    <string name="add_button_confirm">Confirm</string>
-    <string name="title_add">Add</string>
-    <string name="lock_description_map">Click here to allow Fine Access Location Permission to enable google maps to allow you to set locations.</string>
 </resources>
