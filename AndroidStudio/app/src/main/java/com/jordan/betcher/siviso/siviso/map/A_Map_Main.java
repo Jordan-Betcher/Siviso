@@ -43,11 +43,17 @@ public class A_Map_Main
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = createStartAtCurrentLocation();
 		OnMapReady_CreateSivisoCircles createSivisoCircles = createCreateSivisoCircles();
 		OnMapReady_AddOnCircleClickListener selectSiviso = createSelectSiviso();
+		OnMapReady_AddOnClickListener_SaveNewSiviso saveNewSiviso = createSaveNewSiviso();
 		
 		onMapReady.add(enableCurrentLocation);
 		onMapReady.add(startAtCurrentLocation);
 		onMapReady.add(createSivisoCircles);
 		onMapReady.add(selectSiviso);
+	}
+	
+	private OnMapReady_AddOnClickListener_SaveNewSiviso createSaveNewSiviso()
+	{
+		return new OnMapReady_AddOnClickListener_SaveNewSiviso();
 	}
 	
 	private EventUnlock getMapUnlock(
