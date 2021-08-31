@@ -66,5 +66,6 @@ public class Database_Siviso implements Database
 	public void save(Siviso siviso)
 	{
 		//TODO
+		useSharedPreferences.setSivisos(new Siviso[]{siviso});
 	}
 }

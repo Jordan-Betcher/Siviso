@@ -17,6 +17,21 @@ import org.mockito.Mockito;
 public class Test$Database_Siviso
 {
 	@Test
+	public void save_Siviso_addToAndSaveSivisos()
+	{
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{};
+		Siviso[] newSivisos = new Siviso[]{sivisoA};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.save(sivisoA);
+		
+		verify(useSharedPreferences, times(1)).setSivisos(newSivisos);
+	}
+	
+	@Test
 	public void delete_LatLng00SivisoAHas01SivisoBHas01_0delete()
 	{
 		LatLng latLng = new LatLng(0, 0);
