@@ -1,5 +1,8 @@
 package com.jordan.betcher.siviso.siviso.map;
 
+import android.content.Context;
+import android.location.Criteria;
+import android.location.LocationManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -72,9 +75,15 @@ public class A_Map_Main
 	
 	private OnMapReady_LocationListener_StartAtCurrentLocation createStartAtCurrentLocation()
 	{
-		Factory_StartAtCurrentLocation startAtCurrentLocationFactory = new Factory_StartAtCurrentLocation(activity, permission);
-		
-		return startAtCurrentLocationFactory.create();
+		LocationManager locationManager = (LocationManager)activity.getSystemService(
+		Context.LOCATION_SERVICE);
+		float zoom = (float)activity.getResources().getInteger(R.integer.initial_zoom_times_a_hundred) / 100;
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
+		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
+		Criteria accurateCriteria = accurateCriteriaFactory.build();
+		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);
+		permission.addOnGranted(requestSingleUpdate);
+		return startAtCurrentLocation;
 	}
 	
 	private OnMapReady_OnPermissionGranted_EnableCurrentLocation createEnableCurrentLocation()
