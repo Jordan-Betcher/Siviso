@@ -13,4 +13,6 @@ public interface Database
 	void setRingmode(int sivisoIndex, Ringmode ringmode);
 	
 	void delete(LatLng selected);
+	
+	void save(Siviso siviso);
 }

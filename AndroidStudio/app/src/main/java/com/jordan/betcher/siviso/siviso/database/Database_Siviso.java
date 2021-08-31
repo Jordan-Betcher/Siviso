@@ -61,4 +61,10 @@ public class Database_Siviso implements Database
 		
 		useSharedPreferences.setSivisos(newSivisos);
 	}
+	
+	@Override
+	public void save(Siviso siviso)
+	{
+		//TODO
+	}
 }
