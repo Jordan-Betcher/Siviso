@@ -14,6 +14,6 @@ class OnSelect_ScrollToIndexOfSiviso implements OnSelect
 	@Override
 	public void onSelect(int indexOfSiviso)
 	{
-		linearLayoutManager.scrollToPosition(1);
+		linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
 	}
 }

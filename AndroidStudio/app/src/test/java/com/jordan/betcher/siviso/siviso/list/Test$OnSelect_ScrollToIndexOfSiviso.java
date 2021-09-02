@@ -12,6 +12,18 @@ import org.junit.Test;
 public class Test$OnSelect_ScrollToIndexOfSiviso
 {
 	@Test
+	public void onSelect_1_scrollTo2()
+	{
+		int indexOfSiviso = 1;
+		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
+		
+		OnSelect_ScrollToIndexOfSiviso scrollToIndexOfSiviso = new OnSelect_ScrollToIndexOfSiviso(linearLayoutManager);
+		scrollToIndexOfSiviso.onSelect(indexOfSiviso);
+		
+		verify(linearLayoutManager, times(1)).scrollToPosition(indexOfSiviso + 1);
+	}
+	
+	@Test
 	public void __0scrollTo()
 	{
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
