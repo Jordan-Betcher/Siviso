@@ -9,7 +9,7 @@ implements SharedPreferences.OnSharedPreferenceChangeListener
 	
 	public void add(OnDataChange onDataChange)
 	{
-		this.onDataChange = onDataChange;
+		if(this.onDataChange==null) this.onDataChange = onDataChange;
 	}
 	
 	@Override
