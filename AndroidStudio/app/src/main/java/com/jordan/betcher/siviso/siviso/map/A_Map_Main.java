@@ -72,7 +72,8 @@ public class A_Map_Main
 	
 	private OnMapReady_AddOnCircleClickListener createSelectSiviso()
 	{
-		GoogleMap.OnCircleClickListener listener = new A_OnCircleClickListener_SelectSiviso(sivisoList);
+		IndexOfSiviso indexOfSiviso = new IndexOfSiviso(database);
+		GoogleMap.OnCircleClickListener listener = new A_OnCircleClickListener_SelectSiviso(sivisoList, indexOfSiviso);
 		return new OnMapReady_AddOnCircleClickListener(listener);
 	}
 	
