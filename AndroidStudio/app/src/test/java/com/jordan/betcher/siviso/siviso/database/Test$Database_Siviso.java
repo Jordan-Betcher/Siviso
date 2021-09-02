@@ -17,6 +17,27 @@ import org.mockito.Mockito;
 public class Test$Database_Siviso
 {
 	@Test
+	public void setRingmode_onDataChange1onDataChange2_callDataChanged2()
+	{
+		int index = 1;
+		Ringmode ringmode = Ringmode.SILENT;
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso sivisoB = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		OnDataChange onDataChange1 = mock(OnDataChange.class);
+		OnDataChange onDataChange2 = mock(OnDataChange.class);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.addOnDataChange(onDataChange1);
+		database.addOnDataChange(onDataChange2);
+		database.setRingmode(index, ringmode);
+		
+		verify(onDataChange2, times(1)).dataChanged();
+	}
+	
+	@Test
 	public void setRingmode_onDataChange1onDataChange2_callDataChanged1()
 	{
 		int index = 1;
