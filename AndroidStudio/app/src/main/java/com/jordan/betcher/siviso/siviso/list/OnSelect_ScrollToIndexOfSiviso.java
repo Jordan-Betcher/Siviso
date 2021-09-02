@@ -4,14 +4,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 class OnSelect_ScrollToIndexOfSiviso implements OnSelect
 {
+	private LinearLayoutManager linearLayoutManager;
+	
 	public OnSelect_ScrollToIndexOfSiviso(LinearLayoutManager linearLayoutManager)
 	{
-		linearLayoutManager.scrollToPosition(1);
+		this.linearLayoutManager = linearLayoutManager;
 	}
 	
 	@Override
 	public void onSelect(int indexOfSiviso)
 	{
-	
+		linearLayoutManager.scrollToPosition(1);
 	}
 }

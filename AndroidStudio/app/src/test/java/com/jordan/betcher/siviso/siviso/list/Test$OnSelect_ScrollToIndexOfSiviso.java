@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -10,6 +11,16 @@ import org.junit.Test;
 
 public class Test$OnSelect_ScrollToIndexOfSiviso
 {
+	@Test
+	public void __0scrollTo()
+	{
+		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
+		
+		new OnSelect_ScrollToIndexOfSiviso(linearLayoutManager);
+		
+		verify(linearLayoutManager, times(0)).scrollToPosition(anyInt());
+	}
+	
 	@Test
 	public void onSelect_0_scrollTo1()
 	{
