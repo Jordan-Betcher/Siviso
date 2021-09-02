@@ -46,4 +46,9 @@ public class UseSharedPreferences
 		String editedString = gson.toJsonString(newSivisos);
 		sharedPreferences.edit().putString(SIVISOS_ID, editedString).apply();
 	}
+	
+	public OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent()
+	{
+		return null; //TODO UseSharedPreferences onChangeEvent
+	}
 }

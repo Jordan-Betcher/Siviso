@@ -16,6 +16,19 @@ import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void addOnDataChange_onDataChange_addOnDataChange()
+	{
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		when(useSharedPreferences.onChangeEvent()).thenReturn(onChangeEvent);
+		OnDataChange onDataChange = mock(OnDataChange.class);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.addOnDataChange(onDataChange);
+		
+		verify(onChangeEvent, times(1)).add(onDataChange);
+	}
 	
 	@Test
 	public void delete_00FromEmpty_noError()

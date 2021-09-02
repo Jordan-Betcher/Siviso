@@ -81,5 +81,6 @@ public class Database_Siviso implements Database
 	@Override
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
+		useSharedPreferences.onChangeEvent().add(onDataChange);
 	}
 }
