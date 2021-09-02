@@ -16,9 +16,20 @@ import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void addOnDataChange__0callOnDataChange()
+	{
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		OnDataChange onDataChange = mock(OnDataChange.class);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.addOnDataChange(onDataChange);
+		
+		verify(onDataChange, times(0)).dataChanged();
+	}
 	
 	@Test
-	public void setDefaultRingmode__callOnDataChange()
+	public void setDefaultRingmode_onDataChange_callOnDataChange()
 	{
 		Ringmode ringmode = Ringmode.VIBRATE;
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);

@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 public class Database_Siviso implements Database
 {
 	private UseSharedPreferences useSharedPreferences;
+	private OnDataChange onDataChange;
 	
 	public Database_Siviso(UseSharedPreferences useSharedPreferences)
 	{
@@ -21,6 +22,7 @@ public class Database_Siviso implements Database
 	public void setDefaultRingmode(Ringmode ringmode)
 	{
 		useSharedPreferences.setDefaultRingmode(ringmode);
+		if (onDataChange != null) onDataChange.dataChanged();
 	}
 	
 	@Override
@@ -80,7 +82,7 @@ public class Database_Siviso implements Database
 	@Override
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
+		this.onDataChange = onDataChange;
 		//setDefault, setRingmode, delete, save
-		onDataChange.dataChanged();
 	}
 }
