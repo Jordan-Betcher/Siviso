@@ -28,23 +28,16 @@ public class A_List
 		this.sivisoMap = sivisoMap;
 		
 		RecyclerView listView = activity.findViewById(R.id.recyclerViewSivisoList);
-		setLayoutManager(listView);
-		setAdapter(listView);
-		//TODO make an databasechange listener that notifies the listView that the datasethasChanged
+		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+		Adapter_SivisoListView adapter = createAdapter();
+		
+		listView.setLayoutManager(linearLayoutManager);
+		listView.setAdapter(adapter);
+		
+		OnDataChanged_NotifyAdapter notifyAdapter = new OnDataChanged_NotifyAdapter(adapter);
+		database.addOnDataChange(notifyAdapter);
 		//TODO have sivisoList onSelect layout scroll to that index of latlng and highlight: https://stackoverflow.com/questions/26875061/scroll-recyclerview-to-show-selected-item-on-top
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
-	}
-	
-	private void setAdapter(RecyclerView sivisoListView)
-	{
-		Adapter_SivisoListView adapter = createAdapter();
-		sivisoListView.setAdapter(adapter);
-	}
-	
-	private void setLayoutManager(RecyclerView sivisoListView)
-	{
-		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-		sivisoListView.setLayoutManager(linearLayoutManager);
 	}
 	
 	private Adapter_SivisoListView createAdapter()

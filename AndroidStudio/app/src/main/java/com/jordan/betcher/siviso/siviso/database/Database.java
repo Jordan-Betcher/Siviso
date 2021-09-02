@@ -15,4 +15,6 @@ public interface Database
 	void delete(LatLng selected);
 	
 	void save(Siviso siviso);
+	
+	void addOnDataChange(OnDataChanged onDataChanged);
 }
