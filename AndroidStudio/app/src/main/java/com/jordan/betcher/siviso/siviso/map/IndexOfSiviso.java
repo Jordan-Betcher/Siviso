@@ -6,22 +6,21 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class IndexOfSiviso
 {
-	Siviso[] sivisos;
+	private Database database;
 	
 	public IndexOfSiviso(Database database)
 	{
-		//TODO IndexOfSiviso IndexOfSiviso
-		this.sivisos = database.sivisos();
+		this.database = database;
 	}
 	
 	public int from(LatLng latLng)
 	{
+		Siviso[] sivisos = database.sivisos();
 		for(int i = 0; i < sivisos.length; i++)
 		{
 			Siviso siviso = sivisos[i];
 			if(siviso.latLng().equals(latLng)) return i;
 		}
-		return -1; //TODO IndexOfSiviso from
+		return -1;
 	}
-	//TODO
 }

@@ -14,6 +14,26 @@ public class Test$IndexOfSiviso
 {
 	
 	@Test
+	public void from_databaseChange00Siviso01Siviso00_1()
+	{
+		int index = 1;
+		LatLng latLng = new LatLng(0, 0);
+		Database database = mock(Database.class);
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso siviso2 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
+		when(siviso1.latLng()).thenReturn(new LatLng(0, 1));
+		when(siviso2.latLng()).thenReturn(latLng);
+		when(database.sivisos()).thenReturn(new Siviso[0]);
+		
+		IndexOfSiviso indexOfSiviso = new IndexOfSiviso(database);
+		when(database.sivisos()).thenReturn(sivisos);
+		
+		int actualIndex = indexOfSiviso.from(latLng);
+		assertEquals(index, actualIndex);
+	}
+	
+	@Test
 	public void from_22Siviso01Siviso00_negative1()
 	{
 		int index = -1;
