@@ -47,6 +47,7 @@ public class A_Map_Main
 		
 		onMapReady.add(enableCurrentLocation);
 		onMapReady.add(startAtCurrentLocation);
+		//TODO recreate Circles on database.datachanged
 		onMapReady.add(createSivisoCircles);
 		onMapReady.add(selectSiviso);
 		onMapReady.add(saveNewSiviso);
