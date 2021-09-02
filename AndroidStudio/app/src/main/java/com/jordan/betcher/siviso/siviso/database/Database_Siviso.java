@@ -2,12 +2,9 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.ArrayList;
-
 public class Database_Siviso implements Database
 {
 	private UseSharedPreferences useSharedPreferences;
-	private ArrayList<OnDataChange> onDataChanges = new ArrayList<>();
 	
 	public Database_Siviso(UseSharedPreferences useSharedPreferences)
 	{
@@ -24,14 +21,6 @@ public class Database_Siviso implements Database
 	public void setDefaultRingmode(Ringmode ringmode)
 	{
 		useSharedPreferences.setDefaultRingmode(ringmode);
-		
-		if (onDataChanges.size() > 0)
-		{
-			for(OnDataChange onDataChange : onDataChanges)
-			{
-				onDataChange.dataChanged();
-			}
-		}
 	}
 	
 	@Override
@@ -47,13 +36,6 @@ public class Database_Siviso implements Database
 		Siviso[] sivisos = sivisos();
 		sivisos[sivisoIndex].setRingmode(ringmode);
 		useSharedPreferences.setSivisos(sivisos);
-		if (onDataChanges.size() > 0)
-		{
-			for(OnDataChange onDataChange : onDataChanges)
-			{
-				onDataChange.dataChanged();
-			}
-		}
 	}
 	
 	@Override
@@ -99,7 +81,5 @@ public class Database_Siviso implements Database
 	@Override
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
-		this.onDataChanges.add(onDataChange);
-		//delete, save
 	}
 }

@@ -16,135 +16,16 @@ import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
+	
 	@Test
 	public void delete_00FromEmpty_noError()
 	{
 		LatLng latLng = new LatLng(0, 0);
-		
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(new Siviso[0]);
 		
 		Database_Siviso database = new Database_Siviso(useSharedPreferences);
 		database.delete(latLng);
-	}
-	
-	@Test
-	public void setRingmode_onDataChange1onDataChange2_callDataChanged2()
-	{
-		int index = 1;
-		Ringmode ringmode = Ringmode.SILENT;
-		Siviso sivisoA = mock(Siviso.class);
-		Siviso sivisoB = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
-		OnDataChange onDataChange1 = mock(OnDataChange.class);
-		OnDataChange onDataChange2 = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange1);
-		database.addOnDataChange(onDataChange2);
-		database.setRingmode(index, ringmode);
-		
-		verify(onDataChange2, times(1)).dataChanged();
-	}
-	
-	@Test
-	public void setRingmode_onDataChange1onDataChange2_callDataChanged1()
-	{
-		int index = 1;
-		Ringmode ringmode = Ringmode.SILENT;
-		Siviso sivisoA = mock(Siviso.class);
-		Siviso sivisoB = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
-		OnDataChange onDataChange1 = mock(OnDataChange.class);
-		OnDataChange onDataChange2 = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange1);
-		database.addOnDataChange(onDataChange2);
-		database.setRingmode(index, ringmode);
-		
-		verify(onDataChange1, times(1)).dataChanged();
-	}
-	
-	@Test
-	public void setRingmode_onDataChange_callDataChanged()
-	{
-		int index = 1;
-		Ringmode ringmode = Ringmode.SILENT;
-		Siviso sivisoA = mock(Siviso.class);
-		Siviso sivisoB = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
-		OnDataChange onDataChange = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange);
-		database.setRingmode(index, ringmode);
-		
-		verify(onDataChange, times(1)).dataChanged();
-	}
-	
-	@Test
-	public void setDefaultRingmode_onDataChange1onDataChange2_callOnDataChange2()
-	{
-		Ringmode ringmode = Ringmode.VIBRATE;
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		OnDataChange onDataChange1 = mock(OnDataChange.class);
-		OnDataChange onDataChange2 = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange1);
-		database.addOnDataChange(onDataChange2);
-		database.setDefaultRingmode(ringmode);
-		
-		verify(onDataChange2, times(1)).dataChanged();
-	}
-	
-	@Test
-	public void setDefaultRingmode_onDataChange1onDataChange2_callOnDataChange1()
-	{
-		Ringmode ringmode = Ringmode.VIBRATE;
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		OnDataChange onDataChange1 = mock(OnDataChange.class);
-		OnDataChange onDataChange2 = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange1);
-		database.addOnDataChange(onDataChange2);
-		database.setDefaultRingmode(ringmode);
-		
-		verify(onDataChange1, times(1)).dataChanged();
-	}
-	
-	@Test
-	public void addOnDataChange__0callOnDataChange()
-	{
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		OnDataChange onDataChange = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange);
-		
-		verify(onDataChange, times(0)).dataChanged();
-	}
-	
-	@Test
-	public void setDefaultRingmode_onDataChange_callOnDataChange()
-	{
-		Ringmode ringmode = Ringmode.VIBRATE;
-		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
-		OnDataChange onDataChange = mock(OnDataChange.class);
-		
-		Database_Siviso database = new Database_Siviso(useSharedPreferences);
-		database.addOnDataChange(onDataChange);
-		database.setDefaultRingmode(ringmode);
-		
-		verify(onDataChange, times(1)).dataChanged();
 	}
 	
 	@Test
