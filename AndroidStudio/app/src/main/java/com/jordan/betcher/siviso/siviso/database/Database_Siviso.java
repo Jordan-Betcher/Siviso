@@ -47,6 +47,7 @@ public class Database_Siviso implements Database
 		Siviso[] sivisos = sivisos();
 		sivisos[sivisoIndex].setRingmode(ringmode);
 		useSharedPreferences.setSivisos(sivisos);
+		if(onDataChange!= null) onDataChange.dataChanged();
 	}
 	
 	@Override
@@ -88,10 +89,13 @@ public class Database_Siviso implements Database
 		useSharedPreferences.setSivisos(newSivisos);
 	}
 	
+	OnDataChange onDataChange;
+	
 	@Override
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
 		this.onDataChanges.add(onDataChange);
-		//setDefault, setRingmode, delete, save
+		this.onDataChange = onDataChange;
+		//setRingmode, delete, save
 	}
 }

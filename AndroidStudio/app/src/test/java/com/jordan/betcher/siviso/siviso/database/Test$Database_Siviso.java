@@ -18,6 +18,25 @@ public class Test$Database_Siviso
 {
 	
 	@Test
+	public void setRingmode_onDataChange_callDataChanged()
+	{
+		int index = 1;
+		Ringmode ringmode = Ringmode.SILENT;
+		Siviso sivisoA = mock(Siviso.class);
+		Siviso sivisoB = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		OnDataChange onDataChange = mock(OnDataChange.class);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.addOnDataChange(onDataChange);
+		database.setRingmode(index, ringmode);
+		
+		verify(onDataChange, times(1)).dataChanged();
+	}
+	
+	@Test
 	public void setDefaultRingmode_onDataChange1onDataChange2_callOnDataChange2()
 	{
 		Ringmode ringmode = Ringmode.VIBRATE;
