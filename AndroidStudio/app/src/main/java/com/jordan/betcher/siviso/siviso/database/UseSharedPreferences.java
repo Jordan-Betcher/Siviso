@@ -11,14 +11,17 @@ public class UseSharedPreferences
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
 	private SharedPreferences sharedPreferences;
 	private Wrapper_Gson gson;
+	private OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent;
 	private Ringmodes ringmodes;
 	
 	public UseSharedPreferences(
-	Activity activity, Ringmodes ringmodes, Wrapper_Gson gson)
+	Activity activity, Ringmodes ringmodes, Wrapper_Gson gson,
+	OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent)
 	{
 		this.ringmodes = ringmodes;
 		sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
 		this.gson = gson;
+		this.onChangeEvent = onChangeEvent;
 	}
 	
 	public Ringmode defaultRingmode()
@@ -49,6 +52,6 @@ public class UseSharedPreferences
 	
 	public OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent()
 	{
-		return null; //TODO UseSharedPreferences onChangeEvent
+		return onChangeEvent;
 	}
 }

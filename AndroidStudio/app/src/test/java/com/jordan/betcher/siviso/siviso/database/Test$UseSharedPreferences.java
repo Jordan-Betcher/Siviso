@@ -15,6 +15,20 @@ import org.junit.Test;
 
 public class Test$UseSharedPreferences
 {
+	@Test
+	public void onChangeEvent__returnOnChangeEvent()
+	{
+		Activity activity = mock(Activity.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		
+		UseSharedPreferences database = new UseSharedPreferences(activity, null,
+		                                                         null, onChangeEvent);
+		
+		OnSharedPreferenceChangeListener_OnChangeEvent actualOnChangeEvent = database.onChangeEvent();
+		assertEquals(onChangeEvent, actualOnChangeEvent);
+	}
 	
 	@Test
 	public void sivisos_gsonReturnsNull_EmptySivisoArray()
@@ -29,8 +43,10 @@ public class Test$UseSharedPreferences
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, "")).thenReturn(sivisosString);
 		when(gson.fromJson(sivisosString)).thenReturn(null);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson);
+		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		                                                         onChangeEvent);
 		
 		Siviso[] actualSivisos = database.sivisos();
 		assertArrayEquals(sivisos, actualSivisos);
@@ -43,6 +59,7 @@ public class Test$UseSharedPreferences
 		Siviso sivisoB = mock(Siviso.class);
 		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
 		String sivisosEditedString = "abVibrate";
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		Activity activity = mock(Activity.class);
 		Ringmodes ringmodes = mock(Ringmodes.class);
@@ -55,7 +72,8 @@ public class Test$UseSharedPreferences
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(UseSharedPreferences.SIVISOS_ID, sivisosEditedString)).thenReturn(editor2);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson);
+		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		                                                         onChangeEvent);
 		database.setSivisos(sivisos);
 		
 		verify(editor2, times(1)).apply();
@@ -78,8 +96,10 @@ public class Test$UseSharedPreferences
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.edit()).thenReturn(editor1);
 		when(editor1.putString(UseSharedPreferences.SIVISOS_ID, sivisosEditedString)).thenReturn(editor2);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson);
+		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		                                                         onChangeEvent);
 		database.setSivisos(sivisos);
 		
 		verify(editor2, times(1)).apply();
@@ -99,8 +119,10 @@ public class Test$UseSharedPreferences
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, "")).thenReturn(sivisosString);
 		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson);
+		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		                                                         onChangeEvent);
 		
 		Siviso[] actualSivisos = database.sivisos();
 		assertArrayEquals(sivisos, actualSivisos);
@@ -119,8 +141,10 @@ public class Test$UseSharedPreferences
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, "")).thenReturn(sivisosString);
 		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson);
+		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		                                                         onChangeEvent);
 		
 		Siviso[] actualSivisos = database.sivisos();
 		assertArrayEquals(sivisos, actualSivisos);
@@ -138,9 +162,10 @@ public class Test$UseSharedPreferences
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		Ringmodes ringmodes = mock(Ringmodes.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null);
+		                                                         null, onChangeEvent);
 		database.setDefaultRingmode(ringmode);
 		
 		verify(editor2, times(1)).apply();
@@ -158,9 +183,10 @@ public class Test$UseSharedPreferences
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		Ringmodes ringmodes = mock(Ringmodes.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null);
+		                                                         null, onChangeEvent);
 		
 		verify(editor2, times(0)).apply();
 	}
@@ -177,9 +203,10 @@ public class Test$UseSharedPreferences
 		Activity activity = mock(Activity.class);
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		Ringmodes ringmodes = mock(Ringmodes.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null);
+		                                                         null, onChangeEvent);
 		database.setDefaultRingmode(ringmode);
 		
 		verify(editor2, times(1)).apply();
@@ -195,9 +222,10 @@ public class Test$UseSharedPreferences
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		Ringmodes ringmodes = mock(Ringmodes.class);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null);
+		                                                         null, onChangeEvent);
 		
 		Ringmode actualRingmode = database.defaultRingmode();
 		assertEquals(ringmode, actualRingmode);
@@ -213,9 +241,10 @@ public class Test$UseSharedPreferences
 		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		Ringmodes ringmodes = mock(Ringmodes.class);
 		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null);
+		                                                         null, onChangeEvent);
 		
 		Ringmode actualRingmode = database.defaultRingmode();
 		assertEquals(ringmode, actualRingmode);

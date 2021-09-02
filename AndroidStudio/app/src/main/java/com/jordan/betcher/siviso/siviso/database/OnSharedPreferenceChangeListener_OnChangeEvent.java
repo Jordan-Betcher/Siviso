@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-class OnSharedPreferenceChangeListener_OnChangeEvent
+public class OnSharedPreferenceChangeListener_OnChangeEvent
 {
 	public void add(OnDataChange onDataChange)
 	{

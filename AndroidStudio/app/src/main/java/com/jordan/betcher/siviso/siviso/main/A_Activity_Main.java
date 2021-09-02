@@ -9,6 +9,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
+import com.jordan.betcher.siviso.siviso.database.OnSharedPreferenceChangeListener_OnChangeEvent;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
 import com.jordan.betcher.siviso.siviso.database.UseSharedPreferences;
 import com.jordan.betcher.siviso.siviso.database.Wrapper_Gson;
@@ -54,7 +55,9 @@ public class A_Activity_Main extends AppCompatActivity
 	{
 		Ringmodes ringmodes = new Ringmodes();
 		Wrapper_Gson gson = new Wrapper_Gson();
-		UseSharedPreferences useSharedPreferences = new UseSharedPreferences(this, ringmodes, gson);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = new OnSharedPreferenceChangeListener_OnChangeEvent();
+		UseSharedPreferences useSharedPreferences = new UseSharedPreferences(this, ringmodes, gson,
+		                                                                     onChangeEvent);
 		return new Database_Siviso(useSharedPreferences);
 	}
 	
