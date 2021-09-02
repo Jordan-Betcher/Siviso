@@ -4,7 +4,7 @@ public class SivisoList_Siviso implements SivisoList
 {
 	
 	@Override
-	public void select(int latLng)
+	public void select(int indexOfSiviso)
 	{
 		//TODO
 	}
@@ -12,6 +12,6 @@ public class SivisoList_Siviso implements SivisoList
 	@Override
 	public void addOnSelect(OnSelect onSelect)
 	{
-		//TODO
+		onSelect.onSelect(1);
 	}
 }
