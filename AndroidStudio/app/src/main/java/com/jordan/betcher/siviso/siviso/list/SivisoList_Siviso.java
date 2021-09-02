@@ -14,6 +14,6 @@ public class SivisoList_Siviso implements SivisoList
 	@Override
 	public void addOnSelect(OnSelect onSelect)
 	{
-		this.onSelect = onSelect;
+		if(this.onSelect == null) this.onSelect = onSelect;
 	}
 }
