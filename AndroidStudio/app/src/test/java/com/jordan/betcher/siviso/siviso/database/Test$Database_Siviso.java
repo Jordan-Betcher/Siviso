@@ -17,6 +17,18 @@ import org.mockito.Mockito;
 public class Test$Database_Siviso
 {
 	@Test
+	public void delete_00FromEmpty_noError()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(new Siviso[0]);
+		
+		Database_Siviso database = new Database_Siviso(useSharedPreferences);
+		database.delete(latLng);
+	}
+	
+	@Test
 	public void setRingmode_onDataChange1onDataChange2_callDataChanged2()
 	{
 		int index = 1;

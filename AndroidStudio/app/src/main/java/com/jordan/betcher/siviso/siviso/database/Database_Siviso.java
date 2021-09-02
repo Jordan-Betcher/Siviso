@@ -60,6 +60,7 @@ public class Database_Siviso implements Database
 	public void delete(LatLng selected)
 	{
 		Siviso[] sivisos = sivisos();
+		if(sivisos.length == 0) return;
 		Siviso[] newSivisos = new Siviso[sivisos.length - 1];
 		
 		int newSivisosIndex = 0;
@@ -99,6 +100,6 @@ public class Database_Siviso implements Database
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
 		this.onDataChanges.add(onDataChange);
-		//setRingmode, delete, save
+		//delete, save
 	}
 }
