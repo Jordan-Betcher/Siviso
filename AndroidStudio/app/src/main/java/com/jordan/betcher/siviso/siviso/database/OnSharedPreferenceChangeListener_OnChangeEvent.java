@@ -7,7 +7,7 @@ implements SharedPreferences.OnSharedPreferenceChangeListener
 {
 	public void add(OnDataChange onDataChange)
 	{
-		//TODO OnSharedPreferenceChangeListener_OnChangeEvent add
+		onDataChange.dataChanged();
 	}
 	
 	@Override
