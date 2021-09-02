@@ -2,19 +2,24 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+
 public class OnSharedPreferenceChangeListener_OnChangeEvent
 implements SharedPreferences.OnSharedPreferenceChangeListener
 {
-	private OnDataChange onDataChange;
+	private ArrayList<OnDataChange> onDataChanges = new ArrayList<>();
 	
 	public void add(OnDataChange onDataChange)
 	{
-		if(this.onDataChange==null) this.onDataChange = onDataChange;
+		onDataChanges.add(onDataChange);
 	}
 	
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s)
 	{
-		onDataChange.dataChanged();
+		for(OnDataChange onDataChange : onDataChanges)
+		{
+			onDataChange.dataChanged();
+		}
 	}
 }
