@@ -30,6 +30,8 @@ public class A_List
 		RecyclerView listView = activity.findViewById(R.id.recyclerViewSivisoList);
 		setLayoutManager(listView);
 		setAdapter(listView);
+		//TODO make an databasechange listener that notifies the listView that the datasethasChanged
+		//TODO have sivisoList onSelect layout scroll to that index of latlng and highlight: https://stackoverflow.com/questions/26875061/scroll-recyclerview-to-show-selected-item-on-top
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
 	}
 	
