@@ -9,6 +9,19 @@ import org.junit.Test;
 public class Test$SivisoList_Siviso
 {
 	@Test
+	public void select_1_onSelect2()
+	{
+		int indexOfSiviso = 1;
+		OnSelect onSelect = mock(OnSelect.class);
+		
+		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
+		sivisoList.addOnSelect(onSelect);
+		sivisoList.select(indexOfSiviso);
+		
+		verify(onSelect, times(1)).onSelect(indexOfSiviso + 1);
+	}
+	
+	@Test
 	public void select_0_onSelect1()
 	{
 		int indexOfSiviso = 0;
@@ -16,6 +29,7 @@ public class Test$SivisoList_Siviso
 		
 		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
 		sivisoList.addOnSelect(onSelect);
+		sivisoList.select(indexOfSiviso);
 		
 		verify(onSelect, times(1)).onSelect(indexOfSiviso + 1);
 	}

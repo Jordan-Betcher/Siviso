@@ -3,15 +3,17 @@ package com.jordan.betcher.siviso.siviso.list;
 public class SivisoList_Siviso implements SivisoList
 {
 	
+	private OnSelect onSelect;
+	
 	@Override
 	public void select(int indexOfSiviso)
 	{
-		//TODO
+		onSelect.onSelect(indexOfSiviso + 1);
 	}
 	
 	@Override
 	public void addOnSelect(OnSelect onSelect)
 	{
-		onSelect.onSelect(1);
+		this.onSelect = onSelect;
 	}
 }
