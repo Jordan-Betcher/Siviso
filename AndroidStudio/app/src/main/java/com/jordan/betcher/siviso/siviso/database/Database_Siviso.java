@@ -82,7 +82,7 @@ public class Database_Siviso implements Database
 	@Override
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
-		this.onDataChange = onDataChange;
+		if(this.onDataChange == null) this.onDataChange = onDataChange;
 		//setDefault, setRingmode, delete, save
 	}
 }
