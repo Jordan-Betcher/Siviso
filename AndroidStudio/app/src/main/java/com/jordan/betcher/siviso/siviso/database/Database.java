@@ -16,5 +16,5 @@ public interface Database
 	
 	void save(Siviso siviso);
 	
-	void addOnDataChange(OnDataChanged onDataChanged);
+	void addOnDataChange(OnDataChange onDataChange);
 }

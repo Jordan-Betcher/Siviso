@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-public interface OnDataChanged
+public interface OnDataChange
 {
+	void dataChanged();
 }

@@ -76,4 +76,11 @@ public class Database_Siviso implements Database
 		newSivisos[sivisos.length] = newSiviso;
 		useSharedPreferences.setSivisos(newSivisos);
 	}
+	
+	@Override
+	public void addOnDataChange(OnDataChange onDataChange)
+	{
+		//setDefault, setRingmode, delete, save
+		onDataChange.dataChanged();
+	}
 }
