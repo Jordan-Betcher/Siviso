@@ -9,6 +9,17 @@ import org.junit.Test;
 public class Test$OnSharedPreferenceChangeListener_OnChangeEvent
 {
 	@Test
+	public void add_onDataChange_0dataChanged()
+	{
+		OnDataChange onDataChange = mock(OnDataChange.class);
+		
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = new OnSharedPreferenceChangeListener_OnChangeEvent();
+		onChangeEvent.add(onDataChange);
+		
+		verify(onDataChange, times(0)).dataChanged();
+	}
+	
+	@Test
 	public void onSharedPreferenceChanged_onDataChange_dataChanged()
 	{
 		OnDataChange onDataChange = mock(OnDataChange.class);
