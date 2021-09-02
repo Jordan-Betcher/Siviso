@@ -95,7 +95,7 @@ public class Database_Siviso implements Database
 	public void addOnDataChange(OnDataChange onDataChange)
 	{
 		this.onDataChanges.add(onDataChange);
-		this.onDataChange = onDataChange;
+		if(this.onDataChange == null) this.onDataChange = onDataChange;
 		//setRingmode, delete, save
 	}
 }
