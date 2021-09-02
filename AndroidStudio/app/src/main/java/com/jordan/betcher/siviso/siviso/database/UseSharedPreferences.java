@@ -19,9 +19,11 @@ public class UseSharedPreferences
 	OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent)
 	{
 		this.ringmodes = ringmodes;
-		sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
+		this.sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
 		this.gson = gson;
 		this.onChangeEvent = onChangeEvent;
+		
+		sharedPreferences.registerOnSharedPreferenceChangeListener(onChangeEvent);
 	}
 	
 	public Ringmode defaultRingmode()

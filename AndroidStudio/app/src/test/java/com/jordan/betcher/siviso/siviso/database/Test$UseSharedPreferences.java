@@ -16,6 +16,19 @@ import org.junit.Test;
 public class Test$UseSharedPreferences
 {
 	@Test
+	public void _onChangeEvent_registerOnSharedPreferences()
+	{
+		Activity activity = mock(Activity.class);
+		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		
+		new UseSharedPreferences(activity, null,null, onChangeEvent);
+		
+		verify(sharedPreferences, times(1)).registerOnSharedPreferenceChangeListener(onChangeEvent);
+	}
+	
+	@Test
 	public void onChangeEvent__returnOnChangeEvent()
 	{
 		Activity activity = mock(Activity.class);
