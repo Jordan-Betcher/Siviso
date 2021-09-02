@@ -12,7 +12,7 @@ class IndexOfSiviso
 	
 	public int from(LatLng latLng)
 	{
-		return 0; //TODO IndexOfSiviso from
+		return 1; //TODO IndexOfSiviso from
 	}
 	//TODO
 }
