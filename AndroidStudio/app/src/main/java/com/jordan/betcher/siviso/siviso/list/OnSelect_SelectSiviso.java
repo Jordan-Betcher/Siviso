@@ -8,10 +8,12 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 {
 	
 	int indexOfSelectedSiviso = -1;
+	private int highlightColor;
 	
 	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager, int highlightColor)
 	{
-	
+		
+		this.highlightColor = highlightColor;
 	}
 	
 	@Override
@@ -23,10 +25,9 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	@Override
 	public void bindingView(int indexOfView, View view)
 	{
-		//TODO
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
-			view.setBackgroundColor(0);
+			view.setBackgroundColor(highlightColor);
 		}
 	}
 }
