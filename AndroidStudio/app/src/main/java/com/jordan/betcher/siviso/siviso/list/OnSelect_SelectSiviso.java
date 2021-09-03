@@ -23,13 +23,13 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	public void onSelect(int indexOfSiviso)
 	{
 		indexOfSelectedSiviso = indexOfSiviso;
-		if(linearLayoutManager.findViewByPosition(indexOfSiviso) == null)
+		if(linearLayoutManager.findViewByPosition(indexOfSiviso + 1) == null)
 		{
 			linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
 		}
 		else
 		{
-			linearLayoutManager.findViewByPosition(0).setBackgroundColor(0);
+			linearLayoutManager.findViewByPosition(1).setBackgroundColor(0);
 		}
 	}
 	

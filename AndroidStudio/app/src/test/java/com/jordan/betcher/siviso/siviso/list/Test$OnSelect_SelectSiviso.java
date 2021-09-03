@@ -24,7 +24,8 @@ public class Test$OnSelect_SelectSiviso
 		int highlightColor = 0;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		View view = mock(View.class);
-		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		int indexOfSivisoView = indexOfSiviso + 1;
+		when(linearLayoutManager.findViewByPosition(indexOfSivisoView)).thenReturn(view);
 		
 		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
 		selectSiviso.onSelect(indexOfSiviso);
@@ -39,7 +40,8 @@ public class Test$OnSelect_SelectSiviso
 		int highlightColor = 0;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		View view = null;
-		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		int indexOfSivisoView = indexOfSiviso + 1;
+		when(linearLayoutManager.findViewByPosition(indexOfSivisoView)).thenReturn(view);
 		
 		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
 		selectSiviso.onSelect(indexOfSiviso);
@@ -55,7 +57,8 @@ public class Test$OnSelect_SelectSiviso
 		int highlightColor = 0;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		View view = null;
-		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		int indexOfSivisoView = indexOfSiviso + 1;
+		when(linearLayoutManager.findViewByPosition(indexOfSivisoView)).thenReturn(view);
 		
 		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
 		selectSiviso.onSelect(indexOfSiviso);
@@ -71,7 +74,8 @@ public class Test$OnSelect_SelectSiviso
 		int highlightColor = 0;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		View view = mock(View.class);
-		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		int indexOfSivisoView = indexOfSiviso + 1;
+		when(linearLayoutManager.findViewByPosition(indexOfSivisoView)).thenReturn(view);
 		
 		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
 		selectSiviso.onSelect(indexOfSiviso);
@@ -255,7 +259,8 @@ public class Test$OnSelect_SelectSiviso
 		int scrollToPosition = 2;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		View view = null;
-		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		int indexOfSivisoView = indexOfSiviso + 1;
+		when(linearLayoutManager.findViewByPosition(indexOfSivisoView)).thenReturn(view);
 		
 		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
 		selectSiviso.onSelect(indexOfSiviso);
