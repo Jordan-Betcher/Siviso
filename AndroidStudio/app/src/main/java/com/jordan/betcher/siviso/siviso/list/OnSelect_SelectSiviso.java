@@ -29,7 +29,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 		}
 		else
 		{
-			linearLayoutManager.findViewByPosition(1).setBackgroundColor(0);
+			linearLayoutManager.findViewByPosition(indexOfSiviso + 1).setBackgroundColor(0);
 		}
 	}
 	

@@ -18,6 +18,22 @@ public class Test$OnSelect_SelectSiviso
 {
 	
 	@Test
+	public void onSelect_1ViewHighlightColor0_ViewSetBackgroundColor0()
+	{
+		int indexOfSiviso = 1;
+		int highlightColor = 0;
+		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		int indexOfSivisoView = indexOfSiviso + 1;
+		when(linearLayoutManager.findViewByPosition(indexOfSivisoView)).thenReturn(view);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
+		selectSiviso.onSelect(indexOfSiviso);
+		
+		verify(view, times(1)).setBackgroundColor(highlightColor);
+	}
+	
+	@Test
 	public void onSelect_0ViewHighlightColor0_ViewSetBackgroundColor0()
 	{
 		int indexOfSiviso = 0;
