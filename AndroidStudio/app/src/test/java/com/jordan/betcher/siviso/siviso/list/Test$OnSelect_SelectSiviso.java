@@ -14,6 +14,23 @@ import org.junit.Test;
 
 public class Test$OnSelect_SelectSiviso
 {
+	
+	@Test
+	public void bindingView_2ViewSelected0_0highlight0()
+	{
+		int indexOfView = 2;
+		int indexOfSelectedSiviso = 0;
+		int highlightColor = 0;
+		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(layoutManager, highlightColor);
+		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
+		selectSiviso.bindingView(indexOfView, view);
+		
+		verify(view, times(0)).setBackgroundColor(anyInt());
+	}
+	
 	@Test
 	public void __selectedSivisoNegative1()
 	{
