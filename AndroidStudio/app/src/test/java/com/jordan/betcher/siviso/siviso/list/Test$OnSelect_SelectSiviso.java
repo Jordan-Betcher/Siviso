@@ -16,6 +16,47 @@ import org.junit.Test;
 public class Test$OnSelect_SelectSiviso
 {
 	
+	
+	@Test
+	public void bindingView_1ViewSelected0Color0PreviousColor0PreviousView_PreviousViewSetColor0()
+	{
+		int indexOfView = 1;
+		int indexOfSelectedSiviso = 0;
+		int highlightColor = 0;
+		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		View previousView = mock(View.class);
+		int previousColor = 0;
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(layoutManager, highlightColor);
+		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
+		selectSiviso.previousView = previousView;
+		selectSiviso.previousColor = previousColor;
+		selectSiviso.bindingView(indexOfView, view);
+		
+		verify(previousView, times(1)).setBackgroundColor(previousColor);
+	}
+	
+	@Test
+	public void bindingView_0ViewSelectedNegative1Color0PreviousColor1PreviousView_0PreviousViewSetColor()
+	{
+		int indexOfView = 0;
+		int indexOfSelectedSiviso = -1;
+		int highlightColor = 0;
+		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		View previousView = mock(View.class);
+		int previousColor = 1;
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(layoutManager, highlightColor);
+		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
+		selectSiviso.previousView = previousView;
+		selectSiviso.previousColor = previousColor;
+		selectSiviso.bindingView(indexOfView, view);
+		
+		verify(previousView, times(0)).setBackgroundColor(anyInt());
+	}
+	
 	@Test
 	public void bindingView_2ViewSelected1Color0PreviousColor1PreviousView_PreviousViewSetColor1()
 	{
