@@ -15,7 +15,22 @@ import org.junit.Test;
 
 public class Test$OnSelect_SelectSiviso
 {
-	
+	@Test
+	public void bindingView_1ViewSelected0_PreviousViewIsView()
+	{
+		int indexOfView = 1;
+		int highlightColor = 0;
+		int indexOfSelectedSiviso = 0;
+		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(layoutManager, highlightColor);
+		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
+		selectSiviso.bindingView(indexOfView, view);
+		
+		View actualView = selectSiviso.previousView;
+		assertEquals(view, actualView);
+	}
 	
 	@Test
 	public void bindingView_1ViewSelected0Color0PreviousColor0PreviousView_PreviousViewSetColor0()
