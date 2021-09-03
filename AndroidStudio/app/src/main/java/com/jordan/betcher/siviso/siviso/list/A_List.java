@@ -36,7 +36,9 @@ public class A_List
 		
 		A_OnDataChange_NotifyAdapter notifyAdapter = new A_OnDataChange_NotifyAdapter(adapter);
 		database.addOnDataChange(notifyAdapter);
-		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager);
+		
+		int highlightColor = activity.getResources().getColor(R.color.higlightColor);
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
 		sivisoList.addOnSelect(selectSiviso);
 		adapter.setOnBindView(selectSiviso);
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
