@@ -2,11 +2,11 @@ package com.jordan.betcher.siviso.siviso.list;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-class OnSelect_ScrollToIndexOfSiviso implements OnSelect
+class OnSelect_SelectSiviso implements OnSelect
 {
 	private LinearLayoutManager linearLayoutManager;
 	
-	public OnSelect_ScrollToIndexOfSiviso(LinearLayoutManager linearLayoutManager)
+	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager)
 	{
 		this.linearLayoutManager = linearLayoutManager;
 	}

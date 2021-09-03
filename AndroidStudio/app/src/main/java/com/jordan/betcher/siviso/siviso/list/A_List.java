@@ -37,8 +37,8 @@ public class A_List
 		A_OnDataChange_NotifyAdapter notifyAdapter = new A_OnDataChange_NotifyAdapter(adapter);
 		database.addOnDataChange(notifyAdapter);
 		//TODO have sivisoList onSelect layout scroll to that index of latlng: https://stackoverflow.com/questions/26875061/scroll-recyclerview-to-show-selected-item-on-top
-		OnSelect_ScrollToIndexOfSiviso scrollToIndexOfSiviso = new OnSelect_ScrollToIndexOfSiviso(linearLayoutManager);
-		sivisoList.addOnSelect(scrollToIndexOfSiviso);
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager);
+		sivisoList.addOnSelect(selectSiviso);
 		//TODO have sivisoList onSelect highlight that index
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
 	}

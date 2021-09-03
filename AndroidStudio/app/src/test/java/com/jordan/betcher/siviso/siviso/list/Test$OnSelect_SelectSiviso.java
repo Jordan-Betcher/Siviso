@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.junit.Test;
 
-public class Test$OnSelect_ScrollToIndexOfSiviso
+public class Test$OnSelect_SelectSiviso
 {
 	@Test
 	public void onSelect_1_scrollTo2()
@@ -17,7 +17,7 @@ public class Test$OnSelect_ScrollToIndexOfSiviso
 		int indexOfSiviso = 1;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		
-		OnSelect_ScrollToIndexOfSiviso scrollToIndexOfSiviso = new OnSelect_ScrollToIndexOfSiviso(linearLayoutManager);
+		OnSelect_SelectSiviso scrollToIndexOfSiviso = new OnSelect_SelectSiviso(linearLayoutManager);
 		scrollToIndexOfSiviso.onSelect(indexOfSiviso);
 		
 		verify(linearLayoutManager, times(1)).scrollToPosition(indexOfSiviso + 1);
@@ -28,7 +28,7 @@ public class Test$OnSelect_ScrollToIndexOfSiviso
 	{
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		
-		new OnSelect_ScrollToIndexOfSiviso(linearLayoutManager);
+		new OnSelect_SelectSiviso(linearLayoutManager);
 		
 		verify(linearLayoutManager, times(0)).scrollToPosition(anyInt());
 	}
@@ -39,7 +39,7 @@ public class Test$OnSelect_ScrollToIndexOfSiviso
 		int indexOfSiviso = 0;
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		
-		OnSelect_ScrollToIndexOfSiviso scrollToIndexOfSiviso = new OnSelect_ScrollToIndexOfSiviso(linearLayoutManager);
+		OnSelect_SelectSiviso scrollToIndexOfSiviso = new OnSelect_SelectSiviso(linearLayoutManager);
 		scrollToIndexOfSiviso.onSelect(indexOfSiviso);
 		
 		verify(linearLayoutManager, times(1)).scrollToPosition(indexOfSiviso + 1);
