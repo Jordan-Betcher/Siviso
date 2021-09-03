@@ -25,6 +25,11 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
 	}
 	
+	public void setOnBindView(OnBindView onBindView)
+	{
+		//TODO
+	}
+	
 	enum ViewType
 	{
 		DEFAULT,
