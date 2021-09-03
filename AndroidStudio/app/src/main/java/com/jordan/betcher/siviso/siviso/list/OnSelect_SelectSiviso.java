@@ -29,9 +29,12 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	@Override
 	public void bindingView(int indexOfView, View view)
 	{
-		if(previousView != null)
+		if(indexOfView != 2)
 		{
-			previousView.setBackgroundColor(1);
+			if(previousView != null)
+			{
+				previousView.setBackgroundColor(1);
+			}
 		}
 		
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
