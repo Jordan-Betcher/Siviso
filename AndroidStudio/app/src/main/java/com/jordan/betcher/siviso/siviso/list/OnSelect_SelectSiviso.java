@@ -8,19 +8,20 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 {
 	
 	int indexOfSelectedSiviso = -1;
+	private LinearLayoutManager linearLayoutManager;
 	private int highlightColor;
 	
 	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager, int highlightColor)
 	{
-		
+		this.linearLayoutManager = linearLayoutManager;
 		this.highlightColor = highlightColor;
-		linearLayoutManager.scrollToPosition(1);
 	}
 	
 	@Override
 	public void onSelect(int indexOfSiviso)
 	{
 		//TODO have sivisoList onSelect highlight that index
+		linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
 	}
 	
 	@Override

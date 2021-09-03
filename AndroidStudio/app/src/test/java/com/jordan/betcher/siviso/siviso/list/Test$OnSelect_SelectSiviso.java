@@ -15,6 +15,23 @@ import org.junit.Test;
 
 public class Test$OnSelect_SelectSiviso
 {
+	
+	@Test
+	public void onSelect_1ViewNull_ScrollTo2()
+	{
+		int indexOfSiviso = 1;
+		int highlightColor = 0;
+		int scrollToPosition = 2;
+		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
+		View view = null;
+		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
+		selectSiviso.onSelect(indexOfSiviso);
+		
+		verify(linearLayoutManager, times(1)).scrollToPosition(scrollToPosition);
+	}
+	
 	@Test
 	public void onSelect_0ViewNull_ScrollTo1()
 	{
