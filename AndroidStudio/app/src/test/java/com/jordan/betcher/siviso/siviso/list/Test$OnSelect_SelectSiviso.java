@@ -5,6 +5,7 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.view.View;
 
@@ -14,7 +15,21 @@ import org.junit.Test;
 
 public class Test$OnSelect_SelectSiviso
 {
-	
+	@Test
+	public void onSelect_0ViewNull_ScrollTo1()
+	{
+		int indexOfSiviso = 0;
+		int highlightColor = 0;
+		int scrollToPosition = 1;
+		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
+		View view = null;
+		when(linearLayoutManager.findViewByPosition(indexOfSiviso)).thenReturn(view);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightColor);
+		selectSiviso.onSelect(indexOfSiviso);
+		
+		verify(linearLayoutManager, times(1)).scrollToPosition(scrollToPosition);
+	}
 	
 	@Test
 	public void bindingView_1ViewSelected0Color1_highlight1()

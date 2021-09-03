@@ -14,6 +14,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	{
 		
 		this.highlightColor = highlightColor;
+		linearLayoutManager.scrollToPosition(1);
 	}
 	
 	@Override
