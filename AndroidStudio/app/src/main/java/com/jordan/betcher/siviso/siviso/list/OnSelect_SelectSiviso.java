@@ -29,7 +29,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	@Override
 	public void bindingView(int indexOfView, View view)
 	{
-		if(indexOfView != 2)
+		if(indexOfView == indexOfSelectedSiviso + 1)
 		{
 			if(previousView != null)
 			{
