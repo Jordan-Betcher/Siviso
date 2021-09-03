@@ -23,7 +23,8 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	public void onSelect(int indexOfSiviso)
 	{
 		//TODO have sivisoList onSelect highlight that index
-		linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
+		if(linearLayoutManager.findViewByPosition(indexOfSiviso) == null)
+			linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
 	}
 	
 	@Override
