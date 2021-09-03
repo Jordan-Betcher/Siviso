@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 class OnSelect_SelectSiviso implements OnSelect, OnBindView
 {
 	
+	public View previousView;
+	public int previousColor = 0;
 	int indexOfSelectedSiviso = -1;
 	private LinearLayoutManager linearLayoutManager;
 	private int highlightColor;
@@ -27,6 +29,11 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	@Override
 	public void bindingView(int indexOfView, View view)
 	{
+		if(previousView != null)
+		{
+			previousView.setBackgroundColor(1);
+		}
+		
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
 			view.setBackgroundColor(highlightColor);
