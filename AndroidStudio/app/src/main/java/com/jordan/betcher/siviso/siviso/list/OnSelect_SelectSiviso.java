@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 class OnSelect_SelectSiviso implements OnSelect, OnBindView
 {
 	
-	int indexOfSelectedSiviso = 0;
+	int indexOfSelectedSiviso = -1;
 	
 	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager, int highlightColor)
 	{

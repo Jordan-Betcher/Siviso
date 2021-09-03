@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -13,6 +14,17 @@ import org.junit.Test;
 
 public class Test$OnSelect_SelectSiviso
 {
+	@Test
+	public void __selectedSivisoNegative1()
+	{
+		int highlightColor = 0;
+		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(layoutManager, highlightColor);
+		
+		int actualSelected = selectSiviso.indexOfSelectedSiviso;
+		assertEquals(-1, actualSelected);
+	}
 	
 	@Test
 	public void bindingView_1ViewSelectedNegative1_0highlight()
