@@ -18,6 +18,23 @@ public class Test$OnSelect_SelectSiviso
 {
 	
 	@Test
+	public void bindingView_0ViewSelectedNegative1_PreviousViewIsNotView()
+	{
+		int indexOfView = 0;
+		int highlightColor = 0;
+		int indexOfSelectedSiviso = -1;
+		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		
+		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(layoutManager, highlightColor);
+		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
+		selectSiviso.bindingView(indexOfView, view);
+		
+		View actualView = selectSiviso.previousView;
+		assertNotEquals(view, actualView);
+	}
+	
+	@Test
 	public void bindingView_2ViewSelected1_PreviousViewIsView()
 	{
 		int indexOfView = 2;
