@@ -38,6 +38,10 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 				previousView.setBackgroundColor(previousColor);
 			}
 		}
-		previousView = view;
+		if(indexOfView != 2)
+		{
+			
+			previousView = view;
+		}
 	}
 }
