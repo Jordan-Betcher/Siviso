@@ -4,6 +4,7 @@ import android.view.View;
 
 class HighlightView
 {
+	View previous;
 	private int highlightColor;
 	
 	public HighlightView(int highlightColor)
@@ -15,5 +16,6 @@ class HighlightView
 	public void highlight(View view)
 	{
 		view.setBackgroundColor(highlightColor);
+		previous = view;
 	}
 }

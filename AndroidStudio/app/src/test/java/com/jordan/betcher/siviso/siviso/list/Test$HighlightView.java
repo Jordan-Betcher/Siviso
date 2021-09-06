@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -10,6 +11,20 @@ import org.junit.Test;
 
 public class Test$HighlightView
 {
+	
+	@Test
+	public void highlight_Color0View_PreviousEqualsView()
+	{
+		int color = 0;
+		View view = mock(View.class);
+		
+		HighlightView highlightView = new HighlightView(color);
+		highlightView.highlight(view);
+		
+		View previousView = highlightView.previous;
+		assertEquals(view, previousView);
+	}
+	
 	@Test
 	public void highlight_Color1View_SetBackGroundColorTo1()
 	{
