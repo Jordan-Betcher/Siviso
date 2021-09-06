@@ -39,7 +39,7 @@ public class A_List
 		
 		int highlightColor = activity.getResources().getColor(R.color.higlightColor);
 		HighlightView highlightView = new HighlightView();
-		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightView);
+		OnRowSelect_OnViewInit_HighlightAndScrollTo selectSiviso = new OnRowSelect_OnViewInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		sivisoList.addOnSelect(selectSiviso);
 		adapter.setOnViewInit(selectSiviso);
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e

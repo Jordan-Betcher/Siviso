@@ -13,55 +13,55 @@ public class Test$SivisoList_Siviso
 	public void select_0onSelectAonSelectB_onSelectB1()
 	{
 		int indexOfSiviso = 0;
-		OnSelect onSelectA = mock(OnSelect.class);
-		OnSelect onSelectB = mock(OnSelect.class);
+		OnRowSelect onRowSelectA = mock(OnRowSelect.class);
+		OnRowSelect onRowSelectB = mock(OnRowSelect.class);
 		
 		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
-		sivisoList.addOnSelect(onSelectA);
-		sivisoList.addOnSelect(onSelectB);
+		sivisoList.addOnSelect(onRowSelectA);
+		sivisoList.addOnSelect(onRowSelectB);
 		sivisoList.select(indexOfSiviso);
 		
-		verify(onSelectB, times(1)).onSelect(indexOfSiviso + 1);
+		verify(onRowSelectB, times(1)).onSelect(indexOfSiviso + 1);
 	}
 	
 	@Test
 	public void select_0onSelectAonSelectB_onSelectA1()
 	{
 		int indexOfSiviso = 0;
-		OnSelect onSelectA = mock(OnSelect.class);
-		OnSelect onSelectB = mock(OnSelect.class);
+		OnRowSelect onRowSelectA = mock(OnRowSelect.class);
+		OnRowSelect onRowSelectB = mock(OnRowSelect.class);
 		
 		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
-		sivisoList.addOnSelect(onSelectA);
-		sivisoList.addOnSelect(onSelectB);
+		sivisoList.addOnSelect(onRowSelectA);
+		sivisoList.addOnSelect(onRowSelectB);
 		sivisoList.select(indexOfSiviso);
 		
-		verify(onSelectA, times(1)).onSelect(indexOfSiviso + 1);
+		verify(onRowSelectA, times(1)).onSelect(indexOfSiviso + 1);
 	}
 	
 	@Test
 	public void select_1_onSelect2()
 	{
 		int indexOfSiviso = 1;
-		OnSelect onSelect = mock(OnSelect.class);
+		OnRowSelect onRowSelect = mock(OnRowSelect.class);
 		
 		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
-		sivisoList.addOnSelect(onSelect);
+		sivisoList.addOnSelect(onRowSelect);
 		sivisoList.select(indexOfSiviso);
 		
-		verify(onSelect, times(1)).onSelect(indexOfSiviso + 1);
+		verify(onRowSelect, times(1)).onSelect(indexOfSiviso + 1);
 	}
 	
 	@Test
 	public void select_0_onSelect1()
 	{
 		int indexOfSiviso = 0;
-		OnSelect onSelect = mock(OnSelect.class);
+		OnRowSelect onRowSelect = mock(OnRowSelect.class);
 		
 		SivisoList_Siviso sivisoList = new SivisoList_Siviso();
-		sivisoList.addOnSelect(onSelect);
+		sivisoList.addOnSelect(onRowSelect);
 		sivisoList.select(indexOfSiviso);
 		
-		verify(onSelect, times(1)).onSelect(indexOfSiviso + 1);
+		verify(onRowSelect, times(1)).onSelect(indexOfSiviso + 1);
 	}
 }

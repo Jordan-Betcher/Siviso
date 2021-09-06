@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
-public interface OnSelect
+public interface OnRowSelect
 {
 	void onSelect(int indexOfSiviso);
 }

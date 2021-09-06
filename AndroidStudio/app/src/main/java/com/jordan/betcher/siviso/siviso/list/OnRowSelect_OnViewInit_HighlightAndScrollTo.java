@@ -4,7 +4,7 @@ import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-class OnSelect_SelectSiviso implements OnSelect, OnViewInit
+class OnRowSelect_OnViewInit_HighlightAndScrollTo implements OnRowSelect, OnViewInit
 {
 	
 	public View previousView;
@@ -12,7 +12,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnViewInit
 	int indexOfSelectedSiviso = -1;
 	private LinearLayoutManager linearLayoutManager;
 	
-	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager, HighlightView highlightView)
+	public OnRowSelect_OnViewInit_HighlightAndScrollTo(LinearLayoutManager linearLayoutManager, HighlightView highlightView)
 	{
 		this.linearLayoutManager = linearLayoutManager;
 	}
