@@ -4,12 +4,12 @@ import android.view.View;
 
 class HighlightView
 {
+	public int previousColor = 1;
 	View previous;
 	private int highlightColor;
 	
 	public HighlightView(int highlightColor)
 	{
-		
 		this.highlightColor = highlightColor;
 	}
 	

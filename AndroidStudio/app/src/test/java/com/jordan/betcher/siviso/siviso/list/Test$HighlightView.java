@@ -4,13 +4,31 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 
 import org.junit.Test;
 
 public class Test$HighlightView
 {
+	@Test
+	public void highlight_ViewColor1_PreviousColorEqualsViewColor1()
+	{
+		int color = 0;
+		int viewColor = 1;
+		View view = mock(View.class);
+		ColorDrawable colorDrawable = mock(ColorDrawable.class);
+		when(view.getBackground()).thenReturn(colorDrawable);
+		when(colorDrawable.getColor()).thenReturn(viewColor);
+		
+		HighlightView highlightView = new HighlightView(color);
+		highlightView.highlight(view);
+		
+		int previousColor = highlightView.previousColor;
+		assertEquals(viewColor, previousColor);
+	}
 	
 	@Test
 	public void highlight_Color0View_PreviousEqualsView()
