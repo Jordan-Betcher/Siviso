@@ -14,6 +14,27 @@ import org.junit.Test;
 public class Test$HighlightView
 {
 	@Test
+	public void highlight_PreviousViewPreviousColor0_setPreviousViewBackgroundColorColor0()
+	{
+		View previousView = mock(View.class);
+		int previuosColor = 0;
+		
+		int color = 0;
+		int viewColor = 0;
+		View view = mock(View.class);
+		ColorDrawable colorDrawable = mock(ColorDrawable.class);
+		when(view.getBackground()).thenReturn(colorDrawable);
+		when(colorDrawable.getColor()).thenReturn(viewColor);
+		
+		HighlightView highlightView = new HighlightView(color);
+		highlightView.previous = previousView;
+		highlightView.previousColor = previuosColor;
+		highlightView.highlight(view);
+		
+		verify(previousView, times(1)).setBackgroundColor(previuosColor);
+	}
+	
+	@Test
 	public void highlight_ViewColor0_PreviousColorEqualsViewColor0()
 	{
 		int color = 0;

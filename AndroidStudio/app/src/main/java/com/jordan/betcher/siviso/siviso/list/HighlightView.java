@@ -17,6 +17,7 @@ class HighlightView
 	public void highlight(View view)
 	{
 		view.setBackgroundColor(highlightColor);
+		previous.setBackgroundColor(0);
 		previous = view;
 		previousColor = ((ColorDrawable) view.getBackground()).getColor();
 	}
