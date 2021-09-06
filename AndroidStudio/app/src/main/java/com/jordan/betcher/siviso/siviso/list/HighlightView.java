@@ -19,7 +19,7 @@ class HighlightView
 		view.setBackgroundColor(highlightColor);
 		if(previous != null)
 		{
-			previous.setBackgroundColor(0);
+			previous.setBackgroundColor(previousColor);
 		}
 		previous = view;
 		previousColor = ((ColorDrawable) view.getBackground()).getColor();
