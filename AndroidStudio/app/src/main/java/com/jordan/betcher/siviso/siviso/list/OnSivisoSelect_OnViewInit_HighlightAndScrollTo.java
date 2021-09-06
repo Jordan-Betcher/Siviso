@@ -21,10 +21,9 @@ class OnSivisoSelect_OnViewInit_HighlightAndScrollTo implements OnSivisoSelect, 
 	{
 		indexOfSelectedSiviso = indexOfSiviso;
 		View view = linearLayoutManager.findViewByPosition(indexOfSiviso + 1);
-		highlightView.highlight(view);
 		if(isVisible(view))
 		{
-			//TODO highlight view
+			highlightView.highlight(view);
 		}
 		else
 		{
