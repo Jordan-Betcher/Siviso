@@ -25,7 +25,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
 	}
 	
-	public void setOnBindView(OnBindView onBindView)
+	public void setOnViewInit(OnViewInit onViewInit)
 	{
 		//TODO
 	}

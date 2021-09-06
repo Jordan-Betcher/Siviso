@@ -4,7 +4,7 @@ import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-class OnSelect_SelectSiviso implements OnSelect, OnBindView
+class OnSelect_SelectSiviso implements OnSelect, OnViewInit
 {
 	
 	public View previousView;
@@ -28,8 +28,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 		}
 		else
 		{
-			//TODO set previous view color to previous color
-			//TODO set previous view to current View
+			//TODO highlight view
 		}
 	}
 	
@@ -38,7 +37,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	{
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
-		
+			//TODO highlight view
 		}
 	}
 }

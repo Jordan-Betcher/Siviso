@@ -41,7 +41,7 @@ public class A_List
 		HighlightView highlightView = new HighlightView();
 		OnSelect_SelectSiviso selectSiviso = new OnSelect_SelectSiviso(linearLayoutManager, highlightView);
 		sivisoList.addOnSelect(selectSiviso);
-		adapter.setOnBindView(selectSiviso);
+		adapter.setOnViewInit(selectSiviso);
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
 	}
 	
