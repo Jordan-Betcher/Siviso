@@ -39,9 +39,13 @@ class OnSivisoSelect_OnViewInit_HighlightAndScrollTo implements OnSivisoSelect, 
 	@Override
 	public void bindingView(int indexOfView, View view)
 	{
+		highlightView.highlight(view);
+		
+		/*
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
 			//TODO highlight view
 		}
+		//*/
 	}
 }
