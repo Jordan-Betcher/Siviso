@@ -6,9 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 class OnRowSelect_OnViewInit_HighlightAndScrollTo implements OnRowSelect, OnViewInit
 {
-	
-	public View previousView;
-	public int previousColor = 0;
 	int indexOfSelectedSiviso = -1;
 	private LinearLayoutManager linearLayoutManager;
 	
@@ -22,14 +19,19 @@ class OnRowSelect_OnViewInit_HighlightAndScrollTo implements OnRowSelect, OnView
 	{
 		indexOfSelectedSiviso = indexOfSiviso;
 		View view = linearLayoutManager.findViewByPosition(indexOfSiviso + 1);
-		if(view == null)
-		{
-			linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
-		}
-		else
+		if(isVisible(view))
 		{
 			//TODO highlight view
 		}
+		else
+		{
+			linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
+		}
+	}
+	
+	private boolean isVisible(View view)
+	{
+		return view != null;
 	}
 	
 	@Override

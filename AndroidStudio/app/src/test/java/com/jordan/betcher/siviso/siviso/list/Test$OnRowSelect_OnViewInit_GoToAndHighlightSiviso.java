@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -65,60 +64,6 @@ public class Test$OnRowSelect_OnViewInit_GoToAndHighlightSiviso
 		selectSiviso.onSelect(indexOfSiviso);
 		
 		verify(linearLayoutManager, times(0)).scrollToPosition(anyInt());
-	}
-	
-	@Test
-	public void bindingView_0ViewSelectedNegative1_PreviousViewIsNotView()
-	{
-		int indexOfView = 0;
-		HighlightView highlightView = mock(HighlightView.class);
-		int indexOfSelectedSiviso = -1;
-		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
-		View view = mock(View.class);
-		
-		OnRowSelect_OnViewInit_HighlightAndScrollTo selectSiviso = new OnRowSelect_OnViewInit_HighlightAndScrollTo(layoutManager, highlightView);
-		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
-		selectSiviso.bindingView(indexOfView, view);
-		
-		View actualView = selectSiviso.previousView;
-		assertNotEquals(view, actualView);
-	}
-	
-	@Test
-	public void bindingView_2ViewSelected0_PreviousViewIsNotView()
-	{
-		int indexOfView = 2;
-		HighlightView highlightView = mock(HighlightView.class);
-		int indexOfSelectedSiviso = 0;
-		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
-		View view = mock(View.class);
-		
-		OnRowSelect_OnViewInit_HighlightAndScrollTo selectSiviso = new OnRowSelect_OnViewInit_HighlightAndScrollTo(layoutManager, highlightView);
-		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
-		selectSiviso.bindingView(indexOfView, view);
-		
-		View actualView = selectSiviso.previousView;
-		assertNotEquals(view, actualView);
-	}
-	
-	@Test
-	public void bindingView_0ViewSelectedNegative1Color0PreviousColor1PreviousView_0PreviousViewSetColor()
-	{
-		int indexOfView = 0;
-		int indexOfSelectedSiviso = -1;
-		HighlightView highlightView = mock(HighlightView.class);
-		LinearLayoutManager layoutManager = mock(LinearLayoutManager.class);
-		View view = mock(View.class);
-		View previousView = mock(View.class);
-		int previousColor = 1;
-		
-		OnRowSelect_OnViewInit_HighlightAndScrollTo selectSiviso = new OnRowSelect_OnViewInit_HighlightAndScrollTo(layoutManager, highlightView);
-		selectSiviso.indexOfSelectedSiviso = indexOfSelectedSiviso;
-		selectSiviso.previousView = previousView;
-		selectSiviso.previousColor = previousColor;
-		selectSiviso.bindingView(indexOfView, view);
-		
-		verify(previousView, times(0)).setBackgroundColor(anyInt());
 	}
 	
 	
