@@ -38,7 +38,7 @@ public class A_List
 		database.addOnDataChange(notifyAdapter);
 		
 		int highlightColor = activity.getResources().getColor(R.color.higlightColor);
-		HighlightView highlightView = new HighlightView();
+		HighlightView highlightView = new HighlightView(highlightColor);
 		OnSivisoSelect_OnViewInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		sivisoList.addOnSelect(selectSiviso);
 		adapter.setOnViewInit(selectSiviso);

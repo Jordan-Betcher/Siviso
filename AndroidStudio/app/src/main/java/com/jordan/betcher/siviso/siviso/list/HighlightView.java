@@ -4,9 +4,13 @@ import android.view.View;
 
 class HighlightView
 {
+	public HighlightView(int highlightColor)
+	{
+	
+	}
+	
 	public void highlight(View view)
 	{
-		//TODO HighlightView highlight
+		view.setBackgroundColor(0);
 	}
-	//TODO
 }
