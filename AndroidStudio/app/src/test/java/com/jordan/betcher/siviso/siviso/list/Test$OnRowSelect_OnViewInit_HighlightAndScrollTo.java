@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.junit.Test;
 
-public class Test$OnRowSelect_OnViewInit_GoToAndHighlightSiviso
+public class Test$OnRowSelect_OnViewInit_HighlightAndScrollTo
 {
 	
 	@Test
