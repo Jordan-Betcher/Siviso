@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class SivisoList_Siviso implements SivisoList
 {
 	
-	private ArrayList<OnRowSelect> onRowSelects = new ArrayList<>();
+	private ArrayList<OnSivisoSelect> onSivisoSelects = new ArrayList<>();
 	
 	@Override
 	public void select(int indexOfSiviso)
 	{
-		for(OnRowSelect onRowSelect : onRowSelects)
+		for(OnSivisoSelect onSivisoSelect : onSivisoSelects)
 		{
-			onRowSelect.onSelect(indexOfSiviso + 1);
+			onSivisoSelect.onSivisoSelect(indexOfSiviso + 1);
 		}
 	}
 	
 	@Override
-	public void addOnSelect(OnRowSelect onRowSelect)
+	public void addOnSelect(OnSivisoSelect onSivisoSelect)
 	{
-		onRowSelects.add(onRowSelect);
+		onSivisoSelects.add(onSivisoSelect);
 	}
 }

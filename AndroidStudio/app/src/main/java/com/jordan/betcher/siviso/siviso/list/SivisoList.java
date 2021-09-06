@@ -4,5 +4,5 @@ public interface SivisoList
 {
 	void select(int latLng);
 	
-	void addOnSelect(OnRowSelect onRowSelect);
+	void addOnSelect(OnSivisoSelect onSivisoSelect);
 }
