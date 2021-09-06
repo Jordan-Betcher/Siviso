@@ -16,7 +16,7 @@ import org.junit.Test;
 public class Test$OnSivisoSelect_OnViewInit_HighlightAndScrollTo
 {
 	@Test
-	public void onSelect_1ViewNull_Selected1()
+	public void onSivisoSelect_1ViewNull_Selected1()
 	{
 		int indexOfSiviso = 1;
 		HighlightView highlightView = mock(HighlightView.class);
@@ -33,7 +33,7 @@ public class Test$OnSivisoSelect_OnViewInit_HighlightAndScrollTo
 	}
 	
 	@Test
-	public void onSelect_0ViewNull_Selected0()
+	public void onSivisoSelect_0ViewNull_Selected0()
 	{
 		int indexOfSiviso = 0;
 		HighlightView highlightView = mock(HighlightView.class);
@@ -50,7 +50,7 @@ public class Test$OnSivisoSelect_OnViewInit_HighlightAndScrollTo
 	}
 	
 	@Test
-	public void onSelect_0View_0ScrollTo()
+	public void onSivisoSelect_0View_0ScrollTo()
 	{
 		int indexOfSiviso = 0;
 		HighlightView highlightView = mock(HighlightView.class);
@@ -67,7 +67,7 @@ public class Test$OnSivisoSelect_OnViewInit_HighlightAndScrollTo
 	
 	
 	@Test
-	public void onSelect_1ViewNull_ScrollTo2()
+	public void onSivisoSelect_1ViewNull_ScrollTo2()
 	{
 		int indexOfSiviso = 1;
 		HighlightView highlightView = mock(HighlightView.class);
@@ -84,7 +84,7 @@ public class Test$OnSivisoSelect_OnViewInit_HighlightAndScrollTo
 	}
 	
 	@Test
-	public void onSelect_0ViewNull_ScrollTo1()
+	public void onSivisoSelect_0ViewNull_ScrollTo1()
 	{
 		int indexOfSiviso = 0;
 		HighlightView highlightView = mock(HighlightView.class);
