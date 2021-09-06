@@ -15,6 +15,21 @@ import org.junit.Test;
 
 public class Test$OnSivisoSelect_OnViewInit_HighlightAndScrollTo
 {
+	@Test
+	public void bindingView_view0sivisoNegative1_0highlightView()
+	{
+		int indexOfView = 0;
+		int indexOfSiviso = -1;
+		HighlightView highlightView = mock(HighlightView.class);
+		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
+		View view = mock(View.class);
+		
+		OnSivisoSelect_OnViewInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
+		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
+		selectSiviso.bindingView(indexOfView, view);
+		
+		verify(highlightView, times(0)).highlight(view);
+	}
 	
 	@Test
 	public void bindingView_view2siviso1_highlightView()
