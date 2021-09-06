@@ -11,25 +11,25 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	public int previousColor = 0;
 	int indexOfSelectedSiviso = -1;
 	private LinearLayoutManager linearLayoutManager;
-	private int highlightColor;
 	
-	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager, int highlightColor)
+	public OnSelect_SelectSiviso(LinearLayoutManager linearLayoutManager, HighlightView highlightView)
 	{
 		this.linearLayoutManager = linearLayoutManager;
-		this.highlightColor = highlightColor;
 	}
 	
 	@Override
 	public void onSelect(int indexOfSiviso)
 	{
 		indexOfSelectedSiviso = indexOfSiviso;
-		if(linearLayoutManager.findViewByPosition(indexOfSiviso + 1) == null)
+		View view = linearLayoutManager.findViewByPosition(indexOfSiviso + 1);
+		if(view == null)
 		{
 			linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
 		}
 		else
 		{
-			linearLayoutManager.findViewByPosition(indexOfSiviso + 1).setBackgroundColor(highlightColor);
+			//TODO set previous view color to previous color
+			//TODO set previous view to current View
 		}
 	}
 	
@@ -38,14 +38,7 @@ class OnSelect_SelectSiviso implements OnSelect, OnBindView
 	{
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
-			view.setBackgroundColor(highlightColor);
-			
-			if(previousView != null)
-			{
-				previousView.setBackgroundColor(previousColor);
-			}
-			
-			previousView = view;
+		
 		}
 	}
 }
