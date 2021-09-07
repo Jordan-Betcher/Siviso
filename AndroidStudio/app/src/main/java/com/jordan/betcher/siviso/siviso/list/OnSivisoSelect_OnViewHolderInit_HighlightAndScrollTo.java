@@ -1,19 +1,17 @@
 package com.jordan.betcher.siviso.siviso.list;
 
-import android.view.View;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 class OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 implements OnSivisoSelect, OnViewHolderInit
 {
 	int indexOfSelectedSiviso = -1;
-	private LinearLayoutManager linearLayoutManager;
+	private RecyclerView recyclerView;
 	private HighlightView highlightView;
 	
-	public OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(LinearLayoutManager linearLayoutManager, HighlightView highlightView)
+	public OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(RecyclerView recyclerView, HighlightView highlightView)
 	{
-		this.linearLayoutManager = linearLayoutManager;
+		this.recyclerView = recyclerView;
 		this.highlightView = highlightView;
 	}
 	
@@ -21,20 +19,20 @@ implements OnSivisoSelect, OnViewHolderInit
 	public void onSivisoSelect(int indexOfSiviso)
 	{
 		indexOfSelectedSiviso = indexOfSiviso;
-		View view = linearLayoutManager.findViewByPosition(indexOfSiviso + 1);
-		if(isVisible(view))
+		ViewHolder_Abstract viewHolder = (ViewHolder_Abstract) recyclerView.findViewHolderForAdapterPosition(indexOfSiviso + 1);
+		if(isVisible(viewHolder))
 		{
-			highlightView.highlight(view);
+			highlightView.highlight(viewHolder.background());
 		}
 		else
 		{
-			linearLayoutManager.scrollToPosition(indexOfSiviso + 1);
+			recyclerView.scrollToPosition(indexOfSiviso + 1);
 		}
 	}
 	
-	private boolean isVisible(View view)
+	private boolean isVisible(ViewHolder_Abstract viewHolder)
 	{
-		return view != null;
+		return viewHolder != null;
 	}
 	
 	@Override
