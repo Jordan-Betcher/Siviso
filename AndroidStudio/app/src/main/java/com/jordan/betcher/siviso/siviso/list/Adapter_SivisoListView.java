@@ -69,7 +69,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	{
 		if(onViewHolderInit != null)
 		{
-			onViewHolderInit.bindingView(0, viewHolder);
+			onViewHolderInit.bindingView(index, viewHolder);
 		}
 		int sivisoDataIndex = listPositionToSivisoIndex(index);
 		viewHolder.init(database, sivisoDataIndex);

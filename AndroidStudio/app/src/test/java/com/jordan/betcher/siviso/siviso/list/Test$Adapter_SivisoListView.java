@@ -18,6 +18,22 @@ import org.junit.Test;
 public class Test$Adapter_SivisoListView
 {
 	@Test
+	public void onBindViewHolder_onBindViewHolder1_OnBindViewHolder1ViewHolder()
+	{
+		Database database = mock(Database.class);
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
+		
+		OnViewHolderInit onViewHolderInit = mock(OnViewHolderInit.class);
+		adapter.setOnViewInit(onViewHolderInit);
+		
+		int index = 1;
+		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
+		adapter.onBindViewHolder(viewHolder, index);
+		
+		verify(onViewHolderInit, times(1)).bindingView(index, viewHolder);
+	}
+	
+	@Test
 	public void onBindViewHolder_onBindViewHolder0_OnBindViewHolder0ViewHolder()
 	{
 		Database database = mock(Database.class);
