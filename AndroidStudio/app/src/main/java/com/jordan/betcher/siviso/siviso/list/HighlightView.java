@@ -16,12 +16,12 @@ class HighlightView
 	
 	public void highlight(View view)
 	{
-		view.setBackgroundColor(highlightColor);
 		if(previous != null)
 		{
 			previous.setBackgroundColor(previousColor);
 		}
 		previous = view;
 		previousColor = ((ColorDrawable) view.getBackground()).getColor();
+		view.setBackgroundColor(highlightColor);
 	}
 }

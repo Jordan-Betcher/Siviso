@@ -10,9 +10,30 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 
 import org.junit.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 
 public class Test$HighlightView
 {
+	
+	@Test
+	public void highlight_highlight0ViewWithColor1_SaveColorBeforeChangingIt()
+	{
+		int color = 0;
+		int viewColor = 1;
+		View view = mock(View.class);
+		ColorDrawable colorDrawable = mock(ColorDrawable.class);
+		when(view.getBackground()).thenReturn(colorDrawable);
+		when(colorDrawable.getColor()).thenReturn(viewColor);
+		
+		HighlightView highlightView = new HighlightView(color);
+		highlightView.highlight(view);
+		
+		InOrder inOrder = Mockito.inOrder(colorDrawable, view);
+		inOrder.verify(colorDrawable).getColor();
+		inOrder.verify(view).setBackgroundColor(color);
+	}
+	
 	@Test
 	public void highlight_PreviousViewPreviousColor1_setPreviousViewBackgroundColorColor1()
 	{
