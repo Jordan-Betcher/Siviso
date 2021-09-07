@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -21,7 +22,24 @@ import org.junit.Test;
 
 public class Test$ViewHolder_SivisoItem
 {
-	
+	@Test
+	public void view_view_view()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_Sivisos spinnerAdapter = mock(ArrayAdapter_Sivisos.class);
+		Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListener = mock(
+		Factory_OnItemSelectedListenerSetSiviso.class);
+		CardView background = mock(CardView.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
+		
+		View actualView = viewHolder.view();
+		assertEquals(view, actualView);
+	}
 	
 	@Test
 	public void init_databaseIndex0SivisoRingmodeSilent_spinnerSetSelectionOrdinal()
