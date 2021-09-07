@@ -15,6 +15,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	private Database database;
 	private Factory_ViewHolderDefault factoryViewHolderDefault;
 	private Factory_ViewHolderSiviso factoryViewHolderSiviso;
+	private OnViewHolderInit onViewHolderInit;
 	
 	public Adapter_SivisoListView(Database database,
 	                              Factory_ViewHolderDefault factoryViewHolder,
@@ -25,9 +26,9 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
 	}
 	
-	public void setOnViewInit(OnViewInit onViewInit)
+	public void setOnViewInit(OnViewHolderInit onViewHolderInit)
 	{
-		//TODO
+		this.onViewHolderInit = onViewHolderInit;
 	}
 	
 	enum ViewType
@@ -66,6 +67,10 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	@Override
 	public void onBindViewHolder(@NonNull ViewHolder_Abstract viewHolder, int index)
 	{
+		if(onViewHolderInit != null)
+		{
+			onViewHolderInit.bindingView(0, viewHolder);
+		}
 		int sivisoDataIndex = listPositionToSivisoIndex(index);
 		viewHolder.init(database, sivisoDataIndex);
 	}

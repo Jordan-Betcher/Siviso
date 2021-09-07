@@ -4,13 +4,14 @@ import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-class OnSivisoSelect_OnViewInit_HighlightAndScrollTo implements OnSivisoSelect, OnViewInit
+class OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
+implements OnSivisoSelect, OnViewHolderInit
 {
 	int indexOfSelectedSiviso = -1;
 	private LinearLayoutManager linearLayoutManager;
 	private HighlightView highlightView;
 	
-	public OnSivisoSelect_OnViewInit_HighlightAndScrollTo(LinearLayoutManager linearLayoutManager, HighlightView highlightView)
+	public OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(LinearLayoutManager linearLayoutManager, HighlightView highlightView)
 	{
 		this.linearLayoutManager = linearLayoutManager;
 		this.highlightView = highlightView;
@@ -37,11 +38,11 @@ class OnSivisoSelect_OnViewInit_HighlightAndScrollTo implements OnSivisoSelect, 
 	}
 	
 	@Override
-	public void bindingView(int indexOfView, View view)
+	public void bindingView(int indexOfView, ViewHolder_Abstract viewHolder)
 	{
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
-			highlightView.highlight(view);
+			highlightView.highlight(viewHolder);
 		}
 	}
 }
