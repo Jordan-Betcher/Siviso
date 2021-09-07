@@ -36,6 +36,6 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	@Override
 	public View view()
 	{
-		return null; //TODO
+		return itemView;
 	}
 }

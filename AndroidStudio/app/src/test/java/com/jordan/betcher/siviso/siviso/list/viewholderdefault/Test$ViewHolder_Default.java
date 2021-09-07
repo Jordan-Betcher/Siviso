@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.list.viewholderdefault;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -19,6 +20,25 @@ import org.junit.Test;
 
 public class Test$ViewHolder_Default
 {
+	@Test
+	public void view_view_view()
+	{
+		View view = mock(View.class);
+		TextView textView = mock(TextView.class);
+		String name = "Default";
+		Spinner spinner = mock(Spinner.class);
+		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
+		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
+		OnItemSelectedListener_SetDefaultSiviso.class);
+		CardView cardView = mock(CardView.class);
+		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
+		
+		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		
+		View actualView = viewHolder.view();
+		assertEquals(view, actualView);
+	}
+	
 	@Test
 	public void init_databaseDefaultRingmodeVibrate_setSpinnerSelectionToVibrateOrdinal()
 	{
