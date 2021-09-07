@@ -14,6 +14,7 @@ implements OnSivisoSelect, OnViewHolderInit
 		this.recyclerView = recyclerView;
 		this.highlightView = highlightView;
 	}
+	//TODO Have goto and select item class highlights and unhighlights viewholder
 	
 	@Override
 	public void onSivisoSelect(int indexOfSiviso)

@@ -54,6 +54,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	@Override
 	public ViewHolder_Abstract onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
 	{
+		
 		if(viewType == ViewType.DEFAULT.ordinal())
 		{
 			return factoryViewHolderDefault.create(parent);
