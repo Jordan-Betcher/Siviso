@@ -23,7 +23,7 @@ import org.junit.Test;
 public class Test$ViewHolder_SivisoItem
 {
 	@Test
-	public void view_view_view()
+	public void background_background_background()
 	{
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
@@ -38,7 +38,7 @@ public class Test$ViewHolder_SivisoItem
 		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
 		
 		View actualView = viewHolder.background();
-		assertEquals(view, actualView);
+		assertEquals(background, actualView);
 	}
 	
 	@Test
