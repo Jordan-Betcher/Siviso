@@ -32,4 +32,10 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	{
 		spinner.setSelection(database.defaultRingmode().ordinal());
 	}
+	
+	@Override
+	public View view()
+	{
+		return null; //TODO
+	}
 }

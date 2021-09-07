@@ -13,7 +13,6 @@ import org.junit.Test;
 
 public class Test$HighlightView
 {
-	
 	@Test
 	public void highlight_PreviousViewPreviousColor1_setPreviousViewBackgroundColorColor1()
 	{

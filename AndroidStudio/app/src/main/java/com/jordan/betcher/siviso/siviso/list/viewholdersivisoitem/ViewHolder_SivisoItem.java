@@ -43,4 +43,10 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 		background.setOnClickListener(onClickListener);
 	}
 	
+	@Override
+	public View view()
+	{
+		return null; //TODO
+	}
+	
 }

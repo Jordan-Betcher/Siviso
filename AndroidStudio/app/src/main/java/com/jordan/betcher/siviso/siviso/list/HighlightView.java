@@ -24,9 +24,4 @@ class HighlightView
 		previous = view;
 		previousColor = ((ColorDrawable) view.getBackground()).getColor();
 	}
-	
-	public void highlight(ViewHolder_Abstract viewHolder)
-	{
-		//TODO
-	}
 }

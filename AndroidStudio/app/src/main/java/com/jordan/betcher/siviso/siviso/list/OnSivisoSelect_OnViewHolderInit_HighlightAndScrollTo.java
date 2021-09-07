@@ -42,7 +42,7 @@ implements OnSivisoSelect, OnViewHolderInit
 	{
 		if(indexOfSelectedSiviso != -1 && indexOfView == indexOfSelectedSiviso + 1)
 		{
-			highlightView.highlight(viewHolder);
+			highlightView.highlight(viewHolder.view());
 		}
 	}
 }

@@ -23,12 +23,14 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		HighlightView highlightView = mock(HighlightView.class);
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
+		View view = mock(View.class);
+		when(viewHolder.view()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
 		selectSiviso.bindingView(indexOfView, viewHolder);
 		
-		verify(highlightView, times(0)).highlight(viewHolder);
+		verify(highlightView, times(0)).highlight(view);
 	}
 	
 	@Test
@@ -39,12 +41,14 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		HighlightView highlightView = mock(HighlightView.class);
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
+		View view = mock(View.class);
+		when(viewHolder.view()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
 		selectSiviso.bindingView(indexOfView, viewHolder);
 		
-		verify(highlightView, times(1)).highlight(viewHolder);
+		verify(highlightView, times(1)).highlight(view);
 	}
 	
 	@Test
@@ -55,12 +59,14 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		HighlightView highlightView = mock(HighlightView.class);
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
+		View view = mock(View.class);
+		when(viewHolder.view()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
 		selectSiviso.bindingView(indexOfView, viewHolder);
 		
-		verify(highlightView, times(0)).highlight(viewHolder);
+		verify(highlightView, times(0)).highlight(view);
 	}
 	
 	@Test
@@ -71,12 +77,14 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		HighlightView highlightView = mock(HighlightView.class);
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
+		View view = mock(View.class);
+		when(viewHolder.view()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
 		selectSiviso.bindingView(indexOfView, viewHolder);
 		
-		verify(highlightView, times(1)).highlight(viewHolder);
+		verify(highlightView, times(1)).highlight(view);
 	}
 	
 	@Test
