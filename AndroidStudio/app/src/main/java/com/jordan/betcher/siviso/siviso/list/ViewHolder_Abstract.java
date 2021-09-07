@@ -17,5 +17,5 @@ extends RecyclerView.ViewHolder
 	
 	public abstract void init(Database database, int sivisoDataIndex);
 	
-	public abstract View view();
+	public abstract View background();
 }

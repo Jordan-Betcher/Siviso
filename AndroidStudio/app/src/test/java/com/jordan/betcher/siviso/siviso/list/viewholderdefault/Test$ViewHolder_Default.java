@@ -21,7 +21,7 @@ import org.junit.Test;
 public class Test$ViewHolder_Default
 {
 	@Test
-	public void view_view_view()
+	public void background_background_background()
 	{
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
@@ -35,8 +35,8 @@ public class Test$ViewHolder_Default
 		
 		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
 		
-		View actualView = viewHolder.view();
-		assertEquals(view, actualView);
+		View actualView = viewHolder.background();
+		assertEquals(cardView, actualView);
 	}
 	
 	@Test

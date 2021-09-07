@@ -24,7 +24,7 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
 		View view = mock(View.class);
-		when(viewHolder.view()).thenReturn(view);
+		when(viewHolder.background()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
@@ -42,7 +42,7 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
 		View view = mock(View.class);
-		when(viewHolder.view()).thenReturn(view);
+		when(viewHolder.background()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
@@ -60,7 +60,7 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
 		View view = mock(View.class);
-		when(viewHolder.view()).thenReturn(view);
+		when(viewHolder.background()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;
@@ -78,7 +78,7 @@ public class Test$OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo
 		LinearLayoutManager linearLayoutManager = mock(LinearLayoutManager.class);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
 		View view = mock(View.class);
-		when(viewHolder.view()).thenReturn(view);
+		when(viewHolder.background()).thenReturn(view);
 		
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(linearLayoutManager, highlightView);
 		selectSiviso.indexOfSelectedSiviso = indexOfSiviso;

@@ -37,7 +37,7 @@ public class Test$ViewHolder_SivisoItem
 		
 		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
 		
-		View actualView = viewHolder.view();
+		View actualView = viewHolder.background();
 		assertEquals(view, actualView);
 	}
 	

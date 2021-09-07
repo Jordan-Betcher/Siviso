@@ -44,7 +44,7 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	}
 	
 	@Override
-	public View view()
+	public View background()
 	{
 		return itemView;
 	}

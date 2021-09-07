@@ -13,6 +13,7 @@ import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 class ViewHolder_Default extends ViewHolder_Abstract
 {
 	private Spinner spinner;
+	private final CardView background;
 	
 	public ViewHolder_Default(
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter_Sivisos adapter,
@@ -21,6 +22,7 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	{
 		super(view);
 		this.spinner = spinner;
+		this.background = background;
 		textView.setText(name);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(onItemSelected);
@@ -34,8 +36,8 @@ class ViewHolder_Default extends ViewHolder_Abstract
 	}
 	
 	@Override
-	public View view()
+	public View background()
 	{
-		return itemView;
+		return background;
 	}
 }
