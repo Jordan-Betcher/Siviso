@@ -16,6 +16,7 @@ class HighlightView
 	{
 		if(previous != null)
 		{
+			previous.getBackground().setTintList(null);
 		}
 		previous = view;
 		view.setBackgroundColor(highlightColor);
