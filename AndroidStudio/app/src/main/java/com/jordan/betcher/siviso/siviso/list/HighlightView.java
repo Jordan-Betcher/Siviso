@@ -19,6 +19,6 @@ class HighlightView
 			previous.getBackground().setTintList(null);
 		}
 		previous = view;
-		view.setBackgroundColor(highlightColor);
+		view.getBackground().setTint(highlightColor);
 	}
 }

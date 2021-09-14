@@ -50,7 +50,7 @@ public class Test$HighlightView
 	}
 	
 	@Test
-	public void highlight_Color1View_SetBackGroundColorTo1()
+	public void highlight_Color1View_SetTintTo1()
 	{
 		int color = 0;
 		View view = mock(View.class);
@@ -62,11 +62,11 @@ public class Test$HighlightView
 		HighlightView highlightView = new HighlightView(color);
 		highlightView.highlight(view);
 		
-		verify(view, times(1)).setBackgroundColor(color);
+		verify(colorDrawable, times(1)).setTint(color);
 	}
 	
 	@Test
-	public void highlight_Color0View_SetBackGroundColorTo0()
+	public void highlight_Color0View_SetTint0()
 	{
 		int color = 0;
 		View view = mock(View.class);
@@ -78,6 +78,6 @@ public class Test$HighlightView
 		HighlightView highlightView = new HighlightView(color);
 		highlightView.highlight(view);
 		
-		verify(view, times(1)).setBackgroundColor(color);
+		verify(colorDrawable, times(1)).setTint(color);
 	}
 }
