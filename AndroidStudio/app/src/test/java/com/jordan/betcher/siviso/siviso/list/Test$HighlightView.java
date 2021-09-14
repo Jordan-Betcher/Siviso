@@ -10,104 +10,27 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 
 import org.junit.Test;
-import org.mockito.InOrder;
-import org.mockito.Mockito;
 
 public class Test$HighlightView
 {
-	
 	@Test
-	public void highlight_highlight0ViewWithColor1_SaveColorBeforeChangingIt()
-	{
-		int color = 0;
-		int viewColor = 1;
-		View view = mock(View.class);
-		ColorDrawable colorDrawable = mock(ColorDrawable.class);
-		when(view.getBackground()).thenReturn(colorDrawable);
-		when(colorDrawable.getColor()).thenReturn(viewColor);
-		
-		HighlightView highlightView = new HighlightView(color);
-		highlightView.highlight(view);
-		
-		InOrder inOrder = Mockito.inOrder(colorDrawable, view);
-		inOrder.verify(colorDrawable).getColor();
-		inOrder.verify(view).setBackgroundColor(color);
-	}
-	
-	@Test
-	public void highlight_PreviousViewPreviousColor1_setPreviousViewBackgroundColorColor1()
+	public void highlight_PreviousViewPreviousColor0_setPreviousViewBackgroundTintListNull()
 	{
 		View previousView = mock(View.class);
-		int previuosColor = 1;
 		
 		int color = 0;
-		int viewColor = 0;
 		View view = mock(View.class);
 		ColorDrawable colorDrawable = mock(ColorDrawable.class);
 		when(view.getBackground()).thenReturn(colorDrawable);
-		when(colorDrawable.getColor()).thenReturn(viewColor);
+		
+		ColorDrawable previousColorDrawable = mock(ColorDrawable.class);
+		when(previousView.getBackground()).thenReturn(previousColorDrawable);
 		
 		HighlightView highlightView = new HighlightView(color);
 		highlightView.previous = previousView;
-		highlightView.previousColor = previuosColor;
 		highlightView.highlight(view);
 		
-		verify(previousView, times(1)).setBackgroundColor(previuosColor);
-	}
-	
-	@Test
-	public void highlight_PreviousViewPreviousColor0_setPreviousViewBackgroundColorColor0()
-	{
-		View previousView = mock(View.class);
-		int previuosColor = 0;
-		
-		int color = 0;
-		int viewColor = 0;
-		View view = mock(View.class);
-		ColorDrawable colorDrawable = mock(ColorDrawable.class);
-		when(view.getBackground()).thenReturn(colorDrawable);
-		when(colorDrawable.getColor()).thenReturn(viewColor);
-		
-		HighlightView highlightView = new HighlightView(color);
-		highlightView.previous = previousView;
-		highlightView.previousColor = previuosColor;
-		highlightView.highlight(view);
-		
-		verify(previousView, times(1)).setBackgroundColor(previuosColor);
-	}
-	
-	@Test
-	public void highlight_ViewColor0_PreviousColorEqualsViewColor0()
-	{
-		int color = 0;
-		int viewColor = 0;
-		View view = mock(View.class);
-		ColorDrawable colorDrawable = mock(ColorDrawable.class);
-		when(view.getBackground()).thenReturn(colorDrawable);
-		when(colorDrawable.getColor()).thenReturn(viewColor);
-		
-		HighlightView highlightView = new HighlightView(color);
-		highlightView.highlight(view);
-		
-		int previousColor = highlightView.previousColor;
-		assertEquals(viewColor, previousColor);
-	}
-	
-	@Test
-	public void highlight_ViewColor1_PreviousColorEqualsViewColor1()
-	{
-		int color = 0;
-		int viewColor = 1;
-		View view = mock(View.class);
-		ColorDrawable colorDrawable = mock(ColorDrawable.class);
-		when(view.getBackground()).thenReturn(colorDrawable);
-		when(colorDrawable.getColor()).thenReturn(viewColor);
-		
-		HighlightView highlightView = new HighlightView(color);
-		highlightView.highlight(view);
-		
-		int previousColor = highlightView.previousColor;
-		assertEquals(viewColor, previousColor);
+		verify(previousColorDrawable, times(1)).setTintList(null);
 	}
 	
 	@Test
