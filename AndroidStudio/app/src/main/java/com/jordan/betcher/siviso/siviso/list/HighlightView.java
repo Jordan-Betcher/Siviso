@@ -2,7 +2,7 @@ package com.jordan.betcher.siviso.siviso.list;
 
 import android.view.View;
 
-class HighlightView
+public class HighlightView
 {
 	View previous;
 	private int highlightColor;

@@ -9,7 +9,7 @@ import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
 import org.junit.Test;
 
-public class Test$OnClickListener_GoToSivisoLocation
+public class Test$OnRowClick_GoToSivisoLocation
 {
 	
 	@Test
@@ -18,31 +18,31 @@ public class Test$OnClickListener_GoToSivisoLocation
 		LatLng sivisoLocation = new LatLng(0, 0);
 		SivisoMap sivisoMap = mock(SivisoMap.class);
 		
-		OnClickListener_GoToSivisoLocation onClickListener = new OnClickListener_GoToSivisoLocation(sivisoMap, sivisoLocation);
+		new OnRowClick_GoToSivisoLocation(sivisoMap, sivisoLocation);
 		
 		verify(sivisoMap, times(0)).goToLocation(sivisoLocation);
 	}
 	
 	@Test
-	public void onClick_MapSivisoLocation01_MapGoToSivisoLocation01()
+	public void call_MapSivisoLocation01_MapGoToSivisoLocation01()
 	{
 		LatLng sivisoLocation = new LatLng(0, 1);
 		SivisoMap sivisoMap = mock(SivisoMap.class);
 		
-		OnClickListener_GoToSivisoLocation onClickListener = new OnClickListener_GoToSivisoLocation(sivisoMap, sivisoLocation);
-		onClickListener.onClick(null);
+		OnRowClick_GoToSivisoLocation onClickListener = new OnRowClick_GoToSivisoLocation(sivisoMap, sivisoLocation);
+		onClickListener.call(null);
 		
 		verify(sivisoMap, times(1)).goToLocation(sivisoLocation);
 	}
 	
 	@Test
-	public void onClick_MapSivisoLocation00_MapGoToSivisoLocation00()
+	public void call_MapSivisoLocation00_MapGoToSivisoLocation00()
 	{
 		LatLng sivisoLocation = new LatLng(0, 0);
 		SivisoMap sivisoMap = mock(SivisoMap.class);
 		
-		OnClickListener_GoToSivisoLocation onClickListener = new OnClickListener_GoToSivisoLocation(sivisoMap, sivisoLocation);
-		onClickListener.onClick(null);
+		OnRowClick_GoToSivisoLocation onClickListener = new OnRowClick_GoToSivisoLocation(sivisoMap, sivisoLocation);
+		onClickListener.call(null);
 		
 		verify(sivisoMap, times(1)).goToLocation(sivisoLocation);
 	}

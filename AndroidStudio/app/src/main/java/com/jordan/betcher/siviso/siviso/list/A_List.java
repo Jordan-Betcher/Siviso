@@ -29,29 +29,30 @@ public class A_List
 		
 		RecyclerView listView = activity.findViewById(R.id.recyclerViewSivisoList);
 		LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-		Adapter_SivisoListView adapter = createAdapter();
+		
+		int highlightColor = activity.getResources().getColor(R.color.higlightColor);
+		HighlightView highlightView = new HighlightView(highlightColor);
+		Adapter_SivisoListView adapter = createAdapter(highlightView);
 		
 		listView.setLayoutManager(linearLayoutManager);
 		listView.setAdapter(adapter);
 		
 		A_OnDataChange_NotifyAdapter notifyAdapter = new A_OnDataChange_NotifyAdapter(adapter);
 		database.addOnDataChange(notifyAdapter);
-		
-		int highlightColor = activity.getResources().getColor(R.color.higlightColor);
-		HighlightView highlightView = new HighlightView(highlightColor);
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(listView, highlightView);
 		sivisoList.addOnSelect(selectSiviso);
 		adapter.setOnViewInit(selectSiviso);
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
 	}
 	
-	private Adapter_SivisoListView createAdapter()
+	private Adapter_SivisoListView createAdapter(
+	HighlightView highlightView)
 	{
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		Ringmodes ringmodes = new Ringmodes();
 		ArrayAdapter_Sivisos sivisoSpinnerAdapter = new ArrayAdapter_Sivisos(activity, ringmodes);
-		Factory_ViewHolderDefault defaultViewHolderFactory = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
-		Factory_ViewHolderSiviso sivisoViewHolderFactory = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap);
+		Factory_ViewHolderDefault defaultViewHolderFactory = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database, highlightView);
+		Factory_ViewHolderSiviso sivisoViewHolderFactory = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap, highlightView);
 		
 		return new Adapter_SivisoListView(database, defaultViewHolderFactory, sivisoViewHolderFactory);
 	}

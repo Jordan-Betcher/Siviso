@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
+import com.jordan.betcher.siviso.siviso.list.HighlightView;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
@@ -21,12 +22,14 @@ public class Factory_ViewHolderSiviso
 	private Factory_OnItemSelectedListenerSetSiviso factoryOnItemClickListenerSetSiviso;
 	private SivisoMap sivisoMap;
 	
-	public Factory_ViewHolderSiviso(LayoutInflater layoutInflater, ArrayAdapter spinnerAdapter, SivisoMap sivisoMap)
+	public Factory_ViewHolderSiviso(
+	LayoutInflater layoutInflater, ArrayAdapter spinnerAdapter, SivisoMap sivisoMap,
+	HighlightView highlightView)
 	{
 		this.layoutInflater = layoutInflater;
 		this.spinnerAdapter = spinnerAdapter;
 		this.sivisoMap = sivisoMap;
-		this.factoryOnClickBackground = new Factory_OnClickListenerGoToSivisoLocation(sivisoMap);
+		this.factoryOnClickBackground = new Factory_OnClickListenerGoToSivisoLocation(sivisoMap, highlightView);
 		this.factoryOnItemClickListenerSetSiviso = new Factory_OnItemSelectedListenerSetSiviso();
 	}
 	

@@ -39,7 +39,7 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 		spinner.setOnItemSelectedListener(onItemSelected);
 		LatLng sivisoLatLng = database.sivisos()[sivisoIndex].latLng();
 		spinner.setSelection(database.sivisos()[sivisoIndex].ringmode().ordinal());
-		OnClickListener_GoToSivisoLocation onClickListener = factoryOnClickBackground.create(sivisoLatLng);
+		OnClickListener_Multiple onClickListener = factoryOnClickBackground.create(sivisoLatLng, sivisoIndex);
 		background.setOnClickListener(onClickListener);
 	}
 	
