@@ -51,7 +51,7 @@ public class A_List
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
 		Ringmodes ringmodes = new Ringmodes();
 		ArrayAdapter_Sivisos sivisoSpinnerAdapter = new ArrayAdapter_Sivisos(activity, ringmodes);
-		Factory_ViewHolderDefault defaultViewHolderFactory = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database, highlightView);
+		Factory_ViewHolderDefault defaultViewHolderFactory = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
 		Factory_ViewHolderSiviso sivisoViewHolderFactory = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap, highlightView);
 		
 		return new Adapter_SivisoListView(database, defaultViewHolderFactory, sivisoViewHolderFactory);

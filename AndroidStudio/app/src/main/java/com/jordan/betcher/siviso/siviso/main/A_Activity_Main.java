@@ -32,6 +32,7 @@ public class A_Activity_Main extends AppCompatActivity
 		
 		SivisoList sivisoList = new SivisoList_Siviso();
 		
+		//TODO make sivisoMap
 		SivisoMap sivisoMap = new SivisoMap(){
 			@Override
 			public void goToCurrentLocation()

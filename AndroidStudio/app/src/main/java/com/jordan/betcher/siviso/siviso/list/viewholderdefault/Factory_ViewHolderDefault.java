@@ -12,7 +12,6 @@ import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Ringmodes;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
-import com.jordan.betcher.siviso.siviso.list.HighlightView;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
@@ -25,14 +24,12 @@ public class Factory_ViewHolderDefault
 	
 	public Factory_ViewHolderDefault(
 	LayoutInflater layoutInflater, ArrayAdapter_Sivisos adapter,
-	SivisoMap sivisoMap, Database database,
-	HighlightView highlightView)
+	SivisoMap sivisoMap, Database database)
 	{
 		this.layoutInflater = layoutInflater;
 		this.adapter = adapter;
 		this.clickListener = new OnClickListener_GoToCurrentLocation(sivisoMap);
 		this.database = database;
-		//TODO add highlight view to ViewHolder_Default as an onclick
 	}
 	
 	public ViewHolder_Abstract create(ViewGroup parent)
