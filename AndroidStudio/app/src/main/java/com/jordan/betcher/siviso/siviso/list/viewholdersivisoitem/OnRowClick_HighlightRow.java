@@ -17,6 +17,6 @@ class OnRowClick_HighlightRow implements OnRowClick
 	@Override
 	public void call(View view)
 	{
-		//TODO
+		highlightView.highlight(view);
 	}
 }
