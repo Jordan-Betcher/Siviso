@@ -68,7 +68,7 @@ public class Test$ViewHolder_SivisoItem
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
 		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
-		when(factoryOnClickBackground.create(sivisoLatLng, index)).thenReturn(onClickListener);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
 		
 		
 		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
@@ -104,7 +104,7 @@ public class Test$ViewHolder_SivisoItem
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
 		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
-		when(factoryOnClickBackground.create(sivisoLatLng, index)).thenReturn(onClickListener);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
 		
 		
 		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
@@ -139,7 +139,7 @@ public class Test$ViewHolder_SivisoItem
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
 		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
-		when(factoryOnClickBackground.create(sivisoLatLng, index)).thenReturn(onClickListener);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
 		
 		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
 		viewHolder.init(database, index);
@@ -172,7 +172,7 @@ public class Test$ViewHolder_SivisoItem
 		OnItemSelectedListener_SetSiviso onItemClick = mock(OnItemSelectedListener_SetSiviso.class);
 		when(factoryOnItemClickListener.create(database, index)).thenReturn(onItemClick);
 				OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
-		when(factoryOnClickBackground.create(sivisoLatLng, index)).thenReturn(onClickListener);
+		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
 		
 		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner, spinnerAdapter, factoryOnItemClickListener, background, factoryOnClickBackground);
 		viewHolder.init(database, index);

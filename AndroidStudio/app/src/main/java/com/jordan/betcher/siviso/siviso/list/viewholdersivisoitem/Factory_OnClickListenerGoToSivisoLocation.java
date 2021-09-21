@@ -16,7 +16,7 @@ class Factory_OnClickListenerGoToSivisoLocation
 		this.highlightView = highlightView;
 	}
 	
-	public OnClickListener_Multiple create(LatLng sivisoLocation, int sivisoIndex)
+	public OnClickListener_Multiple create(LatLng sivisoLocation)
 	{
 		OnRowClick_HighlightRow highlightRow = new OnRowClick_HighlightRow(highlightView);
 		OnRowClick_GoToSivisoLocation goToSivisoLocation = new OnRowClick_GoToSivisoLocation(sivisoMap, sivisoLocation);
