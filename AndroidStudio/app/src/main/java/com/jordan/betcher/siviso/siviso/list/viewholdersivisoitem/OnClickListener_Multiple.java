@@ -12,5 +12,6 @@ public class OnClickListener_Multiple implements View.OnClickListener
 	public void onClick(View view)
 	{
 		//TODO
+		onRowClicks[0].call(view);
 	}
 }
