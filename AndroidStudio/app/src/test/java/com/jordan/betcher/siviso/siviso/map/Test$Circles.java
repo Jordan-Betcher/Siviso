@@ -12,6 +12,21 @@ import org.junit.Test;
 
 public class Test$Circles
 {
+	@Test
+	public void setCircles_circle0Circle1_removeCircle1()
+	{
+		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
+		Wrapper_Circle circle1 = mock(Wrapper_Circle.class);
+		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0, circle1};
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
+		
+		Circles circles = new Circles(googleMap, factory);
+		circles.circles = wrapper_circles;
+		circles.setCircles(new Siviso[0]);
+		
+		verify(circle1, times(1)).remove();
+	}
 	
 	@Test
 	public void setCircles_circle0_removeCircle0()
