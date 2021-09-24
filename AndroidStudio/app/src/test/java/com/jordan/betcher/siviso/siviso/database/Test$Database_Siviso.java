@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.siviso.database;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -13,6 +14,21 @@ import org.mockito.Mockito;
 
 public class Test$Database_Siviso
 {
+	@Test
+	public void delete_1siviso0_0saveSiviso()
+	{
+		int deleteIndex = 1;
+		Siviso siviso0 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso0};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
+		database_siviso.delete(deleteIndex);
+		
+		verify(useSharedPreferences,times(0)).setSivisos(any());
+	}
+	
 	@Test
 	public void delete_0siviso0siviso2_saveSiviso1Siviso2()
 	{
@@ -66,7 +82,7 @@ public class Test$Database_Siviso
 	}
 	
 	@Test
-	public void delete_0siviso0_0saveSiviso()
+	public void delete_0siviso0_save0Siviso()
 	{
 		int deleteIndex = 0;
 		Siviso siviso0 = mock(Siviso.class);
