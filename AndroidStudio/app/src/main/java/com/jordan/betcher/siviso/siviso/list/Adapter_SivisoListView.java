@@ -33,7 +33,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	
 	public Database database()
 	{
-		return null; //TODO Adapter_SivisoListView database
+		return database;
 	}
 	
 	enum ViewType
@@ -77,14 +77,15 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		{
 			onViewHolderInit.bindingView(index, viewHolder);
 		}
-		int sivisoDataIndex = listPositionToSivisoIndex(index);
+		int sivisoDataIndex = index - 1;//listPositionToSivisoIndex(index);
 		viewHolder.init(database, sivisoDataIndex);
 	}
 	
 	public int listPositionToSivisoIndex(int index)
 	{
 		//TODO
-		return index - 1;
+		return 0;
+		//return index - 1;
 	}
 	
 	@Override

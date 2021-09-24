@@ -18,6 +18,17 @@ import org.junit.Test;
 public class Test$Adapter_SivisoListView
 {
 	@Test
+	public void database__database()
+	{
+		Database database = mock(Database.class);
+		
+		Adapter_SivisoListView sivisoListView = new Adapter_SivisoListView(database, null, null);
+		
+		Database actualDatabase = sivisoListView.database();
+		assertEquals(database, actualDatabase);
+	}
+	
+	@Test
 	public void onBindViewHolder_onBindViewHolder1_OnBindViewHolder1ViewHolder()
 	{
 		Database database = mock(Database.class);
