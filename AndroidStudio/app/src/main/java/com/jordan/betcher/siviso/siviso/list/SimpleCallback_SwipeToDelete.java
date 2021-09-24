@@ -11,14 +11,14 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 {
 	
 	private final Adapter_SivisoListView adapter;
-	private A_ViewHolderHelper viewHolderHelper;
+	private Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper;
 	
 	public SimpleCallback_SwipeToDelete(
 	Adapter_SivisoListView adapter,
-	A_ViewHolderHelper viewHolderHelper){
+	Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper){
 		super(0,  ItemTouchHelper.RIGHT);
 		this.adapter = adapter;
-		this.viewHolderHelper = viewHolderHelper;
+		this.swipeToDeleteHelper = swipeToDeleteHelper;
 	}
 	
 	@Override
@@ -41,13 +41,13 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction)
 	{
 		Database database = adapter.database();
-		int position = viewHolderHelper.positionOf(viewHolder);
+		int position = swipeToDeleteHelper.positionOf(viewHolder);
 		int index = adapter.listPositionToSivisoIndex(position);
-		if(position != 0) database.delete(index);
-		
-		//TODO
-		//int position = viewHolder.getAdapterPosition();
-		//adapter.deleteItem(position);
+		if(position != 0)
+		{
+			database.delete(index);
+			swipeToDeleteHelper.notifyAdapterItemRemoved(adapter, position);
+		}
 	}
 	
 }
