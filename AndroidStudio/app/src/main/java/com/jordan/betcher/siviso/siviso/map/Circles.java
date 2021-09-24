@@ -4,16 +4,20 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class Circles
 {
+	Wrapper_Circle[] circles;
+	private Wrapper_GoogleMap googleMap;
+	private Factory_CircleOptions factory;
 	
 	public Circles(Wrapper_GoogleMap googleMap,
 	Factory_CircleOptions factory)
 	{
-		//TODO Circles Circles
+		this.googleMap = googleMap;
+		this.factory = factory;
 	}
 	
 	public void setCircles(Siviso[] sivisos)
 	{
-		//TODO Circles recreate
+		circles = new Wrapper_Circle[]{googleMap.createCircle(factory, sivisos[0])};
 		
 		/*
 		for(Siviso siviso : database.sivisos())
