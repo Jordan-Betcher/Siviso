@@ -41,7 +41,10 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction)
 	{
 		Database database = adapter.database();
-		database.delete(adapter.listPositionToSivisoIndex(viewHolderHelper.positionOf(viewHolder)));
+		int position = viewHolderHelper.positionOf(viewHolder);
+		int index = adapter.listPositionToSivisoIndex(position);
+		if(position != 0) database.delete(index);
+		
 		//TODO
 		//int position = viewHolder.getAdapterPosition();
 		//adapter.deleteItem(position);
