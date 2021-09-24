@@ -10,6 +10,18 @@ import org.junit.Test;
 public class Test$OnMapReady_CreateSivisoCircles
 {
 	@Test
+	public void dataChanged_circles_recreate()
+	{
+		Circles circles = mock(Circles.class);
+		
+		OnMapReady_CreateSivisoCircles createSivisoCircles = new OnMapReady_CreateSivisoCircles(null);
+		createSivisoCircles.circles = circles;
+		createSivisoCircles.dataChanged();
+		
+		verify(circles, times(1)).recreate();
+	}
+	
+	@Test
 	public void ready__recreate()
 	{
 		Circles circles = mock(Circles.class);

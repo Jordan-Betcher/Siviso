@@ -5,7 +5,7 @@ import com.jordan.betcher.siviso.siviso.database.OnDataChange;
 public class OnMapReady_CreateSivisoCircles implements OnMapReady, OnDataChange
 {
 	private Factory_Circles factory;
-	private Circles circles;
+	Circles circles;
 	
 	public OnMapReady_CreateSivisoCircles(Factory_Circles factory)
 	{
@@ -23,6 +23,6 @@ public class OnMapReady_CreateSivisoCircles implements OnMapReady, OnDataChange
 	public void dataChanged()
 	{
 		//TODO
-		//circles.recreate();
+		circles.recreate();
 	}
 }
