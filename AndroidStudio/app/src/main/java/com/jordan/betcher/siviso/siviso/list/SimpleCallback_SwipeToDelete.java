@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jordan.betcher.siviso.siviso.list.viewholderdefault.ViewHolder_Default;
+
 class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 {
 	
@@ -19,8 +21,7 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)
 	{
 		//TODO
-		//if(viewHolder instanceof ViewHolder_Default) return 0;
-		//return makeMovementFlags(0, ItemTouchHelper.RIGHT);
+		if(viewHolder instanceof ViewHolder_Default) return 0;
 		return ItemTouchHelper.RIGHT;
 	}
 	
