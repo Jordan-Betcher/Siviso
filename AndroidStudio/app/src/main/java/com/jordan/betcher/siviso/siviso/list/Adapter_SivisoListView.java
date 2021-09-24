@@ -83,9 +83,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	
 	public int itemPositionToSivisoIndex(int itemPosition)
 	{
-		//TODO
-		return 1;
-		//return index - 1;
+		return itemPosition - 1;
 	}
 	
 	@Override

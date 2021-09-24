@@ -18,6 +18,18 @@ import org.junit.Test;
 public class Test$Adapter_SivisoListView
 {
 	@Test
+	public void itemPositionToSivisoIndex_1_0()
+	{
+		int itemPosition = 1;
+		int sivisoIndex = itemPosition - 1;
+		
+		Adapter_SivisoListView sivisoListView = new Adapter_SivisoListView(null, null, null);
+		
+		int actualSivisoIndex = sivisoListView.itemPositionToSivisoIndex(itemPosition);
+		assertEquals(sivisoIndex, actualSivisoIndex);
+	}
+	
+	@Test
 	public void itemPositionToSivisoIndex_2_1()
 	{
 		int itemPosition = 2;
