@@ -33,6 +33,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	
 	public void deleteItem(int index)
 	{
+		if(index == 0) return;
 		database.delete(index-1);
 		//TODO
 		/*
