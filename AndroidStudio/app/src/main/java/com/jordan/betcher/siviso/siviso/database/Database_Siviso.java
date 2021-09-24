@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-import com.google.android.gms.maps.model.LatLng;
-
 public class Database_Siviso implements Database
 {
 	private UseSharedPreferences useSharedPreferences;
@@ -39,31 +37,6 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void delete(LatLng selected)
-	{
-		Siviso[] sivisos = sivisos();
-		if(sivisos.length == 0) return;
-		Siviso[] newSivisos = new Siviso[sivisos.length - 1];
-		
-		int newSivisosIndex = 0;
-		for(int i = 0; i < sivisos.length; i++)
-		{
-			Siviso siviso = sivisos[i];
-			if(!siviso.latLng().equals(selected))
-			{
-				if(newSivisosIndex == newSivisos.length)
-				{
-					return;
-				}
-				newSivisos[newSivisosIndex] = siviso;
-				newSivisosIndex++;
-			}
-		}
-		
-		useSharedPreferences.setSivisos(newSivisos);
-	}
-	
-	@Override
 	public void save(Siviso newSiviso)
 	{
 		Siviso[] sivisos = sivisos();
@@ -88,5 +61,6 @@ public class Database_Siviso implements Database
 	public void delete(int deleteIndex)
 	{
 		//TODO
+		
 	}
 }
