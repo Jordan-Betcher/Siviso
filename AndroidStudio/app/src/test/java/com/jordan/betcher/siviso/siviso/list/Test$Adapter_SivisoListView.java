@@ -18,6 +18,18 @@ import org.junit.Test;
 public class Test$Adapter_SivisoListView
 {
 	@Test
+	public void delete_1_databaseDelete1()
+	{
+		int deleteIndex = 1;
+		Database database = mock(Database.class);
+		
+		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null, null);
+		adapter.deleteItem(deleteIndex);
+		
+		verify(database, times(1)).delete(deleteIndex);
+	}
+	
+	@Test
 	public void onBindViewHolder_onBindViewHolder1_OnBindViewHolder1ViewHolder()
 	{
 		Database database = mock(Database.class);

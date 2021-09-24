@@ -17,4 +17,6 @@ public interface Database
 	void save(Siviso siviso);
 	
 	void addOnDataChange(OnDataChange onDataChange);
+	
+	void delete(int deleteIndex);
 }

@@ -83,4 +83,10 @@ public class Database_Siviso implements Database
 	{
 		useSharedPreferences.onChangeEvent().add(onDataChange);
 	}
+	
+	@Override
+	public void delete(int deleteIndex)
+	{
+		//TODO
+	}
 }

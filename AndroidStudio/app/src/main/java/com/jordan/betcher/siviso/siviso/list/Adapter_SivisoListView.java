@@ -24,6 +24,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.database = database;
 		this.factoryViewHolderDefault = factoryViewHolder;
 		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
+		database.delete(1);
 	}
 	
 	public void setOnViewInit(OnViewHolderInit onViewHolderInit)
