@@ -28,7 +28,7 @@ public class Test$SimpleCallback_SwipeToDelete
 		Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper = mock(
 		Helper_SimpleCallback_SwipeToDelete.class);
 		when(adapter.database()).thenReturn(database);
-		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(adapter.itemPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
 		when(swipeToDeleteHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,
@@ -49,7 +49,7 @@ public class Test$SimpleCallback_SwipeToDelete
 		Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper = mock(
 		Helper_SimpleCallback_SwipeToDelete.class);
 		when(adapter.database()).thenReturn(database);
-		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(adapter.itemPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
 		when(swipeToDeleteHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,
@@ -70,7 +70,7 @@ public class Test$SimpleCallback_SwipeToDelete
 		Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper = mock(
 		Helper_SimpleCallback_SwipeToDelete.class);
 		when(adapter.database()).thenReturn(database);
-		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(adapter.itemPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
 		when(swipeToDeleteHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,
@@ -91,7 +91,7 @@ public class Test$SimpleCallback_SwipeToDelete
 		Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper = mock(
 		Helper_SimpleCallback_SwipeToDelete.class);
 		when(adapter.database()).thenReturn(database);
-		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(adapter.itemPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
 		when(swipeToDeleteHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,
@@ -112,7 +112,7 @@ public class Test$SimpleCallback_SwipeToDelete
 		Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper = mock(
 		Helper_SimpleCallback_SwipeToDelete.class);
 		when(adapter.database()).thenReturn(database);
-		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(adapter.itemPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
 		when(swipeToDeleteHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,
@@ -133,7 +133,7 @@ public class Test$SimpleCallback_SwipeToDelete
 		Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper = mock(
 		Helper_SimpleCallback_SwipeToDelete.class);
 		when(adapter.database()).thenReturn(database);
-		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(adapter.itemPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
 		when(swipeToDeleteHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,

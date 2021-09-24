@@ -42,7 +42,7 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	{
 		Database database = adapter.database();
 		int position = swipeToDeleteHelper.positionOf(viewHolder);
-		int index = adapter.listPositionToSivisoIndex(position);
+		int index = adapter.itemPositionToSivisoIndex(position);
 		if(position != 0)
 		{
 			database.delete(index);

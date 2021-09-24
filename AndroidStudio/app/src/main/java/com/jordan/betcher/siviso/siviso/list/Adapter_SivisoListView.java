@@ -77,14 +77,14 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		{
 			onViewHolderInit.bindingView(index, viewHolder);
 		}
-		int sivisoDataIndex = index - 1;//listPositionToSivisoIndex(index);
+		int sivisoDataIndex = index - 1;//itemPositionToSivisoIndex(index);
 		viewHolder.init(database, sivisoDataIndex);
 	}
 	
-	public int listPositionToSivisoIndex(int index)
+	public int itemPositionToSivisoIndex(int itemPosition)
 	{
 		//TODO
-		return 0;
+		return 1;
 		//return index - 1;
 	}
 	
