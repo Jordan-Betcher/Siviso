@@ -17,7 +17,7 @@ class Circles
 	
 	public void setCircles(Siviso[] sivisos)
 	{
-		if(sivisos.length == 0)
+		if(circles != null)
 		{
 			for(Wrapper_Circle circle : circles)
 			{
