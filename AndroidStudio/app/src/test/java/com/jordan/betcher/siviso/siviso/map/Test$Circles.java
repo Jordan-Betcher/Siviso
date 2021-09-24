@@ -16,17 +16,14 @@ public class Test$Circles
 	@Test
 	public void setCircles_circle0_removeCircle0()
 	{
-		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
 		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0};
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
-		when(googleMap.createCircle(factory, siviso0)).thenReturn(circle0);
 		
 		Circles circles = new Circles(googleMap, factory);
 		circles.circles = wrapper_circles;
-		circles.setCircles(sivisos);
+		circles.setCircles(new Siviso[0]);
 		
 		verify(circle0, times(1)).remove();
 	}
