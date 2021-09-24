@@ -31,6 +31,11 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.onViewHolderInit = onViewHolderInit;
 	}
 	
+	public Database database()
+	{
+		return null; //TODO Adapter_SivisoListView database
+	}
+	
 	enum ViewType
 	{
 		DEFAULT,
@@ -76,8 +81,9 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		viewHolder.init(database, sivisoDataIndex);
 	}
 	
-	private int listPositionToSivisoIndex(int index)
+	public int listPositionToSivisoIndex(int index)
 	{
+		//TODO
 		return index - 1;
 	}
 	

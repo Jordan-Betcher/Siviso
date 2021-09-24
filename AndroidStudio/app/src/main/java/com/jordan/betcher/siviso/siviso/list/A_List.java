@@ -44,7 +44,8 @@ public class A_List
 		sivisoList.addOnSelect(selectSiviso);
 		adapter.setOnViewInit(selectSiviso);
 		
-		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter);
+		A_ViewHolderHelper viewHolderHelper = new A_ViewHolderHelper();
+		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter, viewHolderHelper);
 		ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeToDelete);
 		itemTouchHelper.attachToRecyclerView(listView);
 	}
