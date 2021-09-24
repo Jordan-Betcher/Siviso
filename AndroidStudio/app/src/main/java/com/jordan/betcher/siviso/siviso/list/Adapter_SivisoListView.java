@@ -24,7 +24,6 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.database = database;
 		this.factoryViewHolderDefault = factoryViewHolder;
 		this.factoryViewHolderSiviso = factoryViewHolderSiviso;
-		database.delete(1);
 	}
 	
 	public void setOnViewInit(OnViewHolderInit onViewHolderInit)
@@ -32,8 +31,9 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.onViewHolderInit = onViewHolderInit;
 	}
 	
-	public void deleteItem(int position)
+	public void deleteItem(int index)
 	{
+		database.delete(index);
 		//TODO
 		/*
 		if(position == 0 ) return;
