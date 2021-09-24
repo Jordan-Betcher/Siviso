@@ -63,7 +63,7 @@ public class Database_Siviso implements Database
 		Siviso[] sivisos = useSharedPreferences.sivisos();
 		for(int i = 0; i < sivisos.length; i++)
 		{
-			if(i != 0) useSharedPreferences.setSivisos(new Siviso[]{useSharedPreferences.sivisos()[1]});
+			if(i != deleteIndex) useSharedPreferences.setSivisos(new Siviso[]{useSharedPreferences.sivisos()[i]});
 		}
 		
 		if(sivisos.length == 1)

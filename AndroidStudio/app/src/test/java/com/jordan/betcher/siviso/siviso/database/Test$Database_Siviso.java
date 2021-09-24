@@ -14,6 +14,23 @@ import org.mockito.Mockito;
 public class Test$Database_Siviso
 {
 	@Test
+	public void delete_1siviso0siviso1_siviso0()
+	{
+		int deleteIndex = 1;
+		Siviso siviso0 = mock(Siviso.class);
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso0, siviso1};
+		Siviso[] newSivisos = new Siviso[]{siviso0};
+		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
+		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
+		
+		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
+		database_siviso.delete(deleteIndex);
+		
+		verify(useSharedPreferences,times(1)).setSivisos(newSivisos);
+	}
+	
+	@Test
 	public void delete_0siviso0siviso1_siviso1()
 	{
 		int deleteIndex = 0;
