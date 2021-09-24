@@ -60,7 +60,16 @@ public class Database_Siviso implements Database
 	@Override
 	public void delete(int deleteIndex)
 	{
-		//TODO
-		useSharedPreferences.setSivisos(new Siviso[0]);
+		Siviso[] sivisos = useSharedPreferences.sivisos();
+		for(int i = 0; i < sivisos.length; i++)
+		{
+			if(i != 0) useSharedPreferences.setSivisos(new Siviso[]{useSharedPreferences.sivisos()[1]});
+		}
+		
+		if(sivisos.length == 1)
+		{
+			useSharedPreferences.setSivisos(new Siviso[0]);
+		}
+		
 	}
 }
