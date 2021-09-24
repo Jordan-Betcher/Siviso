@@ -31,6 +31,16 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		this.onViewHolderInit = onViewHolderInit;
 	}
 	
+	public void deleteItem(int position)
+	{
+		//TODO
+		/*
+		if(position == 0 ) return;
+		database.delete(database.sivisos()[position - 1].latLng());
+		notifyItemRemoved(position);
+		//*/
+	}
+	
 	enum ViewType
 	{
 		DEFAULT,

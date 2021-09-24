@@ -2,6 +2,7 @@ package com.jordan.betcher.siviso.siviso.list;
 
 import android.view.LayoutInflater;
 
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -42,6 +43,10 @@ public class A_List
 		OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo selectSiviso = new OnSivisoSelect_OnViewHolderInit_HighlightAndScrollTo(listView, highlightView);
 		sivisoList.addOnSelect(selectSiviso);
 		adapter.setOnViewInit(selectSiviso);
+		
+		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter);
+		ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeToDelete);
+		itemTouchHelper.attachToRecyclerView(listView);
 		//TODO swipe to delete. Tutorial: https://medium.com/@zackcosborn/step-by-step-recyclerview-swipe-to-delete-and-undo-7bbae1fce27e
 	}
 	

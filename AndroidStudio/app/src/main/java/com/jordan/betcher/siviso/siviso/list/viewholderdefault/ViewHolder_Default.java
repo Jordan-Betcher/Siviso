@@ -10,7 +10,7 @@ import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.list.ArrayAdapter_Sivisos;
 import com.jordan.betcher.siviso.siviso.list.ViewHolder_Abstract;
 
-class ViewHolder_Default extends ViewHolder_Abstract
+public class ViewHolder_Default extends ViewHolder_Abstract
 {
 	private Spinner spinner;
 	private final CardView background;
