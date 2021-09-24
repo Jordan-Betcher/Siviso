@@ -22,7 +22,6 @@ public class OnMapReady_CreateSivisoCircles implements OnMapReady, OnDataChange
 	@Override
 	public void dataChanged()
 	{
-		//TODO
-		circles.recreate();
+		if(circles != null) circles.recreate();
 	}
 }

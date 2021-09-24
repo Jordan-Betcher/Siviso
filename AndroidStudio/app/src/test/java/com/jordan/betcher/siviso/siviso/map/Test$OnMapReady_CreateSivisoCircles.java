@@ -10,6 +10,14 @@ import org.junit.Test;
 public class Test$OnMapReady_CreateSivisoCircles
 {
 	@Test
+	public void dataChanged_null_noError()
+	{
+		OnMapReady_CreateSivisoCircles createSivisoCircles = new OnMapReady_CreateSivisoCircles(null);
+		createSivisoCircles.circles = null;
+		createSivisoCircles.dataChanged();
+	}
+	
+	@Test
 	public void dataChanged_circles_recreate()
 	{
 		Circles circles = mock(Circles.class);
