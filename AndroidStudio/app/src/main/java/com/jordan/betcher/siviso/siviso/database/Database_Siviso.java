@@ -61,15 +61,29 @@ public class Database_Siviso implements Database
 	public void delete(int deleteIndex)
 	{
 		Siviso[] sivisos = useSharedPreferences.sivisos();
+		Siviso[] newSiviso = new Siviso[sivisos.length - 1];
+		boolean passed = false;
+		
 		for(int i = 0; i < sivisos.length; i++)
 		{
-			if(i != deleteIndex) useSharedPreferences.setSivisos(new Siviso[]{useSharedPreferences.sivisos()[i]});
+			if(i != deleteIndex)
+			{
+				if(!passed)
+				{
+					newSiviso[i] = useSharedPreferences.sivisos()[i];
+				}
+				else
+				{
+					newSiviso[i - 1] = useSharedPreferences.sivisos()[i];
+				}
+			}
+			else
+			{
+				passed = true;
+			}
 		}
 		
-		if(sivisos.length == 1)
-		{
-			useSharedPreferences.setSivisos(new Siviso[0]);
-		}
+		useSharedPreferences.setSivisos(newSiviso);
 		
 	}
 }
