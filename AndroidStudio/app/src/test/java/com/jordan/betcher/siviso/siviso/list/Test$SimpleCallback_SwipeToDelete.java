@@ -16,6 +16,26 @@ import org.junit.Test;
 public class Test$SimpleCallback_SwipeToDelete
 {
 	@Test
+	public void onSwiped_2_databaseDelete1()
+	{
+		int viewHolderPosition = 2;
+		int sivisoIndex = viewHolderPosition - 1;
+		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
+		Database database = mock(Database.class);
+		Adapter_SivisoListView adapter = mock(Adapter_SivisoListView.class);
+		A_ViewHolderHelper viewHolderHelper = mock(A_ViewHolderHelper.class);
+		when(adapter.database()).thenReturn(database);
+		when(adapter.listPositionToSivisoIndex(viewHolderPosition)).thenReturn(sivisoIndex);
+		when(viewHolderHelper.positionOf(viewHolder)).thenReturn(viewHolderPosition);
+		
+		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(adapter,
+		                                                                              viewHolderHelper);
+		swipeToDelete.onSwiped(viewHolder, ItemTouchHelper.RIGHT);
+		
+		verify(database, times(1)).delete(sivisoIndex);
+	}
+	
+	@Test
 	public void onSwiped_1_databaseDelete0()
 	{
 		int viewHolderPosition = 1;
