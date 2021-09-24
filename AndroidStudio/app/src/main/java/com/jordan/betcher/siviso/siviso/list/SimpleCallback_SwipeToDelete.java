@@ -21,7 +21,7 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 		//TODO
 		//if(viewHolder instanceof ViewHolder_Default) return 0;
 		//return makeMovementFlags(0, ItemTouchHelper.RIGHT);
-		return 0;
+		return ItemTouchHelper.RIGHT;
 	}
 	
 	@Override
