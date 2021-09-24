@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.siviso.map;
 
 import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.LatLng;
 
 class A_Wrapper_Circle implements Wrapper_Circle
 {
@@ -13,8 +12,8 @@ class A_Wrapper_Circle implements Wrapper_Circle
 	}
 	
 	@Override
-	public void setCenter(LatLng latLng)
+	public void remove()
 	{
-		circle.setCenter(latLng);
+		circle.remove();
 	}
 }

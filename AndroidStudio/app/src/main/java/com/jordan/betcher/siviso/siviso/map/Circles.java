@@ -17,6 +17,7 @@ class Circles
 	
 	public void setCircles(Siviso[] sivisos)
 	{
+		if(circles != null && circles.length == 1) circles[0].remove();
 		circles = new Wrapper_Circle[sivisos.length];
 		
 		for(int i = 0; i < sivisos.length; i++)
