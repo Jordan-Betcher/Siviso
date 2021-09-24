@@ -61,6 +61,6 @@ public class Database_Siviso implements Database
 	public void delete(int deleteIndex)
 	{
 		//TODO
-		
+		useSharedPreferences.setSivisos(new Siviso[0]);
 	}
 }
