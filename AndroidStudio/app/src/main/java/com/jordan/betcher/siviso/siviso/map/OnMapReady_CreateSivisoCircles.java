@@ -15,9 +15,8 @@ public class OnMapReady_CreateSivisoCircles implements OnMapReady, OnDataChange
 	@Override
 	public void ready(Wrapper_GoogleMap googleMap)
 	{
-		//TODO
-		//circles = factory.create(googleMap);
-		//circles.recreate();
+		circles = factory.create(googleMap);
+		circles.recreate();
 	}
 	
 	@Override
