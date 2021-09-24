@@ -17,13 +17,12 @@ class Circles
 	
 	public void setCircles(Siviso[] sivisos)
 	{
-		circles = new Wrapper_Circle[]{googleMap.createCircle(factory, sivisos[0])};
+		circles = new Wrapper_Circle[sivisos.length];
 		
-		/*
-		for(Siviso siviso : database.sivisos())
+		for(int i = 0; i < sivisos.length; i++)
 		{
-			CircleOptions circleOptions = factory.create(siviso);
-			googleMap.createCircle(circleOptions);
-		}//*/
+			Siviso siviso = sivisos[i];
+			circles[i] = googleMap.createCircle(factory, siviso);
+		}
 	}
 }

@@ -10,6 +10,28 @@ import org.junit.Test;
 
 public class Test$Circles
 {
+	
+	@Test
+	public void setCircles_siviso0siviso1_createCircle0Circle1()
+	{
+		Siviso siviso0 = mock(Siviso.class);
+		Siviso siviso1 = mock(Siviso.class);
+		Siviso[] sivisos = new Siviso[]{siviso0, siviso1};
+		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
+		Wrapper_Circle circle1 = mock(Wrapper_Circle.class);
+		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0, circle1};
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
+		when(googleMap.createCircle(factory, siviso0)).thenReturn(circle0);
+		when(googleMap.createCircle(factory, siviso1)).thenReturn(circle1);
+		
+		Circles circles = new Circles(googleMap, factory);
+		circles.setCircles(sivisos);
+		
+		Wrapper_Circle[] actualCircles = circles.circles;
+		assertArrayEquals(wrapper_circles, actualCircles);
+	}
+	
 	@Test
 	public void setCircles_siviso0_createCircle0()
 	{
