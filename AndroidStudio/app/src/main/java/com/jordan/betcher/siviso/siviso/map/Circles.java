@@ -1,18 +1,17 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import com.jordan.betcher.siviso.siviso.database.Database;
+import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class Circles
 {
 	
-	public Circles(
-	Database database, Wrapper_GoogleMap googleMap,
+	public Circles(Wrapper_GoogleMap googleMap,
 	Factory_CircleOptions factory)
 	{
 		//TODO Circles Circles
 	}
 	
-	public void recreate()
+	public void setCircles(Siviso[] sivisos)
 	{
 		//TODO Circles recreate
 		

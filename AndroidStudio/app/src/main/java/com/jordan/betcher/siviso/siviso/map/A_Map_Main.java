@@ -80,8 +80,8 @@ public class A_Map_Main
 	private OnMapReady_CreateSivisoCircles createCreateSivisoCircles()
 	{
 		Factory_CircleOptions factory = new Factory_CircleOptions();
-		Factory_Circles factory_circles = new Factory_Circles(database, factory);
-		return new OnMapReady_CreateSivisoCircles(factory_circles);
+		Factory_Circles factory_circles = new Factory_Circles(factory);
+		return new OnMapReady_CreateSivisoCircles(database, factory_circles);
 	}
 	
 	private OnMapReady_LocationListener_StartAtCurrentLocation createStartAtCurrentLocation()
