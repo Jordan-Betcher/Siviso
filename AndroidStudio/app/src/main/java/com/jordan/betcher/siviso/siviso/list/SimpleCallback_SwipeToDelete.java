@@ -26,7 +26,7 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)
 	{
 		if(viewHolder instanceof ViewHolder_Default) return 0;
-		return ItemTouchHelper.RIGHT;
+		return makeMovementFlags(0, ItemTouchHelper.RIGHT);
 	}
 	
 	@Override

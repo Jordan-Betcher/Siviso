@@ -158,12 +158,13 @@ public class Test$SimpleCallback_SwipeToDelete
 	@Test
 	public void getMovementFlags_viewHolder_RIGHT()
 	{
+		int movementFlag = ItemTouchHelper.Callback.makeMovementFlags(0, ItemTouchHelper.RIGHT);
 		ViewHolder_Abstract viewHolder = mock(ViewHolder_Abstract.class);
 		
 		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(null,
 		                                                                              null);
 		
 		int actualMovementFlag = swipeToDelete.getMovementFlags(null, viewHolder);
-		assertEquals(ItemTouchHelper.RIGHT, actualMovementFlag);
+		assertEquals(movementFlag, actualMovementFlag);
 	}
 }
