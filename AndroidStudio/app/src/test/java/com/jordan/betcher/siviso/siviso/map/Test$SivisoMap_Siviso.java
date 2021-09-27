@@ -10,6 +10,18 @@ import org.junit.Test;
 
 public class Test$SivisoMap_Siviso
 {
+	
+	
+	@Test
+	public void goToLocation_00_noError()
+	{
+		LatLng latLng = new LatLng(0, 0);
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		
+		SivisoMap_Siviso sivisoMap = new SivisoMap_Siviso();
+		sivisoMap.goToLocation(latLng);
+	}
+	
 	@Test
 	public void goToLocationReady_10map_moveTo10()
 	{

@@ -15,7 +15,7 @@ public class SivisoMap_Siviso implements SivisoMap, OnMapReady
 	@Override
 	public void goToLocation(LatLng sivisoLocation)
 	{
-		googleMap.moveTo(sivisoLocation);
+		if(googleMap != null) googleMap.moveTo(sivisoLocation);
 	}
 	
 	@Override
