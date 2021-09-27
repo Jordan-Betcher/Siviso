@@ -27,7 +27,7 @@ public class A_Map_Main
 	public A_Map_Main(
 	AppCompatActivity activity,
 	Permission_AccessFineLocation permission, Database database,
-	SivisoList sivisoList)
+	SivisoMap sivisoMap, SivisoList sivisoList)
 	{
 		this.activity = activity;
 		this.permission = permission;
