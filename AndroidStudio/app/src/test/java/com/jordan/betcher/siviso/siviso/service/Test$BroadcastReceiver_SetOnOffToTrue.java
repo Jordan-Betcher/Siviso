@@ -14,11 +14,27 @@ import org.junit.Test;
 public class Test$BroadcastReceiver_SetOnOffToTrue
 {
 	@Test
-	public void onReceive_Different_0checkedTrue()
+	public void onReceive_B_0checkedTrue()
 	{
+		String action = "B";
 		SwitchCompat onOff = mock(SwitchCompat.class);
 		Intent intent = mock(Intent.class);
-		when(intent.getAction()).thenReturn("A");
+		when(intent.getAction()).thenReturn(action);
+		
+		
+		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(onOff);
+		setOnOffToTrue.onReceive(null, intent);
+		
+		verify(onOff, times(0)).setChecked(true);
+	}
+	
+	@Test
+	public void onReceive_A_0checkedTrue()
+	{
+		String action = "A";
+		SwitchCompat onOff = mock(SwitchCompat.class);
+		Intent intent = mock(Intent.class);
+		when(intent.getAction()).thenReturn(action);
 		
 		
 		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(onOff);
@@ -30,9 +46,10 @@ public class Test$BroadcastReceiver_SetOnOffToTrue
 	@Test
 	public void onReceive_YesRunning_checkedTrue()
 	{
+		String action = Intent_YesRunning.ACTION;
 		SwitchCompat onOff = mock(SwitchCompat.class);
 		Intent intent = mock(Intent.class);
-		when(intent.getAction()).thenReturn(Intent_YesRunning.ACTION);
+		when(intent.getAction()).thenReturn(action);
 		
 		
 		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(onOff);

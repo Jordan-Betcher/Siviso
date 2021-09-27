@@ -19,6 +19,6 @@ class BroadcastReceiver_SetOnOffToTrue extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-		if(intent.getAction() != "A") onOff.setChecked(true);
+		if(intent.getAction() == Intent_YesRunning.ACTION) onOff.setChecked(true);
 	}
 }
