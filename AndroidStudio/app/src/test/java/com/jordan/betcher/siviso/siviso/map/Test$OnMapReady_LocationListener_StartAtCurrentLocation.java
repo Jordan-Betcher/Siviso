@@ -68,6 +68,40 @@ public class Test$OnMapReady_LocationListener_StartAtCurrentLocation
 	}
 	
 	@Test
+	public void readyOnLocationChanged_10_moveTo10()
+	{
+		float zoom = 0;
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		LatLng latLng = new LatLng(1 ,0);
+		Location location = mock(Location.class);
+		when(location.getLongitude()).thenReturn(latLng.longitude);
+		when(location.getLatitude()).thenReturn(latLng.latitude);
+		
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
+		startAtCurrentLocation.ready(googleMap);
+		startAtCurrentLocation.onLocationChanged(location);
+		
+		verify(googleMap, times(1)).moveTo(latLng);
+	}
+	
+	@Test
+	public void readyOnLocationChanged_01_moveTo01()
+	{
+		float zoom = 0;
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		LatLng latLng = new LatLng(0 ,1);
+		Location location = mock(Location.class);
+		when(location.getLongitude()).thenReturn(latLng.longitude);
+		when(location.getLatitude()).thenReturn(latLng.latitude);
+		
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
+		startAtCurrentLocation.ready(googleMap);
+		startAtCurrentLocation.onLocationChanged(location);
+		
+		verify(googleMap, times(1)).moveTo(latLng);
+	}
+	
+	@Test
 	public void readyOnLocationChanged_00_moveTo()
 	{
 		float zoom = 0;
@@ -85,7 +119,41 @@ public class Test$OnMapReady_LocationListener_StartAtCurrentLocation
 	}
 	
 	@Test
-	public void onLocationChangedReady_00_moveTo()
+	public void onLocationChangedReady_10_moveTo10()
+	{
+		float zoom = 0;
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		LatLng latLng = new LatLng(1 ,0);
+		Location location = mock(Location.class);
+		when(location.getLongitude()).thenReturn(latLng.longitude);
+		when(location.getLatitude()).thenReturn(latLng.latitude);
+		
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
+		startAtCurrentLocation.onLocationChanged(location);
+		startAtCurrentLocation.ready(googleMap);
+		
+		verify(googleMap, times(1)).moveTo(latLng);
+	}
+	
+	@Test
+	public void onLocationChangedReady_01_moveTo01()
+	{
+		float zoom = 0;
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		LatLng latLng = new LatLng(0 ,1);
+		Location location = mock(Location.class);
+		when(location.getLongitude()).thenReturn(latLng.longitude);
+		when(location.getLatitude()).thenReturn(latLng.latitude);
+		
+		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
+		startAtCurrentLocation.onLocationChanged(location);
+		startAtCurrentLocation.ready(googleMap);
+		
+		verify(googleMap, times(1)).moveTo(latLng);
+	}
+	
+	@Test
+	public void onLocationChangedReady_00_moveTo00()
 	{
 		float zoom = 0;
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);

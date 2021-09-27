@@ -45,7 +45,7 @@ public class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMap
 	{
 		if(location != null && googleMap != null)
 		{
-			googleMap.moveTo(new LatLng(0, 0));
+			googleMap.moveTo(new LatLng(location.getLatitude(), location.getLongitude()));
 			googleMap.zoomTo(zoom);
 		}
 	}
