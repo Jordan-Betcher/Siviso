@@ -4,13 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
 class BroadcastReceiver_SetOnOffToTrue
 extends BroadcastReceiver
 {
 	
-	public BroadcastReceiver_SetOnOffToTrue(LocalBroadcastManager manager)
+	public BroadcastReceiver_SetOnOffToTrue(Wrapper_LocalBroadcastManager manager)
 	{
 		//TODO BroadcastReceiver_SetOnOffToTrue BroadcastReceiver_SetOnOffToTrue
 	}

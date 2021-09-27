@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.siviso.service;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.widget.Button;
 
@@ -25,7 +24,7 @@ public class A_Service
 		Factory_SetupEventUnLock setupEventUnLock = new Factory_SetupEventUnLock(onOffSwitch, onOffLock, permission);
 		EventUnlock eventUnlock = setupEventUnLock.eventUnlock();
 		
-		LocalBroadcastManager manager = LocalBroadcastManager.getInstance(activity);
+		Wrapper_LocalBroadcastManager manager = new Wrapper_LocalBroadcastManager(LocalBroadcastManager.getInstance(activity));
 		ifRunningSetOnOffTrue(manager);
 		
 		OnUnlock_AskIsRunning setOnOffSwitchToIfServiceRunning = createAskIsRunning(manager);
@@ -33,16 +32,16 @@ public class A_Service
 		//TODO onUnlock onClick (onOffSwitch.isChecked) ? startService : endService
 	}
 	
-	private void ifRunningSetOnOffTrue(LocalBroadcastManager manager)
+	private void ifRunningSetOnOffTrue(Wrapper_LocalBroadcastManager manager)
 	{
 		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(manager);
 		IntentFilter lookForYesRunning = new IntentFilter("LOOK_FOR_YES_RUNNING"); //TODO change temp to service const
 		manager.registerReceiver(setOnOffToTrue, lookForYesRunning);
 	}
 	
-	private OnUnlock_AskIsRunning createAskIsRunning(LocalBroadcastManager manager)
+	private OnUnlock_AskIsRunning createAskIsRunning(Wrapper_LocalBroadcastManager manager)
 	{
-		Intent askIsRunning = new Intent("ASK_IS_RUNNING");
+		Intent_AskIsRunning askIsRunning = new Intent_AskIsRunning();
 		return new OnUnlock_AskIsRunning(manager, askIsRunning);
 	}
 }
