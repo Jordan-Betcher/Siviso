@@ -9,15 +9,16 @@ import androidx.appcompat.widget.SwitchCompat;
 class BroadcastReceiver_SetOnOffToTrue extends BroadcastReceiver
 {
 	
+	private SwitchCompat onOff;
+	
 	public BroadcastReceiver_SetOnOffToTrue(SwitchCompat onOff)
 	{
-		//TODO BroadcastReceiver_SetOnOffToTrue BroadcastReceiver_SetOnOffToTrue
-		onOff.setChecked(true);
+		this.onOff = onOff;
 	}
 	
 	@Override
 	public void onReceive(Context context, Intent intent)
 	{
-		//TODO
+		if(intent.getAction() != "A") onOff.setChecked(true);
 	}
 }
