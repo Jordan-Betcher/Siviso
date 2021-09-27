@@ -25,17 +25,18 @@ public class A_Service
 		EventUnlock eventUnlock = setupEventUnLock.eventUnlock();
 		
 		Wrapper_LocalBroadcastManager manager = new Wrapper_LocalBroadcastManager(LocalBroadcastManager.getInstance(activity));
-		ifRunningSetOnOffTrue(manager);
+		ifRunningSetOnOffTrue(manager, onOffSwitch);
 		
 		OnUnlock_AskIsRunning setOnOffSwitchToIfServiceRunning = createAskIsRunning(manager);
 		eventUnlock.addOnUnlock(setOnOffSwitchToIfServiceRunning);
 		//TODO onUnlock onClick (onOffSwitch.isChecked) ? startService : endService
 	}
 	
-	private void ifRunningSetOnOffTrue(Wrapper_LocalBroadcastManager manager)
+	private void ifRunningSetOnOffTrue(
+	Wrapper_LocalBroadcastManager manager, SwitchCompat onOffSwitch)
 	{
-		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(manager);
-		IntentFilter lookForYesRunning = new IntentFilter("LOOK_FOR_YES_RUNNING"); //TODO change temp to service const
+		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(onOffSwitch);
+		IntentFilter lookForYesRunning = new IntentFilter(Intent_YesRunning.ACTION); //TODO change temp to service const
 		manager.registerReceiver(setOnOffToTrue, lookForYesRunning);
 	}
 	

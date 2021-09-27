@@ -4,13 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-class BroadcastReceiver_SetOnOffToTrue
-extends BroadcastReceiver
+import androidx.appcompat.widget.SwitchCompat;
+
+class BroadcastReceiver_SetOnOffToTrue extends BroadcastReceiver
 {
 	
-	public BroadcastReceiver_SetOnOffToTrue(Wrapper_LocalBroadcastManager manager)
+	public BroadcastReceiver_SetOnOffToTrue(SwitchCompat onOff)
 	{
 		//TODO BroadcastReceiver_SetOnOffToTrue BroadcastReceiver_SetOnOffToTrue
+		onOff.setChecked(true);
 	}
 	
 	@Override
