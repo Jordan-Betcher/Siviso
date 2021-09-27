@@ -4,6 +4,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMapReady, LocationListener
 {
 	private Location location;
@@ -43,7 +45,7 @@ public class OnMapReady_LocationListener_StartAtCurrentLocation implements OnMap
 	{
 		if(location != null && googleMap != null)
 		{
-			//googleMap.moveTo(new LatLng(0, 0));
+			googleMap.moveTo(new LatLng(0, 0));
 			googleMap.zoomTo(zoom);
 		}
 	}
