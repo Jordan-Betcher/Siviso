@@ -18,6 +18,7 @@ import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.map.A_Map_Main;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap_Siviso;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
+import com.jordan.betcher.siviso.siviso.service.A_Service;
 
 public class A_Activity_Main extends AppCompatActivity
 {
@@ -34,7 +35,7 @@ public class A_Activity_Main extends AppCompatActivity
 		Database database = createDatabase();
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoMap, sivisoList);
 		new A_List(this, database, sivisoList, sivisoMap);
-		//TODO on/off button
+		new A_Service(this);
 	}
 	
 	private Database createDatabase()
