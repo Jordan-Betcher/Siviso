@@ -17,8 +17,7 @@ public class ViewHolder_Default extends ViewHolder_Abstract
 	
 	public ViewHolder_Default(
 	View view, TextView textView, String name, Spinner spinner, ArrayAdapter_Sivisos adapter,
-	OnItemSelectedListener_SetDefaultSiviso onItemSelected, CardView background,
-	OnClickListener_GoToCurrentLocation onClick)
+	OnItemSelectedListener_SetDefaultSiviso onItemSelected, CardView background)
 	{
 		super(view);
 		this.spinner = spinner;
@@ -26,7 +25,6 @@ public class ViewHolder_Default extends ViewHolder_Abstract
 		textView.setText(name);
 		spinner.setAdapter(adapter);
 		spinner.setOnItemSelectedListener(onItemSelected);
-		background.setOnClickListener(onClick);
 	}
 	
 	@Override

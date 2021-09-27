@@ -18,7 +18,6 @@ import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 public class Factory_ViewHolderDefault
 {
 	private LayoutInflater layoutInflater;
-	private OnClickListener_GoToCurrentLocation clickListener;
 	private Database database;
 	private ArrayAdapter_Sivisos adapter;
 	
@@ -28,7 +27,6 @@ public class Factory_ViewHolderDefault
 	{
 		this.layoutInflater = layoutInflater;
 		this.adapter = adapter;
-		this.clickListener = new OnClickListener_GoToCurrentLocation(sivisoMap);
 		this.database = database;
 	}
 	
@@ -42,6 +40,6 @@ public class Factory_ViewHolderDefault
 		Ringmodes ringmodes = new Ringmodes();
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = new OnItemSelectedListener_SetDefaultSiviso(database,
 		                                                                                                          ringmodes);
-		return new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, background, clickListener);
+		return new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, background);
 	}
 }

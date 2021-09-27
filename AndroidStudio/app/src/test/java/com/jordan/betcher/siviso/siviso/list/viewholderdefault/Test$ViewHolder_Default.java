@@ -31,9 +31,8 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		
 		View actualView = viewHolder.background();
 		assertEquals(cardView, actualView);
@@ -51,11 +50,10 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		Database database = mock(Database.class);
 		when(database.defaultRingmode()).thenReturn(ringmode);
 		
-		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		viewHolder.init(database, -1);
 		
 		verify(spinner, times(1)).setSelection(ringmode.ordinal());
@@ -73,11 +71,10 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		Database database = mock(Database.class);
 		when(database.defaultRingmode()).thenReturn(ringmode);
 		
-		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		ViewHolder_Default viewHolder = new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		viewHolder.init(database, -1);
 		
 		verify(spinner, times(1)).setSelection(ringmode.ordinal());
@@ -95,29 +92,10 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		
 		verify(spinner, times(1)).setOnItemSelectedListener(onItemClickListener);
-	}
-	
-	@Test
-	public void _backgroundOnClickListener_SetBackgroundOnClickListener()
-	{
-		View view = mock(View.class);
-		TextView textView = mock(TextView.class);
-		String name = "";
-		Spinner spinner = mock(Spinner.class);
-		ArrayAdapter_Sivisos adapter = mock(ArrayAdapter_Sivisos.class);
-		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
-		OnItemSelectedListener_SetDefaultSiviso.class);
-		CardView background = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
-		
-		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, background, onClick);
-		
-		verify(background, times(1)).setOnClickListener(onClick);
 	}
 	
 	@Test
@@ -131,9 +109,8 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		
 		verify(spinner, times(1)).setAdapter(adapter);
 	}
@@ -149,9 +126,8 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		
 		verify(textView, times(1)).setText(name);
 	}
@@ -167,9 +143,8 @@ public class Test$ViewHolder_Default
 		OnItemSelectedListener_SetDefaultSiviso onItemClickListener = mock(
 		OnItemSelectedListener_SetDefaultSiviso.class);
 		CardView cardView = mock(CardView.class);
-		OnClickListener_GoToCurrentLocation onClick = mock(OnClickListener_GoToCurrentLocation.class);
 		
-		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView, onClick);
+		new ViewHolder_Default(view, textView, name, spinner, adapter, onItemClickListener, cardView);
 		
 		verify(textView, times(1)).setText(name);
 	}
