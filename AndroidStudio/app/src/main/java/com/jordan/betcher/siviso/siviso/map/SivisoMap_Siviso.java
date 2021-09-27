@@ -4,6 +4,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class SivisoMap_Siviso implements SivisoMap, OnMapReady
 {
+	private Wrapper_GoogleMap googleMap;
+	
 	@Override
 	public void goToCurrentLocation()
 	{
@@ -13,12 +15,12 @@ public class SivisoMap_Siviso implements SivisoMap, OnMapReady
 	@Override
 	public void goToLocation(LatLng sivisoLocation)
 	{
-		//TODO
+		googleMap.moveTo(new LatLng(0 ,sivisoLocation.longitude ));
 	}
 	
 	@Override
 	public void ready(Wrapper_GoogleMap googleMap)
 	{
-		googleMap.moveTo(new LatLng(0 ,0 ));
+		this.googleMap = googleMap;
 	}
 }

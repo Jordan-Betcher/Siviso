@@ -11,6 +11,19 @@ import org.junit.Test;
 public class Test$SivisoMap_Siviso
 {
 	@Test
+	public void goToLocationReady_01map_moveTo01()
+	{
+		LatLng latLng = new LatLng(0, 1);
+		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
+		
+		SivisoMap_Siviso sivisoMap = new SivisoMap_Siviso();
+		sivisoMap.ready(googleMap);
+		sivisoMap.goToLocation(latLng);
+		
+		verify(googleMap, times(1)).moveTo(latLng);
+	}
+	
+	@Test
 	public void goToLocationReady_00map_moveTo00()
 	{
 		LatLng latLng = new LatLng(0, 0);
