@@ -1,15 +1,14 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import android.location.Location;
-
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 interface Wrapper_GoogleMap
 {
 	void enableCurrentLocation();
 	
-	void moveTo(Location location);
+	void moveTo(LatLng latLng);
 	
 	void zoomTo(float zoom);
 	
