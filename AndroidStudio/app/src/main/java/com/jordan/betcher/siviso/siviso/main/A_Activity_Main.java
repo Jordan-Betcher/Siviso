@@ -16,7 +16,6 @@ import com.jordan.betcher.siviso.siviso.list.A_List;
 import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.map.A_Map_Main;
-import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap_Siviso;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 
@@ -30,7 +29,7 @@ public class A_Activity_Main extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		SivisoMap sivisoMap = new SivisoMap_Siviso();
+		SivisoMap_Siviso sivisoMap = new SivisoMap_Siviso();
 		SivisoList sivisoList = new SivisoList_Siviso();
 		Database database = createDatabase();
 		new A_Map_Main(this, accessFineLocationPermission, database, sivisoMap, sivisoList);

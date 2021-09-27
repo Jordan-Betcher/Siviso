@@ -27,7 +27,7 @@ public class A_Map_Main
 	public A_Map_Main(
 	AppCompatActivity activity,
 	Permission_AccessFineLocation permission, Database database,
-	SivisoMap sivisoMap, SivisoList sivisoList)
+	SivisoMap_Siviso sivisoMap, SivisoList sivisoList)
 	{
 		this.activity = activity;
 		this.permission = permission;
@@ -49,6 +49,7 @@ public class A_Map_Main
 		onMapReady.add(createSivisoCircles);
 		onMapReady.add(selectSiviso);
 		onMapReady.add(saveNewSiviso);
+		onMapReady.add(sivisoMap);
 		
 		database.addOnDataChange(createSivisoCircles);
 	}
