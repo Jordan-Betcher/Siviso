@@ -3,6 +3,7 @@ package com.jordan.betcher.siviso.siviso.service;
 import android.app.Activity;
 import android.content.IntentFilter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -29,14 +30,18 @@ public class A_Service
 		
 		OnUnlock_AskIsRunning setOnOffSwitchToIfServiceRunning = createAskIsRunning(manager);
 		eventUnlock.addOnUnlock(setOnOffSwitchToIfServiceRunning);
-		//TODO onUnlock onClick (onOffSwitch.isChecked) ? startService : endService
+		
+		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso();
+		CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener_StartStopService(powerServiceSiviso);
+		OnUnlock_SetSwitchCheckedChangeListener setSwitchCheckedChangeListener = new OnUnlock_SetSwitchCheckedChangeListener(onOffSwitch, onCheckedChangeListener);
+		eventUnlock.addOnUnlock(setSwitchCheckedChangeListener);
 	}
 	
 	private void ifRunningSetOnOffTrue(
 	Wrapper_LocalBroadcastManager manager, SwitchCompat onOffSwitch)
 	{
 		BroadcastReceiver_SetOnOffToTrue setOnOffToTrue = new BroadcastReceiver_SetOnOffToTrue(onOffSwitch);
-		IntentFilter lookForYesRunning = new IntentFilter(Intent_YesRunning.ACTION); //TODO change temp to service const
+		IntentFilter lookForYesRunning = new IntentFilter(Intent_YesRunning.ACTION);
 		manager.registerReceiver(setOnOffToTrue, lookForYesRunning);
 	}
 	
