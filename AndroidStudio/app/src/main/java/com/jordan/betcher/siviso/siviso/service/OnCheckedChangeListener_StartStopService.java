@@ -9,6 +9,7 @@ class OnCheckedChangeListener_StartStopService implements CompoundButton.OnCheck
 	public OnCheckedChangeListener_StartStopService(PowerServiceSiviso powerServiceSiviso)
 	{
 		this.powerServiceSiviso = powerServiceSiviso;
+		powerServiceSiviso.stop();
 	}
 	
 	@Override
