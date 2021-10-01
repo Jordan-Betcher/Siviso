@@ -15,6 +15,6 @@ class OnCheckedChangeListener_StartStopService implements CompoundButton.OnCheck
 	public void onCheckedChanged(CompoundButton compoundButton, boolean checked)
 	{
 		if(checked) powerServiceSiviso.start();
-		powerServiceSiviso.stop();
+		else powerServiceSiviso.stop();
 	}
 }
