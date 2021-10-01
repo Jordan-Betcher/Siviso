@@ -14,6 +14,6 @@ class OnCheckedChangeListener_StartStopService implements CompoundButton.OnCheck
 	@Override
 	public void onCheckedChanged(CompoundButton compoundButton, boolean checked)
 	{
-		powerServiceSiviso.start();
+		if(checked) powerServiceSiviso.start();
 	}
 }
