@@ -35,6 +35,6 @@ class PowerServiceSiviso
 	
 	public void stop()
 	{
-		//TODO PowerServiceSiviso stop
+		context.stopService(intent);
 	}
 }

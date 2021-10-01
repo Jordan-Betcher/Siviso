@@ -14,6 +14,19 @@ import org.junit.Test;
 public class Test$PowerServiceSiviso
 {
 	@Test
+	public  void stop__stopService()
+	{
+		Context context = mock(Context.class);
+		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
+		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		
+		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);
+		powerServiceSiviso.stop();
+		
+		verify(context, times(1)).stopService(intent);
+	}
+	
+	@Test
 	public void __0startForegroundService()
 	{
 		Context context = mock(Context.class);
