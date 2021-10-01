@@ -10,15 +10,19 @@ class OnUnlock_SetSwitchCheckedChangeListener
 implements OnUnlock
 {
 	
+	private final SwitchCompat onOffSwitch;
+	private final CompoundButton.OnCheckedChangeListener onCheckedChangeListener;
+	
 	public OnUnlock_SetSwitchCheckedChangeListener(
 	SwitchCompat onOffSwitch, CompoundButton.OnCheckedChangeListener onCheckedChangeListener)
 	{
-		//TODO OnUnlock_SetSwitchCheckedChangeListener OnUnlock_SetSwitchCheckedChangeListener
+		this.onOffSwitch = onOffSwitch;
+		this.onCheckedChangeListener = onCheckedChangeListener;
 	}
 	
 	@Override
 	public void unlocked()
 	{
-		//onOffSwitch.setOnCheckedChangeListener(onCheckedChangeListener);
+		onOffSwitch.setOnCheckedChangeListener(onCheckedChangeListener);
 	}
 }
