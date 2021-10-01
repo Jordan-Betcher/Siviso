@@ -9,6 +9,16 @@ import org.junit.Test;
 public class Test$OnCheckedChangeListener_StartStopService
 {
 	@Test
+	public void __0stop()
+	{
+		PowerServiceSiviso powerServiceSiviso = mock(PowerServiceSiviso.class);
+		
+		new OnCheckedChangeListener_StartStopService(powerServiceSiviso);
+		
+		verify(powerServiceSiviso, times(0)).stop();
+	}
+	
+	@Test
 	public void onCheckedChanged_false_stop()
 	{
 		boolean isChecked = false;
