@@ -7,6 +7,6 @@ class Intent_ServiceSiviso extends Intent
 {
 	public Intent_ServiceSiviso(Context context)
 	{
-		super(context, Service_Siviso.class);
+		super(context, A_Service_Siviso.class);
 	}
 }
