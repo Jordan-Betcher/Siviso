@@ -20,27 +20,27 @@ class A_Service_Siviso extends Service
 	
 	private GPSListener createGPSListener()
 	{
-		return null; //TODO A_Service_Siviso createGPSListener
+		return new GPSListener();
 	}
 	
 	private NotificationChannelForeground createNotificationChannelForeground()
 	{
-		return null; //TODO A_Service_Siviso createNotificationChannelForeground
+		return new NotificationChannelForeground();
 	}
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
-		//TODO Start Foreground Notification
-		//TODO Start GPS Listener
+		notificationChannelForeground.start();
+		gpsListener.start();
 		return Service.START_STICKY;
 	}
 	
 	@Override
 	public void onDestroy()
 	{
-		//TODO stop foreground
-		//TODO remove GPS Listener
+		notificationChannelForeground.stop();
+		gpsListener.stop();
 	}
 	
 	@Nullable
