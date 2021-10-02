@@ -8,11 +8,24 @@ import androidx.annotation.Nullable;
 
 class A_Service_Siviso extends Service
 {
+	NotificationChannelForeground notificationChannelForeground;
+	GPSListener gpsListener;
+	
 	@Override
 	public void onCreate()
 	{
-		//TODO create Notification Channel
-		//TODO create GPS Listener
+		notificationChannelForeground = createNotificationChannelForeground();
+		gpsListener = createGPSListener();
+	}
+	
+	private GPSListener createGPSListener()
+	{
+		return null; //TODO A_Service_Siviso createGPSListener
+	}
+	
+	private NotificationChannelForeground createNotificationChannelForeground()
+	{
+		return null; //TODO A_Service_Siviso createNotificationChannelForeground
 	}
 	
 	@Override
