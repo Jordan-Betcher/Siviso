@@ -30,15 +30,18 @@ public class Permission_AccessNotificationPolicy implements Permission
 		event.add(onPermissionGranted);
 	}
 	
+	boolean isGranted = false;
+	
 	@Override
 	public boolean isGranted()
 	{
-		return true;
+		return isGranted;
 	}
 	
 	@Override
 	public void grant()
 	{
+		isGranted = !isGranted;
 		//TODO
 	}
 }
