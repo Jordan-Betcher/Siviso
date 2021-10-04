@@ -33,7 +33,7 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public boolean isGranted()
 	{
-		return false;
+		return true;
 	}
 	
 	@Override
