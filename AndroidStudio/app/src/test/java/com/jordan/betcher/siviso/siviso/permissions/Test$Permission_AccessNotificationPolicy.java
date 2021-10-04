@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
@@ -16,29 +14,6 @@ import main.java.com.betcher.jordan.helper.library.event.Event;
 
 public class Test$Permission_AccessNotificationPolicy
 {
-	@Test
-	public void isGranted__false()
-	{
-		Event event = mock(Event.class);
-		
-		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, event);
-		
-		boolean actualIsGranted = permission.isGranted();
-		assertFalse(actualIsGranted);
-	}
-	
-	@Test
-	public void isGrantedGrant__true()
-	{
-		Event event = mock(Event.class);
-		
-		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, event);
-		permission.grant();
-		
-		boolean actualIsGranted = permission.isGranted();
-		assertTrue(actualIsGranted);
-	}
-	
 	@Test
 	public void addOnGranted_onPermissionGranted_addOnPermissionGranted()
 	{
