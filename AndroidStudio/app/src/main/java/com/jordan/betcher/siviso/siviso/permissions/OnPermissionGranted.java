@@ -1,6 +1,7 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
-public interface OnPermissionGranted
+import main.java.com.betcher.jordan.helper.library.event.Listener;
+
+public interface OnPermissionGranted extends Listener
 {
-	void granted();
 }

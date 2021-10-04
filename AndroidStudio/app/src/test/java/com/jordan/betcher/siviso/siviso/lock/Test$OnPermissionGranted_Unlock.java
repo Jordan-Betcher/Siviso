@@ -24,7 +24,7 @@ public class Test$OnPermissionGranted_Unlock
 		ViewLock lock = mock(ViewLock.class);
 		
 		OnPermissionGranted_Unlock unlock = new OnPermissionGranted_Unlock(lock);
-		unlock.granted();
+		unlock.call();
 		
 		verify(lock, times(1)).unlock();
 	}

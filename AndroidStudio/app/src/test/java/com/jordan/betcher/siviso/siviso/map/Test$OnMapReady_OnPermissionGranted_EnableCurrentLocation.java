@@ -1,11 +1,10 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import org.junit.Test;
 
 public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
 {
@@ -17,7 +16,7 @@ public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
 		
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
 		enableCurrentLocation.ready(googleMap);
-		enableCurrentLocation.granted();
+		enableCurrentLocation.call();
 		
 		verify(googleMap, times(1)).enableCurrentLocation();
 	}
@@ -39,7 +38,7 @@ public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
 		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
-		enableCurrentLocation.granted();
+		enableCurrentLocation.call();
 		enableCurrentLocation.ready(googleMap);
 		
 		verify(googleMap, times(1)).enableCurrentLocation();

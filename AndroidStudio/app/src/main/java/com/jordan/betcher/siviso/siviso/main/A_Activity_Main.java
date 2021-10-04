@@ -24,10 +24,12 @@ import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocatio
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessNotificationPolicy;
 import com.jordan.betcher.siviso.siviso.service.A_Service;
 
+import main.java.com.betcher.jordan.helper.library.event.Event;
+
 public class A_Activity_Main extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
-	Permission_AccessNotificationPolicy accessNotificationPolicy = new Permission_AccessNotificationPolicy(this, new Intent_PermissionSettingNotification());
+	Permission_AccessNotificationPolicy accessNotificationPolicy = new Permission_AccessNotificationPolicy(this, new Intent_PermissionSettingNotification(), new Event());
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

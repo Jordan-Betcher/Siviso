@@ -1,15 +1,14 @@
 package com.jordan.betcher.siviso.siviso.map;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 public class Test$OnPermissionGranted_RequestSingleUpdate
 {
@@ -33,7 +32,7 @@ public class Test$OnPermissionGranted_RequestSingleUpdate
 		LocationListener locationListener = mock(LocationListener.class);
 		
 		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, criteria, locationListener);
-		requestSingleUpdate.granted();
+		requestSingleUpdate.call();
 		
 		verify(locationManager, times(1)).requestSingleUpdate(criteria, locationListener, null);
 	}

@@ -32,7 +32,7 @@ public class Permission_AccessFineLocation implements Permission
 		{
 			for(OnPermissionGranted onPermissionGranted : onPermissionGranteds)
 			{
-				onPermissionGranted.granted();
+				onPermissionGranted.call();
 			}
 			
 			onPermissionGranteds.clear();

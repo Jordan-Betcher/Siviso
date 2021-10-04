@@ -13,7 +13,7 @@ class OnPermissionGranted_Unlock implements OnPermissionGranted
 	}
 	
 	@Override
-	public void granted()
+	public void call()
 	{
 		lock.unlock();
 	}

@@ -16,7 +16,7 @@ public class OnMapReady_OnPermissionGranted_EnableCurrentLocation implements OnM
 	}
 	
 	@Override
-	public void granted()
+	public void call()
 	{
 		granted = true;
 		ifGrantedAndGoogleMapThenEnableCurrentLocation();

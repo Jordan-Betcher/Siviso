@@ -25,7 +25,7 @@ class OnPermissionGranted_RequestSingleUpdate implements OnPermissionGranted
 	
 	@SuppressLint("MissingPermission")
 	@Override
-	public void granted()
+	public void call()
 	{
 		locationManager.requestSingleUpdate(criteria, locationListener, null);
 	}

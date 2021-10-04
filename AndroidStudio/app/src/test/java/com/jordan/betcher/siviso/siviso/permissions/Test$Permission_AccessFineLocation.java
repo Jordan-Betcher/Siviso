@@ -1,19 +1,18 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
-
-import com.jordan.betcher.siviso.siviso.thirdparty.Wrapper_ActivityCompat;
-
-import org.junit.Test;
-import org.junit.runner.manipulation.Ordering;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import android.Manifest;
+import android.app.Activity;
+
+import com.jordan.betcher.siviso.siviso.thirdparty.Wrapper_ActivityCompat;
+
+import org.junit.Test;
 
 public class Test$Permission_AccessFineLocation
 {
@@ -33,7 +32,7 @@ public class Test$Permission_AccessFineLocation
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted, times(0)).granted();
+		verify(onPermissionGranted, times(0)).call();
 	}
 	
 	@Test
@@ -55,7 +54,7 @@ public class Test$Permission_AccessFineLocation
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted3);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted, times(1)).granted();
+		verify(onPermissionGranted, times(1)).call();
 	}
 	
 	
@@ -77,7 +76,7 @@ public class Test$Permission_AccessFineLocation
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted2, times(1)).granted();
+		verify(onPermissionGranted2, times(1)).call();
 	}
 	
 	@Test
@@ -98,7 +97,7 @@ public class Test$Permission_AccessFineLocation
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted1, times(1)).granted();
+		verify(onPermissionGranted1, times(1)).call();
 	}
 	
 	@Test
@@ -117,7 +116,7 @@ public class Test$Permission_AccessFineLocation
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted, times(1)).granted();
+		verify(onPermissionGranted, times(1)).call();
 	}
 	
 	@Test
@@ -133,7 +132,7 @@ public class Test$Permission_AccessFineLocation
 		accessFineLocation.activityCompat = activityCompat;
 		accessFineLocation.addOnGranted(onPermissionGranted);
 		
-		verify(onPermissionGranted, times(0)).granted();
+		verify(onPermissionGranted, times(0)).call();
 	}
 	
 	@Test
@@ -149,7 +148,7 @@ public class Test$Permission_AccessFineLocation
 		accessFineLocation.activityCompat = activityCompat;
 		accessFineLocation.addOnGranted(onPermissionGranted);
 		
-		verify(onPermissionGranted, times(1)).granted();
+		verify(onPermissionGranted, times(1)).call();
 	}
 	
 	@Test

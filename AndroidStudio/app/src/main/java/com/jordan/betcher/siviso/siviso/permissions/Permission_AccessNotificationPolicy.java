@@ -2,16 +2,20 @@ package com.jordan.betcher.siviso.siviso.permissions;
 
 import android.app.Activity;
 
+import main.java.com.betcher.jordan.helper.library.event.Event;
+
 public class Permission_AccessNotificationPolicy implements Permission
 {
 	
 	private final Activity activity;
 	private final Intent_PermissionSettingNotification permissionSettingNotification;
+	private Event event;
 	
-	public Permission_AccessNotificationPolicy(Activity activity, Intent_PermissionSettingNotification permissionSettingNotification)
+	public Permission_AccessNotificationPolicy(Activity activity, Intent_PermissionSettingNotification permissionSettingNotification, Event event)
 	{
 		this.activity = activity;
 		this.permissionSettingNotification = permissionSettingNotification;
+		this.event = event;
 	}
 	
 	@Override
@@ -21,10 +25,9 @@ public class Permission_AccessNotificationPolicy implements Permission
 	}
 	
 	@Override
-	public void addOnGranted(
-	OnPermissionGranted onPermissionGranted)
+	public void addOnGranted(OnPermissionGranted onPermissionGranted)
 	{
-		//TODO
+		event.add(onPermissionGranted);
 	}
 	
 	@Override
