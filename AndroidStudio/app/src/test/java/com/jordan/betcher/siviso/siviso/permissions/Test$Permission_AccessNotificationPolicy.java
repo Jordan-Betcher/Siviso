@@ -1,12 +1,17 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+
+import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
 
 import org.junit.Test;
 
@@ -15,12 +20,28 @@ import main.java.com.betcher.jordan.helper.library.event.Event;
 public class Test$Permission_AccessNotificationPolicy
 {
 	@Test
+	public void isGranted_policyGranted_true()
+	{
+		boolean isGranted = true;
+		BuildVersion buildVersion = mock(BuildVersion.class);
+		NotificationManager notificationManager = mock(NotificationManager.class);
+		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, null, notificationManager, buildVersion);
+	
+		boolean actualIsGranted = permission.isGranted();
+		assertTrue(actualIsGranted);
+	}
+	
+	@Test
 	public void addOnGranted_onPermissionGranted_addOnPermissionGranted()
 	{
 		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
 		Event event = mock(Event.class);
 		
-		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, event);
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, event,
+		                                                                                         null,
+		                                                                                         null);
 		permission.addOnGranted(onPermissionGranted);
 		
 		verify(event, times(1)).add(onPermissionGranted);
@@ -32,7 +53,8 @@ public class Test$Permission_AccessNotificationPolicy
 		Activity activity = mock(Activity.class);
 		Intent_PermissionSettingNotification permissionSettingNotification = mock(Intent_PermissionSettingNotification.class);
 		
-		new Permission_AccessNotificationPolicy(activity, permissionSettingNotification, null);
+		new Permission_AccessNotificationPolicy(activity, permissionSettingNotification, null,
+		                                        null, null);
 		
 		verify(activity, times(0)).startActivityForResult(any(), anyInt());
 	}
@@ -43,7 +65,9 @@ public class Test$Permission_AccessNotificationPolicy
 		Activity activity = mock(Activity.class);
 		Intent_PermissionSettingNotification permissionSettingNotification = mock(Intent_PermissionSettingNotification.class);
 		
-		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(activity, permissionSettingNotification, null);
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(activity, permissionSettingNotification, null,
+		                                                                                         null,
+		                                                                                         null);
 		permission.request();
 		
 		verify(activity, times(1)).startActivityForResult(permissionSettingNotification, 1);

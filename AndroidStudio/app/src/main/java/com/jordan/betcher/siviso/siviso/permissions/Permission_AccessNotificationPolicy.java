@@ -1,6 +1,9 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+
+import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
 
 import main.java.com.betcher.jordan.helper.library.event.Event;
 
@@ -11,7 +14,10 @@ public class Permission_AccessNotificationPolicy implements Permission
 	private final Intent_PermissionSettingNotification permissionSettingNotification;
 	private Event event;
 	
-	public Permission_AccessNotificationPolicy(Activity activity, Intent_PermissionSettingNotification permissionSettingNotification, Event event)
+	public Permission_AccessNotificationPolicy(
+	Activity activity, Intent_PermissionSettingNotification permissionSettingNotification,
+	Event event, NotificationManager notificationManager,
+	BuildVersion buildVersion)
 	{
 		this.activity = activity;
 		this.permissionSettingNotification = permissionSettingNotification;
@@ -35,7 +41,7 @@ public class Permission_AccessNotificationPolicy implements Permission
 	public boolean isGranted()
 	{
 		//TODO
-		return false;
+		return true;
 	}
 	
 	@Override

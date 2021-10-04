@@ -1,5 +1,7 @@
 package com.jordan.betcher.siviso.siviso.main;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -23,13 +25,23 @@ import com.jordan.betcher.siviso.siviso.permissions.Intent_PermissionSettingNoti
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessNotificationPolicy;
 import com.jordan.betcher.siviso.siviso.service.A_Service;
+import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
 
 import main.java.com.betcher.jordan.helper.library.event.Event;
 
 public class A_Activity_Main extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
-	Permission_AccessNotificationPolicy accessNotificationPolicy = new Permission_AccessNotificationPolicy(this, new Intent_PermissionSettingNotification(), new Event());
+	Permission_AccessNotificationPolicy accessNotificationPolicy = createPermissionAccessNotificationPolicy();
+	
+	private Permission_AccessNotificationPolicy createPermissionAccessNotificationPolicy()
+	{
+		Intent_PermissionSettingNotification permissionSettingNotification = new Intent_PermissionSettingNotification();
+		Event event = new Event();
+		NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+		BuildVersion buildVersion = new BuildVersion();
+		return new Permission_AccessNotificationPolicy(this, permissionSettingNotification, event, notificationManager, buildVersion);
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
