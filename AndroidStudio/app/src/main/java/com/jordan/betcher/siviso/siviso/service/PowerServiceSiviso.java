@@ -4,14 +4,16 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 
+import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
+
 class PowerServiceSiviso
 {
 	private final Context context;
 	private final Intent_ServiceSiviso intent;
-	private final Helper_PowerServiceSiviso helper;
+	private final BuildVersion helper;
 	
 	public PowerServiceSiviso(
-	Context context, Intent_ServiceSiviso intent, Helper_PowerServiceSiviso helper)
+	Context context, Intent_ServiceSiviso intent, BuildVersion helper)
 	{
 		
 		this.context = context;

@@ -9,6 +9,8 @@ import static org.mockito.Mockito.when;
 import android.content.Context;
 import android.os.Build;
 
+import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
+
 import org.junit.Test;
 
 public class Test$PowerServiceSiviso
@@ -18,7 +20,7 @@ public class Test$PowerServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
-		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		BuildVersion helper = mock(BuildVersion.class);
 		
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);
 		powerServiceSiviso.stop();
@@ -31,7 +33,7 @@ public class Test$PowerServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
-		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		BuildVersion helper = mock(BuildVersion.class);
 		
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);
 		
@@ -43,7 +45,7 @@ public class Test$PowerServiceSiviso
 	{
 		Context context = mock(Context.class);
 		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
-		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		BuildVersion helper = mock(BuildVersion.class);
 		
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);
 		
@@ -57,7 +59,7 @@ public class Test$PowerServiceSiviso
 		int buildVersion = Build.VERSION_CODES.O;
 		Context context = mock(Context.class);
 		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
-		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		BuildVersion helper = mock(BuildVersion.class);
 		when(helper.buildVersion()).thenReturn(buildVersion);
 		
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);
@@ -72,7 +74,7 @@ public class Test$PowerServiceSiviso
 		int buildVersion = Build.VERSION_CODES.O + 1;
 		Context context = mock(Context.class);
 		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
-		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		BuildVersion helper = mock(BuildVersion.class);
 		when(helper.buildVersion()).thenReturn(buildVersion);
 		
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);
@@ -87,7 +89,7 @@ public class Test$PowerServiceSiviso
 		int buildVersion = 0;
 		Context context = mock(Context.class);
 		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
-		Helper_PowerServiceSiviso helper = mock(Helper_PowerServiceSiviso.class);
+		BuildVersion helper = mock(BuildVersion.class);
 		when(helper.buildVersion()).thenReturn(buildVersion);
 		
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(context, intent, helper);

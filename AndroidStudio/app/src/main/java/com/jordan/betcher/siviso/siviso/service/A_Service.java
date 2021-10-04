@@ -12,6 +12,7 @@ import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.lock.EventUnlock;
 import com.jordan.betcher.siviso.siviso.lock.Factory_SetupEventUnLock;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessNotificationPolicy;
+import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
 
 public class A_Service
 {
@@ -31,7 +32,7 @@ public class A_Service
 		OnUnlock_AskIsRunning setOnOffSwitchToIfServiceRunning = createAskIsRunning(manager);
 		eventUnlock.addOnUnlock(setOnOffSwitchToIfServiceRunning);
 		
-		Helper_PowerServiceSiviso helper = new Helper_PowerServiceSiviso();
+		BuildVersion helper = new BuildVersion();
 		Intent_ServiceSiviso intent = new Intent_ServiceSiviso(activity);
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(activity, intent, helper);
 		CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener_StartStopService(powerServiceSiviso);

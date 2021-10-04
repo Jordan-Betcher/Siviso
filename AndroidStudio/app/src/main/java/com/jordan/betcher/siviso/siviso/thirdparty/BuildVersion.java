@@ -1,8 +1,8 @@
-package com.jordan.betcher.siviso.siviso.service;
+package com.jordan.betcher.siviso.siviso.thirdparty;
 
 import android.os.Build;
 
-class Helper_PowerServiceSiviso
+public class BuildVersion
 {
 	public int buildVersion()
 	{
