@@ -19,6 +19,7 @@ import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.map.A_Map_Main;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap_Siviso;
+import com.jordan.betcher.siviso.siviso.permissions.Intent_PermissionSettingNotification;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessNotificationPolicy;
 import com.jordan.betcher.siviso.siviso.service.A_Service;
@@ -26,7 +27,7 @@ import com.jordan.betcher.siviso.siviso.service.A_Service;
 public class A_Activity_Main extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
-	Permission_AccessNotificationPolicy accessNotificationPolicy = new Permission_AccessNotificationPolicy(this);
+	Permission_AccessNotificationPolicy accessNotificationPolicy = new Permission_AccessNotificationPolicy(this, new Intent_PermissionSettingNotification());
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)

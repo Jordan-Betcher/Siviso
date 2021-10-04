@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.siviso.service;
 
-import static org.mockito.Mockito.mock;
-
 import android.app.Activity;
 import android.content.IntentFilter;
 import android.widget.Button;
@@ -34,7 +32,7 @@ public class A_Service
 		eventUnlock.addOnUnlock(setOnOffSwitchToIfServiceRunning);
 		
 		Helper_PowerServiceSiviso helper = new Helper_PowerServiceSiviso();
-		Intent_ServiceSiviso intent = mock(Intent_ServiceSiviso.class);
+		Intent_ServiceSiviso intent = new Intent_ServiceSiviso(activity);
 		PowerServiceSiviso powerServiceSiviso = new PowerServiceSiviso(activity, intent, helper);
 		CompoundButton.OnCheckedChangeListener onCheckedChangeListener = new OnCheckedChangeListener_StartStopService(powerServiceSiviso);
 		OnUnlock_SetSwitchCheckedChangeListener setSwitchCheckedChangeListener = new OnUnlock_SetSwitchCheckedChangeListener(onOffSwitch, onCheckedChangeListener);
