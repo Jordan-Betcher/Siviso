@@ -10,7 +10,7 @@ import android.location.LocationManager;
 
 import org.junit.Test;
 
-public class Test$OnPermissionGranted_RequestSingleUpdate
+public class Test$AtPermissionGranted_RequestSingleUpdate
 {
 	@Test
 	public void granted__0RequestSingleUpdate()
@@ -19,7 +19,7 @@ public class Test$OnPermissionGranted_RequestSingleUpdate
 		Criteria criteria = mock(Criteria.class);
 		LocationListener locationListener = mock(LocationListener.class);
 		
-		new OnPermissionGranted_RequestSingleUpdate(locationManager, criteria, locationListener);
+		new AtPermissionGranted_RequestSingleUpdate(locationManager, criteria, locationListener);
 		
 		verify(locationManager, times(0)).requestSingleUpdate(criteria, locationListener, null);
 	}
@@ -31,7 +31,7 @@ public class Test$OnPermissionGranted_RequestSingleUpdate
 		Criteria criteria = mock(Criteria.class);
 		LocationListener locationListener = mock(LocationListener.class);
 		
-		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, criteria, locationListener);
+		AtPermissionGranted_RequestSingleUpdate requestSingleUpdate = new AtPermissionGranted_RequestSingleUpdate(locationManager, criteria, locationListener);
 		requestSingleUpdate.call();
 		
 		verify(locationManager, times(1)).requestSingleUpdate(criteria, locationListener, null);

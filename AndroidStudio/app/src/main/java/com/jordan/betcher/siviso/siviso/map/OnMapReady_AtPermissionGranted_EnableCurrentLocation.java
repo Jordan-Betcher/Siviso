@@ -1,8 +1,9 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import com.jordan.betcher.siviso.siviso.permissions.OnPermissionGranted;
+import com.jordan.betcher.siviso.siviso.permissions.AtPermissionGranted;
 
-public class OnMapReady_OnPermissionGranted_EnableCurrentLocation implements OnMapReady, OnPermissionGranted
+public class OnMapReady_AtPermissionGranted_EnableCurrentLocation
+implements OnMapReady, AtPermissionGranted
 {
 	boolean granted = false;
 	Wrapper_GoogleMap googleMap = null;

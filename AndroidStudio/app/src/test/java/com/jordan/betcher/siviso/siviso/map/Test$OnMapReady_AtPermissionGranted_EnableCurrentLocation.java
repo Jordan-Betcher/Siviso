@@ -6,7 +6,7 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 
-public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
+public class Test$OnMapReady_AtPermissionGranted_EnableCurrentLocation
 {
 	
 	@Test
@@ -14,7 +14,7 @@ public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
 	{
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		OnMapReady_AtPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_AtPermissionGranted_EnableCurrentLocation();
 		enableCurrentLocation.ready(googleMap);
 		enableCurrentLocation.call();
 		
@@ -26,7 +26,7 @@ public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
 	{
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		OnMapReady_AtPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_AtPermissionGranted_EnableCurrentLocation();
 		enableCurrentLocation.ready(googleMap);
 		
 		verify(googleMap, times(0)).enableCurrentLocation();
@@ -37,7 +37,7 @@ public class Test$OnMapReady_OnPermissionGranted_EnableCurrentLocation
 	{
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		OnMapReady_AtPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_AtPermissionGranted_EnableCurrentLocation();
 		enableCurrentLocation.call();
 		enableCurrentLocation.ready(googleMap);
 		

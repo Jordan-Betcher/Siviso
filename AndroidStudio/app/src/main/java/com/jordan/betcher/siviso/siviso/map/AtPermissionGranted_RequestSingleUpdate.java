@@ -5,15 +5,15 @@ import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
 
-import com.jordan.betcher.siviso.siviso.permissions.OnPermissionGranted;
+import com.jordan.betcher.siviso.siviso.permissions.AtPermissionGranted;
 
-class OnPermissionGranted_RequestSingleUpdate implements OnPermissionGranted
+class AtPermissionGranted_RequestSingleUpdate implements AtPermissionGranted
 {
 	private final LocationManager locationManager;
 	private final Criteria criteria;
 	private final LocationListener locationListener;
 	
-	public OnPermissionGranted_RequestSingleUpdate(
+	public AtPermissionGranted_RequestSingleUpdate(
 	LocationManager locationManager,
 	Criteria criteria,
 	LocationListener locationListener)

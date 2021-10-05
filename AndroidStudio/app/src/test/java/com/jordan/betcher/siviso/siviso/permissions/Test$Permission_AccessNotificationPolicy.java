@@ -10,22 +10,22 @@ import android.app.Activity;
 
 import org.junit.Test;
 
-import main.java.com.betcher.jordan.helper.library.event.Event;
+import main.java.com.betcher.jordan.helper.library.event.atCaller.AtCaller;
 
 public class Test$Permission_AccessNotificationPolicy
 {
 	@Test
 	public void addOnGranted_onPermissionGranted_addOnPermissionGranted()
 	{
-		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
-		Event event = mock(Event.class);
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
+		AtCaller atCaller = mock(AtCaller.class);
 		IsGranted_AccessNotificationPolicy isGranted = mock(IsGranted_AccessNotificationPolicy.class);
 		
-		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, event,
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, atCaller,
 		                                                                                         isGranted);
-		permission.addOnGranted(onPermissionGranted);
+		permission.addOnGranted(atPermissionGranted);
 		
-		verify(event, times(1)).add(onPermissionGranted);
+		verify(atCaller, times(1)).add(atPermissionGranted, 1);
 	}
 	
 	@Test

@@ -4,7 +4,7 @@ public interface Permission
 {
 	void request();
 	
-	void addOnGranted(OnPermissionGranted onPermissionGranted);
+	void addOnGranted(AtPermissionGranted atPermissionGranted);
 	
 	boolean isGranted();
 	

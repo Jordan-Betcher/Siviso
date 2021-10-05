@@ -3,23 +3,23 @@ package com.jordan.betcher.siviso.siviso.permissions;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 
-import main.java.com.betcher.jordan.helper.library.event.Event;
+import main.java.com.betcher.jordan.helper.library.event.atCaller.AtCaller;
 
 public class Permission_AccessNotificationPolicy implements Permission
 {
 	
 	private final Activity activity;
 	private final Intent_PermissionSettingNotification permissionSettingNotification;
-	private Event event;
+	private AtCaller atCaller;
 	private IsGranted_AccessNotificationPolicy isGranted;
 	
 	public Permission_AccessNotificationPolicy(
 	Activity activity, Intent_PermissionSettingNotification permissionSettingNotification,
-	Event event, IsGranted_AccessNotificationPolicy isGranted)
+	AtCaller atCaller, IsGranted_AccessNotificationPolicy isGranted)
 	{
 		this.activity = activity;
 		this.permissionSettingNotification = permissionSettingNotification;
-		this.event = event;
+		this.atCaller = atCaller;
 		this.isGranted = isGranted;
 	}
 	
@@ -30,9 +30,9 @@ public class Permission_AccessNotificationPolicy implements Permission
 	}
 	
 	@Override
-	public void addOnGranted(OnPermissionGranted onPermissionGranted)
+	public void addOnGranted(AtPermissionGranted atPermissionGranted)
 	{
-		event.add(onPermissionGranted);
+		atCaller.add(atPermissionGranted, 1);
 		//TODO run grant
 	}
 	

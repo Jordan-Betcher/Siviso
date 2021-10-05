@@ -11,7 +11,7 @@ public class Permission_AccessFineLocation implements Permission
 {
 	Wrapper_ActivityCompat activityCompat;
 	private Activity activity;
-	private ArrayList<OnPermissionGranted> onPermissionGranteds = new ArrayList<>();
+	private ArrayList<AtPermissionGranted> atPermissionGranteds = new ArrayList<>();
 	
 	public Permission_AccessFineLocation(Activity activity)
 	{
@@ -30,12 +30,12 @@ public class Permission_AccessFineLocation implements Permission
 	{
 		if(isGranted())
 		{
-			for(OnPermissionGranted onPermissionGranted : onPermissionGranteds)
+			for(AtPermissionGranted atPermissionGranted : atPermissionGranteds)
 			{
-				onPermissionGranted.call();
+				atPermissionGranted.call();
 			}
 			
-			onPermissionGranteds.clear();
+			atPermissionGranteds.clear();
 		}
 		
 	}
@@ -47,9 +47,9 @@ public class Permission_AccessFineLocation implements Permission
 	}
 	
 	@Override
-	public void addOnGranted(OnPermissionGranted onPermissionGranted)
+	public void addOnGranted(AtPermissionGranted atPermissionGranted)
 	{
-		onPermissionGranteds.add(onPermissionGranted);
+		atPermissionGranteds.add(atPermissionGranted);
 		grant();
 	}
 }

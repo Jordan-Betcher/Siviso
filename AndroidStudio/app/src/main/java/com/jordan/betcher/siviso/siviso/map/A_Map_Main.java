@@ -38,7 +38,7 @@ public class A_Map_Main
 		
 		EventUnlock mapUnlock = getMapUnlock(supportMapFragment);
 		OnMapReady_CallOnMapReadys onMapReady = createCallOnMapReady(supportMapFragment, mapUnlock);
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = createEnableCurrentLocation();
+		OnMapReady_AtPermissionGranted_EnableCurrentLocation enableCurrentLocation = createEnableCurrentLocation();
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = createStartAtCurrentLocation();
 		OnMapReady_CreateSivisoCircles createSivisoCircles = createCreateSivisoCircles();
 		OnMapReady_AddOnCircleClickListener selectSiviso = createSelectSiviso();
@@ -93,14 +93,14 @@ public class A_Map_Main
 		OnMapReady_LocationListener_StartAtCurrentLocation startAtCurrentLocation = new OnMapReady_LocationListener_StartAtCurrentLocation(zoom);
 		Factory_Criteria_Accurate accurateCriteriaFactory = new Factory_Criteria_Accurate();
 		Criteria accurateCriteria = accurateCriteriaFactory.build();
-		OnPermissionGranted_RequestSingleUpdate requestSingleUpdate = new OnPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);
+		AtPermissionGranted_RequestSingleUpdate requestSingleUpdate = new AtPermissionGranted_RequestSingleUpdate(locationManager, accurateCriteria, startAtCurrentLocation);
 		permission.addOnGranted(requestSingleUpdate);
 		return startAtCurrentLocation;
 	}
 	
-	private OnMapReady_OnPermissionGranted_EnableCurrentLocation createEnableCurrentLocation()
+	private OnMapReady_AtPermissionGranted_EnableCurrentLocation createEnableCurrentLocation()
 	{
-		OnMapReady_OnPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_OnPermissionGranted_EnableCurrentLocation();
+		OnMapReady_AtPermissionGranted_EnableCurrentLocation enableCurrentLocation = new OnMapReady_AtPermissionGranted_EnableCurrentLocation();
 		permission.addOnGranted(enableCurrentLocation);
 		return enableCurrentLocation;
 	}

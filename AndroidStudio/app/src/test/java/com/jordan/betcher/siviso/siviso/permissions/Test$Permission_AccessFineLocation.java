@@ -24,15 +24,15 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted1);
-		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted);
+		accessFineLocation.addOnGranted(atPermissionGranted);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted, times(0)).call();
+		verify(atPermissionGranted, times(0)).call();
 	}
 	
 	@Test
@@ -44,17 +44,17 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted1);
-		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted);
+		accessFineLocation.addOnGranted(atPermissionGranted);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted3);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted, times(1)).call();
+		verify(atPermissionGranted, times(1)).call();
 	}
 	
 	
@@ -66,17 +66,17 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted1);
-		OnPermissionGranted onPermissionGranted1 = mock(OnPermissionGranted.class);
-		OnPermissionGranted onPermissionGranted2 = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted1 = mock(AtPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted2 = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted1);
-		accessFineLocation.addOnGranted(onPermissionGranted2);
+		accessFineLocation.addOnGranted(atPermissionGranted1);
+		accessFineLocation.addOnGranted(atPermissionGranted2);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted2, times(1)).call();
+		verify(atPermissionGranted2, times(1)).call();
 	}
 	
 	@Test
@@ -87,17 +87,17 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted1);
-		OnPermissionGranted onPermissionGranted1 = mock(OnPermissionGranted.class);
-		OnPermissionGranted onPermissionGranted2 = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted1 = mock(AtPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted2 = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted1);
-		accessFineLocation.addOnGranted(onPermissionGranted2);
+		accessFineLocation.addOnGranted(atPermissionGranted1);
+		accessFineLocation.addOnGranted(atPermissionGranted2);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted1, times(1)).call();
+		verify(atPermissionGranted1, times(1)).call();
 	}
 	
 	@Test
@@ -108,15 +108,15 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted1);
-		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted);
+		accessFineLocation.addOnGranted(atPermissionGranted);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted2);
 		accessFineLocation.grant();
 		
-		verify(onPermissionGranted, times(1)).call();
+		verify(atPermissionGranted, times(1)).call();
 	}
 	
 	@Test
@@ -126,13 +126,13 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted);
-		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted);
+		accessFineLocation.addOnGranted(atPermissionGranted);
 		
-		verify(onPermissionGranted, times(0)).call();
+		verify(atPermissionGranted, times(0)).call();
 	}
 	
 	@Test
@@ -142,13 +142,13 @@ public class Test$Permission_AccessFineLocation
 		Activity activity = mock(Activity.class);
 		Wrapper_ActivityCompat activityCompat = mock(Wrapper_ActivityCompat.class);
 		when(activityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION)).thenReturn(isGranted);
-		OnPermissionGranted onPermissionGranted = mock(OnPermissionGranted.class);
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
 		
 		Permission_AccessFineLocation accessFineLocation = new Permission_AccessFineLocation(activity);
 		accessFineLocation.activityCompat = activityCompat;
-		accessFineLocation.addOnGranted(onPermissionGranted);
+		accessFineLocation.addOnGranted(atPermissionGranted);
 		
-		verify(onPermissionGranted, times(1)).call();
+		verify(atPermissionGranted, times(1)).call();
 	}
 	
 	@Test
