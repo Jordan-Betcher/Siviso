@@ -46,7 +46,7 @@ public class Permission_AccessNotificationPolicy implements Permission
 	public boolean isGranted()
 	{
 		//TODO
-		if( buildVersion.buildVersion() == Build.VERSION_CODES.M) return false;
+		if( buildVersion.buildVersion() >= Build.VERSION_CODES.M) return false;
 		return true;
 	}
 	
