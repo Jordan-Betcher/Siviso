@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -10,6 +11,7 @@ import static org.mockito.Mockito.when;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.os.Build;
 
 import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
 
@@ -19,6 +21,22 @@ import main.java.com.betcher.jordan.helper.library.event.Event;
 
 public class Test$Permission_AccessNotificationPolicy
 {
+	@Test
+	public void isGranted_buildVersionMPolicyNotGranted_false()
+	{
+		int version = Build.VERSION_CODES.M;
+		boolean isGranted = true;
+		NotificationManager notificationManager = mock(NotificationManager.class);
+		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		BuildVersion buildVersion = mock(BuildVersion.class);
+		when(buildVersion.buildVersion()).thenReturn(version);
+		
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, null, notificationManager, buildVersion);
+		
+		boolean actualIsGranted = permission.isGranted();
+		assertFalse(actualIsGranted);
+	}
+	
 	@Test
 	public void isGranted_policyGranted_true()
 	{
