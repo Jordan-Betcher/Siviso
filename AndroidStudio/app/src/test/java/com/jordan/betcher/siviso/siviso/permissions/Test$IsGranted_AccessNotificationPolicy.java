@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -15,6 +16,23 @@ import org.junit.Test;
 
 public class Test$IsGranted_AccessNotificationPolicy
 {
+	@Test
+	public void isGranted_versionMGrantedFalse_false()
+	{
+		boolean granted = false;
+		int version = Build.VERSION_CODES.M;
+		NotificationManager notificationManager = mock(NotificationManager.class);
+		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(granted);
+		BuildVersion buildVersion = mock(BuildVersion.class);
+		when(buildVersion.buildVersion()).thenReturn(version);
+		
+		IsGranted_AccessNotificationPolicy isGranted = new IsGranted_AccessNotificationPolicy(
+		notificationManager, buildVersion);
+		
+		boolean actualGranted = isGranted.isGranted();
+		assertEquals(granted, actualGranted);
+	}
+	
 	@Test
 	public void isGranted_version0_0isNotificationPolicyAccessGranted()
 	{
