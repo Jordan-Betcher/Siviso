@@ -51,9 +51,11 @@ public class Permission_AccessNotificationPolicy implements Permission
 		return notificationManager.isNotificationPolicyAccessGranted();
 	}
 	
+	@SuppressLint("NewApi")
 	@Override
 	public void grant()
 	{
-		if(buildVersion.buildVersion() == 0) event.call();
+		if(buildVersion.buildVersion() == 0);
+		if(notificationManager.isNotificationPolicyAccessGranted()) event.call();
 	}
 }
