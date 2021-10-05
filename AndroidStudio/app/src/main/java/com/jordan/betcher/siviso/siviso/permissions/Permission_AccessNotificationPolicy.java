@@ -47,9 +47,8 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public boolean isGranted()
 	{
-		//TODO
-		if( buildVersion.buildVersion() >= Build.VERSION_CODES.M) return notificationManager.isNotificationPolicyAccessGranted();
-		return true;
+		if(buildVersion.buildVersion() < Build.VERSION_CODES.M) return true;
+		return notificationManager.isNotificationPolicyAccessGranted();
 	}
 	
 	@Override
