@@ -23,8 +23,8 @@ class IsGranted_AccessNotificationPolicy implements IsGranted
 	@Override
 	public boolean isGranted()
 	{
-		if(buildVersion.buildVersion() != Build.VERSION_CODES.M - 1)
+		if(buildVersion.buildVersion() >= Build.VERSION_CODES.M)
 		{ notificationManager.isNotificationPolicyAccessGranted(); }
-		return true;//TODO
+		return true;
 	}
 }
