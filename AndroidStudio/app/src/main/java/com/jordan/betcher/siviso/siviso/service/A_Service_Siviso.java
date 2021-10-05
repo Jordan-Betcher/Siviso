@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-class A_Service_Siviso extends Service
+public class A_Service_Siviso extends Service
 {
 	NotificationChannelForeground notificationChannelForeground;
 	GPSListener gpsListener;

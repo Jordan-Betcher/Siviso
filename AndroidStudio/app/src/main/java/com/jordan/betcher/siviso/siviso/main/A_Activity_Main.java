@@ -32,7 +32,7 @@ import main.java.com.betcher.jordan.helper.library.event.Event;
 public class A_Activity_Main extends AppCompatActivity
 {
 	Permission_AccessFineLocation accessFineLocationPermission = new Permission_AccessFineLocation(this);
-	Permission_AccessNotificationPolicy accessNotificationPolicy = createPermissionAccessNotificationPolicy();
+	Permission_AccessNotificationPolicy accessNotificationPolicy;
 	
 	private Permission_AccessNotificationPolicy createPermissionAccessNotificationPolicy()
 	{
@@ -48,6 +48,7 @@ public class A_Activity_Main extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		accessNotificationPolicy = createPermissionAccessNotificationPolicy();
 		
 		SivisoMap_Siviso sivisoMap = new SivisoMap_Siviso();
 		SivisoList sivisoList = new SivisoList_Siviso();
