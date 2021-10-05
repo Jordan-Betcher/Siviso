@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 
 import main.java.com.betcher.jordan.helper.library.event.atCaller.AtCaller;
@@ -37,17 +36,15 @@ public class Permission_AccessNotificationPolicy implements Permission
 	}
 	
 	
-	@SuppressLint("NewApi")
 	@Override
 	public boolean isGranted()
 	{
 		return isGranted.isGranted();
 	}
 	
-	@SuppressLint("NewApi")
 	@Override
 	public void grant()
 	{
-		//TODO
+		atCaller.call();
 	}
 }
