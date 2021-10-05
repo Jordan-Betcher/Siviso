@@ -45,6 +45,6 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public void grant()
 	{
-		if(isGranted.isGranted()){ atCaller.call(); }
+		if(isGranted()){ atCaller.call(); }
 	}
 }
