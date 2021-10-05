@@ -1,5 +1,6 @@
 package com.jordan.betcher.siviso.siviso.permissions;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.os.Build;
@@ -42,11 +43,12 @@ public class Permission_AccessNotificationPolicy implements Permission
 	}
 	
 	
+	@SuppressLint("NewApi")
 	@Override
 	public boolean isGranted()
 	{
 		//TODO
-		if( buildVersion.buildVersion() >= Build.VERSION_CODES.M) return false;
+		if( buildVersion.buildVersion() >= Build.VERSION_CODES.M) return notificationManager.isNotificationPolicyAccessGranted();
 		return true;
 	}
 	
