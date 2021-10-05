@@ -54,6 +54,6 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public void grant()
 	{
-		//TODO
+		event.call();
 	}
 }
