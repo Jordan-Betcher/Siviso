@@ -22,6 +22,23 @@ import main.java.com.betcher.jordan.helper.library.event.Event;
 public class Test$Permission_AccessNotificationPolicy
 {
 	@Test
+	public void grant_buildVersionMminus1PolicyNotGranted_call()
+	{
+		int version = Build.VERSION_CODES.M - 1;
+		boolean isGranted = false;
+		Event event = mock(Event.class);
+		NotificationManager notificationManager = mock(NotificationManager.class);
+		when(notificationManager.isNotificationPolicyAccessGranted()).thenReturn(isGranted);
+		BuildVersion buildVersion = mock(BuildVersion.class);
+		when(buildVersion.buildVersion()).thenReturn(version);
+		
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, event, notificationManager, buildVersion);
+		permission.grant();
+		
+		verify(event, times(1)).call();
+	}
+	
+	@Test
 	public void grant_buildVersion1PolicyNotGranted_call()
 	{
 		int version = 1;
