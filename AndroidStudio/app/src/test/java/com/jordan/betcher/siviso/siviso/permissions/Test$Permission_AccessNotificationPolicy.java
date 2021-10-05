@@ -16,6 +16,22 @@ import main.java.com.betcher.jordan.helper.library.event.atCaller.AtCaller;
 public class Test$Permission_AccessNotificationPolicy
 {
 	@Test
+	public void addOnGranted_onPermissionGrantedIsGrantedFalse_0call()
+	{
+		boolean granted = false;
+		AtPermissionGranted atPermissionGranted = mock(AtPermissionGranted.class);
+		AtCaller atCaller = mock(AtCaller.class);
+		IsGranted_AccessNotificationPolicy isGranted = mock(IsGranted_AccessNotificationPolicy.class);
+		when(isGranted.isGranted()).thenReturn(granted);
+		
+		Permission_AccessNotificationPolicy permission = new Permission_AccessNotificationPolicy(null, null, atCaller,
+		                                                                                         isGranted);
+		permission.addOnGranted(atPermissionGranted);
+		
+		verify(atPermissionGranted, times(0)).call();
+	}
+	
+	@Test
 	public void addOnGranted_onPermissionGrantedIsGrantedTrue_call()
 	{
 		boolean granted = true;
