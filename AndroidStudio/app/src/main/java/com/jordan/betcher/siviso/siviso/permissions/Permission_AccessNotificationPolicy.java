@@ -10,8 +10,8 @@ public class Permission_AccessNotificationPolicy implements Permission
 	
 	private final Activity activity;
 	private final Intent_PermissionSettingNotification permissionSettingNotification;
-	private AtCaller atCaller;
-	private IsGranted_AccessNotificationPolicy isGranted;
+	private final AtCaller atCaller;
+	private final IsGranted_AccessNotificationPolicy isGranted;
 	
 	public Permission_AccessNotificationPolicy(
 	Activity activity, Intent_PermissionSettingNotification permissionSettingNotification,
@@ -41,7 +41,7 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public boolean isGranted()
 	{
-		return false; //TODO
+		return true;
 	}
 	
 	@SuppressLint("NewApi")
