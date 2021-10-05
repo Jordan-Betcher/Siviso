@@ -1,7 +1,5 @@
 package com.jordan.betcher.siviso.siviso.main;
 
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,13 +19,10 @@ import com.jordan.betcher.siviso.siviso.list.SivisoList;
 import com.jordan.betcher.siviso.siviso.list.SivisoList_Siviso;
 import com.jordan.betcher.siviso.siviso.map.A_Map_Main;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap_Siviso;
-import com.jordan.betcher.siviso.siviso.permissions.Intent_PermissionSettingNotification;
+import com.jordan.betcher.siviso.siviso.permissions.Factory_PermissionAccessNotificationPolicy;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessFineLocation;
 import com.jordan.betcher.siviso.siviso.permissions.Permission_AccessNotificationPolicy;
 import com.jordan.betcher.siviso.siviso.service.A_Service;
-import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
-
-import main.java.com.betcher.jordan.helper.library.event.Event;
 
 public class A_Activity_Main extends AppCompatActivity
 {
@@ -36,11 +31,7 @@ public class A_Activity_Main extends AppCompatActivity
 	
 	private Permission_AccessNotificationPolicy createPermissionAccessNotificationPolicy()
 	{
-		Intent_PermissionSettingNotification permissionSettingNotification = new Intent_PermissionSettingNotification();
-		Event event = new Event();
-		NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
-		BuildVersion buildVersion = new BuildVersion();
-		return new Permission_AccessNotificationPolicy(this, permissionSettingNotification, event, notificationManager, buildVersion);
+		return new Factory_PermissionAccessNotificationPolicy().createPermission(this);
 	}
 	
 	@Override

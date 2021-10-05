@@ -2,10 +2,6 @@ package com.jordan.betcher.siviso.siviso.permissions;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.NotificationManager;
-import android.os.Build;
-
-import com.jordan.betcher.siviso.siviso.thirdparty.BuildVersion;
 
 import main.java.com.betcher.jordan.helper.library.event.Event;
 
@@ -15,19 +11,16 @@ public class Permission_AccessNotificationPolicy implements Permission
 	private final Activity activity;
 	private final Intent_PermissionSettingNotification permissionSettingNotification;
 	private Event event;
-	private final NotificationManager notificationManager;
-	private final BuildVersion buildVersion;
+	private IsGranted_AccessNotificationPolicy isGranted;
 	
 	public Permission_AccessNotificationPolicy(
 	Activity activity, Intent_PermissionSettingNotification permissionSettingNotification,
-	Event event, NotificationManager notificationManager,
-	BuildVersion buildVersion)
+	Event event, IsGranted_AccessNotificationPolicy isGranted)
 	{
 		this.activity = activity;
 		this.permissionSettingNotification = permissionSettingNotification;
 		this.event = event;
-		this.notificationManager = notificationManager;
-		this.buildVersion = buildVersion;
+		this.isGranted = isGranted;
 	}
 	
 	@Override
@@ -40,6 +33,7 @@ public class Permission_AccessNotificationPolicy implements Permission
 	public void addOnGranted(OnPermissionGranted onPermissionGranted)
 	{
 		event.add(onPermissionGranted);
+		//TODO run grant
 	}
 	
 	
@@ -47,14 +41,13 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public boolean isGranted()
 	{
-		if(buildVersion.buildVersion() < Build.VERSION_CODES.M) return true;
-		return notificationManager.isNotificationPolicyAccessGranted();
+		return false; //TODO
 	}
 	
 	@SuppressLint("NewApi")
 	@Override
 	public void grant()
 	{
-		if(isGranted()) event.call();
+		//TODO
 	}
 }
