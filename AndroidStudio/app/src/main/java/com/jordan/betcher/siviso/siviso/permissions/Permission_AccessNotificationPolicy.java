@@ -54,6 +54,6 @@ public class Permission_AccessNotificationPolicy implements Permission
 	@Override
 	public void grant()
 	{
-		event.call();
+		if(buildVersion.buildVersion() == 0) event.call();
 	}
 }
