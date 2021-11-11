@@ -1,5 +1,8 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Database_Siviso implements Database
 {
 	private final UseSharedPreferences useSharedPreferences;
@@ -20,9 +23,9 @@ public class Database_Siviso implements Database
 	int sivisoIndex, boolean isOn)
 	{
 		//TODO setIsOn
-//		Siviso[] sivisos = sivisos();
-//		sivisos[sivisoIndex].setRingmode(ringmode);
-//		useSharedPreferences.setSivisos(sivisos);
+//		Siviso[] newSivisos = useSharedPreferences.sivisos();
+//		newSivisos[sivisoIndex].setIsOn(isOn);
+//		useSharedPreferences.setSivisos(newSivisos);
 	}
 	
 	@Override
@@ -50,30 +53,11 @@ public class Database_Siviso implements Database
 	public void delete(int deleteIndex)
 	{
 		Siviso[] sivisos = useSharedPreferences.sivisos();
-		if(deleteIndex >= sivisos.length) return;
+		if(deleteIndex >= sivisos.length){ return; }
+		ArrayList<Siviso> oldSiviso = new ArrayList<>(Arrays.asList(sivisos));
+		oldSiviso.remove(deleteIndex);
 		Siviso[] newSiviso = new Siviso[sivisos.length - 1];
-		boolean passed = false;
-		
-		for(int i = 0; i < sivisos.length; i++)
-		{
-			if(i != deleteIndex)
-			{
-				if(!passed)
-				{
-					newSiviso[i] = useSharedPreferences.sivisos()[i];
-				}
-				else
-				{
-					newSiviso[i - 1] = useSharedPreferences.sivisos()[i];
-				}
-			}
-			else
-			{
-				passed = true;
-			}
-		}
-		
+		oldSiviso.toArray(newSiviso);
 		useSharedPreferences.setSivisos(newSiviso);
-		
 	}
 }
