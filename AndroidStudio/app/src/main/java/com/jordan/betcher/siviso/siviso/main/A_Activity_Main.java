@@ -11,7 +11,6 @@ import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Database_Siviso;
 import com.jordan.betcher.siviso.siviso.database.OnSharedPreferenceChangeListener_OnChangeEvent;
-import com.jordan.betcher.siviso.siviso.database.Ringmodes;
 import com.jordan.betcher.siviso.siviso.database.UseSharedPreferences;
 import com.jordan.betcher.siviso.siviso.database.Wrapper_Gson;
 import com.jordan.betcher.siviso.siviso.list.A_List;
@@ -51,10 +50,9 @@ public class A_Activity_Main extends AppCompatActivity
 	
 	private Database createDatabase()
 	{
-		Ringmodes ringmodes = new Ringmodes();
 		Wrapper_Gson gson = new Wrapper_Gson();
 		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = new OnSharedPreferenceChangeListener_OnChangeEvent();
-		UseSharedPreferences useSharedPreferences = new UseSharedPreferences(this, ringmodes, gson,
+		UseSharedPreferences useSharedPreferences = new UseSharedPreferences(this, gson,
 		                                                                     onChangeEvent);
 		return new Database_Siviso(useSharedPreferences);
 	}

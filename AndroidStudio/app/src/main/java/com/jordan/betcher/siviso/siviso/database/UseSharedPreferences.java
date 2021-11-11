@@ -9,34 +9,20 @@ public class UseSharedPreferences
 	public static final String SIVISOS_ID = "sivisosId";
 	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
-	private SharedPreferences sharedPreferences;
-	private Wrapper_Gson gson;
-	private OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent;
-	private Ringmodes ringmodes;
+	private final SharedPreferences sharedPreferences;
+	private final Wrapper_Gson gson;
+	private final OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent;
 	
 	public UseSharedPreferences(
-	Activity activity, Ringmodes ringmodes, Wrapper_Gson gson,
+	Activity activity, Wrapper_Gson gson,
 	OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent)
 	{
-		this.ringmodes = ringmodes;
-		this.sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
+		this.sharedPreferences = activity
+		.getSharedPreferences(SHARED_PREFERENCES_ID, Context.MODE_PRIVATE);
 		this.gson = gson;
 		this.onChangeEvent = onChangeEvent;
 		
 		sharedPreferences.registerOnSharedPreferenceChangeListener(onChangeEvent);
-	}
-	
-	public Ringmode defaultRingmode()
-	{
-		int ringmodeInt = sharedPreferences.getInt(DEFAULT_RINGMODE_ID, 0);
-		return ringmodes.from(ringmodeInt);
-	}
-	
-	public void setDefaultRingmode(Ringmode ringmode)
-	{
-		SharedPreferences.Editor editor1 = sharedPreferences.edit();
-		SharedPreferences.Editor editor2 = editor1.putInt(DEFAULT_RINGMODE_ID, ringmode.ordinal());
-		editor2.apply();
 	}
 	
 	public Siviso[] sivisos()

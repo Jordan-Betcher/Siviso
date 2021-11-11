@@ -11,7 +11,6 @@ import static org.mockito.Mockito.when;
 import androidx.recyclerview.widget.ItemTouchHelper;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.list.viewholderdefault.ViewHolder_Default;
 
 import org.junit.Test;
 
@@ -141,18 +140,6 @@ public class Test$SimpleCallback_SwipeToDelete
 		swipeToDelete.onSwiped(viewHolder, ItemTouchHelper.RIGHT);
 		
 		verify(database, times(1)).delete(sivisoIndex);
-	}
-	
-	@Test
-	public void getMovementFlags_viewHolderDefault_0()
-	{
-		ViewHolder_Abstract viewHolder = mock(ViewHolder_Default.class);
-		
-		SimpleCallback_SwipeToDelete swipeToDelete = new SimpleCallback_SwipeToDelete(null,
-		                                                                              null);
-		
-		int actualMovementFlag = swipeToDelete.getMovementFlags(null, viewHolder);
-		assertEquals(0, actualMovementFlag);
 	}
 	
 	@Test

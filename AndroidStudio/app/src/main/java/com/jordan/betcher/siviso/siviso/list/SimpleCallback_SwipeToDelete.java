@@ -5,18 +5,18 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.list.viewholderdefault.ViewHolder_Default;
 
 class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 {
 	
 	private final Adapter_SivisoListView adapter;
-	private Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper;
+	private final Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper;
 	
 	public SimpleCallback_SwipeToDelete(
 	Adapter_SivisoListView adapter,
-	Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper){
-		super(0,  ItemTouchHelper.RIGHT);
+	Helper_SimpleCallback_SwipeToDelete swipeToDeleteHelper)
+	{
+		super(0, ItemTouchHelper.RIGHT);
 		this.adapter = adapter;
 		this.swipeToDeleteHelper = swipeToDeleteHelper;
 	}
@@ -25,7 +25,6 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	public int getMovementFlags(
 	@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)
 	{
-		if(viewHolder instanceof ViewHolder_Default) return 0;
 		return makeMovementFlags(0, ItemTouchHelper.RIGHT);
 	}
 	
@@ -34,7 +33,7 @@ class SimpleCallback_SwipeToDelete extends ItemTouchHelper.SimpleCallback
 	@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
 	@NonNull RecyclerView.ViewHolder target)
 	{
-		return false;
+		return false;//TODO ?
 	}
 	
 	@Override

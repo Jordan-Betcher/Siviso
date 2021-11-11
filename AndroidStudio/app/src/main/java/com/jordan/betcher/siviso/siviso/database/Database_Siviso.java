@@ -2,23 +2,11 @@ package com.jordan.betcher.siviso.siviso.database;
 
 public class Database_Siviso implements Database
 {
-	private UseSharedPreferences useSharedPreferences;
+	private final UseSharedPreferences useSharedPreferences;
 	
 	public Database_Siviso(UseSharedPreferences useSharedPreferences)
 	{
 		this.useSharedPreferences = useSharedPreferences;
-	}
-	
-	@Override
-	public Ringmode defaultRingmode()
-	{
-		return useSharedPreferences.defaultRingmode();
-	}
-	
-	@Override
-	public void setDefaultRingmode(Ringmode ringmode)
-	{
-		useSharedPreferences.setDefaultRingmode(ringmode);
 	}
 	
 	@Override
@@ -28,12 +16,13 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public void setRingmode(
-	int sivisoIndex, Ringmode ringmode)
+	public void setIsOn(
+	int sivisoIndex, boolean isOn)
 	{
-		Siviso[] sivisos = sivisos();
-		sivisos[sivisoIndex].setRingmode(ringmode);
-		useSharedPreferences.setSivisos(sivisos);
+		//TODO setIsOn
+//		Siviso[] sivisos = sivisos();
+//		sivisos[sivisoIndex].setRingmode(ringmode);
+//		useSharedPreferences.setSivisos(sivisos);
 	}
 	
 	@Override

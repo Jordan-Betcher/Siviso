@@ -8,20 +8,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jordan.betcher.siviso.siviso.R;
 import com.jordan.betcher.siviso.siviso.database.Database;
-import com.jordan.betcher.siviso.siviso.database.Ringmodes;
-import com.jordan.betcher.siviso.siviso.list.viewholderdefault.Factory_ViewHolderDefault;
 import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHolderSiviso;
 import com.jordan.betcher.siviso.siviso.main.A_Activity_Main;
 import com.jordan.betcher.siviso.siviso.map.SivisoMap;
 
 public class A_List
 {
-	private A_Activity_Main activity;
-	private Database database;
-	private SivisoList sivisoList;
-	private SivisoMap sivisoMap;
+	private final A_Activity_Main activity;
+	private final Database database;
+	private final SivisoList sivisoList;
+	private final SivisoMap sivisoMap;
 	
-	public A_List(A_Activity_Main activity, Database database, SivisoList sivisoList, SivisoMap sivisoMap)
+	public A_List(
+	A_Activity_Main activity, Database database, SivisoList sivisoList, SivisoMap sivisoMap)
 	{
 		this.activity = activity;
 		this.database = database;
@@ -54,11 +53,9 @@ public class A_List
 	HighlightView highlightView)
 	{
 		LayoutInflater layoutInflater = LayoutInflater.from(activity);
-		Ringmodes ringmodes = new Ringmodes();
-		ArrayAdapter_Sivisos sivisoSpinnerAdapter = new ArrayAdapter_Sivisos(activity, ringmodes);
-		Factory_ViewHolderDefault defaultViewHolderFactory = new Factory_ViewHolderDefault(layoutInflater, sivisoSpinnerAdapter, sivisoMap, database);
-		Factory_ViewHolderSiviso sivisoViewHolderFactory = new Factory_ViewHolderSiviso(layoutInflater, sivisoSpinnerAdapter, sivisoMap, highlightView);
+		Factory_ViewHolderSiviso sivisoViewHolderFactory = new Factory_ViewHolderSiviso(
+		layoutInflater, sivisoMap, highlightView);
 		
-		return new Adapter_SivisoListView(database, defaultViewHolderFactory, sivisoViewHolderFactory);
+		return new Adapter_SivisoListView(database, sivisoViewHolderFactory);
 	}
 }

@@ -20,10 +20,12 @@ public class Test$UseSharedPreferences
 	{
 		Activity activity = mock(Activity.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID,
+		                                   Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(
+		OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		new UseSharedPreferences(activity, null,null, onChangeEvent);
+		new UseSharedPreferences(activity, null, onChangeEvent);
 		
 		verify(sharedPreferences, times(1)).registerOnSharedPreferenceChangeListener(onChangeEvent);
 	}
@@ -37,7 +39,7 @@ public class Test$UseSharedPreferences
 		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		UseSharedPreferences database = new UseSharedPreferences(activity, null,
-		                                                         null, onChangeEvent);
+		                                                         onChangeEvent);
 		
 		OnSharedPreferenceChangeListener_OnChangeEvent actualOnChangeEvent = database.onChangeEvent();
 		assertEquals(onChangeEvent, actualOnChangeEvent);
@@ -50,15 +52,17 @@ public class Test$UseSharedPreferences
 		Siviso[] sivisos = new Siviso[0];
 		
 		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID,
+		                                   Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, ""))
+		.thenReturn(sivisosString);
 		when(gson.fromJson(sivisosString)).thenReturn(null);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(
+		OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		
 		Siviso[] actualSivisos = database.sivisos();
@@ -75,17 +79,18 @@ public class Test$UseSharedPreferences
 		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
 		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
 		when(gson.toJsonString(sivisos)).thenReturn(sivisosEditedString);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID,
+		                                   Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putString(UseSharedPreferences.SIVISOS_ID, sivisosEditedString)).thenReturn(editor2);
+		when(editor1.putString(UseSharedPreferences.SIVISOS_ID, sivisosEditedString))
+		.thenReturn(editor2);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		database.setSivisos(sivisos);
 		
@@ -100,18 +105,20 @@ public class Test$UseSharedPreferences
 		String sivisosEditedString = "aSilent";
 		
 		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
 		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
 		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
 		when(gson.toJsonString(sivisos)).thenReturn(sivisosEditedString);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID,
+		                                   Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
 		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putString(UseSharedPreferences.SIVISOS_ID, sivisosEditedString)).thenReturn(editor2);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		when(editor1.putString(UseSharedPreferences.SIVISOS_ID, sivisosEditedString))
+		.thenReturn(editor2);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(
+		OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		database.setSivisos(sivisos);
 		
@@ -126,15 +133,17 @@ public class Test$UseSharedPreferences
 		Siviso[] sivisos = new Siviso[]{sivisoA};
 		
 		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID,
+		                                   Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, ""))
+		.thenReturn(sivisosString);
 		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(
+		OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		
 		Siviso[] actualSivisos = database.sivisos();
@@ -148,118 +157,20 @@ public class Test$UseSharedPreferences
 		Siviso[] sivisos = new Siviso[0];
 		
 		Activity activity = mock(Activity.class);
-		Ringmodes ringmodes = mock(Ringmodes.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
 		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, "")).thenReturn(sivisosString);
+		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID,
+		                                   Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
+		when(sharedPreferences.getString(UseSharedPreferences.SIVISOS_ID, ""))
+		.thenReturn(sivisosString);
 		when(gson.fromJson(sivisosString)).thenReturn(sivisos);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(
+		OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes, gson,
+		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		
 		Siviso[] actualSivisos = database.sivisos();
 		assertArrayEquals(sivisos, actualSivisos);
-	}
-	
-	@Test
-	public void setDefaultRingmode_VIBRATE_sharedPreferencesSetDefaultRingmode1()
-	{
-		Ringmode ringmode = Ringmode.VIBRATE;
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(UseSharedPreferences.DEFAULT_RINGMODE_ID, ringmode.ordinal())).thenReturn(editor2);
-		Activity activity = mock(Activity.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
-		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null, onChangeEvent);
-		database.setDefaultRingmode(ringmode);
-		
-		verify(editor2, times(1)).apply();
-	}
-	
-	@Test
-	public void __0sharedPreferencesSetDefaultRingmode0()
-	{
-		Ringmode ringmode = Ringmode.SILENT;
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(UseSharedPreferences.DEFAULT_RINGMODE_ID, ringmode.ordinal())).thenReturn(editor2);
-		Activity activity = mock(Activity.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
-		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null, onChangeEvent);
-		
-		verify(editor2, times(0)).apply();
-	}
-	
-	@Test
-	public void setDefaultRingmode_SILENT_sharedPreferencesSetDefaultRingmode0()
-	{
-		Ringmode ringmode = Ringmode.SILENT;
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		SharedPreferences.Editor editor1 = mock(SharedPreferences.Editor.class);
-		SharedPreferences.Editor editor2 = mock(SharedPreferences.Editor.class);
-		when(sharedPreferences.edit()).thenReturn(editor1);
-		when(editor1.putInt(UseSharedPreferences.DEFAULT_RINGMODE_ID, ringmode.ordinal())).thenReturn(editor2);
-		Activity activity = mock(Activity.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
-		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null, onChangeEvent);
-		database.setDefaultRingmode(ringmode);
-		
-		verify(editor2, times(1)).apply();
-	}
-	
-	@Test
-	public void defaultRingmode_sharedPreferencesDefaultRingmodeVIBRATE_VIBRATE()
-	{
-		Ringmode ringmode = Ringmode.VIBRATE;
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(sharedPreferences.getInt(UseSharedPreferences.DEFAULT_RINGMODE_ID, 0)).thenReturn(ringmode.ordinal());
-		Activity activity = mock(Activity.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
-		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null, onChangeEvent);
-		
-		Ringmode actualRingmode = database.defaultRingmode();
-		assertEquals(ringmode, actualRingmode);
-	}
-	
-	@Test
-	public void defaultRingmode_sharedPreferencesDefaultRingmodeSILENT_SILENT()
-	{
-		Ringmode ringmode = Ringmode.SILENT;
-		SharedPreferences sharedPreferences = mock(SharedPreferences.class);
-		when(sharedPreferences.getInt(UseSharedPreferences.DEFAULT_RINGMODE_ID, 0)).thenReturn(ringmode.ordinal());
-		Activity activity = mock(Activity.class);
-		when(activity.getSharedPreferences(UseSharedPreferences.SHARED_PREFERENCES_ID, Context.MODE_PRIVATE)).thenReturn(sharedPreferences);
-		Ringmodes ringmodes = mock(Ringmodes.class);
-		when(ringmodes.from(ringmode.ordinal())).thenReturn(ringmode);
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
-		
-		UseSharedPreferences database = new UseSharedPreferences(activity, ringmodes,
-		                                                         null, onChangeEvent);
-		
-		Ringmode actualRingmode = database.defaultRingmode();
-		assertEquals(ringmode, actualRingmode);
 	}
 }

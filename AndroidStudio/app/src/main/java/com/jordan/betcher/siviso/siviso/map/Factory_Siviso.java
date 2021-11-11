@@ -4,7 +4,6 @@ import android.app.Activity;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.R;
-import com.jordan.betcher.siviso.siviso.database.Ringmode;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 class Factory_Siviso
@@ -18,6 +17,6 @@ class Factory_Siviso
 	
 	public Siviso create(LatLng latLng)
 	{
-		return new Siviso("", latLng, radius, Ringmode.SILENT);
+		return new Siviso("", latLng, radius, false);
 	}
 }

@@ -7,14 +7,14 @@ public class Siviso
 	String name;
 	LatLng latLng;
 	double radius;
-	Ringmode ringmode;
+	boolean isOn;
 	
-	public Siviso(String name, LatLng latLng, double radius, Ringmode ringmode)
+	public Siviso(String name, LatLng latLng, double radius, boolean isOn)
 	{
 		this.name = name;
 		this.latLng = latLng;
 		this.radius = radius;
-		this.ringmode = ringmode;
+		this.isOn = isOn;
 	}
 	
 	
@@ -33,13 +33,15 @@ public class Siviso
 		return radius;
 	}
 	
-	public Ringmode ringmode()
+	public boolean isOn()
 	{
-		return ringmode;
+		//TODO isOn
+		return false;
+		//return isOn;
 	}
 	
-	public void setRingmode(Ringmode ringmode)
+	public void setIsOn(boolean isOn)
 	{
-		this.ringmode = ringmode;
+		//TODO this.isOn = isOn;
 	}
 }

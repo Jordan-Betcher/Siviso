@@ -2,13 +2,9 @@ package com.jordan.betcher.siviso.siviso.database;
 
 public interface Database
 {
-	Ringmode defaultRingmode();
-	
-	void setDefaultRingmode(Ringmode ringmode);
-	
 	Siviso[] sivisos();
 	
-	void setRingmode(int sivisoIndex, Ringmode ringmode);
+	void setIsOn(int sivisoIndex, boolean isOn);
 	
 	void save(Siviso siviso);
 	
