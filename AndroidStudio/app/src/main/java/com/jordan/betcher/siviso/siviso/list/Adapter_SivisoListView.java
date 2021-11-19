@@ -59,7 +59,7 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 	@Override
 	public int getItemCount()
 	{
-		return database.sivisos().length + 1;
+		return database.sivisos().size() + 1;
 	}
 	
 	

@@ -10,13 +10,16 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class Test$OnMapReady_CreateSivisoCircles
 {
 	@Test
 	public void dataChanged_siviso0Circles_setCircles()
 	{
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso0);
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		Circles circles = mock(Circles.class);
@@ -33,7 +36,8 @@ public class Test$OnMapReady_CreateSivisoCircles
 	public void ready_siviso0_setCircles()
 	{
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso0);
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		Circles circles = mock(Circles.class);
@@ -51,7 +55,7 @@ public class Test$OnMapReady_CreateSivisoCircles
 	@Test
 	public void dataChanged_null_noError()
 	{
-		Siviso[] sivisos = new Siviso[]{};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
@@ -64,7 +68,7 @@ public class Test$OnMapReady_CreateSivisoCircles
 	@Test
 	public void dataChanged_circles_setCircles()
 	{
-		Siviso[] sivisos = new Siviso[]{};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		Circles circles = mock(Circles.class);
@@ -80,7 +84,7 @@ public class Test$OnMapReady_CreateSivisoCircles
 	@Test
 	public void ready__setCircles()
 	{
-		Siviso[] sivisos = new Siviso[]{};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		Circles circles = mock(Circles.class);

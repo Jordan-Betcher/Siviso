@@ -1,7 +1,6 @@
 package com.jordan.betcher.siviso.siviso.database;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Database_Siviso implements Database
 {
@@ -13,7 +12,7 @@ public class Database_Siviso implements Database
 	}
 	
 	@Override
-	public Siviso[] sivisos()
+	public ArrayList<Siviso> sivisos()
 	{
 		return useSharedPreferences.sivisos();
 	}
@@ -31,16 +30,9 @@ public class Database_Siviso implements Database
 	@Override
 	public void save(Siviso newSiviso)
 	{
-		Siviso[] sivisos = sivisos();
-		Siviso[] newSivisos = new Siviso[sivisos.length + 1];
-		
-		for(int i = 0; i < sivisos.length; i++)
-		{
-			newSivisos[i] = sivisos[i];
-		}
-		
-		newSivisos[sivisos.length] = newSiviso;
-		useSharedPreferences.setSivisos(newSivisos);
+		ArrayList<Siviso> sivisos = sivisos();
+		sivisos.add(newSiviso);
+		useSharedPreferences.setSivisos(sivisos);
 	}
 	
 	@Override
@@ -52,12 +44,11 @@ public class Database_Siviso implements Database
 	@Override
 	public void delete(int deleteIndex)
 	{
-		Siviso[] sivisos = useSharedPreferences.sivisos();
-		if(deleteIndex >= sivisos.length){ return; }
-		ArrayList<Siviso> oldSiviso = new ArrayList<>(Arrays.asList(sivisos));
-		oldSiviso.remove(deleteIndex);
-		Siviso[] newSiviso = new Siviso[sivisos.length - 1];
-		oldSiviso.toArray(newSiviso);
-		useSharedPreferences.setSivisos(newSiviso);
+		ArrayList<Siviso> sivisos = useSharedPreferences.sivisos();
+		if(deleteIndex < sivisos.size())
+		{
+			sivisos.remove(deleteIndex);
+			useSharedPreferences.setSivisos(sivisos);
+		}
 	}
 }

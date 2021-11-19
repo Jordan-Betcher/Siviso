@@ -10,13 +10,16 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class Test$Circles
 {
 	@Test
 	public void setCircles_circle0siviso0_removeCircle0()
 	{
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso0);
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
 		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0};
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
@@ -40,7 +43,7 @@ public class Test$Circles
 		
 		Circles circles = new Circles(googleMap, factory);
 		circles.circles = wrapper_circles;
-		circles.setCircles(new Siviso[0]);
+		circles.setCircles(new ArrayList<>());
 		
 		verify(circle1, times(1)).remove();
 	}
@@ -55,7 +58,7 @@ public class Test$Circles
 		
 		Circles circles = new Circles(googleMap, factory);
 		circles.circles = wrapper_circles;
-		circles.setCircles(new Siviso[0]);
+		circles.setCircles(new ArrayList<>());
 		
 		verify(circle0, times(1)).remove();
 	}
@@ -65,7 +68,9 @@ public class Test$Circles
 	{
 		Siviso siviso0 = mock(Siviso.class);
 		Siviso siviso1 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0, siviso1};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso0);
+		sivisos.add(siviso1);
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
 		Wrapper_Circle circle1 = mock(Wrapper_Circle.class);
 		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0, circle1};
@@ -85,7 +90,8 @@ public class Test$Circles
 	public void setCircles_siviso0_createCircle0()
 	{
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso0);
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
 		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0};
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);

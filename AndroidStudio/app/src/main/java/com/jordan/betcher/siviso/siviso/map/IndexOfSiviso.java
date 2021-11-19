@@ -4,9 +4,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.jordan.betcher.siviso.siviso.database.Database;
 import com.jordan.betcher.siviso.siviso.database.Siviso;
 
+import java.util.ArrayList;
+
 class IndexOfSiviso
 {
-	private Database database;
+	private final Database database;
 	
 	public IndexOfSiviso(Database database)
 	{
@@ -15,11 +17,11 @@ class IndexOfSiviso
 	
 	public int from(LatLng latLng)
 	{
-		Siviso[] sivisos = database.sivisos();
-		for(int i = 0; i < sivisos.length; i++)
+		ArrayList<Siviso> sivisos = database.sivisos();
+		for(int i = 0; i < sivisos.size(); i++)
 		{
-			Siviso siviso = sivisos[i];
-			if(siviso.latLng().equals(latLng)) return i;
+			Siviso siviso = sivisos.get(i);
+			if(siviso.latLng().equals(latLng)){ return i; }
 		}
 		return -1;
 	}

@@ -1,6 +1,5 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -12,6 +11,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class Test$UseSharedPreferences
 {
@@ -49,7 +50,7 @@ public class Test$UseSharedPreferences
 	public void sivisos_gsonReturnsNull_EmptySivisoArray()
 	{
 		String sivisosString = "";
-		Siviso[] sivisos = new Siviso[0];
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		
 		Activity activity = mock(Activity.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
@@ -65,8 +66,8 @@ public class Test$UseSharedPreferences
 		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
+		ArrayList<Siviso> actualSivisos = database.sivisos();
+		assertEquals(sivisos, actualSivisos);
 	}
 	
 	@Test
@@ -74,9 +75,12 @@ public class Test$UseSharedPreferences
 	{
 		Siviso sivisoA = mock(Siviso.class);
 		Siviso sivisoB = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(sivisoA);
+		sivisos.add(sivisoB);
 		String sivisosEditedString = "abVibrate";
-		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(OnSharedPreferenceChangeListener_OnChangeEvent.class);
+		OnSharedPreferenceChangeListener_OnChangeEvent onChangeEvent = mock(
+		OnSharedPreferenceChangeListener_OnChangeEvent.class);
 		
 		Activity activity = mock(Activity.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
@@ -101,7 +105,8 @@ public class Test$UseSharedPreferences
 	public void setRingmode_0Silent_siviso0RingmodeSilentAndSharedPreferencesPut()
 	{
 		Siviso sivisoA = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(sivisoA);
 		String sivisosEditedString = "aSilent";
 		
 		Activity activity = mock(Activity.class);
@@ -130,7 +135,8 @@ public class Test$UseSharedPreferences
 	{
 		String sivisosString = "a";
 		Siviso sivisoA = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(sivisoA);
 		
 		Activity activity = mock(Activity.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
@@ -146,15 +152,15 @@ public class Test$UseSharedPreferences
 		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
+		ArrayList<Siviso> actualSivisos = database.sivisos();
+		assertEquals(sivisos, actualSivisos);
 	}
 	
 	@Test
 	public void sivisos_gsonSharedPreferences_0sivisos()
 	{
 		String sivisosString = "";
-		Siviso[] sivisos = new Siviso[0];
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		
 		Activity activity = mock(Activity.class);
 		Wrapper_Gson gson = mock(Wrapper_Gson.class);
@@ -170,7 +176,7 @@ public class Test$UseSharedPreferences
 		UseSharedPreferences database = new UseSharedPreferences(activity, gson,
 		                                                         onChangeEvent);
 		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
+		ArrayList<Siviso> actualSivisos = database.sivisos();
+		assertEquals(sivisos, actualSivisos);
 	}
 }

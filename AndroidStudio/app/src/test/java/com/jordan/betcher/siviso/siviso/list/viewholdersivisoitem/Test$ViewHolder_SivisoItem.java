@@ -18,6 +18,8 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class Test$ViewHolder_SivisoItem
 {
 	@Test
@@ -48,14 +50,16 @@ public class Test$ViewHolder_SivisoItem
 		String name = "";
 		Spinner spinner = mock(Spinner.class);
 		CardView background = mock(CardView.class);
-		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(Factory_OnClickListenerGoToSivisoLocation.class);
+		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(
+		Factory_OnClickListenerGoToSivisoLocation.class);
 		
 		Database database = mock(Database.class);
 		int index = 1;
 		LatLng sivisoLatLng = new LatLng(0, 1);
 		Siviso siviso = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[index + 1];
-		sivisos[index] = siviso;
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(mock(Siviso.class));
+		sivisos.add(siviso);
 		when(database.sivisos()).thenReturn(sivisos);
 		when(siviso.latLng()).thenReturn(sivisoLatLng);
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
@@ -84,8 +88,9 @@ public class Test$ViewHolder_SivisoItem
 		int index = 1;
 		LatLng sivisoLatLng = new LatLng(0, 0);
 		Siviso siviso = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[index + 1];
-		sivisos[index] = siviso;
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(mock(Siviso.class));
+		sivisos.add(siviso);
 		when(database.sivisos()).thenReturn(sivisos);
 		when(siviso.latLng()).thenReturn(sivisoLatLng);
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);

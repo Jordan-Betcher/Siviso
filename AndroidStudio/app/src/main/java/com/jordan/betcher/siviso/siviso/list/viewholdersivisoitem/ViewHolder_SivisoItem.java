@@ -31,7 +31,7 @@ class ViewHolder_SivisoItem extends ViewHolder_Abstract
 	@Override
 	public void init(Database database, int sivisoIndex)
 	{
-		LatLng sivisoLatLng = database.sivisos()[sivisoIndex].latLng();
+		LatLng sivisoLatLng = database.sivisos().get(sivisoIndex).latLng();
 		//TODO Set Switch to database
 		OnClickListener_Multiple onClickListener = factoryOnClickBackground.create(sivisoLatLng);
 		background.setOnClickListener(onClickListener);

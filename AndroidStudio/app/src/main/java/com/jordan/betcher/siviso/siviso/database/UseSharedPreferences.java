@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+
 public class UseSharedPreferences
 {
 	public static final String SIVISOS_ID = "sivisosId";
-	static final String DEFAULT_RINGMODE_ID = "defaultRingmodeId";
 	static final String SHARED_PREFERENCES_ID = "sharedPreferencesID";
 	private final SharedPreferences sharedPreferences;
 	private final Wrapper_Gson gson;
@@ -25,14 +26,14 @@ public class UseSharedPreferences
 		sharedPreferences.registerOnSharedPreferenceChangeListener(onChangeEvent);
 	}
 	
-	public Siviso[] sivisos()
+	public ArrayList<Siviso> sivisos()
 	{
 		String fullSivisoString = sharedPreferences.getString(SIVISOS_ID, "");
-		Siviso[] sivisos = gson.fromJson(fullSivisoString);
-		return sivisos == null ? new Siviso[0] : sivisos;
+		ArrayList<Siviso> sivisos = gson.fromJson(fullSivisoString);
+		return sivisos == null ? new ArrayList<>() : sivisos;
 	}
 	
-	public void setSivisos(Siviso[] newSivisos)
+	public void setSivisos(ArrayList<Siviso> newSivisos)
 	{
 		String editedString = gson.toJsonString(newSivisos);
 		sharedPreferences.edit().putString(SIVISOS_ID, editedString).apply();

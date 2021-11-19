@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.siviso.database;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -9,21 +9,30 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class Test$Database_Siviso
 {
+	@Test
+	public void setIsOn_0false_0false()
+	{
+		
+	}
+	
 	@Test
 	public void delete_2siviso0_0saveSiviso()
 	{
 		int deleteIndex = 2;
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList();
+		sivisos.add(siviso0);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
 		database_siviso.delete(deleteIndex);
 		
-		verify(useSharedPreferences,times(0)).setSivisos(any());
+		verify(useSharedPreferences, times(0)).setSivisos(any());
 	}
 	
 	@Test
@@ -31,14 +40,15 @@ public class Test$Database_Siviso
 	{
 		int deleteIndex = 1;
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList();
+		sivisos.add(siviso0);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
 		database_siviso.delete(deleteIndex);
 		
-		verify(useSharedPreferences,times(0)).setSivisos(any());
+		verify(useSharedPreferences, times(0)).setSivisos(any());
 	}
 	
 	@Test
@@ -48,15 +58,20 @@ public class Test$Database_Siviso
 		Siviso siviso0 = mock(Siviso.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso siviso2 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0, siviso1, siviso2};
-		Siviso[] newSivisos = new Siviso[]{siviso1, siviso2};
+		ArrayList<Siviso> sivisos = new ArrayList();
+		sivisos.add(siviso0);
+		sivisos.add(siviso1);
+		sivisos.add(siviso2);
+		ArrayList<Siviso> newSivisos = new ArrayList();
+		newSivisos.add(siviso1);
+		newSivisos.add(siviso2);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
 		database_siviso.delete(deleteIndex);
 		
-		verify(useSharedPreferences,times(1)).setSivisos(newSivisos);
+		verify(useSharedPreferences, times(1)).setSivisos(newSivisos);
 	}
 	
 	@Test
@@ -65,15 +80,18 @@ public class Test$Database_Siviso
 		int deleteIndex = 1;
 		Siviso siviso0 = mock(Siviso.class);
 		Siviso siviso1 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0, siviso1};
-		Siviso[] newSivisos = new Siviso[]{siviso0};
+		ArrayList<Siviso> sivisos = new ArrayList();
+		sivisos.add(siviso0);
+		sivisos.add(siviso1);
+		ArrayList<Siviso> newSivisos = new ArrayList();
+		newSivisos.add(siviso0);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
 		database_siviso.delete(deleteIndex);
 		
-		verify(useSharedPreferences,times(1)).setSivisos(newSivisos);
+		verify(useSharedPreferences, times(1)).setSivisos(newSivisos);
 	}
 	
 	@Test
@@ -82,15 +100,18 @@ public class Test$Database_Siviso
 		int deleteIndex = 0;
 		Siviso siviso0 = mock(Siviso.class);
 		Siviso siviso1 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0, siviso1};
-		Siviso[] newSivisos = new Siviso[]{siviso1};
+		ArrayList<Siviso> sivisos = new ArrayList();
+		sivisos.add(siviso0);
+		sivisos.add(siviso1);
+		ArrayList<Siviso> newSivisos = new ArrayList();
+		newSivisos.add(siviso1);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
 		database_siviso.delete(deleteIndex);
 		
-		verify(useSharedPreferences,times(1)).setSivisos(newSivisos);
+		verify(useSharedPreferences, times(1)).setSivisos(newSivisos);
 	}
 	
 	@Test
@@ -98,15 +119,16 @@ public class Test$Database_Siviso
 	{
 		int deleteIndex = 0;
 		Siviso siviso0 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso0};
-		Siviso[] newSivisos = new Siviso[]{};
+		ArrayList<Siviso> sivisos = new ArrayList();
+		sivisos.add(siviso0);
+		ArrayList<Siviso> newSivisos = new ArrayList();
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database_siviso = new Database_Siviso(useSharedPreferences);
 		database_siviso.delete(deleteIndex);
 		
-		verify(useSharedPreferences,times(1)).setSivisos(newSivisos);
+		verify(useSharedPreferences, times(1)).setSivisos(newSivisos);
 	}
 	
 	@Test
@@ -128,8 +150,11 @@ public class Test$Database_Siviso
 	{
 		Siviso sivisoA = mock(Siviso.class);
 		Siviso sivisoB = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA};
-		Siviso[] newSivisos = new Siviso[]{sivisoA, sivisoB};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(sivisoA);
+		ArrayList<Siviso> newSivisos = new ArrayList<>();
+		newSivisos.add(sivisoA);
+		newSivisos.add(sivisoB);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
@@ -143,8 +168,9 @@ public class Test$Database_Siviso
 	public void save_SivisoA_setSivisoA()
 	{
 		Siviso sivisoA = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{};
-		Siviso[] newSivisos = new Siviso[]{sivisoA};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		ArrayList<Siviso> newSivisos = new ArrayList<>();
+		newSivisos.add(sivisoA);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
@@ -159,13 +185,15 @@ public class Test$Database_Siviso
 	{
 		Siviso sivisoA = mock(Siviso.class);
 		Siviso sivisoB = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{sivisoA, sivisoB};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(sivisoA);
+		sivisos.add(sivisoB);
 		UseSharedPreferences useSharedPreferences = mock(UseSharedPreferences.class);
 		when(useSharedPreferences.sivisos()).thenReturn(sivisos);
 		
 		Database_Siviso database = new Database_Siviso(useSharedPreferences);
 		
-		Siviso[] actualSivisos = database.sivisos();
-		assertArrayEquals(sivisos, actualSivisos);
+		ArrayList<Siviso> actualSivisos = database.sivisos();
+		assertEquals(sivisos, actualSivisos);
 	}
 }

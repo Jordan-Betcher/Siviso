@@ -1,8 +1,10 @@
 package com.jordan.betcher.siviso.siviso.database;
 
+import java.util.ArrayList;
+
 public interface Database
 {
-	Siviso[] sivisos();
+	ArrayList<Siviso> sivisos();
 	
 	void setIsOn(int sivisoIndex, boolean isOn);
 	

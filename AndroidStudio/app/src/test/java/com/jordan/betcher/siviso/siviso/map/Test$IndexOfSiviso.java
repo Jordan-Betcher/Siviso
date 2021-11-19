@@ -10,6 +10,8 @@ import com.jordan.betcher.siviso.siviso.database.Siviso;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class Test$IndexOfSiviso
 {
 	
@@ -21,10 +23,12 @@ public class Test$IndexOfSiviso
 		Database database = mock(Database.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso siviso2 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso1);
+		sivisos.add(siviso2);
 		when(siviso1.latLng()).thenReturn(new LatLng(0, 1));
 		when(siviso2.latLng()).thenReturn(latLng);
-		when(database.sivisos()).thenReturn(new Siviso[0]);
+		when(database.sivisos()).thenReturn(new ArrayList<Siviso>());
 		
 		IndexOfSiviso indexOfSiviso = new IndexOfSiviso(database);
 		when(database.sivisos()).thenReturn(sivisos);
@@ -41,7 +45,9 @@ public class Test$IndexOfSiviso
 		Database database = mock(Database.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso siviso2 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso1);
+		sivisos.add(siviso2);
 		when(siviso1.latLng()).thenReturn(new LatLng(0, 1));
 		when(siviso2.latLng()).thenReturn(new LatLng(0, 0));
 		when(database.sivisos()).thenReturn(sivisos);
@@ -60,7 +66,9 @@ public class Test$IndexOfSiviso
 		Database database = mock(Database.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso siviso2 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso1);
+		sivisos.add(siviso2);
 		when(siviso1.latLng()).thenReturn(new LatLng(0, 1));
 		when(siviso2.latLng()).thenReturn(latLng);
 		when(database.sivisos()).thenReturn(sivisos);
@@ -79,7 +87,9 @@ public class Test$IndexOfSiviso
 		Database database = mock(Database.class);
 		Siviso siviso1 = mock(Siviso.class);
 		Siviso siviso2 = mock(Siviso.class);
-		Siviso[] sivisos = new Siviso[]{siviso1, siviso2};
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(siviso1);
+		sivisos.add(siviso2);
 		when(siviso1.latLng()).thenReturn(new LatLng(0, 1));
 		when(siviso2.latLng()).thenReturn(latLng);
 		when(database.sivisos()).thenReturn(sivisos);

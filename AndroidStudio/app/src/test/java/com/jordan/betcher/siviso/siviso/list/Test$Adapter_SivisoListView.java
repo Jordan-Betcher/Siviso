@@ -14,6 +14,8 @@ import com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem.Factory_ViewHo
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 public class Test$Adapter_SivisoListView
 {
 	@Test
@@ -88,9 +90,8 @@ public class Test$Adapter_SivisoListView
 	{
 		ViewHolder_Abstract viewHolder_sivisoItem = mock(ViewHolder_Abstract.class);
 		int position = 0;
-		int count = 0;
 		
-		Siviso[] sivisos = new Siviso[count];
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
@@ -119,7 +120,7 @@ public class Test$Adapter_SivisoListView
 	public void getItemCount_0SivisoData_1()
 	{
 		int count = 0;
-		Siviso[] sivisos = new Siviso[count];
+		ArrayList<Siviso> sivisos = new ArrayList<>();
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
@@ -134,7 +135,8 @@ public class Test$Adapter_SivisoListView
 	public void getItemCount_1SivisoData_2()
 	{
 		int count = 1;
-		Siviso[] sivisos = new Siviso[count];
+		ArrayList<Siviso> sivisos = new ArrayList<>();
+		sivisos.add(mock(Siviso.class));
 		Database database = mock(Database.class);
 		when(database.sivisos()).thenReturn(sivisos);
 		
