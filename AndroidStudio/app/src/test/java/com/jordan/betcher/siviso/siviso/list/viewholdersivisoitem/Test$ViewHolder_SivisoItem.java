@@ -7,9 +7,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.view.View;
-import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -28,12 +28,13 @@ public class Test$ViewHolder_SivisoItem
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
 		String name = "";
-		Spinner spinner = mock(Spinner.class);
+		SwitchCompat switchSiviso = mock(SwitchCompat.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(
 		Factory_OnClickListenerGoToSivisoLocation.class);
 		
-		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner,
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name,
+		                                                             switchSiviso,
 		                                                             background,
 		                                                             factoryOnClickBackground);
 		
@@ -48,7 +49,7 @@ public class Test$ViewHolder_SivisoItem
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
 		String name = "";
-		Spinner spinner = mock(Spinner.class);
+		SwitchCompat switchSiviso = mock(SwitchCompat.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(
 		Factory_OnClickListenerGoToSivisoLocation.class);
@@ -65,7 +66,8 @@ public class Test$ViewHolder_SivisoItem
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
 		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
 		
-		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner,
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name,
+		                                                             switchSiviso,
 		                                                             background,
 		                                                             factoryOnClickBackground);
 		viewHolder.init(database, index);
@@ -79,7 +81,7 @@ public class Test$ViewHolder_SivisoItem
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
 		String name = "";
-		Spinner spinner = mock(Spinner.class);
+		SwitchCompat switchSiviso = mock(SwitchCompat.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(
 		Factory_OnClickListenerGoToSivisoLocation.class);
@@ -96,7 +98,8 @@ public class Test$ViewHolder_SivisoItem
 		OnClickListener_Multiple onClickListener = mock(OnClickListener_Multiple.class);
 		when(factoryOnClickBackground.create(sivisoLatLng)).thenReturn(onClickListener);
 		
-		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner,
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name,
+		                                                             switchSiviso,
 		                                                             background,
 		                                                             factoryOnClickBackground);
 		viewHolder.init(database, index);
@@ -110,12 +113,13 @@ public class Test$ViewHolder_SivisoItem
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
 		String name = "A";
-		Spinner spinner = mock(Spinner.class);
+		SwitchCompat switchSiviso = mock(SwitchCompat.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(
 		Factory_OnClickListenerGoToSivisoLocation.class);
 		
-		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name, spinner,
+		ViewHolder_SivisoItem viewHolder = new ViewHolder_SivisoItem(view, textView, name,
+		                                                             switchSiviso,
 		                                                             background,
 		                                                             factoryOnClickBackground);
 		
@@ -128,12 +132,12 @@ public class Test$ViewHolder_SivisoItem
 		View view = mock(View.class);
 		TextView textView = mock(TextView.class);
 		String name = "";
-		Spinner spinner = mock(Spinner.class);
+		SwitchCompat switchSiviso = mock(SwitchCompat.class);
 		CardView background = mock(CardView.class);
 		Factory_OnClickListenerGoToSivisoLocation factoryOnClickBackground = mock(
 		Factory_OnClickListenerGoToSivisoLocation.class);
 		
-		new ViewHolder_SivisoItem(view, textView, name, spinner, background,
+		new ViewHolder_SivisoItem(view, textView, name, switchSiviso, background,
 		                          factoryOnClickBackground);
 		
 		verify(textView, times(1)).setText(name);

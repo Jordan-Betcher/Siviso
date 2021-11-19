@@ -3,9 +3,9 @@ package com.jordan.betcher.siviso.siviso.list.viewholdersivisoitem;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 
 import com.jordan.betcher.siviso.siviso.R;
@@ -30,12 +30,11 @@ public class Factory_ViewHolderSiviso
 	public ViewHolder_Abstract create(ViewGroup parent)
 	{
 		View view = layoutInflater.inflate(R.layout.item_siviso, parent, false);
-		//TODO swap spinner for switch
-		Spinner spinner = view.findViewById(R.id.spinner);
+		SwitchCompat switchSiviso = view.findViewById(R.id.switchSiviso);
 		TextView textView = view.findViewById(R.id.textViewName);
 		CardView background = view.findViewById(R.id.cardViewHome);
 		String name = "";
-		return new ViewHolder_SivisoItem(view, textView, name, spinner, background,
+		return new ViewHolder_SivisoItem(view, textView, name, switchSiviso, background,
 		                                 factoryOnClickBackground);
 	}
 }
