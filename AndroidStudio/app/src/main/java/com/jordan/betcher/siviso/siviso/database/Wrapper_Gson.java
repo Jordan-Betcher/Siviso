@@ -10,11 +10,14 @@ public class Wrapper_Gson
 	
 	public ArrayList<Siviso> fromJson(String sivisosString)
 	{
-		return gson.fromJson(sivisosString, ArrayList.class);
+		return (ArrayList<Siviso>) gson.fromJson(sivisosString, Sivisos.class);
 	}
 	
 	public String toJsonString(ArrayList<Siviso> sivisos)
 	{
 		return gson.toJson(sivisos);
 	}
+	
 }
+
+

@@ -1,6 +1,6 @@
 package com.jordan.betcher.siviso.siviso.map;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -21,7 +21,8 @@ public class Test$Circles
 		ArrayList<Siviso> sivisos = new ArrayList<>();
 		sivisos.add(siviso0);
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
-		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0};
+		ArrayList<Wrapper_Circle> wrapper_circles = new ArrayList<>();
+		wrapper_circles.add(circle0);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
 		
@@ -37,7 +38,9 @@ public class Test$Circles
 	{
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
 		Wrapper_Circle circle1 = mock(Wrapper_Circle.class);
-		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0, circle1};
+		ArrayList<Wrapper_Circle> wrapper_circles = new ArrayList<>();
+		wrapper_circles.add(circle0);
+		wrapper_circles.add(circle1);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
 		
@@ -52,7 +55,8 @@ public class Test$Circles
 	public void setCircles_circle0_removeCircle0()
 	{
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
-		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0};
+		ArrayList<Wrapper_Circle> wrapper_circles = new ArrayList<>();
+		wrapper_circles.add(circle0);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
 		
@@ -73,7 +77,9 @@ public class Test$Circles
 		sivisos.add(siviso1);
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
 		Wrapper_Circle circle1 = mock(Wrapper_Circle.class);
-		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0, circle1};
+		ArrayList<Wrapper_Circle> wrapper_circles = new ArrayList<>();
+		wrapper_circles.add(circle0);
+		wrapper_circles.add(circle1);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
 		when(googleMap.createCircle(factory, siviso0)).thenReturn(circle0);
@@ -82,8 +88,8 @@ public class Test$Circles
 		Circles circles = new Circles(googleMap, factory);
 		circles.setCircles(sivisos);
 		
-		Wrapper_Circle[] actualCircles = circles.circles;
-		assertArrayEquals(wrapper_circles, actualCircles);
+		ArrayList<Wrapper_Circle> actualCircles = circles.circles;
+		assertEquals(wrapper_circles, actualCircles);
 	}
 	
 	@Test
@@ -93,7 +99,8 @@ public class Test$Circles
 		ArrayList<Siviso> sivisos = new ArrayList<>();
 		sivisos.add(siviso0);
 		Wrapper_Circle circle0 = mock(Wrapper_Circle.class);
-		Wrapper_Circle[] wrapper_circles = new Wrapper_Circle[]{circle0};
+		ArrayList<Wrapper_Circle> wrapper_circles = new ArrayList<>();
+		wrapper_circles.add(circle0);
 		Wrapper_GoogleMap googleMap = mock(Wrapper_GoogleMap.class);
 		Factory_CircleOptions factory = mock(Factory_CircleOptions.class);
 		when(googleMap.createCircle(factory, siviso0)).thenReturn(circle0);
@@ -101,7 +108,7 @@ public class Test$Circles
 		Circles circles = new Circles(googleMap, factory);
 		circles.setCircles(sivisos);
 		
-		Wrapper_Circle[] actualCircles = circles.circles;
-		assertArrayEquals(wrapper_circles, actualCircles);
+		ArrayList<Wrapper_Circle> actualCircles = circles.circles;
+		assertEquals(wrapper_circles, actualCircles);
 	}
 }

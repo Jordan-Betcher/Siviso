@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 class Circles
 {
-	Wrapper_Circle[] circles;
+	ArrayList<Wrapper_Circle> circles = new ArrayList<>();
 	private final Wrapper_GoogleMap googleMap;
 	private final Factory_CircleOptions factory;
 	
@@ -20,20 +20,14 @@ class Circles
 	
 	public void setCircles(ArrayList<Siviso> sivisos)
 	{
-		if(circles != null)
+		for(Wrapper_Circle circle : circles)
 		{
-			for(Wrapper_Circle circle : circles)
-			{
-				circle.remove();
-			}
+			circle.remove();
 		}
 		
-		circles = new Wrapper_Circle[sivisos.size()];
-		
-		for(int i = 0; i < sivisos.size(); i++)
+		for(Siviso siviso : sivisos)
 		{
-			Siviso siviso = sivisos.get(i);
-			circles[i] = googleMap.createCircle(factory, siviso);
+			circles.add(googleMap.createCircle(factory, siviso));
 		}
 	}
 }
