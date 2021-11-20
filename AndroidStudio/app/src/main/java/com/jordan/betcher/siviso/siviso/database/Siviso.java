@@ -35,9 +35,7 @@ public class Siviso
 	
 	public boolean isOn()
 	{
-		//TODO isOn
-		return true;
-		//return isOn;
+		return isOn;
 	}
 	
 	public void setIsOn(boolean isOn)
