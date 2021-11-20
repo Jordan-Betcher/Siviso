@@ -9,6 +9,22 @@ import org.junit.Test;
 public class Test$Siviso
 {
 	@Test
+	public void isOnSetIsOn_falseFalse_false()
+	{
+		String name = "";
+		LatLng latLng = new LatLng(0, 0);
+		int radius = 0;
+		boolean isOn = false;
+		boolean setIsOn = false;
+		
+		Siviso siviso = new Siviso(name, latLng, radius, isOn);
+		siviso.setIsOn(setIsOn);
+		
+		boolean actualIsOn = siviso.isOn();
+		assertEquals(setIsOn, actualIsOn);
+	}
+	
+	@Test
 	public void isOnSetIsOn_falseTrue_false()
 	{
 		String name = "";
