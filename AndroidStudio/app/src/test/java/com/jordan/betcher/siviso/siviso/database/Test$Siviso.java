@@ -8,6 +8,19 @@ import org.junit.Test;
 
 public class Test$Siviso
 {
+	@Test
+	public void isOn_true_true()
+	{
+		String name = "";
+		LatLng latLng = new LatLng(0, 0);
+		int radius = 0;
+		boolean isOn = true;
+		
+		Siviso siviso = new Siviso(name, latLng, radius, isOn);
+		
+		boolean actualIsOn = siviso.isOn();
+		assertEquals(isOn, actualIsOn);
+	}
 	
 	@Test
 	public void radius_0_0()
