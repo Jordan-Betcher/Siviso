@@ -41,6 +41,6 @@ public class Siviso
 	public void setIsOn(boolean isOn)
 	{
 		//TODO this.isOn = isOn;
-		this.isOn = true;
+		this.isOn = !this.isOn;
 	}
 }
