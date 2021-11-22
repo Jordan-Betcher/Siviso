@@ -104,12 +104,14 @@
         app:layout_constraintTop_toBottomOf="@+id/mapLayout"
         tools:listitem="@layout/item_siviso" />
 
-    <Button
+    <ToggleButton
         android:id="@+id/buttonAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/button_add"
+        android:textOff="@string/button_add"
+        android:textOn="@string/button_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/recyclerViewSivisoList"
         app:layout_constraintStart_toStartOf="@+id/recyclerViewSivisoList" />
