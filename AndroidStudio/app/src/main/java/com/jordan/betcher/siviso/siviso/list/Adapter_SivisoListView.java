@@ -47,19 +47,13 @@ extends RecyclerView.Adapter<ViewHolder_Abstract>
 		{
 			onViewHolderInit.bindingView(index, viewHolder);
 		}
-		int sivisoDataIndex = index - 1;//itemPositionToSivisoIndex(index);
-		viewHolder.init(database, sivisoDataIndex);
-	}
-	
-	public int itemPositionToSivisoIndex(int itemPosition)
-	{
-		return itemPosition - 1;
+		viewHolder.init(database, index);
 	}
 	
 	@Override
 	public int getItemCount()
 	{
-		return database.sivisos().size() + 1;
+		return database.sivisos().size();
 	}
 	
 	

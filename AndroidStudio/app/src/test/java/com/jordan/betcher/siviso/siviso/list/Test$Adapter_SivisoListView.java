@@ -19,30 +19,6 @@ import java.util.ArrayList;
 public class Test$Adapter_SivisoListView
 {
 	@Test
-	public void itemPositionToSivisoIndex_1_0()
-	{
-		int itemPosition = 1;
-		int sivisoIndex = itemPosition - 1;
-		
-		Adapter_SivisoListView sivisoListView = new Adapter_SivisoListView(null, null);
-		
-		int actualSivisoIndex = sivisoListView.itemPositionToSivisoIndex(itemPosition);
-		assertEquals(sivisoIndex, actualSivisoIndex);
-	}
-	
-	@Test
-	public void itemPositionToSivisoIndex_2_1()
-	{
-		int itemPosition = 2;
-		int sivisoIndex = itemPosition - 1;
-		
-		Adapter_SivisoListView sivisoListView = new Adapter_SivisoListView(null, null);
-		
-		int actualSivisoIndex = sivisoListView.itemPositionToSivisoIndex(itemPosition);
-		assertEquals(sivisoIndex, actualSivisoIndex);
-	}
-	
-	@Test
 	public void database__database()
 	{
 		Database database = mock(Database.class);
@@ -86,7 +62,7 @@ public class Test$Adapter_SivisoListView
 	}
 	
 	@Test
-	public void onBindViewHolder_Count0Position0_initMinus1()
+	public void onBindViewHolder_Count0Position0_init0()
 	{
 		ViewHolder_Abstract viewHolder_sivisoItem = mock(ViewHolder_Abstract.class);
 		int position = 0;
@@ -98,7 +74,7 @@ public class Test$Adapter_SivisoListView
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null);
 		adapter.onBindViewHolder(viewHolder_sivisoItem, position);
 		
-		verify(viewHolder_sivisoItem, times(1)).init(database, position - 1);
+		verify(viewHolder_sivisoItem, times(1)).init(database, position);
 	}
 	
 	@Test
@@ -117,7 +93,7 @@ public class Test$Adapter_SivisoListView
 	}
 	
 	@Test
-	public void getItemCount_0SivisoData_1()
+	public void getItemCount_0SivisoData_0()
 	{
 		int count = 0;
 		ArrayList<Siviso> sivisos = new ArrayList<>();
@@ -127,12 +103,11 @@ public class Test$Adapter_SivisoListView
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null);
 		
 		int actualItemCount = adapter.getItemCount();
-		int expectedItemCount = count + 1;
-		assertEquals(expectedItemCount, actualItemCount);
+		assertEquals(count, actualItemCount);
 	}
 	
 	@Test
-	public void getItemCount_1SivisoData_2()
+	public void getItemCount_1SivisoData_1()
 	{
 		int count = 1;
 		ArrayList<Siviso> sivisos = new ArrayList<>();
@@ -143,7 +118,6 @@ public class Test$Adapter_SivisoListView
 		
 		Adapter_SivisoListView adapter = new Adapter_SivisoListView(database, null);
 		int actualItemCount = adapter.getItemCount();
-		int expectedItemCount = count + 1;
-		assertEquals(expectedItemCount, actualItemCount);
+		assertEquals(count, actualItemCount);
 	}
 }
