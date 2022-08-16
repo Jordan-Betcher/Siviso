@@ -1,12 +1,12 @@
 # Siviso
  
-The published iteration of Siviso Lite. An app changes the ringmode of your phone between Silent, Vibrate, and Sound based on the location you set. This version includes unit tests and I created a process where I write the TODO pseudo code, then create a prototype project to test if the functionality exists, then I use test driven development to incorporate the code into the project.
+The 4th iteration of Siviso, an app that changes the ringmode of your phone between Silent, Vibrate, and Sound based on the location you set. This version includes unit tests.
 
 [Google Play Store](https://play.google.com/store/apps/details?id=com.jordan.betcher.siviso.sivisolite&hl=en&gl=US "Siviso Lite")
 
-Older Iterations:
+Other Iterations:
 
-[4th](https://github.com/pplluumm/Siviso "Siviso")
+[Current](https://github.com/pplluumm/Siviso-Lite "Siviso Lite")
 
 [3rd](https://github.com/pplluumm/SiViSo-Map-Schedule/tree/master/AndroidStudio/Siviso "Siviso Older")
 
